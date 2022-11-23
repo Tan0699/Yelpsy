@@ -10,8 +10,8 @@ from ..models import Shop,Post
 post_routes = Blueprint('posts', __name__)
 
 
-@post_routes.route('/:shopId/post',methods=["GET"])
-def get_all_posts():
+@post_routes.route('/<int:shopId>/post',methods=["GET"])
+def get_all_posts(shopId):
     posts = Post.query.all()
     postt = {"posts": [post.to_dict() for post in posts]}
     return make_response(postt, 200)
