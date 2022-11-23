@@ -55,7 +55,7 @@ def upgrade():
     sa.PrimaryKeyConstraint('id')
     )
     if environment == 'production':
-        op.execute(f'ALTER TABLE post SET SCHEMA {SCHEMA};')
+        op.execute(f'ALTER TABLE posts SET SCHEMA {SCHEMA};')
     # ### end Alembic commands ###
 
 
