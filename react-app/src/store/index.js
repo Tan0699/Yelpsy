@@ -4,7 +4,7 @@ import sessionReducer from './session'
 import shopReducer from './shops'
 const rootReducer = combineReducers({
   session:sessionReducer,
-  shop:shopReducer
+  shops:shopReducer
 });
 
 
