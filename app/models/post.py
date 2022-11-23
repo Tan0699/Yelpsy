@@ -13,7 +13,7 @@ class Post(db.Model):
     shop_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('shops.id')))
     description = db.Column(db.String(200), nullable=False)
     image = db.Column(db.String(200), nullable=False)
-    price = db.Column(db.Numeric, nullable=False)
+    price = db.Column(db.Float, nullable=False)
 
   
   
