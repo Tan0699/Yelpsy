@@ -17,17 +17,17 @@ def get_all_shops():
     return make_response(the_shops, 200)
 
 #  get shop by ID
-@shop_routes.route('/<int:id>')
-def get_one_shop(id):
-    shop = Shop.query.get(id)
+@shop_routes.route('/<int:shopId>')
+def get_one_shop(shopId):
+    shop = Shop.query.get(shopId)
     if not shop:
         return make_response("Doesn't exist", 404)
     shop_dict = shop.to_dict()
-    shop_posts = Post.query.filter(Post.shop_id == id).all()
+    shop_posts = Post.query.filter(Post.shop_id == shopId).all()
     post_array = [post.to_dict() for post in shop_posts]
-    shop_posts["posts"] = post_array
+    shop_dict["posts"] = post_array
 
-    return make_response(shop_posts, 200)
+    return make_response(shop_dict, 200)
   
 
 # post a new shop
@@ -49,9 +49,9 @@ def new_shop():
 
 
 # Delete a shop
-@shop_routes.route("/<int:id>", methods=["DELETE"])
-def delete_shop(id):
-    shop = Shop.query.get(id)
+@shop_routes.route("/<int:shopId>", methods=["DELETE"])
+def delete_shop(shopId):
+    shop = Shop.query.get(shopId)
     if(not shop):
         return '<h1>No such Shop Exists</h1>'
     if shop.user_id == current_user.id:
@@ -63,11 +63,11 @@ def delete_shop(id):
         }
 
 #edit a shop
-@shop_routes.route("/<int:id>", methods=["PUT"])
-def edit_shop(id):
+@shop_routes.route("/<int:shopId>", methods=["PUT"])
+def edit_shop(shopId):
     form = NewShop()
     form['csrf_token'].data = request.cookies['csrf_token']
-    one_shop = Shop.query.get(id)
+    one_shop = Shop.query.get(shopId)
     if(not one_shop):
         return "<h1>No Shop</h1>"
     if one_shop.user_id == current_user.id:

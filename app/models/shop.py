@@ -20,6 +20,5 @@ class Shop(db.Model):
             "name": self.name,
             "user_id": self.user_id,
             "description": self.description,
-            "image": self.image,
-            "posts": self.posts
+            "image": self.image
         }
