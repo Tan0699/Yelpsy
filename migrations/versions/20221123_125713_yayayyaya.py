@@ -1,8 +1,8 @@
-"""yayayayaya
+"""yayayyaya
 
-Revision ID: 54b8fd956dee
+Revision ID: 74482ca99cdf
 Revises: 
-Create Date: 2022-11-23 11:35:42.457589
+Create Date: 2022-11-23 12:57:13.573159
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '54b8fd956dee'
+revision = '74482ca99cdf'
 down_revision = None
 branch_labels = None
 depends_on = None
