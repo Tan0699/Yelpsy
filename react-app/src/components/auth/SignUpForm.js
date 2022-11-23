@@ -5,7 +5,7 @@ import { signUp } from '../../store/session';
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
-  const [firstName, setFirstName] = useState('');
+  const [firstname, setFirstname] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
@@ -15,15 +15,15 @@ const SignUpForm = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(firstName, email, password));
+      const data = await dispatch(signUp(firstname, email, password));
       if (data) {
         setErrors(data)
       }
     }
   };
 
-  const updateFirstName = (e) => {
-    setFirstName(e.target.value);
+  const updateFirstname = (e) => {
+    setFirstname(e.target.value);
   };
 
   const updateEmail = (e) => {
@@ -53,9 +53,9 @@ const SignUpForm = () => {
         <label>User Name</label>
         <input
           type='text'
-          name='firstName'
-          onChange={updateFirstName}
-          value={firstName}
+          name='firstname'
+          onChange={updateFirstname}
+          value={firstname}
         ></input>
       </div>
       <div>
