@@ -1,7 +1,8 @@
 from flask import Blueprint, jsonify, render_template,request, make_response
 from flask_login import login_required,current_user
 from app.models import Post,db
-
+from app.s3_helpers import (
+    upload_file_to_s3, allowed_file, get_unique_filename)
 from app.forms.post_form import NewPost
 #import models
 
@@ -31,10 +32,10 @@ def new_post(shopId):
     form = NewPost()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        if "image" not in request.files:
+        if "pepepray" not in request.files:
         return {"errors": "image required"}, 400
 
-        image = request.files["image"]
+        image = request.files["pepepray"]
 
         if not allowed_file(image.filename):
             return {"errors": "file type not permitted"}, 400
@@ -86,10 +87,10 @@ def edit_post(shopId,id):
         return "<h1>No Post</h1>"
     if one_post.user_id == current_user.id:
         if form.validate_on_submit():
-            if "image" not in request.files:
+            if "pepepray" not in request.files:
             return {"errors": "image required"}, 400
 
-            image = request.files["image"]
+            image = request.files["pepepray"]
 
             if not allowed_file(image.filename):
                 return {"errors": "file type not permitted"}, 400
