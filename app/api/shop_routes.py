@@ -1,6 +1,8 @@
 from flask import Blueprint, jsonify, render_template,request, make_response
 from flask_login import login_required,current_user
 from app.models import Shop,db
+from app.s3_helpers import (
+    upload_file_to_s3, allowed_file, get_unique_filename)
 
 from app.forms.shop_form import NewShop
 #import models
@@ -36,12 +38,28 @@ def new_shop():
     form = NewShop()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
+        if "image" not in request.files:
+        return {"errors": "image required"}, 400
+
+        image = request.files["image"]
+
+        if not allowed_file(image.filename):
+            return {"errors": "file type not permitted"}, 400
+        
+        image.filename = get_unique_filename(image.filename)
+
+        upload = upload_file_to_s3(image)
+
+        if "url" not in upload:
+            return upload, 400
+
+        url = upload["url"]
         data = form.data
         shop = Shop(
-            name= form.data["name"],
+            name= data["name"],
             user_id = current_user.id,
-            description = form.data["description"],
-            image = form.data["image"]
+            description = data["description"],
+            image = url
         )
         db.session.add(shop)
         db.session.commit()
@@ -72,12 +90,29 @@ def edit_shop(shopId):
         return "<h1>No Shop</h1>"
     if one_shop.user_id == current_user.id:
         if form.validate_on_submit():
-                one_shop.name = form.data["name"]
-                one_shop.image = form.data["image"]
-                one_shop.description = form.data["description"]
-                one_shop.posts = one_shop.posts
-                one_shop.user_id = one_shop.user_id
-                db.session.commit()
+            if "image" not in request.files:
+            return {"errors": "image required"}, 400
+
+            image = request.files["image"]
+
+            if not allowed_file(image.filename):
+                return {"errors": "file type not permitted"}, 400
+            
+            image.filename = get_unique_filename(image.filename)
+
+            upload = upload_file_to_s3(image)
+
+            if "url" not in upload:
+                return upload, 400
+
+            url = upload["url"]
+            data = form.data
+            one_shop.name = data["name"]
+            one_shop.image = url
+            one_shop.description = data["description"]
+            one_shop.posts = one_shop.posts
+            one_shop.user_id = one_shop.user_id
+            db.session.commit()
         return make_response(one_shop.to_dict(), 200)
     else:
         return make_response("Unauthorized", 401)

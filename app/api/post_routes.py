@@ -31,13 +31,29 @@ def new_post(shopId):
     form = NewPost()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
+        if "image" not in request.files:
+        return {"errors": "image required"}, 400
+
+        image = request.files["image"]
+
+        if not allowed_file(image.filename):
+            return {"errors": "file type not permitted"}, 400
+        
+        image.filename = get_unique_filename(image.filename)
+
+        upload = upload_file_to_s3(image)
+
+        if "url" not in upload:
+            return upload, 400
+
+        url = upload["url"]
         data = form.data
         post = Post(
-            name= form.data["name"],
-            user_id = current_user.id,
-            description = form.data["description"],
-            price = form.data["price"],
-            image = form.data["image"],
+            name= data["name"]
+            user_id = current_user.id
+            description = data["description"]
+            price = data["price"]
+            image = url
             shop_id=shopId
         )
         db.session.add(post)
@@ -70,11 +86,28 @@ def edit_post(shopId,id):
         return "<h1>No Post</h1>"
     if one_post.user_id == current_user.id:
         if form.validate_on_submit():
-            one_post.name = form.data["name"]
-            one_post.image = form.data["image"]
+            if "image" not in request.files:
+            return {"errors": "image required"}, 400
+
+            image = request.files["image"]
+
+            if not allowed_file(image.filename):
+                return {"errors": "file type not permitted"}, 400
+            
+            image.filename = get_unique_filename(image.filename)
+
+            upload = upload_file_to_s3(image)
+
+            if "url" not in upload:
+                return upload, 400
+
+            url = upload["url"]
+            data = form.data
+            one_post.name = data["name"]
+            one_post.image = url
             one_post.user_id = current_user.id
-            one_post.description = form.data["description"]
-            one_post.price = form.data["price"]
+            one_post.description = data["description"]
+            one_post.price = data["price"]
             shop_id=shopId
             db.session.commit()
         return make_response(one_post.to_dict(), 200)
