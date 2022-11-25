@@ -1,9 +1,9 @@
 from app.models import db, Shop, environment, SCHEMA
 
 def seed_shops():
-    shop1 = Shop(name='Ramen', user_id=1, description="Authentic Japanese ramen",image="ramen.com")
-    shop2 = Shop(name='Boba', user_id=2, description="Freshmade daily",image="Boba.com")
-    shop3 = Shop(name='Mushroom', user_id=3, description="Grown in my backyard",image="Mushroom.com")
+    shop1 = Shop(name='Ramen', user_id=1, description="Authentic Japanese ramen",image="https://cdn.discordapp.com/emojis/652283624363786251.webp?size=128&quality=lossless")
+    shop2 = Shop(name='Boba', user_id=2, description="Freshmade daily",image="https://cdn.discordapp.com/emojis/678838189175209984.webp?size=128&quality=lossless")
+    shop3 = Shop(name='Mushroom', user_id=3, description="Grown in my backyard",image="https://cdn.discordapp.com/emojis/648010474134175784.webp?size=128&quality=lossless")
     
    
 
