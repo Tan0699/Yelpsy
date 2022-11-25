@@ -54,7 +54,7 @@ export const fetchOnePost = (shopId,id) => async dispatch => {
     }
 }
 
-export const createShop = (payload,shopId) => async dispatch => {
+export const createPost = (payload,shopId) => async dispatch => {
     const response = await fetch(`/api/shops/${shopId}/posts/new_post`,{
         method: 'POST',
         body:payload

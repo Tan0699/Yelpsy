@@ -31,10 +31,10 @@ def new_post(shopId):
     form = NewPost()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        if "pepepray" not in request.files:
+        if "image" not in request.files:
             return {"errors": "image required"}, 400
 
-        image = request.files["pepepray"]
+        image = request.files["image"]
 
         if not allowed_file(image.filename):
             return {"errors": "file type not permitted"}, 400
@@ -86,10 +86,10 @@ def edit_post(shopId,id):
         return "<h1>No Post</h1>"
     if one_post.user_id == current_user.id:
         if form.validate_on_submit():
-            if "pepepray" not in request.files:
+            if "image" not in request.files:
                 return {"errors": "image required"}, 400
 
-            image = request.files["pepepray"]
+            image = request.files["image"]
 
             if not allowed_file(image.filename):
                 return {"errors": "file type not permitted"}, 400
