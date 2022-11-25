@@ -76,10 +76,11 @@ export const createShop = (payload) => async dispatch => {
 export const editShop = (payload,shopId) => async dispatch => {
     const response = await fetch(`/api/shops/${shopId}`, {
         method: "PUT",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(payload)
+        // headers: {  //DELETEING THIS FOR AWS
+        //     "Content-Type": "application/json"
+        // },
+        // body: JSON.stringify(payload)
+        body:payload
     });
     const data = await response.json();
     if (response.ok) {

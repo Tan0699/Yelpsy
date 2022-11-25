@@ -1,7 +1,7 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { createShop, editShop } from "../../store/shops";
+import { createShop, editShop, fetchOneShop } from "../../store/shops";
 
 
 const EditShopForm = () => {
@@ -14,7 +14,9 @@ const EditShopForm = () => {
     const dispatch = useDispatch()
     const [name, setName] = useState(thisShop?.name)
     const [description, setDescription] = useState(thisShop?.description)
-    console.log("yayya",thisShop)
+    const [appear,setAppear] =useState(false)
+    const [appear2,setAppear2] =useState(true)
+    console.log("yayya",thisShop?.image)
     const [image, setImage] = useState(thisShop?.image)
     const [imageLoading, setImageLoading] = useState(false)
     const handleSubmit = async (e) => {
@@ -27,7 +29,7 @@ const EditShopForm = () => {
         // aws uploads can be a bit slow—displaying
         // some sort of loading message is a good idea
         setImageLoading(true);
-
+        
         const res = dispatch(editShop(payload,shopId))
         if (res.ok) {
             await res.json();
@@ -49,11 +51,15 @@ const EditShopForm = () => {
     
     return (
         <form onSubmit={handleSubmit}>
+            {appear2 &&
+            <button onClick={()=>(setAppear(true),setAppear2(false))}>Select a New Image</button>}
+            {appear &&
             <input
               type="file"
               accept="image/*"
               onChange={updateImage}
-            />
+              
+            />}
             <input
             type="text"
             maxLength={20}

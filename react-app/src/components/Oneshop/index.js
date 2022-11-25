@@ -16,8 +16,10 @@ useEffect(()=>{
 const thisShop = shops?.filter(shop => shop.id === +shopId)[0]
   return (
     <>
-    {thisShop?.name}
-    {thisShop?.description}
+
+    
+    <div>{thisShop?.name}</div>
+    <div>{thisShop?.description}</div>
     <img src={thisShop?.image}></img>
     <div>EDITTING THIS SHOP
         <EditShopForm/>
