@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deleteShop, fetchOneShop, fetchShops } from '../../store/shops';
 import ShopForm from '../Shopform';
 import { useParams } from 'react-router-dom';
+import EditShopForm from '../EditShopform';
 
 function OneShop(){
 const shopState = useSelector((state) => state.shops)
@@ -18,6 +19,9 @@ const thisShop = shops?.filter(shop => shop.id === +shopId)[0]
     {thisShop?.name}
     {thisShop?.description}
     <img src={thisShop?.image}></img>
+    <div>EDITTING THIS SHOP
+        <EditShopForm/>
+    </div>
     </>
   );
 }
