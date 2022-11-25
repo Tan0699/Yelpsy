@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchShops } from '../../store/shops';
+import { deleteShop, fetchShops } from '../../store/shops';
+import ShopForm from '../Shopform';
 
 
 function Splash(){
@@ -25,8 +26,14 @@ useEffect(()=>{
         <div key={shop.id}>
             {shop.name}
             {shop.description}
+            <img src={shop.image}></img>
+            <button onClick={()=>dispatch(deleteShop(shop.id))}>DELETE</button>
         </div>
     ))}
+    <div>POST SHOPS</div>
+    <div>
+      <ShopForm/>
+    </div>
     </>
   );
 }

@@ -57,10 +57,12 @@ export const fetchOneShop = (shopId) => async dispatch => {
 export const createShop = (payload) => async dispatch => {
     const response = await fetch('/api/shops/new_shop',{
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(payload)
+
+        // headers: {         //removed for AWS
+        //     'Content-Type': 'application/json'
+        // },
+        // body: JSON.stringify(payload)
+        body:payload
     })
     const data = await response.json()
     if (response.ok) {
@@ -79,8 +81,8 @@ export const editShop = (payload,shopId) => async dispatch => {
         },
         body: JSON.stringify(payload)
     });
+    const data = await response.json();
     if (response.ok) {
-        const data = await response.json();
         dispatch(editShopAction(data))
         return data
     }

@@ -6,5 +6,5 @@ from wtforms.validators import DataRequired
 class NewShop(FlaskForm):
   name = StringField('name', validators=[DataRequired()])
   description = StringField('description', validators=[DataRequired()])
-  image = StringField('image', validators=[DataRequired()])
+  # image = StringField('image', validators=[DataRequired()])
   

@@ -1,8 +1,7 @@
 from flask import Blueprint, jsonify, render_template,request, make_response
 from flask_login import login_required,current_user
 from app.models import Shop,db
-from app.s3_helpers import (
-    upload_file_to_s3, allowed_file, get_unique_filename)
+from app.s3_helpers import (upload_file_to_s3, allowed_file, get_unique_filename)
 
 from app.forms.shop_form import NewShop
 #import models
@@ -33,15 +32,15 @@ def get_one_shop(shopId):
   
 
 # post a new shop
-@shop_routes.route('/new_shop', methods=['GET', 'POST'])
+@shop_routes.route('/new_shop', methods=['POST'])
 def new_shop():
     form = NewShop()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        if "pepepray" not in request.files:
-        return {"errors": "image required"}, 400
+        if "image" not in request.files:
+            return {"errors": "image required"}, 400
 
-        image = request.files["pepepray"]
+        image = request.files["image"]
 
         if not allowed_file(image.filename):
             return {"errors": "file type not permitted"}, 400
@@ -49,10 +48,11 @@ def new_shop():
         image.filename = get_unique_filename(image.filename)
 
         upload = upload_file_to_s3(image)
-
+        print("THIS IS THE FORM",form.data)
+        print("THIS IS THE FORM2",form.data["name"])
+        print("THIS IS THE FORM3",form.data["description"])
         if "url" not in upload:
             return upload, 400
-
         url = upload["url"]
         data = form.data
         shop = Shop(
@@ -79,6 +79,7 @@ def delete_shop(shopId):
         "message": "Successfully deleted",
         "statusCode": 200
         }
+  
 
 #edit a shop
 @shop_routes.route("/<int:shopId>", methods=["PUT"])
@@ -90,10 +91,10 @@ def edit_shop(shopId):
         return "<h1>No Shop</h1>"
     if one_shop.user_id == current_user.id:
         if form.validate_on_submit():
-            if "pepepray" not in request.files:
-            return {"errors": "image required"}, 400
+            if "image" not in request.files:
+                return {"errors": "image required"}, 400
 
-            image = request.files["pepepray"]
+            image = request.files["image"]
 
             if not allowed_file(image.filename):
                 return {"errors": "file type not permitted"}, 400
