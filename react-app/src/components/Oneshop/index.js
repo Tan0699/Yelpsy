@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteShop, fetchOneShop, fetchShops } from '../../store/shops';
 import ShopForm from '../Shopform';
-import { useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import EditShopForm from '../EditShopform';
 import { fetchPosts } from '../../store/posts';
 import PostForm from '../Postform';
@@ -19,9 +19,9 @@ useEffect(()=>{
     dispatch(fetchPosts())
 },[dispatch])
 
-const thisShop = shops?.filter(shop => shop.id === +shopId)[0]
+const thisShop = shops?.filter(shop => shop.id == +shopId)[0]
 console.log("HNNGGG",posts)
-const thisShopposts = posts?.filter(post => post.shop_id === +shopId)
+const thisShopposts = posts?.filter(post => post.shop_id == +shopId)
 // console.log("THIS LMAO",thisShopposts)
 return (
     <>
@@ -36,9 +36,11 @@ return (
     <div>THIS IS THE POSTS 
     {thisShopposts?.map((post)=>(
             <div key={post.id}>
+                <NavLink to={`/${shopId}/posts/${post.id}`}>
                 {post.name}
                 <div>{post.price}</div>
                 <img src={post.image}></img>
+                </NavLink>
             </div>
         ))}
     </div>

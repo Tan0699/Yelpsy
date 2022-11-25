@@ -10,6 +10,7 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import Splash from './components/SplashPage';
 import OneShop from './components/Oneshop';
+import OnePost from './components/Onepost';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -47,6 +48,9 @@ function App() {
         </Route>
         <Route path='/:shopId' exact={true} >
           <OneShop/>
+        </Route>
+        <Route path='/:shopId/posts/:id' exact={true} >
+          <OnePost/>
         </Route>
       </Switch>
     </BrowserRouter>

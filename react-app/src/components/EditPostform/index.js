@@ -1,21 +1,28 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { createPost } from "../../store/posts";
-import { createShop } from "../../store/shops";
+import { editPost } from "../../store/posts";
+import { createShop, editShop, fetchOneShop } from "../../store/shops";
 
 
-const PostForm = () => {
+const EditPostForm = () => {
+    const {shopId,id} = useParams()
     const history = useHistory() // so that we can redirect after the image upload is successful
     const shopState = useSelector((state) => state.shops)
     const userState = useSelector((state)=> state.users )
     const postState = useSelector((state) => state.posts)
+    const shops = Object.values(shopState)
+    const posts = Object.values(postState)
+    const thisShop = shops?.filter(shop => shop.id == +shopId)[0]
+    const thisPost = posts.filter(post => post.id == +id)[0]
     const dispatch = useDispatch()
-    const {shopId} = useParams()
-    const [name, setName] = useState("")
-    const [description, setDescription] = useState("")
-    const [price, setPrice] = useState("")
-    const [image, setImage] = useState(null)
+    const [name, setName] = useState(thisPost?.name)
+    const [price, setPrice] = useState(thisPost?.price)
+    const [description, setDescription] = useState(thisPost?.description)
+    const [appear,setAppear] =useState(false)
+    const [appear2,setAppear2] =useState(true)
+    console.log("yayya",thisPost?.image)
+    const [image, setImage] = useState(thisPost?.image)
     const [imageLoading, setImageLoading] = useState(false)
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -24,11 +31,12 @@ const PostForm = () => {
         payload.append("name",name)
         payload.append("description",description)
         payload.append("price",price)
+    
         // aws uploads can be a bit slow—displaying
         // some sort of loading message is a good idea
         setImageLoading(true);
-
-        const res = dispatch(createPost(payload,shopId))
+        
+        const res = dispatch(editPost(payload,shopId,id))
         if (res.ok) {
             await res.json();
             setImageLoading(false);
@@ -49,13 +57,16 @@ const PostForm = () => {
     
     return (
         <form onSubmit={handleSubmit}>
+            {appear2 &&
+            <button onClick={()=>(setAppear(true),setAppear2(false))}>Select a New Image</button>}
+            {appear &&
             <input
               type="file"
               accept="image/*"
               onChange={updateImage}
-            />
+              
+            />}
             <input
-            placeholder="Write name here"
             type="text"
             maxLength={20}
             required
@@ -63,7 +74,6 @@ const PostForm = () => {
             onChange={(e) => setName(e.target.value)}
           />
           <input
-            placeholder="Write description here"
             type="text"
             maxLength={200}
             required
@@ -71,10 +81,7 @@ const PostForm = () => {
             onChange={(e) => setDescription(e.target.value)}
           />
           <input
-            placeholder="put price here"
-            type="float"
-            min={1}
-            max={999999}
+            type="decimal"
             required
             value={price}
             onChange={(e) => setPrice(e.target.value)}
@@ -85,4 +92,4 @@ const PostForm = () => {
     )
 }
 
-export default PostForm;
+export default EditPostForm;

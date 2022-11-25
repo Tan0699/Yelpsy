@@ -86,25 +86,29 @@ def edit_post(shopId,id):
         return "<h1>No Post</h1>"
     if one_post.user_id == current_user.id:
         if form.validate_on_submit():
-            if "image" not in request.files:
-                return {"errors": "image required"}, 400
+            if(request.files):
+                if "image" not in request.files:
+                    return {"errors": "image required"}, 400
 
-            image = request.files["image"]
+                image = request.files["image"]
 
-            if not allowed_file(image.filename):
-                return {"errors": "file type not permitted"}, 400
-            
-            image.filename = get_unique_filename(image.filename)
+                if not allowed_file(image.filename):
+                    return {"errors": "file type not permitted"}, 400
+                
+                image.filename = get_unique_filename(image.filename)
 
-            upload = upload_file_to_s3(image)
+                upload = upload_file_to_s3(image)
 
-            if "url" not in upload:
-                return upload, 400
+                if "url" not in upload:
+                    return upload, 400
 
-            url = upload["url"]
+                url = upload["url"]
             data = form.data
             one_post.name = data["name"]
-            one_post.image = url
+            if request.files:
+                one_post.image = url
+            else:
+                one_post.image = one_post.image
             one_post.user_id = current_user.id
             one_post.description = data["description"]
             one_post.price = data["price"]
