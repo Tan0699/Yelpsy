@@ -6,7 +6,8 @@
 .bgdetails{
     position: relative;
     height: 200px;
-    width: 80%;
+    /* width: 80%; */
+    max-width: 850px;
     margin-left: auto;
     margin-right: auto;
     display: grid;
@@ -77,4 +78,23 @@
 .shopcountry{
     font-size: 10px;
     font-weight: bold;
+}
+.gridpost{
+    display: grid;
+}
+.postwrapper{
+    display: grid;
+    /* grid-template-columns: 1fr 1fr 1fr 1fr;  */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    /* width: 80%; */
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 15px
+}
+.imgpost{
+    width: 100% ;
+}
+.postnav{
+    text-decoration: none;
 }
