@@ -1,0 +1,4 @@
+.navstuff{
+    display: flex;
+    flex-direction: row;
+}

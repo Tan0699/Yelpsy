@@ -26,26 +26,46 @@ useEffect(()=>{
 
   return (
     <>
-    <div>Shops</div>
+    <div className='color'>
+      <div className='pink'>
+        <div className='blanktext'>Up to 60% Off: Enjoy the Holidays With Some Delicous Food!</div>
+      </div>
+      <div></div>
+    </div>
+    <div className='shopgrid'>
     {shops?.map((shop)=>(
-        <div key={shop.id}>
+        <div className='inmap' key={shop.id}>
           <NavLink to={`/${shop.id}`}>
-            {shop.name}
-            {shop.description}
-            <img src={shop.image}></img>
+            <div className='imagename'>
+            <img className='Image' src={shop.image}></img>
+            <div className='justname'>{shop.name}</div>
+            </div>
             </NavLink>
-            <button onClick={()=>dispatch(deleteShop(shop.id))}>DELETE</button>
+            
         </div>
-    ))}
+    ))}</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
     <div>POST SHOPS</div>
     <div>
       <ShopForm/>
     </div>
-    <div>
+    <div className='postgrid'>
       {posts.map(post =>(
         <div className='PostImageContainer'>
           <div className='PostImage'>
-          <img className='Image' src={post.image}></img>
+          <img className='pics' src={post.image}></img>
           </div>
           <div className='PostPriceWrap'>
           <div className='Price'>{post.price}</div>

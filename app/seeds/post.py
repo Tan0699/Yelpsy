@@ -1,9 +1,9 @@
 from app.models import db, Post, environment, SCHEMA
 
 def seed_posts():
-    post1 = Post(name='Tonkatsu', user_id=1, description="Very good",price=20,image="kek.com",shop_id=1)
-    post2 = Post(name='Shoyo', user_id=1, description="Salty",price=20.5,image="pepe.com",shop_id=1)
-    post3 = Post(name='Shroom', user_id=1, description="from my backyard",price=.99,image="prayge.com",shop_id=1)
+    post1 = Post(name='Tonkatsu', user_id=1, description="Very good",price=20,image="https://cdn.discordapp.com/emojis/652283624363786251.webp?size=128&quality=lossless",shop_id=1)
+    post2 = Post(name='Shoyo', user_id=1, description="Salty",price=20.5,image="https://cdn.discordapp.com/emojis/652283624363786251.webp?size=128&quality=lossless",shop_id=1)
+    post3 = Post(name='Shroom', user_id=1, description="from my backyard",price=.99,image="https://cdn.discordapp.com/emojis/652283624363786251.webp?size=128&quality=lossless",shop_id=1)
     
    
 
