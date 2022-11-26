@@ -26,7 +26,7 @@ useEffect(() => {
   fetchData();
 }, []);
 console.log("users",users)
-const shopUser = users.filter(user => thisShop?.user_id == user.id)[0]
+const shopUser = users?.filter(user => thisShop?.user_id == user.id)[0]
 console.log("thisUser",shopUser)
 useEffect(()=>{
     dispatch(fetchOneShop(shopId))
@@ -41,19 +41,30 @@ return (
     <div className='bgwrap'>
     <img className='bg' src="https://img.freepik.com/premium-vector/christmas-background-various-complex-big-small-snowflakes-gray-white_444390-3700.jpg?w=1800"></img>
     <div className="bgdetails">
-    <div className='shopdetail'>
+    <div className='imgdesc'>
     <img className='oneshopimg' src={thisShop?.image}></img>
-    <div>{thisShop?.name}</div>
-    <div>{thisShop?.description}</div>
+    <div className='shopdetail'>
+    <div className='shopname'>{thisShop?.name}</div>
+    <div className='shopdesc'>{thisShop?.description}</div>
+    <div className='shopcountry'>California</div>
+    <div className='starrating'>★★★★★ </div>
     </div>
-    
+    </div>
+    <div className='freshdiv'>
     <i class="fa-brands fa-hotjar"></i>
+    <div className='freshtext'> Fresh Ingredients made to order</div>
+    </div>
+    <div className='truckdiv'>
     <i class="fa-solid fa-truck-fast"></i>
+    <div className='trucktext'>Free 1-day Shipping with orders oder $10!</div>
+    </div>
     <div className='anonprof'>
     <img className='anon' src="https://i.kym-cdn.com/photos/images/newsfeed/001/878/329/dfa.jpg"></img>
     <div>{shopUser?.firstname}</div>
+    <div className='contactinfo'>
     <i class="fa-solid fa-envelopes-bulk"></i>
-    </div>
+    <div className='email'>{shopUser?.email}</div>
+    </div></div>
     </div>
     </div>
     

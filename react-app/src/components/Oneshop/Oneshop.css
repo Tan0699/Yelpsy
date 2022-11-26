@@ -9,7 +9,10 @@
     width: 80%;
     margin-left: auto;
     margin-right: auto;
-    display: flex;
+    display: grid;
+    align-items: flex-end;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-gap: 5px;
 }
 .anon{
     width: 50px;
@@ -19,4 +22,59 @@
 .oneshopimg{
     height: 90px;
     width:90px;
+    border-radius: 8px;
+}
+.freshtext{
+    font-size: 10px;
+    background-color: rgb(255, 255, 255);
+    max-width: 100px;
+}
+.trucktext{
+    font-size: 10px;
+    background-color: rgb(255, 255, 255);
+    max-width: 100px;
+    border-radius: 10px;
+}
+.imgdesc{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 20px;
+    
+}
+.shopname{
+    font-weight: bold;
+    font-size: 25px;
+}
+.contactinfo{
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+.anonprof{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 10px;
+    padding-bottom: 20px;
+    
+}
+.freshdiv{
+    padding-bottom: 20px;
+}
+.truckdiv{
+    padding-bottom: 20px;
+}
+.shopdetail{
+    padding-left: 5px;
+}
+.email{
+    padding-left: 5px;
+}
+.shopdesc{
+    font-size: 10px;
+}
+.shopcountry{
+    font-size: 10px;
+    font-weight: bold;
 }
