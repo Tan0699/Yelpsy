@@ -5,12 +5,12 @@
 }
 .postgrid{
     display: grid;
-    
+    width: 80%;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: auto;
     grid-gap: 10px;
-    margin-left: 15%;
-    margin-right: 15%;
+    margin-left:auto;
+    margin-right: auto;
 }
 /* .Image{
     width: 100%;
@@ -96,4 +96,9 @@
 }
 .navls{
     text-decoration: none;
+}
+.checkoutshop{
+    display: flex;
+    justify-content: center;
+
 }
