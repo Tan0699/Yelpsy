@@ -28,14 +28,14 @@ useEffect(()=>{
     <>
     <div className='color'>
       <div className='pink'>
-        <div className='blanktext'>Up to 60% Off: Enjoy the Holidays With Some Delicous Food!</div>
+        <div className='blanktext'>Enjoy the Holidays With Some Delicous Food!</div>
       </div>
       <div></div>
     </div>
     <div className='shopgrid'>
     {shops?.map((shop)=>(
         <div className='inmap' key={shop.id}>
-          <NavLink to={`/${shop.id}`}>
+          <NavLink className="navls" to={`/${shop.id}`}>
             <div className='imagename'>
             <img className='Image' src={shop.image}></img>
             <div className='justname'>{shop.name}</div>
@@ -58,9 +58,7 @@ useEffect(()=>{
 
 
     <div>POST SHOPS</div>
-    <div>
-      <ShopForm/>
-    </div>
+    <div className='postgriddiv'>
     <div className='postgrid'>
       {posts.map(post =>(
         <div className='PostImageContainer'>
@@ -72,6 +70,7 @@ useEffect(()=>{
           </div>
         </div>
       ))}
+    </div>
     </div>
     </>
   );

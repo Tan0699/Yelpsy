@@ -3,6 +3,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import "./Nav.css"
+import ShopForm from './Shopform';
 const NavBar = () => {
   return (
     <nav>
@@ -30,6 +31,9 @@ const NavBar = () => {
         <li>
           <LogoutButton />
         </li>
+        <div>
+          <ShopForm/>
+        </div>
       </ul>
     </nav>
   );
