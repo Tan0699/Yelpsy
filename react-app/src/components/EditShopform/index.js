@@ -21,6 +21,7 @@ const EditShopForm = () => {
     const [imageLoading, setImageLoading] = useState(false)
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log("psssdfs")
         const payload = new FormData();
         payload.append("image", image);
         payload.append("name",name)
@@ -29,7 +30,7 @@ const EditShopForm = () => {
         // aws uploads can be a bit slow—displaying
         // some sort of loading message is a good idea
         setImageLoading(true);
-        
+    
         const res = dispatch(editShop(payload,shopId))
         if (res.ok) {
             await res.json();

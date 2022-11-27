@@ -29,7 +29,6 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
       <Switch>
         <Route path='/login' exact={true}>
           <LoginForm />
@@ -44,12 +43,15 @@ function App() {
           <User />
         </ProtectedRoute>
         <Route path='/' exact={true} >
+        <NavBar />
           <Splash/>
         </Route>
         <Route path='/:shopId' exact={true} >
+          <NavBar />
           <OneShop/>
         </Route>
         <Route path='/:shopId/posts/:id' exact={true} >
+        <NavBar />
           <OnePost/>
         </Route>
       </Switch>

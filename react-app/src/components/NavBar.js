@@ -1,15 +1,21 @@
 
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import { Modal } from '../context/Modal';
 import LogoutButton from './auth/LogoutButton';
+import EditPostForm from './EditPostform';
+import EditShopForm from './EditShopform';
 import "./Nav.css"
 import PostForm from './Postform';
 import ShopForm from './Shopform';
 
 const NavBar = () => {
+  const {shopId,id} =useParams()
   const [sho, setSho] = useState(false);
   const [pos, setPos] = useState(false);
+  const [editsho, setEditSho] = useState(false);
+  const [editpos, setEditPos] = useState(false);
+  console.log("shohoshos",shopId)
   let shopModal = (
     <div>
       <button onClick={() => (setSho
@@ -24,7 +30,7 @@ const NavBar = () => {
     </div>)
     let postModal = (
       <div>
-        <button  onClick={() => (setSho
+        <button  onClick={() => (setPos
           (true))}>ADD A POST</button>
       
       {pos && (
@@ -34,6 +40,28 @@ const NavBar = () => {
    )}
       
       </div>)
+      let editshopModal = (
+        <div>
+          <button  onClick={(e) => ((setEditSho(true)))}>EDIT A SHOP</button>
+        
+        {editsho && (
+        <Modal onClose={() => setEditSho(false)}>
+        <EditShopForm setEditSho={setEditSho}/>
+      </Modal>
+     )}
+        
+        </div>)
+        let editpostModal = (
+          <div>
+            <button  onClick={(e) => ((setEditPos(true)))}>EDIT A POST</button>
+          
+          {editpos && (
+          <Modal onClose={() => setEditPos(false)}>
+          <EditPostForm setEditPos={setEditPos}/>
+        </Modal>
+       )}
+          
+          </div>)
     
   return (
     <nav>
@@ -53,16 +81,20 @@ const NavBar = () => {
             Sign Up
           </NavLink>
         </li>
-        {/* <li>
+        <li>
           <NavLink to='/users' exact={true} activeClassName='active'>
             Users
           </NavLink>
-        </li> */}
+        </li>
         <li>
           <LogoutButton />
         </li>
-        {/* <div>{shopModal}</div> */}
-        {/* <div>{postModal}</div> */}
+        <div>{shopModal}</div> 
+         <div>{postModal}</div>
+         {(shopId && !id) &&
+         <div>{editshopModal}</div>}
+         {id &&
+         <div>{editpostModal}</div>}
       </ul>
     </nav>
   );
