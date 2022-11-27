@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import { createShop } from "../../store/shops";
 
 
-const ShopForm = () => {
+const ShopForm = ({setSho}) => {
     const history = useHistory() // so that we can redirect after the image upload is successful
     const shopState = useSelector((state) => state.shops)
     const userState = useSelector((state)=> state.users )
@@ -24,11 +24,14 @@ const ShopForm = () => {
         // some sort of loading message is a good idea
         setImageLoading(true);
 
-        const res = dispatch(createShop(payload))
-        if (res.ok) {
-            await res.json();
+        const res = await dispatch(createShop(payload))
+        if (res) {
+            // setSho(false);
+            // await res.json();
             setImageLoading(false);
-            history.push("/");
+            // history.push("/");
+            setSho(false);
+            
         }
         else {
             setImageLoading(false);
