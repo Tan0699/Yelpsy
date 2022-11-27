@@ -15,8 +15,8 @@ const shops = Object.values(shopState)
 const posts = Object.values(postState)
 const dispatch = useDispatch()
 const {shopId} = useParams()
-const [users, setUsers] = useState([]);
 const thisShop = shops?.filter(shop => shop.id == +shopId)[0]
+const [users, setUsers] = useState([]);
 useEffect(() => {
   async function fetchData() {
     const response = await fetch('/api/users/');

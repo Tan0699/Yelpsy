@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteShop,fetchShops } from '../../store/shops';
 import ShopForm from '../Shopform';
@@ -18,13 +18,24 @@ const history = useHistory()
 const thisPost = posts.filter((post)=>post.id == +id)[0]
 console.log("lamo",thisPost)
 const dispatch = useDispatch()
-
+const [users, setUsers] = useState([]);
+useEffect(() => {
+  async function fetchData() {
+    const response = await fetch('/api/users/');
+    const responseData = await response.json();
+    setUsers(responseData.users);
+  }
+  fetchData();
+}, []);
+console.log("users",users)
+const shopUser = users?.filter(user => thisPost?.user_id == user.id)[0]
 useEffect(()=>{
     dispatch(fetchOnePost(shopId,id))
+    dispatch(fetchShops())
 },[dispatch])
-
-const thisShop = shops?.filter(shop => shop.id === +shopId)[0]
-console.log("HNNGGG",posts)
+console.log("HNNGfffffGG",shops)
+const thisShop = shops?.filter(shop => shop.id == +shopId)[0]
+console.log("HNNGGG",thisShop)
 const thisShopposts = posts?.filter(post => post.shop_id === +shopId)
 // console.log("THIS LMAO",thisShopposts)
 return (
@@ -32,6 +43,8 @@ return (
     <div className='firstpostgrid'>
     <img  className='firstpostimg' src={thisPost?.image}></img>
     <div>
+        <div>Seller:{shopUser?.firstname}</div>
+        <div>{thisShop?.name}</div>
 {thisPost?.name}
 <div>{thisPost?.description}</div>
 <div>{thisPost?.price}</div>
