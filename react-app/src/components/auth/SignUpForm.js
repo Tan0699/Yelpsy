@@ -17,9 +17,11 @@ const SignUpForm = () => {
     if (password === repeatPassword) {
       const data = await dispatch(signUp(firstname, email, password));
       if (data) {
+        console.log(data)
         setErrors(data)
       }
     }
+    else{setErrors(["Passwords must match"])}
   };
 
   const updateFirstname = (e) => {
@@ -50,12 +52,13 @@ const SignUpForm = () => {
         ))}
       </div>
       <div>
-        <label>User Name</label>
+        <label>FirstName</label>
         <input
           type='text'
           name='firstname'
           onChange={updateFirstname}
           value={firstname}
+          required
         ></input>
       </div>
       <div>
@@ -65,6 +68,7 @@ const SignUpForm = () => {
           name='email'
           onChange={updateEmail}
           value={email}
+          required
         ></input>
       </div>
       <div>
@@ -74,6 +78,7 @@ const SignUpForm = () => {
           name='password'
           onChange={updatePassword}
           value={password}
+          required
         ></input>
       </div>
       <div>

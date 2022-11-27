@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { Modal } from '../../context/Modal';
 import { login } from '../../store/session';
+import SignUpForm from './SignUpForm';
 
-const LoginForm = () => {
+const LoginForm = ({setLog}) => {
+  const [sign, setSign] = useState(false);
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -27,10 +30,24 @@ const LoginForm = () => {
   };
 
   if (user) {
+    setLog(false)
     return <Redirect to='/' />;
   }
-
+  let signModal = (
+    <div>
+      <button onClick={() => ((setSign
+        (true)))}>REGISTER</button>
+      {sign && (
+        <Modal onClose={() => (setSign(false),setLog(false))}>
+          <SignUpForm setSign={setSign} />
+        </Modal>
+      )}
+    </div>)
   return (
+    <>
+    <div>
+      {signModal}
+    </div>
     <form onSubmit={onLogin}>
       <div>
         {errors.map((error, ind) => (
@@ -59,6 +76,7 @@ const LoginForm = () => {
         <button type='submit'>Login</button>
       </div>
     </form>
+    </>
   );
 };
 

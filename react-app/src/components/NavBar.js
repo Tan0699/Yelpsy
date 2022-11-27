@@ -8,94 +8,108 @@ import EditShopForm from './EditShopform';
 import "./Nav.css"
 import PostForm from './Postform';
 import ShopForm from './Shopform';
+import LoginForm from '../components/auth/LoginForm'
+import { useSelector } from 'react-redux';
 
 const NavBar = () => {
-  const {shopId,id} =useParams()
+  const { shopId, id } = useParams()
   const [sho, setSho] = useState(false);
   const [pos, setPos] = useState(false);
   const [editsho, setEditSho] = useState(false);
   const [editpos, setEditPos] = useState(false);
-  console.log("shohoshos",shopId)
+  const [log, setLog] = useState(false);
+  const isUser = useSelector((state)=> state.session.user )
+  console.log("shohoshos", isUser)
   let shopModal = (
     <div>
       <button onClick={() => (setSho
         (true))}>ADD A SHOP</button>
-    
-    {sho && (
-       <Modal onClose={() => setSho(false)}>
-       <ShopForm setSho={setSho}/>
-     </Modal>
-    )}
-    
-    </div>)
-    let postModal = (
-      <div>
-        <button  onClick={() => (setPos
-          (true))}>ADD A POST</button>
-      
-      {pos && (
-      <Modal onClose={() => setPos(false)}>
-      <PostForm setPos={setPos}/>
-    </Modal>
-   )}
-      
-      </div>)
-      let editshopModal = (
-        <div>
-          <button  onClick={(e) => ((setEditSho(true)))}>EDIT A SHOP</button>
-        
-        {editsho && (
-        <Modal onClose={() => setEditSho(false)}>
-        <EditShopForm setEditSho={setEditSho}/>
-      </Modal>
-     )}
-        
-        </div>)
-        let editpostModal = (
-          <div>
-            <button  onClick={(e) => ((setEditPos(true)))}>EDIT A POST</button>
-          
-          {editpos && (
-          <Modal onClose={() => setEditPos(false)}>
-          <EditPostForm setEditPos={setEditPos}/>
+      {sho && (
+        <Modal onClose={() => setSho(false)}>
+          <ShopForm setSho={setSho} />
         </Modal>
-       )}
-          
-          </div>)
-    
+      )}
+    </div>)
+
+  let postModal = (
+    <div>
+      <button onClick={() => (setPos
+        (true))}>ADD A POST</button>
+      {pos && (
+        <Modal onClose={() => setPos(false)}>
+          <PostForm setPos={setPos} />
+        </Modal>
+      )}
+    </div>)
+
+  let editshopModal = (
+    <div>
+      <button onClick={(e) => ((setEditSho(true)))}>EDIT A SHOP</button>
+      {editsho && (
+        <Modal onClose={() => setEditSho(false)}>
+          <EditShopForm setEditSho={setEditSho} />
+        </Modal>
+      )}
+    </div>)
+
+  let editpostModal = (
+    <div>
+      <button onClick={(e) => ((setEditPos(true)))}>EDIT A POST</button>
+      {editpos && (
+        <Modal onClose={() => setEditPos(false)}>
+          <EditPostForm setEditPos={setEditPos} />
+        </Modal>
+      )}
+    </div>)
+
+  let logModal = (
+    <div>
+      <button onClick={(e) => ((setLog(true)))}>LOGIN</button>
+      {log && (
+        <Modal onClose={() => setLog(false)}>
+          <LoginForm setLog={setLog} />
+        </Modal>
+      )}
+    </div>)
+
   return (
     <nav>
-      <ul className='navstuff'>
-        <li>
+      <div className='navstuff'>
+        <div>
           <NavLink to='/' exact={true} activeClassName='active'>
             Home
           </NavLink>
-        </li>
-        <li>
+        </div>
+        {!isUser &&
+        <div>
+          {logModal}
+        </div>}
+        {/* <div>
           <NavLink to='/login' exact={true} activeClassName='active'>
             Login
           </NavLink>
-        </li>
-        <li>
+          </div> */}
+        {/* <div>
           <NavLink to='/sign-up' exact={true} activeClassName='active'>
             Sign Up
           </NavLink>
-        </li>
-        <li>
+          </div> */}
+        {/* <div>
           <NavLink to='/users' exact={true} activeClassName='active'>
             Users
           </NavLink>
-        </li>
-        <li>
+          </div> */}
+          {isUser &&
+        <div>
           <LogoutButton />
-        </li>
-        <div>{shopModal}</div> 
-         <div>{postModal}</div>
-         {(shopId && !id) &&
-         <div>{editshopModal}</div>}
-         {id &&
-         <div>{editpostModal}</div>}
-      </ul>
+        </div>}
+        <div>{shopModal}</div>
+        <div>{postModal}</div>
+        {(shopId && !id) &&
+          <div>{editshopModal}</div>}
+        {id &&
+          <div>{editpostModal}</div>}
+      </div>
     </nav>
   );
 }

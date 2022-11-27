@@ -82,7 +82,6 @@ return (
             </div>
         ))}
     </div>
-    <PostForm/>
     </>
   );
 }
