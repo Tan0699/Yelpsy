@@ -81,6 +81,7 @@
 }
 .gridpost{
     display: grid;
+    font-size: 15px;
 }
 .postwrapper{
     display: grid;
@@ -90,11 +91,23 @@
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
-    gap: 15px
+    gap: 12px
 }
 .imgpost{
     width: 100% ;
+    border-radius: 8px;
 }
 .postnav{
     text-decoration: none;
+}
+.est{
+    font-size: 10px;
+}
+.posprice{
+    
+}
+.featured{
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }

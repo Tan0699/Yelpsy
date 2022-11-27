@@ -67,15 +67,17 @@ return (
     </div></div>
     </div>
     </div>
-    
+    <div className='featured'>Featured Items</div>
     <div className='postwrapper'> 
+    
     {thisShopposts?.map((post)=>(
             <div className='gridpost' key={post.id}>
                 <NavLink className="postnav" to={`/${shopId}/posts/${post.id}`}>
                 <img className='imgpost' src={post.image}></img>
                 <div>{post.name}</div>
-                <div>★★★★★(32423)</div>
-                <div>{post.price}</div>
+                <div>★★★★★(3223)</div>
+                <div className='posprice'>${post.price}</div>
+                <div className='est'>Est. arrival 6hrs from purchase</div>
                 </NavLink>
             </div>
         ))}

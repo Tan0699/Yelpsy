@@ -44,7 +44,6 @@ useEffect(()=>{
             <div className='justname'>{shop.name}</div>
             </div>
             </NavLink>
-            
         </div>
     ))}</div>
 

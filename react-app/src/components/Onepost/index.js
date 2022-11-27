@@ -7,7 +7,7 @@ import EditShopForm from '../EditShopform';
 import { deletePost, fetchOnePost, fetchPosts } from '../../store/posts';
 import PostForm from '../Postform';
 import EditPostForm from '../EditPostform';
-
+import "./Onepost.css"
 function OnePost(){
 const {shopId,id} = useParams()
 const shopState = useSelector((state) => state.shops)
@@ -29,12 +29,13 @@ const thisShopposts = posts?.filter(post => post.shop_id === +shopId)
 // console.log("THIS LMAO",thisShopposts)
 return (
     <>
+    <div className='firstpostgrid'>
+    <img  className='firstpostimg' src={thisPost?.image}></img>
+    <div>
 {thisPost?.name}
 <div>{thisPost?.description}</div>
 <div>{thisPost?.price}</div>
-<img src={thisPost?.image}></img>
-<EditPostForm/>
-<button onClick={()=> (dispatch(deletePost(shopId,id)),history.push(`/${shopId}`))}>DELET</button>
+<button onClick={()=> (dispatch(deletePost(shopId,id)),history.push(`/${shopId}`))}>DELET</button></div></div>
     </>
   );
 }
