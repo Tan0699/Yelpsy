@@ -102,11 +102,13 @@ const NavBar = () => {
         <div>
           <LogoutButton />
         </div>}
-        <div>{shopModal}</div>
-        <div>{postModal}</div>
-        {(shopId && !id) &&
+        {isUser &&
+        <div>{shopModal}</div>}
+        {isUser &&
+        <div>{postModal}</div>}
+        {(shopId && !id && isUser) &&
           <div>{editshopModal}</div>}
-        {id &&
+        {(id && isUser)&&
           <div>{editpostModal}</div>}
       </div>
     </nav>
