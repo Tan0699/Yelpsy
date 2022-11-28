@@ -61,7 +61,7 @@ const PostForm = ({setPos}) => {
               type="file"
               accept="image/*"
               onChange={updateImage}
-              required
+             
             />
             <input
             placeholder="Write name here"

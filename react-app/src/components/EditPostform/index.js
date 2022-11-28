@@ -87,7 +87,10 @@ const EditPostForm = () => {
             onChange={(e) => setDescription(e.target.value)}
           />
           <input
-            type="decimal"
+            type="number"
+            step=".01"
+            min={1}
+            max={999999}
             required
             value={price}
             onChange={(e) => setPrice(e.target.value)}
