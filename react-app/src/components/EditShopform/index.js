@@ -19,6 +19,7 @@ const EditShopForm = () => {
     console.log("yayya",thisShop?.image)
     const [image, setImage] = useState(thisShop?.image)
     const [imageLoading, setImageLoading] = useState(false)
+    const [errors, setErrors] = useState([]);
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log("psssdfs")
@@ -33,7 +34,8 @@ const EditShopForm = () => {
     
         const res = dispatch(editShop(payload,shopId))
         if (res.ok) {
-            await res.json();
+            if (res.image) {
+            // await res.json();
             setImageLoading(false);
             history.push("/");
         }
@@ -41,10 +43,10 @@ const EditShopForm = () => {
             setImageLoading(false);
             // a real app would probably use more advanced
             // error handling
-            console.log("error");
+            setErrors([res])
         }
     }
-    
+}
     const updateImage = (e) => {
         const file = e.target.files[0];
         setImage(file);
@@ -52,6 +54,12 @@ const EditShopForm = () => {
     
     return (
         <form onSubmit={handleSubmit}>
+            <div>
+                {console.log("errrr", errors)}
+                {errors?.map((error, ind) => (
+                    <div key={ind}>{error}</div>
+                ))}
+            </div>
             {appear2 &&
             <button onClick={()=>(setAppear(true),setAppear2(false))}>Select a New Image</button>}
             {appear &&
