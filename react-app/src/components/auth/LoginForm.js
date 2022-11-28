@@ -19,6 +19,7 @@ const LoginForm = ({setLog}) => {
     if (data) {
       setErrors(data);
     }
+    else{setLog(false)}
   };
 
   const updateEmail = (e) => {
@@ -62,6 +63,7 @@ const LoginForm = ({setLog}) => {
           placeholder='Email'
           value={email}
           onChange={updateEmail}
+          required
         />
       </div>
       <div>
@@ -72,6 +74,7 @@ const LoginForm = ({setLog}) => {
           placeholder='Password'
           value={password}
           onChange={updatePassword}
+          required
         />
         <button type='submit'>Login</button>
       </div>

@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
 
-const SignUpForm = () => {
+const SignUpForm = ({setLog}) => {
   const [errors, setErrors] = useState([]);
   const [firstname, setFirstname] = useState('');
   const [email, setEmail] = useState('');
@@ -58,6 +58,7 @@ const SignUpForm = () => {
           name='firstname'
           onChange={updateFirstname}
           value={firstname}
+          maxLength={20}
           required
         ></input>
       </div>
@@ -68,6 +69,8 @@ const SignUpForm = () => {
           name='email'
           onChange={updateEmail}
           value={email}
+          minLength={4}
+          maxLength={20}
           required
         ></input>
       </div>
@@ -78,6 +81,8 @@ const SignUpForm = () => {
           name='password'
           onChange={updatePassword}
           value={password}
+          minLength={4}
+          maxLength={20}
           required
         ></input>
       </div>
@@ -88,6 +93,8 @@ const SignUpForm = () => {
           name='repeat_password'
           onChange={updateRepeatPassword}
           value={repeatPassword}
+          minLength={4}
+          maxLength={20}
           required={true}
         ></input>
       </div>
