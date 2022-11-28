@@ -4,7 +4,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { createShop, editShop, fetchOneShop } from "../../store/shops";
 
 
-const EditShopForm = () => {
+const EditShopForm = ({setEditSho}) => {
     const {shopId} = useParams()
     const history = useHistory() // so that we can redirect after the image upload is successful
     const shopState = useSelector((state) => state.shops)
@@ -30,15 +30,18 @@ const EditShopForm = () => {
         // some sort of loading message is a good idea
         setImageLoading(true);
     
-        const res = dispatch(editShop(payload,shopId))
-        if (res.ok) {
+        const res = await dispatch(editShop(payload,shopId))
+        if (res) {
             if (res.image) {
             // await res.json();
             setImageLoading(false);
-            history.push("/");
+            setEditSho(false)
+            // history.push("/");
         }
         else {
+            // console.log(res)
             setImageLoading(false);
+            // setEditSho(false)
             // a real app would probably use more advanced
             // error handling
             setErrors([res])

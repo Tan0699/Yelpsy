@@ -5,7 +5,7 @@ import { editPost } from "../../store/posts";
 import { createShop, editShop, fetchOneShop } from "../../store/shops";
 
 
-const EditPostForm = () => {
+const EditPostForm = ({setEditPos}) => {
     const {shopId,id} = useParams()
     const history = useHistory() // so that we can redirect after the image upload is successful
     const shopState = useSelector((state) => state.shops)
@@ -36,12 +36,13 @@ const EditPostForm = () => {
         // some sort of loading message is a good idea
         setImageLoading(true);
         
-        const res = dispatch(editPost(payload,shopId,id))
+        const res = await dispatch(editPost(payload,shopId,id))
         if (res) {
           if (res.image) {
             // await res.json();
             setImageLoading(false);
-            history.push("/");
+            // history.push("/");
+            setEditPos(false)
         }
         else {
             setImageLoading(false);
