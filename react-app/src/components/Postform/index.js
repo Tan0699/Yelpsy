@@ -17,6 +17,7 @@ const PostForm = () => {
     const [price, setPrice] = useState("")
     const [image, setImage] = useState(null)
     const [imageLoading, setImageLoading] = useState(false)
+    const [errors, setErrors] = useState([]);
     const handleSubmit = async (e) => {
         e.preventDefault();
         const payload = new FormData();
@@ -27,18 +28,22 @@ const PostForm = () => {
         // aws uploads can be a bit slow—displaying
         // some sort of loading message is a good idea
         setImageLoading(true);
-
-        const res = dispatch(createPost(payload,shopId))
-        if (res.ok) {
-            await res.json();
+        const res = await dispatch(createPost(payload,shopId))
+        console.log("res",res)
+        if (res) {
+            // await res.json();
             setImageLoading(false);
-            history.push("/");
+            setErrors([res])
+            console.log("errorss",errors)
+            // history.push("/");
         }
         else {
             setImageLoading(false);
             // a real app would probably use more advanced
             // error handling
-            console.log("error");
+            console.log("error",errors)
+            setErrors(res)
+            // console.log("error");
         }
     }
     
@@ -49,6 +54,11 @@ const PostForm = () => {
     
     return (
         <form onSubmit={handleSubmit}>
+          <div>
+        {/* {errors?.map((error, ind) => (
+          <div key={ind}>{error}</div>
+        ))} */}
+      </div>
             <input
               type="file"
               accept="image/*"
