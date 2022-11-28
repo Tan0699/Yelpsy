@@ -1,0 +1,15 @@
+.logreg{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+.logcontainer{
+    margin-left: 10%;
+    margin-right: 10%;
+    height: 400px;
+}
+.passlabel{
+    width: 300px ;
+    font-size: 30px;
+}
