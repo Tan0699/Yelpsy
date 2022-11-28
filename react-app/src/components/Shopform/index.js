@@ -64,7 +64,8 @@ const ShopForm = ({ setSho }) => {
                 placeholder="Write name here"
                 type="text"
                 maxLength={20}
-                required pattern="[^A-Za-z$]+" title="Enter one word"
+                // required pattern="[^A-Za-z$]+" title="Enter one word"
+                required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
             />
