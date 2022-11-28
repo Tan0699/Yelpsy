@@ -29,24 +29,24 @@ const PostForm = () => {
         // some sort of loading message is a good idea
         setImageLoading(true);
         const res = await dispatch(createPost(payload,shopId))
-        console.log("res",res)
+        
         if (res) {
             // await res.json();
-            setImageLoading(false);
-            setErrors([res])
-            console.log("errorss",errors)
-            // history.push("/");
-        }
-        else {
-            setImageLoading(false);
-            // a real app would probably use more advanced
-            // error handling
-            console.log("error",errors)
-            setErrors(res)
-            // console.log("error");
-        }
+            if(res.image){
+                setImageLoading(false);
+                
+                // history.push("/");
+            }
+            else {
+                setImageLoading(false);
+                // a real app would probably use more advanced
+                // error handling
+                // console.log("error",errors)
+                setErrors([res])
+                // console.log("error",errors);
+            }
     }
-    
+  }
     const updateImage = (e) => {
         const file = e.target.files[0];
         setImage(file);
@@ -55,9 +55,10 @@ const PostForm = () => {
     return (
         <form onSubmit={handleSubmit}>
           <div>
-        {/* {errors?.map((error, ind) => (
+            {console.log("errrr",errors)}
+        {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
-        ))} */}
+        ))}
       </div>
             <input
               type="file"
