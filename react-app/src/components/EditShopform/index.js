@@ -16,13 +16,11 @@ const EditShopForm = () => {
     const [description, setDescription] = useState(thisShop?.description)
     const [appear,setAppear] =useState(false)
     const [appear2,setAppear2] =useState(true)
-    console.log("yayya",thisShop?.image)
     const [image, setImage] = useState(thisShop?.image)
     const [imageLoading, setImageLoading] = useState(false)
     const [errors, setErrors] = useState([]);
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("psssdfs")
         const payload = new FormData();
         payload.append("image", image);
         payload.append("name",name)
@@ -55,7 +53,6 @@ const EditShopForm = () => {
     return (
         <form onSubmit={handleSubmit}>
             <div>
-                {console.log("errrr", errors)}
                 {errors?.map((error, ind) => (
                     <div key={ind}>{error}</div>
                 ))}

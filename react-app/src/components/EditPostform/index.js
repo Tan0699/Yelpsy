@@ -21,7 +21,6 @@ const EditPostForm = () => {
     const [description, setDescription] = useState(thisPost?.description)
     const [appear,setAppear] =useState(false)
     const [appear2,setAppear2] =useState(true)
-    console.log("yayya",thisPost?.image)
     const [image, setImage] = useState(thisPost?.image)
     const [imageLoading, setImageLoading] = useState(false)
     const [errors, setErrors] = useState([]);
@@ -60,7 +59,6 @@ const EditPostForm = () => {
     return (
         <form onSubmit={handleSubmit}>
           <div>
-                {console.log("errrr", errors)}
                 {errors?.map((error, ind) => (
                     <div key={ind}>{error}</div>
                 ))}

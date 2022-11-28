@@ -16,7 +16,6 @@ const shops = Object.values(shopState)
 const posts = Object.values(postState)
 const history = useHistory()
 const thisPost = posts.filter((post)=>post.id == +id)[0]
-console.log("lamo",thisPost)
 const dispatch = useDispatch()
 const [users, setUsers] = useState([]);
 useEffect(() => {
@@ -27,17 +26,13 @@ useEffect(() => {
   }
   fetchData();
 }, []);
-console.log("users",users)
 const shopUser = users?.filter(user => thisPost?.user_id == user.id)[0]
 useEffect(()=>{
     dispatch(fetchOnePost(shopId,id))
     dispatch(fetchShops())
 },[dispatch])
-console.log("HNNGfffffGG",shops)
 const thisShop = shops?.filter(shop => shop.id == +shopId)[0]
-console.log("HNNGGG",thisShop)
 const thisShopposts = posts?.filter(post => post.shop_id === +shopId)
-// console.log("THIS LMAO",thisShopposts)
 return (
     <>
     <div className='firstpostgrid'>

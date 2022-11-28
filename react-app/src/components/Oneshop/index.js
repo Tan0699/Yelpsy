@@ -25,9 +25,7 @@ useEffect(() => {
   }
   fetchData();
 }, []);
-console.log("users",users)
 const shopUser = users?.filter(user => thisShop?.user_id == user.id)[0]
-console.log("thisUser",shopUser)
 useEffect(()=>{
     dispatch(fetchOneShop(shopId))
     dispatch(fetchPosts())
@@ -35,7 +33,6 @@ useEffect(()=>{
 
 
 const thisShopposts = posts?.filter(post => post.shop_id == +shopId)
-// console.log("THIS LMAO",thisShopposts)
 return (
     <>
     <div className='bgwrap'>

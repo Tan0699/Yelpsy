@@ -19,7 +19,6 @@ const NavBar = () => {
   const [editpos, setEditPos] = useState(false);
   const [log, setLog] = useState(false);
   const isUser = useSelector((state)=> state.session.user )
-  console.log("shohoshos", isUser)
   let shopModal = (
     <div>
       <button onClick={() => (setSho

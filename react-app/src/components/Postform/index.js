@@ -41,9 +41,7 @@ const PostForm = ({setPos}) => {
                 setImageLoading(false);
                 // a real app would probably use more advanced
                 // error handling
-                // console.log("error",errors)
                 setErrors([res])
-                // console.log("error",errors);
             }
     }
   }
@@ -55,7 +53,6 @@ const PostForm = ({setPos}) => {
     return (
         <form onSubmit={handleSubmit}>
           <div>
-            {console.log("errrr",errors)}
         {errors?.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}

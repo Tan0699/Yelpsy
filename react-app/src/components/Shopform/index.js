@@ -51,7 +51,6 @@ const ShopForm = ({ setSho }) => {
     return (
         <form onSubmit={handleSubmit}>
             <div>
-                {console.log("errrr", errors)}
                 {errors?.map((error, ind) => (
                     <div key={ind}>{error}</div>
                 ))}

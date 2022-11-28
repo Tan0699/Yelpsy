@@ -17,7 +17,6 @@ const SignUpForm = ({setLog}) => {
     if (password === repeatPassword) {
       const data = await dispatch(signUp(firstname, email, password));
       if (data) {
-        console.log(data)
         setErrors(data)
       }
     }

@@ -8,7 +8,6 @@ import './Splash.css'
 
 function Splash(){
 const shopState = useSelector((state) => state.shops)
-console.log("hmm",shopState)
 const shops = Object.values(shopState)
 const postState = useSelector((state) => state.posts)
 const posts = Object.values(postState)
