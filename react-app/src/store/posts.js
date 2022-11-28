@@ -78,14 +78,19 @@ export const editPost = (payload,shopId,id) => async dispatch => {
         method: "PUT",
         body:payload
     });
-    const data = await response.json();
     if (response.ok) {
+        const data = await response.json();
         dispatch(editPostAction(data))
         return data
     }
-    else {
-        return data
-    }
+    else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+          return data.errors;
+        }
+      } else {
+        return ['An error occurred. Please try again.']
+      }
 }
 
 export const deletePost = (shopId,id) => async dispatch => {

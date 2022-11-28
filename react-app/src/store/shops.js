@@ -64,13 +64,18 @@ export const createShop = (payload) => async dispatch => {
         // body: JSON.stringify(payload)
         body:payload
     })
-    const data = await response.json()
     if (response.ok) {
+        const data = await response.json()
         await dispatch(createShopAction(data))
         return data
-    } else {
-        return data
-    }
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+          return data.errors;
+        }
+      } else {
+        return ['An error occurred. Please try again.']
+      }
 }
 
 export const editShop = (payload,shopId) => async dispatch => {
@@ -82,14 +87,19 @@ export const editShop = (payload,shopId) => async dispatch => {
         // body: JSON.stringify(payload)
         body:payload
     });
-    const data = await response.json();
     if (response.ok) {
+        const data = await response.json();
         dispatch(editShopAction(data))
         return data
     }
-    else {
-        return data
-    }
+    else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+          return data.errors;
+        }
+      } else {
+        return ['An error occurred. Please try again.']
+      }
 }
 
 export const deleteShop = (shopId) => async dispatch => {

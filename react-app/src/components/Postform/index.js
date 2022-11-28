@@ -5,7 +5,7 @@ import { createPost } from "../../store/posts";
 import { createShop } from "../../store/shops";
 
 
-const PostForm = () => {
+const PostForm = ({setPos}) => {
     const history = useHistory() // so that we can redirect after the image upload is successful
     const shopState = useSelector((state) => state.shops)
     const userState = useSelector((state)=> state.users )
@@ -34,7 +34,7 @@ const PostForm = () => {
             // await res.json();
             if(res.image){
                 setImageLoading(false);
-                
+                setPos(false)
                 // history.push("/");
             }
             else {
@@ -56,7 +56,7 @@ const PostForm = () => {
         <form onSubmit={handleSubmit}>
           <div>
             {console.log("errrr",errors)}
-        {errors.map((error, ind) => (
+        {errors?.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
       </div>
