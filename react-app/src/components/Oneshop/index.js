@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteShop, fetchOneShop, fetchShops } from '../../store/shops';
 import ShopForm from '../Shopform';
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink, useHistory, useParams } from 'react-router-dom';
 import EditShopForm from '../EditShopform';
 import { fetchPosts } from '../../store/posts';
 import PostForm from '../Postform';
@@ -17,6 +17,7 @@ const dispatch = useDispatch()
 const {shopId} = useParams()
 const thisShop = shops?.filter(shop => shop.id == +shopId)[0]
 const [users, setUsers] = useState([]);
+const history = useHistory()
 useEffect(() => {
   async function fetchData() {
     const response = await fetch('/api/users/');
@@ -35,6 +36,7 @@ useEffect(()=>{
 const thisShopposts = posts?.filter(post => post.shop_id == +shopId)
 return (
     <>
+    <button onClick={()=> (dispatch(deleteShop(shopId)),dispatch(fetchPosts()),history.push('/'))}>DELET</button>
     <div className='bgwrap'>
     <img className='bg' src="https://img.freepik.com/premium-vector/christmas-background-various-complex-big-small-snowflakes-gray-white_444390-3700.jpg?w=1800"></img>
     <div className="bgdetails">

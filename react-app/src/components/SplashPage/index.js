@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { fetchPosts } from '../../store/posts';
 import { deleteShop, fetchShops } from '../../store/shops';
 import ShopForm from '../Shopform';
@@ -12,6 +12,7 @@ const shops = Object.values(shopState)
 const postState = useSelector((state) => state.posts)
 const posts = Object.values(postState)
 const dispatch = useDispatch()
+const history = useHistory()
 useEffect(()=>{
     dispatch(fetchShops())
     dispatch(fetchPosts())
@@ -43,6 +44,7 @@ useEffect(()=>{
             <div className='justname'>{shop.name}</div>
             </div>
             </NavLink>
+            
         </div>
     ))}</div>
 
