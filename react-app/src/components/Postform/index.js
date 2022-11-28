@@ -61,6 +61,7 @@ const PostForm = ({setPos}) => {
               type="file"
               accept="image/*"
               onChange={updateImage}
+              required
             />
             <input
             placeholder="Write name here"
@@ -80,7 +81,8 @@ const PostForm = ({setPos}) => {
           />
           <input
             placeholder="put price here"
-            type="float"
+            type="number"
+            step=".01"
             min={1}
             max={999999}
             required
