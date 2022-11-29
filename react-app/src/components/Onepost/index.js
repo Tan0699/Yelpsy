@@ -39,6 +39,7 @@ return (
     <img  className='firstpostimg' src={thisPost?.image}></img>
     <div>
         <div>Seller:{shopUser?.firstname}</div>
+        <div>0 sales 	☆	☆	☆	☆	☆</div>
         <div>{thisShop?.name}</div>
 {thisPost?.name}
 <div>{thisPost?.description}</div>

@@ -39,7 +39,7 @@ function OneShop() {
 
   let editshopModal = (
     <div>
-      <button className='editshobut' onClick={(e) => ((setEditSho(true)))}>EDIT A SHOP</button>
+      <button className='editshobut' onClick={(e) => ((setEditSho(true)))}>Edit This Shop</button>
       {editsho && (
         <Modal onClose={() => setEditSho(false)}>
           <EditShopForm setEditSho={setEditSho} />
