@@ -52,13 +52,15 @@ const SignUpForm = ({setSign,setLog}) => {
 
   return (
     <form className='signform' onSubmit={onSignUp}>
+      <div className='createacc'>Create your Account</div>
+      <div className='regisez'>Registration is easy.</div>
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
       </div>
       <div className='div1'>
-        <label className='firstnamewrap'>FirstName</label>
+        <label className='firstnamewrap'>First Name</label>
         <input className='firstnamelabel'
           type='text'
           name='firstname'
@@ -69,7 +71,7 @@ const SignUpForm = ({setSign,setLog}) => {
         ></input>
       </div>
       <div className='div2'>
-        <label className='emaillwrap'>Email</label>
+        <label className='emaillwrap'>Email Address</label>
         <input className='emailllabel'
           type='text'
           name='email'
@@ -104,7 +106,9 @@ const SignUpForm = ({setSign,setLog}) => {
           required={true}
         ></input>
       </div>
+      <div className='regiwrap'>
       <button className='regisbut' type='submit'>Sign Up</button>
+      </div>
     </form>
   );
 };

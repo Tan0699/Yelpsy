@@ -8,32 +8,34 @@
     font-weight: bold;
     font-size: 11px;
 }
-.passwrapp{
+.passlabell{
     font-size: 20px; 
      padding: 10px;
      border-radius: 10px;
 }
-.passlabell{
+
+.passwrapp{
     padding-top: 20px;
     font-weight: bold;
     font-size: 11px;
-}
-.repeatwrap{
-    font-size: 20px; 
-     padding: 10px;
-     border-radius: 10px;
 }
 .repeatlabel{
-    padding-top: 20px;
-    font-weight: bold;
-    font-size: 11px;
-}
-.firstnamewrap{
     font-size: 20px; 
      padding: 10px;
      border-radius: 10px;
 }
+.repeatwrap{
+
+    padding-top: 20px;
+    font-weight: bold;
+    font-size: 11px;
+}
 .firstnamelabel{
+    font-size: 20px; 
+     padding: 10px;
+     border-radius: 10px;
+}
+.firstnamewrap{
     padding-top: 20px;
     font-weight: bold;
     font-size: 11px;
@@ -57,4 +59,32 @@
 .div4{
     display: flex;
     flex-direction: column;
+}
+.signform{
+    margin-left: 30px;
+    margin-right: 30px;
+    /* height: 400px; */
+    margin-top: 10%;
+    margin-bottom: 10%;
+    border-radius: 45%;
+}
+.createacc{
+    font-size: 20px; 
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+.regisez{
+padding-bottom: 10px;
+}
+
+.regisbut{
+    background-color: black;
+    color: white;
+    width:100%;
+    border-radius: 47823840328490px;
+    font-size: 20px;
+    padding: 8px;
+}
+.regiwrap{
+    padding-top:30px ;
 }

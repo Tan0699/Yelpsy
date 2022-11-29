@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { createPost } from "../../store/posts";
 import { createShop } from "../../store/shops";
-
+import './Postform.css'
 
 const PostForm = ({setPos}) => {
     const history = useHistory() // so that we can redirect after the image upload is successful
@@ -51,36 +51,41 @@ const PostForm = ({setPos}) => {
     }
     
     return (
-        <form onSubmit={handleSubmit}>
-          <div>
+        <form className="postformwrap" onSubmit={handleSubmit}>
+          <div className="errors">
         {errors?.map((error, ind) => (
-          <div key={ind}>{error}</div>
+          <div className="errors" key={ind}>{error}</div>
         ))}
       </div>
-            <input
+ 
+      <label className='wrapyo'>Image File</label>
+            <input className="fileya"
               type="file"
               accept="image/*"
               onChange={updateImage}
              
             />
-            <input
-            placeholder="Write name here"
+            <label className='wrapyo'>Post Name</label>
+            <input className="wrapya"
+            // placeholder="Write name here"
             type="text"
             maxLength={20}
             required
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
-          <input
-            placeholder="Write description here"
+          <label className='wrapyo'>Post Description</label>
+          <input className="wrapya"
+            // placeholder="Write description here"
             type="text"
             maxLength={200}
             required
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
-          <input
-            placeholder="put price here"
+          <label className='wrapyo'>Price</label>
+          <input className="wrapyi"
+            // placeholder="put price here"
             type="number"
             step=".01"
             min={1}
@@ -89,7 +94,9 @@ const PostForm = ({setPos}) => {
             value={price}
             onChange={(e) => setPrice(e.target.value)}
           />
-            <button type="submit">Submit</button>
+         <div className="postsubwrap">
+            <button className="postsub" type="submit">Create a Post</button>
+            </div>
             {(imageLoading)&& <p>Loading...</p>}
         </form>
     )

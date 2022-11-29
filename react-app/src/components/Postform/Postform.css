@@ -1,0 +1,46 @@
+.postwrapper{
+    
+}
+.postformwrap{
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+    margin-right: 30px;
+    /* height: 400px; */
+    margin-top: 10%;
+    margin-bottom: 10%;
+    border-radius: 45%;
+}
+.wrapya{
+    font-size: 20px; 
+     padding: 10px;
+     border-radius: 10px;
+}
+.wrapyo{
+    padding-top: 20px;
+    font-weight: bold;
+    font-size: 11px;
+}
+/* .fileya{
+    border-radius:80px ;
+} */
+.postsub{
+    background-color: black;
+    color: white;
+    width:100%;
+    border-radius: 47823840328490px;
+    font-size: 20px;
+    padding: 8px;
+}
+.postsubwrap{
+    padding-top:30px ;
+}
+.wrapyi{
+    font-size: 20px; 
+    padding: 10px;
+    border-radius: 10px;
+    width: 40%;
+}
+.errors{
+    color: red;
+}
