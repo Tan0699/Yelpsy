@@ -1,17 +1,18 @@
 .bg{
-    height: 200px;
+    height: 235px;
     width: 100%;
-    position: absolute;
+    /* position: absolute; */
 }
 .bgdetails{
     position: relative;
     height: 200px;
     /* width: 80%; */
-    max-width: 850px;
+    background-color: rgb(250,250,250);
+    max-width: 1100px;
     margin-left: auto;
     margin-right: auto;
     display: grid;
-    align-items: flex-end;
+    align-items: center;
     grid-template-columns: 2fr 1fr 1fr 1fr;
     grid-gap: 5px;
 }
@@ -21,18 +22,19 @@
     border-radius: 50%;
 }
 .oneshopimg{
-    height: 90px;
-    width:90px;
-    border-radius: 8px;
+    height: 110px;
+    width:110px;
+    border-radius: 12px;
+    /* padding-left: 10px; */
 }
 .freshtext{
-    font-size: 10px;
-    background-color: rgb(255, 255, 255);
+    font-size: 15px;
+    /* background-color: rgb(255, 255, 255); */
     max-width: 100px;
 }
 .trucktext{
-    font-size: 10px;
-    background-color: rgb(255, 255, 255);
+    font-size: 15px;
+    /* background-color: rgb(255, 255, 255); */
     max-width: 100px;
     border-radius: 10px;
 }
@@ -49,14 +51,14 @@
 .contactinfo{
     display: flex;
     flex-direction: row;
-    background-color: rgb(255, 255, 255);
+    /* background-color: rgb(255, 255, 255); */
     border-radius: 10px;
 }
 .anonprof{
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 10px;
+    font-size: 15px;
     padding-bottom: 20px;
     
 }
@@ -73,25 +75,24 @@
     padding-left: 5px;
 }
 .shopdesc{
-    font-size: 10px;
+    font-size: 15px;
 }
 .shopcountry{
-    font-size: 10px;
+    font-size: 15px;
     font-weight: bold;
 }
 .gridpost{
     display: grid;
     font-size: 15px;
-    max-width: 30%;
+    /* max-width: 30%; */
 }
 .postwrapper{
     display: grid;
-    /* grid-template-columns: 1fr 1fr 1fr 1fr;  */
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    /* width: 80%; */
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr; 
+    /* grid-template-rows: repeat(130px,4); */
+    /* max-width: 1100px; */
+     margin-left:0;
+    /* /* margin-right: auto;  */
     gap: 12px
 }
 .imgpost{
@@ -108,7 +109,47 @@
     
 }
 .featured{
-    max-width: 800px;
+    max-width: 1100px;
+    margin-left: 5px;
+    margin-right: auto;
+}
+.anoun{
+    display: grid;
+    grid-template-columns: 2.5fr 8fr;
+    font-size: 13px;
+    max-width: 1100px;
     margin-left: auto;
     margin-right: auto;
+    gap: 10px;
+    padding-bottom: 30px;
+    /* min-width: 700px; */
+    
+}
+.anountext{
+    font-weight: bold;
+    font-size: 14px;
+}
+.gridwrappa{
+    display: grid;
+    grid-template-columns: 2.5fr 8fr;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.fakesearch{
+    width: 190px;
+    background-color: gray;
+    height: 35px;
+    border-radius: 98898px;
+    color: white;
+}
+.faker{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 10px;
+    padding-top: 20px;
+}
+.starrating{
+    font-size: 25px;
 }
