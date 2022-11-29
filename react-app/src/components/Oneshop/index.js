@@ -7,7 +7,9 @@ import EditShopForm from '../EditShopform';
 import { fetchPosts } from '../../store/posts';
 import PostForm from '../Postform';
 import "./Oneshop.css"
+import { Modal } from '../../context/Modal';
 function OneShop() {
+  const [editsho, setEditSho] = useState(false);
   const shopState = useSelector((state) => state.shops)
   const postState = useSelector((state) => state.posts)
   const thisUser = useSelector((state) => state.session.user)
@@ -34,6 +36,17 @@ function OneShop() {
 
 
   const thisShopposts = posts?.filter(post => post.shop_id == +shopId)
+
+  let editshopModal = (
+    <div>
+      <button className='editshobut' onClick={(e) => ((setEditSho(true)))}>EDIT A SHOP</button>
+      {editsho && (
+        <Modal onClose={() => setEditSho(false)}>
+          <EditShopForm setEditSho={setEditSho} />
+        </Modal>
+      )}
+    </div>)
+
   return (
     <>
       <button onClick={() => (dispatch(deleteShop(shopId)), dispatch(fetchPosts()), history.push('/'))}>DELET</button>
@@ -66,7 +79,9 @@ function OneShop() {
               <div className='email'>{shopUser?.email}</div>
             </div></div>
         </div>
-      
+        <div>
+        {editshopModal}
+        </div>
       <div className='anoun'>
         <div>
           <div className='anountext'>Announcement</div>
@@ -78,7 +93,7 @@ function OneShop() {
       </div>
       <div className='gridwrappa'>
         <div className='fakecol'>
-          <div>Items</div>
+          <div className='item'>Items</div>
           <button className='fakesearch'>Search Unavailable</button>
           <div className='faker'>
             <div>All</div>
@@ -136,7 +151,8 @@ function OneShop() {
             <div>0</div></div>
         </div>
         
-        <div className='featured'>Featured Items
+        <div className='featured'>
+          <div className='feat'>Featured</div>
         <div className='postwrapper'>
           {thisShopposts?.map((post) => (
             <div className='gridpost' key={post.id}>
