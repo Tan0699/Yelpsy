@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { createShop } from "../../store/shops";
-
+import './shoppo.css'
 
 const ShopForm = ({ setSho }) => {
     const history = useHistory() // so that we can redirect after the image upload is successful
@@ -49,19 +49,23 @@ const ShopForm = ({ setSho }) => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <div>
+        <form className="postformwrap" onSubmit={handleSubmit}>
+            <div className="posttop">Anyone Can Become a Seller</div>
+            <div className="posttop">Begin Your Journey Today!</div>
+            <div  className="errors">
                 {errors?.map((error, ind) => (
                     <div key={ind}>{error}</div>
                 ))}
             </div>
-            <input
+            <label className='wrapyo'>Image File</label>
+            <input className="fileya"
                 type="file"
                 accept="image/*"
                 onChange={updateImage}
             />
-            <input
-                placeholder="Write name here"
+            <label className='wrapyo'>Shop Name</label>
+            <input className="wrapya"
+                // placeholder="Write name here"
                 type="text"
                 maxLength={20}
                 // required pattern="[^A-Za-z$]+" title="Enter one word"
@@ -69,15 +73,18 @@ const ShopForm = ({ setSho }) => {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
             />
-            <input
-                placeholder="Write description here"
+            <label className='wrapyo'>Shop Description</label>
+            <input className="wrapya"
+                // placeholder="Write description here"
                 type="text"
                 maxLength={200}
                 required
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
             />
-            <button type="submit">Submit</button>
+            <div className="postsubwrap">
+            <button className="postsub" type="submit">Start a Shop</button>
+            </div>
             {(imageLoading) && <p>Loading...</p>}
         </form>
     )

@@ -82,6 +82,7 @@
 .gridpost{
     display: grid;
     font-size: 15px;
+    max-width: 30%;
 }
 .postwrapper{
     display: grid;

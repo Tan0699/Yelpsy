@@ -52,6 +52,8 @@ const PostForm = ({setPos}) => {
     
     return (
         <form className="postformwrap" onSubmit={handleSubmit}>
+          <div className="posttop">Have something to sell?</div>
+          <div className="posttop">Make a Post!</div>
           <div className="errors">
         {errors?.map((error, ind) => (
           <div className="errors" key={ind}>{error}</div>

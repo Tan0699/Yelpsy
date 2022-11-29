@@ -54,36 +54,42 @@ const EditShopForm = ({setEditSho}) => {
     }
     
     return (
-        <form onSubmit={handleSubmit}>
-            <div>
+        <form className="postformwrap" onSubmit={handleSubmit}>
+            <div className="posttop">Begin Your Journey Today!</div>
+            <div  className="errors">
                 {errors?.map((error, ind) => (
                     <div key={ind}>{error}</div>
                 ))}
             </div>
+            <label className='wrapyo'>Image File</label>
             {appear2 &&
-            <button onClick={()=>(setAppear(true),setAppear2(false))}>Select a New Image</button>}
+            <button className="butto" onClick={()=>(setAppear(true),setAppear2(false))}>Select a New Image</button>}
             {appear &&
-            <input
+            <input className="fileya"
               type="file"
               accept="image/*"
               onChange={updateImage}
               
             />}
-            <input
+            <label className='wrapyo'>Shop Name</label>
+            <input className="wrapya"
             type="text"
             maxLength={20}
             required
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
-          <input
+           <label className='wrapyo'>Shop Description</label>
+          <input className="wrapya"
             type="text"
             maxLength={200}
             required
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
-            <button type="submit">Submit</button>
+           <div className="postsubwrap">
+            <button className="postsub" type="submit">Edit Your Shop</button>
+            </div>
             {(imageLoading)&& <p>Loading...</p>}
         </form>
     )

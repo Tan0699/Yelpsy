@@ -21,10 +21,9 @@
     font-weight: bold;
     font-size: 11px;
 }
-.fileya{
-    font-size: 20px;
-    width: 300px;
-}
+/* .fileya{
+    border-radius:80px ;
+} */
 .postsub{
     background-color: black;
     color: white;
@@ -49,13 +48,4 @@
     font-size: 20px; 
     font-weight: bold;
     padding-bottom: 10px;
-}
-.butto{
-    background-color: white;
-    color: black;
-    width:100%;
-    border-radius: 47823840328490px;
-    font-size: 20px;
-    padding: 8px;
-
 }
