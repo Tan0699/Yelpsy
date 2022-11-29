@@ -37,7 +37,7 @@ def new_post(shopId):
         image = request.files["image"]
 
         if not allowed_file(image.filename):
-            return {"errors": "file type not permitted"}, 400
+            return {"errors": "pdf,png,jpg,jpeg,gif,webp files only"}, 400
         
         image.filename = get_unique_filename(image.filename)
 
@@ -93,7 +93,7 @@ def edit_post(shopId,id):
                 image = request.files["image"]
 
                 if not allowed_file(image.filename):
-                    return {"errors": "file type not permitted"}, 400
+                    return {"errors": "pdf,png,jpg,jpeg,gif,webp files only"}, 400
                 
                 image.filename = get_unique_filename(image.filename)
 
