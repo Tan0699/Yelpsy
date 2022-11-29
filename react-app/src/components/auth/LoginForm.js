@@ -49,9 +49,9 @@ const LoginForm = ({ setLog }) => {
       {sign?<SignUpForm setLog={setLog} setSign={setSign}/>:
     <div className='logcontainer'>
       <div className='logreg'>
-        <div>Sign In</div>
-        <div>
-          <button onClick={()=> setSign(true)}>REGISTEr</button>
+        <div className='sig'>Sign In</div>
+        <div className='signbutwrap'>
+          <button className='setsignbut' onClick={()=> setSign(true)}>Register</button>
           {/* {signModal} */}
         </div>
       </div>
@@ -62,9 +62,9 @@ const LoginForm = ({ setLog }) => {
           ))}
         </div>
         <div>
-          <div>Email address</div>
+          <div className='emailwrap'>Email address</div>
           <label htmlFor='email'></label>
-          <input
+          <input className='emaillabel'
             name='email'
             type='text'
             placeholder='Email'
@@ -73,8 +73,8 @@ const LoginForm = ({ setLog }) => {
             required
           />
         </div>
-        <div>
-          <div>Password</div>
+        <div className='passwrapwrap'>
+          <div className='passwrap'>Password</div>
           <label  htmlFor='password'></label>
           <input className='passlabel'
             name='password'
@@ -84,7 +84,11 @@ const LoginForm = ({ setLog }) => {
             onChange={updatePassword}
             required
           />
-          <button type='submit'>Login</button>
+          
+        </div>
+        <button className='signbut' type='submit'>Login</button>
+        <div className='demoWrap'>
+        <button className='signbut' type='submit'>DEMOOOO</button>
         </div>
       </form>
     </div>}

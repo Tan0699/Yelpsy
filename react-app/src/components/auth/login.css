@@ -2,14 +2,68 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
+  
 }
 .logcontainer{
-    margin-left: 10%;
-    margin-right: 10%;
-    height: 400px;
+    margin-left: 30px;
+    margin-right: 30px;
+    /* height: 400px; */
+    margin-top: 10%;
+    margin-bottom: 10%;
+    border-radius: 45%;
+    /* border: 2px solid purple; */
 }
+/* .password{ */
+    /* width: 400px; */
+/* } */
 .passlabel{
-    width: 300px ;
-    font-size: 30px;
+    font-size: 20px; 
+     /* width: 100%;  */
+     padding: 10px;
+     border-radius: 10px;
+}
+.sig{
+     font-size: 20px; 
+    font-weight: bold;
+}
+.emaillabel{
+    font-size: 20px; 
+     /* width: 100%;  */
+     padding: 10px;
+     border-radius: 10px;
+}
+.emailwrap{
+    padding-top: 20px;
+    font-weight: bold;
+    font-size: 11px;
+}
+.passwrap{
+    padding-top: 20px;
+    font-weight: bold;
+    font-size: 11px;
+}
+.signbut{
+    background-color: black;
+    color: white;
+    width:100%;
+    border-radius: 47823840328490px;
+    font-size: 20px;
+    padding: 8px;
+}
+.passwrapwrap{
+    padding-bottom: 30px;
+}
+.demoWrap{
+    padding-top: 30px;
+    /* display: flex; */
+}
+.setsignbut{
+    border-radius: 7423743298px;
+    padding: 10px;
+    font-weight: bold;
+    background-color: white;
+
+}
+.signbutwrap{
+    margin-top: -7px;
 }

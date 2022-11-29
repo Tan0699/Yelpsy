@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
-
+import './sign.css'
 const SignUpForm = ({setSign,setLog}) => {
   const [errors, setErrors] = useState([]);
   const [firstname, setFirstname] = useState('');
@@ -11,7 +11,6 @@ const SignUpForm = ({setSign,setLog}) => {
   const [repeatPassword, setRepeatPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
-
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
@@ -52,15 +51,15 @@ const SignUpForm = ({setSign,setLog}) => {
   }
 
   return (
-    <form onSubmit={onSignUp}>
+    <form className='signform' onSubmit={onSignUp}>
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
       </div>
-      <div>
-        <label>FirstName</label>
-        <input
+      <div className='div1'>
+        <label className='firstnamewrap'>FirstName</label>
+        <input className='firstnamelabel'
           type='text'
           name='firstname'
           onChange={updateFirstname}
@@ -69,9 +68,9 @@ const SignUpForm = ({setSign,setLog}) => {
           required
         ></input>
       </div>
-      <div>
-        <label>Email</label>
-        <input
+      <div className='div2'>
+        <label className='emaillwrap'>Email</label>
+        <input className='emailllabel'
           type='text'
           name='email'
           onChange={updateEmail}
@@ -81,9 +80,9 @@ const SignUpForm = ({setSign,setLog}) => {
           required
         ></input>
       </div>
-      <div>
-        <label>Password</label>
-        <input
+      <div className='div3'>
+        <label className='passwrapp'>Password</label>
+        <input className='passlabell'
           type='password'
           name='password'
           onChange={updatePassword}
@@ -93,9 +92,9 @@ const SignUpForm = ({setSign,setLog}) => {
           required
         ></input>
       </div>
-      <div>
-        <label>Repeat Password</label>
-        <input
+      <div className='div4'>
+        <label className='repeatwrap'>Repeat Password</label>
+        <input className='repeatlabel'
           type='password'
           name='repeat_password'
           onChange={updateRepeatPassword}
@@ -105,7 +104,7 @@ const SignUpForm = ({setSign,setLog}) => {
           required={true}
         ></input>
       </div>
-      <button type='submit'>Sign Up</button>
+      <button className='regisbut' type='submit'>Sign Up</button>
     </form>
   );
 };

@@ -1,0 +1,60 @@
+.emailllabel{
+    font-size: 20px; 
+     padding: 10px;
+     border-radius: 10px;
+}
+.emaillwrap{
+    padding-top: 20px;
+    font-weight: bold;
+    font-size: 11px;
+}
+.passwrapp{
+    font-size: 20px; 
+     padding: 10px;
+     border-radius: 10px;
+}
+.passlabell{
+    padding-top: 20px;
+    font-weight: bold;
+    font-size: 11px;
+}
+.repeatwrap{
+    font-size: 20px; 
+     padding: 10px;
+     border-radius: 10px;
+}
+.repeatlabel{
+    padding-top: 20px;
+    font-weight: bold;
+    font-size: 11px;
+}
+.firstnamewrap{
+    font-size: 20px; 
+     padding: 10px;
+     border-radius: 10px;
+}
+.firstnamelabel{
+    padding-top: 20px;
+    font-weight: bold;
+    font-size: 11px;
+}
+/* .signform{
+    display: flex;
+    flex-direction: column;
+} */
+.div1{
+    display: flex;
+    flex-direction: column;
+}
+.div2{
+    display: flex;
+    flex-direction: column;
+}
+.div3{
+    display: flex;
+    flex-direction: column;
+}
+.div4{
+    display: flex;
+    flex-direction: column;
+}
