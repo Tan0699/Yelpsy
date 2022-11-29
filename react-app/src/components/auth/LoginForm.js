@@ -32,27 +32,27 @@ const LoginForm = ({ setLog }) => {
 
   if (user) {
     setLog(false)
+    setSign(false)
     return <Redirect to='/' />;
   }
-  let signModal = (
-    <div>
-      <button onClick={() => (setSign(true))}>REGISTER</button>
-      {sign && (
-        <Modal onClose={() => (setSign(false), setLog(false))}>
-          <SignUpForm setSign={setSign} />
-        </Modal>
-      )}
-    </div>)
-    const modalfunction=()=>{
-      setSign(true)
-    }
+  // let signModal = (
+  //   <div>
+  //     {sign && (
+  //       <Modal onClose={() => (setSign(false))}>
+  //         <SignUpForm setSign={setSign} />
+  //       </Modal>
+  //     )}
+  //   </div>)
+   
   return (
+    <div>
+      {sign?<SignUpForm setLog={setLog} setSign={setSign}/>:
     <div className='logcontainer'>
       <div className='logreg'>
         <div>Sign In</div>
         <div>
-          <button onClick={()=> modalfunction()}></button>
-          {signModal}
+          <button onClick={()=> setSign(true)}>REGISTEr</button>
+          {/* {signModal} */}
         </div>
       </div>
       <form onSubmit={onLogin}>
@@ -87,6 +87,7 @@ const LoginForm = ({ setLog }) => {
           <button type='submit'>Login</button>
         </div>
       </form>
+    </div>}
     </div>
   );
 };

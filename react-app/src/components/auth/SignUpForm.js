@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
 
-const SignUpForm = ({setLog}) => {
+const SignUpForm = ({setSign,setLog}) => {
   const [errors, setErrors] = useState([]);
   const [firstname, setFirstname] = useState('');
   const [email, setEmail] = useState('');
@@ -15,11 +15,19 @@ const SignUpForm = ({setLog}) => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
+
       const data = await dispatch(signUp(firstname, email, password));
+      console.log(data)
       if (data) {
+        console.log(data)
         setErrors(data)
       }
+      else{
+        setSign(false)
+        setLog(false)
+      }
     }
+    
     else{setErrors(["Passwords must match"])}
   };
 
