@@ -7,7 +7,7 @@
     position: relative;
     height: 200px;
     /* width: 80%; */
-    background-color: rgb(250,250,250);
+    /* background-color: rgb(250,250,250); */
     max-width: 1100px;
     margin-left: auto;
     margin-right: auto;
@@ -15,17 +15,22 @@
     align-items: center;
     grid-template-columns: 2fr 1fr 1fr 1fr;
     grid-gap: 5px;
+    border: 2px solid black;
+    border-radius: 10px;
+    top: -4px;
 }
 .anon{
     width: 80px;
     height: 80px;
     border-radius: 50%;
+    border: 2px solid black;
 }
 .oneshopimg{
     height: 120px;
     width:120px;
     border-radius: 12px;
     /* padding-left: 10px; */
+    border: 2px solid black;
 }
 .freshtext{
     font-size: 15px;
@@ -85,6 +90,7 @@
     display: grid;
     font-size: 15px;
     /* max-width: 30%; */
+    color: black;
 }
 .postwrapper{
     display: grid;
@@ -94,17 +100,20 @@
     margin-left:0;
      /* margin-right: 0; */
     /* /* margin-right: auto;  */
-    gap: 12px
+    gap: 12px;
+    /* color:black */
 }
 .imgpost{
     width: 100% ;
     height: 70%;
     border-radius: 8px;
     object-fit: cover;
+    border: 2px solid black;
 }
 .postnav{
     text-decoration: none;
     object-fit: fill;
+    color: black;
 }
 .est{
     font-size: 10px;

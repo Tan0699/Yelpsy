@@ -35,11 +35,14 @@ function OnePost() {
   const thisShopposts = posts?.filter(post => post.shop_id === +shopId)
   return (
     <>
+    <div className='wpdiv'>
+    <img className='newwp' src="https://freedesignfile.com/upload/2015/11/silver_christmas_background__vector_1460.png"></img></div>
+    <div className='wholediv'>
       <div className='firstpostgrid'>
         <div className='firstgriddiv'>
 
           <img className='firstpostimg' src={thisPost?.image}></img>
-          <button className='editposta'>EDIT THIS POST</button>
+          <button className='editposta'>Edit This Post</button>
           <div className='shoprev'> 0 Post Reviews ☆	☆	☆	☆	☆</div>
         </div>
 
@@ -82,6 +85,7 @@ function OnePost() {
       <i  id='moji'  class="fa-solid fa-handshake"></i>
       <div className='yaya'>Etsy Purchase Protection: Shop confidently on Etsy knowing if something goes wrong with an order, we've got your back for all eligible purchases</div>
       </div>
+    </div>
     </div>
     </div>
     </>

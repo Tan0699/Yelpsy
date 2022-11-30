@@ -100,5 +100,7 @@
 .checkoutshop{
     display: flex;
     justify-content: center;
-
 }
+    .cheke{
+        background-color: white;
+    }

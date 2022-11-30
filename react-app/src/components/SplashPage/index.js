@@ -26,17 +26,19 @@ useEffect(()=>{
 
   return (
     <>
+    <div className='wpdiv'>
+    <img className='newwp' src="https://freedesignfile.com/upload/2015/11/silver_christmas_background__vector_1460.png"></img></div>
     <div className='color'>
       <div className='pink'>
         <div className='blanktext'>Enjoy the Holidays With Some Delicous Food!</div>
       </div>
-      <div>
+      <div className='cheke'>
       <div className='checkoutshop'>Check out these shops!</div>
       </div>
     </div>
     
     <div className='shopgrid'>
-    {shops?.map((shop)=>(
+    {shops?.reverse().map((shop)=>(
         <div className='inmap' key={shop.id}>
           <NavLink className="navls" to={`/${shop.id}`}>
             <div className='imagename'>
