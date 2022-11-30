@@ -30,16 +30,16 @@ const NavBar = () => {
       )}
     </div>)
 
-  let postModal = (
-    <div>
-      <button onClick={() => (setPos
-        (true))}>ADD A POST</button>
-      {pos && (
-        <Modal onClose={() => setPos(false)}>
-          <PostForm setPos={setPos} />
-        </Modal>
-      )}
-    </div>)
+  // let postModal = (
+  //   <div>
+  //     <button onClick={() => (setPos
+  //       (true))}>ADD A POST</button>
+  //     {pos && (
+  //       <Modal onClose={() => setPos(false)}>
+  //         <PostForm setPos={setPos} />
+  //       </Modal>
+  //     )}
+  //   </div>)
 
   let editshopModal = (
     <div>
@@ -97,8 +97,8 @@ const NavBar = () => {
           <LogoutButton />
         </div>}
        
-         {isUser &&
-          <div>{postModal}</div>} 
+         {/* {isUser &&
+          <div>{postModal}</div>}  */}
          {/* {(shopId && !id && isUser) && 
          <div>{editshopModal}</div>
          (id && isUser)&& */}

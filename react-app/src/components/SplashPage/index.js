@@ -66,6 +66,7 @@ useEffect(()=>{
   
     <div className='postgrid'>
       {posts.map(post =>(
+       
         <div className='PostImageContainer'>
           <div className='PostImage'>
           <img className='pics' src={post.image}></img>

@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
+import { Modal } from "../../context/Modal";
 import { createShop, deleteShop, editShop, fetchOneShop } from "../../store/shops";
+import PostForm from "../Postform";
 
 
 const EditShopForm = ({setEditSho}) => {
@@ -19,6 +21,7 @@ const EditShopForm = ({setEditSho}) => {
     const [image, setImage] = useState(thisShop?.image)
     const [imageLoading, setImageLoading] = useState(false)
     const [errors, setErrors] = useState([]);
+    const [pos, setPos] = useState(false);
     const handleSubmit = async (e) => {
         e.preventDefault();
         const payload = new FormData();
@@ -52,9 +55,21 @@ const EditShopForm = ({setEditSho}) => {
         const file = e.target.files[0];
         setImage(file);
     }
-    
+    let postModal = (
+        <div>
+          <button onClick={() => (setPos
+            (true))}>ADD A POST</button>
+          {pos && (
+            <Modal onClose={() => setPos(false)}>
+              <PostForm setPos={setPos} />
+            </Modal>
+          )}
+        </div>)
     return (
+        <div> 
+          {pos?<PostForm setPos={setPos} setEditSho={setEditSho}/>:
         <form className="postformwrap" onSubmit={handleSubmit}>
+             <button className='setsignbut' onClick={()=> setPos(true)}>Add a Post</button>
             <div className="posttop">Begin Your Journey Today!</div>
             <div  className="errors">
                 {errors?.map((error, ind) => (
@@ -93,7 +108,8 @@ const EditShopForm = ({setEditSho}) => {
             <button className="delet" onClick={()=> (dispatch(deleteShop(shopId)),history.push('/'))}>Delete This Shop</button>
             </div></div>
             {(imageLoading)&& <p>Loading...</p>}
-        </form>
+        </form>}
+        </div>
     )
 }
 
