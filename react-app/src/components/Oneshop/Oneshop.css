@@ -104,6 +104,7 @@
 }
 .postnav{
     text-decoration: none;
+    object-fit: fill;
 }
 .est{
     font-size: 10px;

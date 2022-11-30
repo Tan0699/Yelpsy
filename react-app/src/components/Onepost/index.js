@@ -44,12 +44,7 @@ function OnePost() {
         </div>
 
         <div className='otherhalf'>
-          <div >Sold By {shopUser?.firstname}</div>
-          <div className='s1'>0 sales 	☆	☆	☆	☆	☆</div>
-          <div>Like the Product? View more of this seller's posts here!</div>
-          <div className='sellerbutwrap'>
-            <NavLink to={`/${shopId}`}>
-              <button className='sellerbut'>{thisShop?.name}</button></NavLink></div>
+          
           <div className='posnam'>{thisPost?.name}</div>
           <div className='posdes'>{thisPost?.description}</div>
           <div className='pospri'>${thisPost?.price} + Shipping</div>
@@ -57,9 +52,38 @@ function OnePost() {
           <div className='ooswrap'>
             <div className='oos'>CURRENTLY OUT OF STOCK</div>
           </div>
+          <div >Sold By {shopUser?.firstname}</div>
+          <div className='s1'>0 sales 	☆	☆	☆	☆	☆</div>
+          <div>Like the Product? View more of this seller's posts here!</div>
+          <div className='sellerbutwrap'>
+            <NavLink className='yiyi' to={`/${shopId}`}>
+              
+                <img className='omago' src={thisShop?.image}></img>
+                <div >{thisShop?.name}</div>
+                </NavLink></div>
         </div>
       </div>
-
+    <div className='secogrid'>
+    <div></div>
+    <div className='legri'>
+      <div className='mojo'>
+      <i id='moji' class="fa-solid fa-cart-shopping"></i>
+      <div className='yaya'>Other people want this. Over 20 people have this in their carts right now.</div>
+      </div>
+      <div className='mojo'>
+      <i  id='moji'  class="fa-solid fa-fire"></i>
+      <div className='yaya'>Star Seller. This seller consistently earned 5-star reviews, shipped on time, and replied quickly to any messages they received.</div>
+      </div>
+      <div className='mojo'>
+      <i id='moji'  class="fa-solid fa-cart-shopping"></i>
+      <div className='yaya'>Other people want this. Over 20 people have this in their carts right now.</div>
+      </div>
+      <div className='mojo'>
+      <i  id='moji'  class="fa-solid fa-handshake"></i>
+      <div className='yaya'>Etsy Purchase Protection: Shop confidently on Etsy knowing if something goes wrong with an order, we've got your back for all eligible purchases</div>
+      </div>
+    </div>
+    </div>
     </>
   );
 }

@@ -16,8 +16,8 @@
     border: 2px solid gray;
 }
 .sellerbut{
-    background-color: white;
-    border-radius: 324890px;
+    /* background-color: white; */
+    /* border-radius: 50%; */
     padding: 10px;
     padding-left: 20px;
     padding-right: 20px;
@@ -28,6 +28,10 @@
      */
      /* display: flex; */
      justify-content: center;
+}
+.omago{
+    border-radius: 50%;
+    width: 70px;
 }
 .posnam{
     font-weight: bold;
@@ -67,11 +71,13 @@
     padding-top: 30px;
     font-weight: bold;
     color: red;
+    
  }
  .ooswrap{
 display: flex;
 font-size: 25px;
 justify-content: center; 
+padding-bottom: 25px;
 }
 .editposta{
     background-color: black;
@@ -84,11 +90,35 @@ justify-content: center;
     /* width: auto; */
     /* position: relative; */
     margin-top: -25px;
-    margin-left: 100%;
+    margin-left: 60%;
     color: white;
     border: 2px solid gray;
 }
 .firstgriddiv{
     display: flex;
     flex-direction: column;
+}
+.secogrid{
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    max-width: 1100px;
+    min-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 10px;
+}
+.mojo{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 10px;
+}
+#moji{
+ font-size: 35px;
+ padding-right: 5px;
+}
+.yaya{
+    font-size: 15px;
+}
+.yiyi{
+    text-decoration: none;
 }
