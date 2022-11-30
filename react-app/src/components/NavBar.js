@@ -21,8 +21,8 @@ const NavBar = () => {
   const isUser = useSelector((state)=> state.session.user )
   let shopModal = (
     <div>
-      <button onClick={() => (setSho
-        (true))}>ADD A SHOP</button>
+      <button className='shopppo' onClick={() => (setSho
+        (true))}>Start Your Shop</button>
       {sho && (
         <Modal onClose={() => setSho(false)}>
           <ShopForm setSho={setSho} />
@@ -43,7 +43,7 @@ const NavBar = () => {
 
   let editshopModal = (
     <div>
-      <button onClick={(e) => ((setEditSho(true)))}>EDIT A SHOP</button>
+      <button  onClick={(e) => ((setEditSho(true)))}>EDIT A SHOP</button>
       {editsho && (
         <Modal onClose={() => setEditSho(false)}>
           <EditShopForm setEditSho={setEditSho} />
@@ -51,15 +51,7 @@ const NavBar = () => {
       )}
     </div>)
 
-  let editpostModal = (
-    <div>
-      <button onClick={(e) => ((setEditPos(true)))}>EDIT A POST</button>
-      {editpos && (
-        <Modal onClose={() => setEditPos(false)}>
-          <EditPostForm setEditPos={setEditPos} />
-        </Modal>
-      )}
-    </div>)
+  
 
   let logModal = (
     <div>
@@ -76,7 +68,7 @@ const NavBar = () => {
       <div className='navstuff'>
         <div>
           <NavLink to='/' exact={true} activeClassName='active'>
-            Home
+         <img className='logoo' src="https://i.ibb.co/09jtMgV/melogo3.png" alt="melogoforreal" border="0"/>
           </NavLink>
         </div>
         {!isUser &&
@@ -98,18 +90,19 @@ const NavBar = () => {
             Users
           </NavLink>
           </div> */}
+           {(isUser && !shopId && !id )&&
+        <div>{shopModal}</div>}
           {isUser &&
         <div>
           <LogoutButton />
         </div>}
-        {isUser &&
-        <div>{shopModal}</div>}
-        {isUser &&
-        <div>{postModal}</div>}
-        {(shopId && !id && isUser) &&
-          <div>{editshopModal}</div>}
-        {(id && isUser)&&
-          <div>{editpostModal}</div>}
+       
+         {isUser &&
+          <div>{postModal}</div>} 
+         {/* {(shopId && !id && isUser) && 
+         <div>{editshopModal}</div>
+         (id && isUser)&& */}
+             {/* <div>{editpostModal}</div>  */}
       </div>
     </nav>
   );

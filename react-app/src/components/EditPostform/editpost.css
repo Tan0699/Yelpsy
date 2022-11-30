@@ -31,9 +31,11 @@
     border-radius: 47823840328490px;
     font-size: 20px;
     padding: 8px;
+    
 }
 .postsubwrap{
     padding-top:30px ;
+ 
 }
 .wrapyi{
     font-size: 20px; 
@@ -48,4 +50,7 @@
     font-size: 20px; 
     font-weight: bold;
     padding-bottom: 10px;
+}
+.deletwrap{
+    padding-top: 30px;
 }

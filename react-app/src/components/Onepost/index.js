@@ -8,12 +8,14 @@ import { deletePost, fetchOnePost, fetchPosts } from '../../store/posts';
 import PostForm from '../Postform';
 import EditPostForm from '../EditPostform';
 import "./Onepost.css"
+import { Modal } from '../../context/Modal';
 function OnePost() {
   const { shopId, id } = useParams()
   const shopState = useSelector((state) => state.shops)
   const postState = useSelector((state) => state.posts)
   const shops = Object.values(shopState)
   const posts = Object.values(postState)
+  const [editpos , setEditPos] = useState(false)
   const history = useHistory()
   const thisPost = posts.filter((post) => post.id == +id)[0]
   const dispatch = useDispatch()
@@ -33,6 +35,15 @@ function OnePost() {
   }, [dispatch])
   const thisShop = shops?.filter(shop => shop.id == +shopId)[0]
   const thisShopposts = posts?.filter(post => post.shop_id === +shopId)
+  let editpostModal = (
+    <div>
+      <button className='editposta' onClick={(e) => ((setEditPos(true)))}>Edit This Post</button>
+      {editpos && (
+        <Modal onClose={() => setEditPos(false)}>
+          <EditPostForm setEditPos={setEditPos} />
+        </Modal>
+      )}
+    </div>)
   return (
     <>
     <div className='wpdiv'>
@@ -42,7 +53,9 @@ function OnePost() {
         <div className='firstgriddiv'>
 
           <img className='firstpostimg' src={thisPost?.image}></img>
-          <button className='editposta'>Edit This Post</button>
+         
+          <div>{editpostModal}</div>
+          
           <div className='shoprev'> 0 Post Reviews ☆	☆	☆	☆	☆</div>
         </div>
 

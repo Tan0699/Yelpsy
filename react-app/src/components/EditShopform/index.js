@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { createShop, editShop, fetchOneShop } from "../../store/shops";
+import { createShop, deleteShop, editShop, fetchOneShop } from "../../store/shops";
 
 
 const EditShopForm = ({setEditSho}) => {
@@ -89,7 +89,9 @@ const EditShopForm = ({setEditSho}) => {
           />
            <div className="postsubwrap">
             <button className="postsub" type="submit">Edit Your Shop</button>
-            </div>
+            <div className="deletwrap"> 
+            <button className="delet" onClick={()=> (dispatch(deleteShop(shopId)),history.push('/'))}>Delete This Shop</button>
+            </div></div>
             {(imageLoading)&& <p>Loading...</p>}
         </form>
     )

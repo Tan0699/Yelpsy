@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { editPost } from "../../store/posts";
+import { deletePost, editPost } from "../../store/posts";
 import { createShop, editShop, fetchOneShop } from "../../store/shops";
 import './editpost.css'
 
@@ -104,6 +104,9 @@ const EditPostForm = ({setEditPos}) => {
           />
            <div className="postsubwrap">
             <button className="postsub" type="submit">Edit this Post</button>
+            <div className="deletwrap"> 
+            <button className="delet" onClick={()=> (dispatch(deletePost(shopId,id)),history.push(`/${shopId}`))}>Delete This Shop</button>
+            </div>
             </div>
             {(imageLoading)&& <p>Loading...</p>}
         </form>

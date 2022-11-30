@@ -52,7 +52,7 @@ function OneShop() {
     <div className='wpdiv'>
     <img className='newwp' src="https://freedesignfile.com/upload/2015/11/silver_christmas_background__vector_1460.png"></img></div>
     <div className='wholediv'>
-      <button onClick={() => (dispatch(deleteShop(shopId)), dispatch(fetchPosts()), history.push('/'))}>DELET</button>
+      {/* <button onClick={() => (dispatch(deleteShop(shopId)), dispatch(fetchPosts()), history.push('/'))}>DELET</button> */}
       <div className='bgwrap'>
       </div>
         {/* <img className='bg' src="https://i.etsystatic.com/ishbs/3bfd46/3634706645/ishbs_3360x448.3634706645_3yxdbizc.jpg?version=0"></img> */}
