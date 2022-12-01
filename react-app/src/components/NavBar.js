@@ -74,6 +74,14 @@ const NavBar = () => {
           <div className='isme'>Welcome {isUser?.firstname}!</div>
           </div>
         </div>
+
+        <div className="author">
+            <img className='githuu' onClick={(e) => (window.location = 'https://github.com/Tan0699')} src="https://cdn-icons-png.flaticon.com/512/25/25231.png">
+                      </img>
+
+                      <img className='githuu' src="https://cdn-icons-png.flaticon.com/512/174/174857.png" onClick={(e) => (window.location = 'https://www.linkedin.com/in/tan-nguyen-8b0a8a257/')}></img>
+                  </div>
+
         {!isUser &&
         <div>
           {logModal}
@@ -83,6 +91,7 @@ const NavBar = () => {
             Login
           </NavLink>
           </div> */}
+         
         {/* <div>
           <NavLink to='/sign-up' exact={true} activeClassName='active'>
             Sign Up

@@ -39,3 +39,10 @@ align-items: center;
     font-weight: bold;
     color: rgb(121,245,217);
 }
+.githuu{
+    width: 70px;
+    cursor: pointer;
+}
+.author{
+   padding-right: 10%;
+}
