@@ -3,10 +3,25 @@
 
 Yelpsy is a full stack web application that is inspired by [Etsy](https://www.etsy.com). Etsy is a web application that allows for people all over the world to sell and buy all sorts of unique items. Any person can become a seller and any person can be a buyer, making it a very diverse marketplace. Yelpsy takes this concept and applies to only food, making it an online marketplace where people are able to sell and buy food. Why go to a restuarant when you can have the restaurant deliver the food to your door? Start buying or selling food online today at [Yeslpy!](https://user-images.githubusercontent.com/106413691/205012941-2cca956b-7370-422a-bb5f-ebedcb566c5e.png)
 
+## Technologies Used
+![css](https://img.shields.io/badge/CSS_Wizardry%20-%23F43059.svg?&style=for-the-badge&logo=CSS%20Wizardry&logoColor=white)
+![JS](https://img.shields.io/badge/JavaScript%20-%23F7DF1E.svg?&style=for-the-badge&logo=JavaScript&logoColor=white)
+![HTML](https://img.shields.io/badge/HTML_Academy%20-%23302683.svg?&style=for-the-badge&logo=HTML%20Academy&logoColor=white)
+![React](https://img.shields.io/badge/React%20-%2361DAFB.svg?&style=for-the-badge&logo=React&logoColor=white)
+![Redux](https://img.shields.io/badge/Redux%20-%23764ABC.svg?&style=for-the-badge&logo=Redux&logoColor=white)
 
+##MVP Core Features 
+###Shops
+Shops are how users can start a business. Specializing in a cuisin or even serving a variety from your kitchen, anyopne can start selling products after starting a shop! 
+![startshop](https://user-images.githubusercontent.com/106413691/205016699-9f8b55ac-8bd7-4504-823a-744a6073118c.PNG)
 
+###Spots
+ AFter creating a shop, users can create posts that have information about the food that they are selling. Anything that is posted can be altered at any point.
+![abtapp](https://user-images.githubusercontent.com/106413691/205016949-d39a9c8c-382d-44ac-821a-3a8a0d1b4534.PNG)
 
-
+## Future Implementation Goals
+In the near future, a search, add to cart, review, and account page will be implemented! All these features will be incorporated to emulate as much of Etsy's functionality as possible. 
+ 
 # Flask React Project
 
 This is the starter for the Flask React project.
