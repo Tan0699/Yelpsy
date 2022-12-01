@@ -66,10 +66,13 @@ const NavBar = () => {
   return (
     <nav>
       <div className='navstuff'>
-        <div>
+        <div className='welcome'>
           <NavLink to='/' exact={true} activeClassName='active'>
          <img className='logoo' src="https://i.ibb.co/09jtMgV/melogo3.png" alt="melogoforreal" border="0"/>
           </NavLink>
+          <div className='ismewrap'>
+          <div className='isme'>Welcome {isUser?.firstname}!</div>
+          </div>
         </div>
         {!isUser &&
         <div>

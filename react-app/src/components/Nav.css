@@ -25,3 +25,17 @@ align-items: center;
     cursor:pointer;
     color: white;
 }
+.welcome{
+    display: flex;
+    flex-direction: row;
+}
+.isme{
+    font-size: 30px;
+}
+.ismewrap{
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    font-weight: bold;
+    color: rgb(121,245,217);
+}
