@@ -1,3 +1,12 @@
+
+![melogo3](https://user-images.githubusercontent.com/106413691/205011406-ce4e38b9-c39f-48c5-be7b-e93f310081b1.png)
+
+Yelpsy is a full stack web application that is inspired by [Etsy](https://www.etsy.com). Etsy is a web application that allows for people all over the world to sell and buy all sorts of unique items. Any person can become a seller and any person can be a buyer, making it a very diverse marketplace. Yelpsy takes this concept and applies to only food, making it an online marketplace where people are able to sell and buy food. Why go to a restuarant when you can have the restaurant deliver the food to your door? Start buying or selling food online today at [Yeslpy!](![pepehands](https://user-images.githubusercontent.com/106413691/205012941-2cca956b-7370-422a-bb5f-ebedcb566c5e.png)
+
+
+
+
+
 # Flask React Project
 
 This is the starter for the Flask React project.
