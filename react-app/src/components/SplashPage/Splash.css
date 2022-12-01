@@ -9,6 +9,7 @@
     /* width: 80%; */
     width: 750px;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    
     overflow: hidden;
     grid-gap: 10px;
     margin-left:auto;

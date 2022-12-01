@@ -50,7 +50,7 @@ function OneShop() {
   return (
     <>
     <div className='wpdiv'>
-    <img className='newwp' src="https://freedesignfile.com/upload/2015/11/silver_christmas_background__vector_1460.png"></img></div>
+    <img className='newwpp' src="https://freedesignfile.com/upload/2015/11/silver_christmas_background__vector_1460.png"></img></div>
     <div className='wholediv'>
       {/* <button onClick={() => (dispatch(deleteShop(shopId)), dispatch(fetchPosts()), history.push('/'))}>DELET</button> */}
       <div className='bgwrap'>

@@ -95,6 +95,8 @@
 .postwrapper{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr; 
+    /* grid-auto-rows: 3; */
+    overflow-x: hidden;
     /* grid-template-rows: repeat(130px,4); */
     /* max-width: 1100px; */
     margin-left:0;
@@ -102,6 +104,7 @@
     /* /* margin-right: auto;  */
     gap: 12px;
     /* color:black */
+    max-height: 85vh;
 }
 .imgpost{
     width: 100% ;
@@ -186,4 +189,16 @@
     border-radius: 34809834px;
     font-weight: bold;
     margin-left: 20vw;
+    cursor: pointer;
+}
+.newwpp{
+    /* display: flex; */
+    /* justify-content: center; */
+    width: 100%;
+    position: absolute;
+    /* max-width: 1110px; */
+    min-width: 700px;
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+    height:1250px
 }

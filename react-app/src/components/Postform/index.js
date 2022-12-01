@@ -57,7 +57,7 @@ const PostForm = ({setPos,setEditSho}) => {
           <div className="posttop">Make a Post!</div>
           <div className="errors">
         {errors?.map((error, ind) => (
-          <div className="errors" key={ind}>{error}</div>
+          <div  className="errors" key={ind}>{error}</div>
         ))}
       </div>
  

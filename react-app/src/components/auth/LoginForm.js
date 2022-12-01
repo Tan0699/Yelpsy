@@ -60,8 +60,8 @@ const LoginForm = ({ setLog }) => {
       </div>
       <form onSubmit={onLogin}>
         <div>
-          {errors.map((error, ind) => (
-            <div key={ind}>{error}</div>
+          {errors?.map((error, ind) => (
+            <div className="errors" key={ind}>{error}</div>
           ))}
         </div>
         <div>

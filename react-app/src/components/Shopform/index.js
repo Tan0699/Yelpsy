@@ -54,7 +54,7 @@ const ShopForm = ({ setSho }) => {
             <div className="posttop">Begin Your Journey Today!</div>
             <div  className="errors">
                 {errors?.map((error, ind) => (
-                    <div key={ind}>{error}</div>
+                    <div className="errors" key={ind}>{error}</div>
                 ))}
             </div>
             <label className='wrapyo'>Image File</label>

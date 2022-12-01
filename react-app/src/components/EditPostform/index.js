@@ -62,7 +62,7 @@ const EditPostForm = ({setEditPos}) => {
           <div className="posttop">Update your Post Details!</div>
           <div className="errors">
                 {errors?.map((error, ind) => (
-                    <div key={ind}>{error}</div>
+                    <div className="errors" key={ind}>{error}</div>
                 ))}
             </div>
             <label className='wrapyo'>Image File</label>
@@ -105,7 +105,7 @@ const EditPostForm = ({setEditPos}) => {
            <div className="postsubwrap">
             <button className="postsub" type="submit">Edit this Post</button>
             <div className="deletwrap"> 
-            <button className="delet" onClick={()=> (dispatch(deletePost(shopId,id)),history.push(`/${shopId}`))}>Delete This Shop</button>
+            <button className="delet" onClick={()=> (dispatch(deletePost(shopId,id)),history.push(`/${shopId}`))}>Delete This Post</button>
             </div>
             </div>
             {(imageLoading)&& <p>Loading...</p>}

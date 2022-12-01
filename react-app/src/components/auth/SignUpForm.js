@@ -57,8 +57,8 @@ const SignUpForm = ({setSign,setLog}) => {
       <div className='createacc'>Create your Account</div>
       <div className='regisez'>Registration is easy.</div>
       <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
+        {errors?.map((error, ind) => (
+          <div className="errors" key={ind}>{error}</div>
         ))}
       </div>
       <div className='div1'>
