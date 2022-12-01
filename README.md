@@ -9,6 +9,10 @@ Yelpsy is a full stack web application that is inspired by [Etsy](https://www.et
 ![HTML](https://img.shields.io/badge/HTML_Academy%20-%23302683.svg?&style=for-the-badge&logo=HTML%20Academy&logoColor=white)
 ![React](https://img.shields.io/badge/React%20-%2361DAFB.svg?&style=for-the-badge&logo=React&logoColor=white)
 ![Redux](https://img.shields.io/badge/Redux%20-%23764ABC.svg?&style=for-the-badge&logo=Redux&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask%20-%23000000.svg?&style=for-the-badge&logo=Flask&logoColor=white)
+![Python](https://img.shields.io/badge/Python%20-%233776AB.svg?&style=for-the-badge&logo=Python&logoColor=white)
+![NPM](https://img.shields.io/badge/NPM%20-%23CB3837.svg?&style=for-the-badge&logo=NPM&logoColor=white)
+![AWS](https://img.shields.io/badge/Amazon_AWS%20-%23232F3E.svg?&style=for-the-badge&logo=Amazon%20AWS&logoColor=white)
 
 ##MVP Core Features 
 ###Shops
