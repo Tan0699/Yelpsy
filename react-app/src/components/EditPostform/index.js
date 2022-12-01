@@ -87,6 +87,7 @@ const EditPostForm = ({setEditPos}) => {
           <label className='wrapyo'>Post Description</label>
           <input className="wrapya"
             type="text"
+            minLength={50}
             maxLength={200}
             required
             value={description}

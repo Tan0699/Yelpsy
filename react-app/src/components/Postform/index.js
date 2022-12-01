@@ -81,6 +81,7 @@ const PostForm = ({setPos,setEditSho}) => {
           <input className="wrapya"
             // placeholder="Write description here"
             type="text"
+            minLength={50}
             maxLength={200}
             required
             value={description}
