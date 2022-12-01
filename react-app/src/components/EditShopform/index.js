@@ -71,7 +71,7 @@ const EditShopForm = ({setEditSho}) => {
         <form className="postformwrap" onSubmit={handleSubmit}>
             <div className='postah'>
              <button className='setsignbut' onClick={()=> setPos(true)}>Add a Post</button></div>
-            <div className="posttop">Begin Your Journey Today!</div>
+            <div className="posttop">Shop Getting Outdated?</div>
             <div  className="errors">
                 {errors?.map((error, ind) => (
                     <div className="errors" key={ind}>{error}</div>
