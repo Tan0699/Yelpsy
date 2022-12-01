@@ -14,12 +14,12 @@ Yelpsy is a full stack web application that is inspired by [Etsy](https://www.et
 ![NPM](https://img.shields.io/badge/NPM%20-%23CB3837.svg?&style=for-the-badge&logo=NPM&logoColor=white)
 ![AWS](https://img.shields.io/badge/Amazon_AWS%20-%23232F3E.svg?&style=for-the-badge&logo=Amazon%20AWS&logoColor=white)
 
-##MVP Core Features 
-###Shops
+## MVP Core Features 
+### Shops
 Shops are how users can start a business. Specializing in a cuisin or even serving a variety from your kitchen, anyopne can start selling products after starting a shop! 
 ![startshop](https://user-images.githubusercontent.com/106413691/205016699-9f8b55ac-8bd7-4504-823a-744a6073118c.PNG)
 
-###Spots
+### Spots
  AFter creating a shop, users can create posts that have information about the food that they are selling. Anything that is posted can be altered at any point.
 ![abtapp](https://user-images.githubusercontent.com/106413691/205016949-d39a9c8c-382d-44ac-821a-3a8a0d1b4534.PNG)
 
