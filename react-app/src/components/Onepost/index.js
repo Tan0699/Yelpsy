@@ -11,6 +11,7 @@ import "./Onepost.css"
 import { Modal } from '../../context/Modal';
 function OnePost() {
   const { shopId, id } = useParams()
+  const thisUser = useSelector((state) => state.session.user)
   const shopState = useSelector((state) => state.shops)
   const postState = useSelector((state) => state.posts)
   const shops = Object.values(shopState)
@@ -33,6 +34,8 @@ function OnePost() {
     dispatch(fetchOnePost(shopId, id))
     dispatch(fetchShops())
   }, [dispatch])
+  console.log("huhu why no work",thisUser?.id)
+  console.log("huhu why no work",thisPost?.user_id)
   const thisShop = shops?.filter(shop => shop.id == +shopId)[0]
   const thisShopposts = posts?.filter(post => post.shop_id === +shopId)
   let editpostModal = (
@@ -53,8 +56,8 @@ function OnePost() {
         <div className='firstgriddiv'>
 
           <img className='firstpostimg' src={thisPost?.image}></img>
-         
-          <div>{editpostModal}</div>
+         {(thisUser?.id == thisPost?.user_id) &&
+          <div>{editpostModal}</div>}
           
           <div className='shoprev'> 0 Post Reviews ☆	☆	☆	☆	☆</div>
         </div>

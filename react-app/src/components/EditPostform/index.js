@@ -67,7 +67,7 @@ const EditPostForm = ({setEditPos}) => {
             </div>
             <label className='wrapyo'>Image File</label>
             {appear2 &&
-            <button onClick={()=>(setAppear(true),setAppear2(false))}>Select a New Image</button>}
+            <button className="butto" onClick={()=>(setAppear(true),setAppear2(false))}>Select a New Image</button>}
             {appear &&
             
             <input className="fileya"

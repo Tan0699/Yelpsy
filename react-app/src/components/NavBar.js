@@ -55,7 +55,7 @@ const NavBar = () => {
 
   let logModal = (
     <div>
-      <button onClick={() => ((setLog(true)))}>LOGIN</button>
+      <button className='setsignbut' onClick={() => ((setLog(true)))}>Login</button>
       {log && (
         <Modal onClose={() => setLog(false)}>
           <LoginForm setLog={setLog} />

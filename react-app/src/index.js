@@ -16,5 +16,6 @@ ReactDOM.render(
     </ModalProvider>
       </Provider>
   </React.StrictMode>,
+  
   document.getElementById('root')
 );

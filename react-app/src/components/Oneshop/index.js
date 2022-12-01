@@ -83,7 +83,9 @@ function OneShop() {
             </div></div>
         </div>
         <div>
-        {editshopModal}
+          {(thisUser?.id == thisShop?.user_id) &&
+          <div>
+        {editshopModal}</div>}
         </div>
       <div className='anoun'>
         <div>

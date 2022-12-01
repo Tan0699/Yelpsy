@@ -54,3 +54,8 @@
 .deletwrap{
     padding-top: 30px;
 }
+.postah{
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 20px;
+}
