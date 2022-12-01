@@ -65,23 +65,30 @@ function OnePost() {
         <div className='otherhalf'>
           
           <div className='posnam'>{thisPost?.name}</div>
-          <div className='posdes'>{thisPost?.description}</div>
           <div className='pospri'>${thisPost?.price} + Shipping</div>
           <div className='shp'>Shipping Cost based on your Location: Free!</div>
+          <div className='descripto'> Product Description:</div>
+          <div className='posdes'>{thisPost?.description}</div>
           <div className='ooswrap'>
-            <div className='oos'>CURRENTLY OUT OF STOCK</div>
           </div>
           <div >Sold By {shopUser?.firstname}</div>
           <div className='s1'>0 sales 	☆	☆	☆	☆	☆</div>
+          <div className='likepro'>
           <div>Like the Product? View more of this seller's posts here!</div>
           <div className='sellerbutwrap'>
             <NavLink className='yiyi' to={`/${shopId}`}>
               
                 <img className='omago' src={thisShop?.image}></img>
                 <div >{thisShop?.name}</div>
-                </NavLink></div>
+                </NavLink></div></div>
+              <div className='qty'>Purchase Quantity:</div>
+              <div className='sadgewrap'>
+              <button className='oossadge'>Sorry Product Sold Out</button>
+              </div>
         </div>
+        
       </div>
+      
     <div className='secogrid'>
     <div></div>
     <div className='legri'>

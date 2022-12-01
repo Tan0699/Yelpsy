@@ -31,9 +31,10 @@ function Splash() {
       <div className='color'>
         <div className='pink'>
           <div className='blanktext'>Enjoy the Holidays With Some Delicous Food!</div>
+          <div className='blanktext'>Start By Checking Out These Shops</div>
         </div>
         <div className='cheke'>
-          <div className='checkoutshop'>Check out these shops!</div>
+          <div className='checkoutshop'></div>
         </div>
       </div>
 
@@ -65,15 +66,15 @@ function Splash() {
       <div>POST SHOPS</div>
 
       <div className='postgrid'>
-        {posts.filter((apost,yoyo) => yoyo <32).reverse().map(post => (
-          <NavLink onClick={() => window.scrollTo(0, 0)} to={`/${post.shop_id}/posts/${post.id}`}>
+        {posts.filter((apost,yoyo) => yoyo <32).map(post => (
+          <NavLink className="priceroo" onClick={() => window.scrollTo(0, 0)} to={`/${post.shop_id}/posts/${post.id}`}>
             <div className='PostImageContainer' key={post.id}>
               <div className='PostImage'>
                 <img className='pics' src={post.image}
                 ></img>
               </div>
               <div className='PostPriceWrap'>
-                <div className='Price'>{post.price}</div>
+                <div className='Price'>${post.price}</div>
               </div>
             </div>
           </NavLink>

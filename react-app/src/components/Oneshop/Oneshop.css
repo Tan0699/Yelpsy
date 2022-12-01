@@ -159,6 +159,7 @@
     height: 35px;
     border-radius: 98898px;
     color: white;
+    cursor: not-allowed;
 }
 .faker{
     display: flex;

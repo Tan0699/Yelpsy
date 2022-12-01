@@ -25,26 +25,38 @@
 .PostPriceWrap{
     position: absolute;
     height: 20px;
-    width:50px;
-    background-color: white;
+    /* width:75px; */
+    /* background-color: white;
     border-radius: 20px;
-    border: .5px solid rgb(239, 228, 228);
+    border: .5px solid rgb(239, 228, 228); */
     top: 0;
-    bottom: 0;
+    bottom:0 ;
     left: 0;
     right: 0;
+    margin-top: 75px;
+   margin-left: 5px;
+   display: flex;
 }
 .Price{
     /* position:absolute; */
     display: flex;
     justify-content: center;
+    background-color: white;
+    border-radius: 20px;
+    border: .5px solid rgb(239, 228, 228);
+    width: auto;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .Shops{
     display: grid;
     grid-row: 1;
     overflow-x: scroll;
+    /* scrollbar-width: thin; */
 }
+
+
 .Shops2{
     display: grid;
     grid-row: 1;
@@ -62,6 +74,7 @@
     position: absolute;
     width: 100%;
     display: grid;
+    grid-template-rows: 1fr 1fr;
     min-width: 700px;
 }
 .shopgrid{
@@ -94,7 +107,7 @@
     display: flex;
     justify-content: center;
     font-size: 25px;
-    padding-top: 20px;
+    /* padding-top: 20px; */
 }
 .imagename{
     display: flex;
@@ -103,11 +116,25 @@
 }
 .navls{
     text-decoration: none;
+    color: black;
 }
 .checkoutshop{
     display: flex;
     justify-content: center;
+    /* padding-top: 70px; */
+    /* flex-direction: column */
 }
     .cheke{
-        background-color: white;
+        background-color: rgb(153,179,204);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        /* height: 100px; */
+
     }
+.nana{
+    color: black;
+}
+.priceroo{
+    color: black;
+}

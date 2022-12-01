@@ -13,14 +13,15 @@ align-items: center;
 .shopppo{
     height: 40px;
     border-radius: 23904802px;
-    background-color: aqua;
+    background-color: white;
     cursor: pointer;
 }
 .partypooper{
     height: 40px;
-    background-color: white;
-    border: 2px black solid;
+    background-color: black;
+    border: 2px white solid;
     border-radius: 239084px;
     width:100px;
     cursor:pointer;
+    color: white;
 }

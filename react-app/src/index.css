@@ -4,5 +4,20 @@
     background-color: rgb(152,180,204);
     /* display: flex; */
    
-   
 }
+    /* *::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        /* visibility: hidden; */
+    
+    
+    /* *::-webkit-scrollbar-thumb {
+        background-color: rgba(169, 169, 169, 0.343);
+        outline: 1px solid rgba(112, 128, 144, 0.662); */
+        /* visibility: hidden; */
+   
+
+/* 
+::-webkit-scrollbar {
+    background: transparent;
+    scrollbar-width: thin;
+  } */
