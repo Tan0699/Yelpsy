@@ -74,7 +74,7 @@ const NavBar = () => {
           <div className='isme'>Welcome {isUser?.firstname}!</div>
           </div>
         </div>
-        {(!shopId && !id )&&
+        {(!isUser) &&
         <div className="author">
             <img className='githuu' onClick={(e) => (window.location = 'https://github.com/Tan0699')} src="https://cdn-icons-png.flaticon.com/512/25/25231.png">
                       </img>
