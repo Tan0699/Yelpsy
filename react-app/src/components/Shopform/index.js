@@ -67,7 +67,7 @@ const ShopForm = ({ setSho }) => {
             <input className="wrapya"
                 // placeholder="Write name here"
                 type="text"
-                maxLength={20}
+                maxLength={16}
                 // required pattern="[^A-Za-z$]+" title="Enter one word"
                 required
                 value={name}

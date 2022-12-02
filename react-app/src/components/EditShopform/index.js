@@ -90,7 +90,7 @@ const EditShopForm = ({setEditSho}) => {
             <label className='wrapyo'>Shop Name</label>
             <input className="wrapya"
             type="text"
-            maxLength={20}
+            maxLength={16}
             required
             value={name}
             onChange={(e) => setName(e.target.value)}
