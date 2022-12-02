@@ -92,10 +92,10 @@ function OnePost() {
     <div className='secogrid'>
     <div></div>
     <div className='legri'>
-      <div className='mojo'>
+      {/* <div className='mojo'>
       <i id='moji' class="fa-solid fa-cart-shopping"></i>
       <div className='yaya'>Other people want this. Over 20 people have this in their carts right now.</div>
-      </div>
+      </div> */}
       <div className='mojo'>
       <i  id='moji'  class="fa-solid fa-fire"></i>
       <div className='yaya'>Star Seller. This seller consistently earned 5-star reviews, shipped on time, and replied quickly to any messages they received.</div>
