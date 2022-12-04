@@ -59,7 +59,7 @@ function OnePost() {
          {(thisUser?.id == thisPost?.user_id) &&
           <div>{editpostModal}</div>}
           
-          <div className='shoprev'> 0 Post Reviews ☆	☆	☆	☆	☆</div>
+          {/* <div className='shoprev'> 0 Post Reviews ☆	☆	☆	☆	☆</div> */}
         </div>
 
         <div className='otherhalf'>
