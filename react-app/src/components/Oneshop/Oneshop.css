@@ -20,6 +20,7 @@
     border-radius: 10px;
     top: -4px;
     /* word-wrap: break-word; */
+    overflow-y: hidden;
 }
 .anon{
     width: 80px;

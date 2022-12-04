@@ -77,7 +77,7 @@ const ShopForm = ({ setSho }) => {
             <input className="wrapya"
                 // placeholder="Write description here"
                 type="text"
-                maxLength={200}
+                maxLength={160}
                 required
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}

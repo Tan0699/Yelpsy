@@ -82,6 +82,7 @@
     position: relative;
     display: grid;
     overflow-x: scroll;
+    overflow-y: hidden;
     grid-gap: 80px;
     width: 70%;
     min-width: 700px;
