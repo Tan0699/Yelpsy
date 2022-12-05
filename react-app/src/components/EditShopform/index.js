@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { Modal } from "../../context/Modal";
+import { fetchPosts } from "../../store/posts";
 import { createShop, deleteShop, editShop, fetchOneShop } from "../../store/shops";
 import PostForm from "../Postform";
 
@@ -106,11 +107,12 @@ const EditShopForm = ({setEditSho}) => {
            <div className="postsubwrap">
             <button className="postsub" type="submit">Edit Your Shop</button>
             <div className="deletwrap"> 
-            <button className="delet" onClick={()=> (dispatch(deleteShop(shopId)),history.push('/'))}>Delete This Shop</button>
+            <button className="delet" onClick={()=> (dispatch(deleteShop(shopId)),dispatch(fetchPosts()),history.push('/'))}>Delete This Shop</button>
             </div></div>
             {(imageLoading)&& <p>Loading...</p>}
         </form>}
         </div>
+        // render test
     )
 }
 
