@@ -99,6 +99,7 @@
     font-size: 15px;
     /* max-width: 30%; */
     color: black;
+    /* height: 200px; */
 }
 .postwrapper{
     display: grid;
@@ -112,11 +113,11 @@
     /* /* margin-right: auto;  */
     gap: 12px;
     /* color:black */
-    max-height: 85vh;
+    max-height: 95vh;
 }
 .imgpost{
     width: 100% ;
-    height: 70%;
+    height: 200px;
     border-radius: 8px;
     object-fit: cover;
     border: 2px solid black;

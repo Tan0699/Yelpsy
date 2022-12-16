@@ -27,7 +27,7 @@ function Splash() {
   return (
     <>
       <div className='wpdiv'>
-        <img className='newwp' src="https://freedesignfile.com/upload/2015/11/silver_christmas_background__vector_1460.png"></img></div>
+        <img className='newwp' src="https://i.ibb.co/S5DZC80/lepic.png"></img></div>
       <div className='color'>
         <div className='pink'>
           <div className='blanktext'>Enjoy the Holidays With Some Delicous Food!</div>
