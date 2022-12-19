@@ -49,8 +49,8 @@ function OneShop() {
 
   return (
     <>
-    <div className='wpdiv'>
-    <img className='newwpp' src="https://i.ibb.co/S5DZC80/lepic.png"></img></div>
+    {/* <div className='wpdiv'>
+    <img className='newwpp' src="https://i.ibb.co/S5DZC80/lepic.png"></img></div> */}
     <div className='wholediv'>
       {/* <button onClick={() => (dispatch(deleteShop(shopId)), dispatch(fetchPosts()), history.push('/'))}>DELET</button> */}
       <div className='bgwrap'>

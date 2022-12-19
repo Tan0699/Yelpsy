@@ -49,8 +49,8 @@ function OnePost() {
     </div>)
   return (
     <>
-    <div className='wpdiv'>
-    <img className='newwp' src="https://i.ibb.co/S5DZC80/lepic.png"></img></div>
+    {/* <div className='wpdiv'>
+    <img className='newwp' src="https://i.ibb.co/S5DZC80/lepic.png"></img></div> */}
     <div className='wholediv'>
       <div className='firstpostgrid'>
         <div className='firstgriddiv'>
