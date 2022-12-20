@@ -33,6 +33,13 @@
     border-radius: 50%;
     width: 70px;
 }
+.omago:hover {
+    /* transform: scale(1.05); */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
+    /* width: 160px;
+    height: 100px; */
+    border-radius: 853434543px;
+  }
 .posnam{
     font-weight: bold;
     font-size: 30px;

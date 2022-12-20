@@ -10,7 +10,7 @@ import PostForm from './Postform';
 import ShopForm from './Shopform';
 import LoginForm from '../components/auth/LoginForm'
 import { useSelector } from 'react-redux';
-
+// import fda from "../../public/fa"
 const NavBar = () => {
   const { shopId, id } = useParams()
   const [sho, setSho] = useState(false);
@@ -68,7 +68,7 @@ const NavBar = () => {
       <div className='navstuff'>
         <div className='welcome'>
           <NavLink to='/' exact={true} activeClassName='active'>
-         <img className='logoo' src="https://i.ibb.co/09jtMgV/melogo3.png" alt="melogoforreal" border="0"/>
+         <img className='logoo' src="https://i.ibb.co/jvjwccF/favi-2.png" alt="melogoforreal" border="0"/>
           </NavLink>
           <div className='ismewrap'>
           <div className='isme'>Welcome {isUser?.firstname}!</div>
