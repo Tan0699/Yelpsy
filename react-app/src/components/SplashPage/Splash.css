@@ -92,6 +92,7 @@
     display: grid;
     grid-template-rows: 1fr 1fr;
     min-width: 700px;
+    /* margin-left: 0px; */
 }
 .shopgrid{
     height: 200px;
@@ -107,6 +108,7 @@
 }
 .pink{
     background-color: pink;
+    /* width: 100%; */
 }
 .inmap{
     display: grid;
@@ -159,3 +161,8 @@
 /* .justname{
     word-wrap: break-word;          
 } */
+
+html, body {
+    margin: 0;
+    padding: 0;
+  }
