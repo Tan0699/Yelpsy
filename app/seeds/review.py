@@ -1,5 +1,5 @@
-from app.models import db, Post, environment, SCHEMA
-from datetime import date
+from app.models import db, Review, environment, SCHEMA
+from datetime import datetime,date
 def seed_reviews():
     re1 = Review(created_at =  date.fromisoformat('2023-12-04'),rating=1, user_id=1, description="Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good ",image="https://www.forkknifeswoon.com/wp-content/uploads/2014/10/simple-homemade-chicken-ramen-fork-knife-swoon-01.jpg",shop_id=1)
     re2 = Review(created_at =  date.fromisoformat('2013-12-04'),rating=2, user_id=1, description="Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good ",image="https://www.forkknifeswoon.com/wp-content/uploads/2014/10/simple-homemade-chicken-ramen-fork-knife-swoon-01.jpg",post_id=1)

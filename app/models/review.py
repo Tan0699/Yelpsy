@@ -1,6 +1,6 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 from werkzeug.security import generate_password_hash, check_password_hash
-from datetime import 
+from datetime import datetime
 class Review(db.Model):
     __tablename__ = 'reviews'
 
