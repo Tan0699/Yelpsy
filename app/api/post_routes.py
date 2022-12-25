@@ -112,7 +112,7 @@ def edit_post(shopId,id):
             one_post.user_id = current_user.id
             one_post.description = data["description"]
             one_post.price = data["price"]
-            shop_id=shopId
+            # shop_id=shopId
             db.session.commit()
         return make_response(one_post.to_dict(), 200)
     else:
