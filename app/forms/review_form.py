@@ -4,10 +4,10 @@ from wtforms.validators import DataRequired
 
 
 class NewReview(FlaskForm):
-  rating = StringField('rating', validators=[DataRequired()])
+  rating = IntegerField('rating', validators=[DataRequired()])
   description = StringField('description', validators=[DataRequired()])
   image = StringField('image', validators=[DataRequired()])
-  shop_id = StringField('shop_id')
-  post_id = StringField('post_id')
+  shop_id = IntegerField('shop_id')
+  post_id = IntegerField('post_id')
   
   
