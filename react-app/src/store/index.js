@@ -3,10 +3,12 @@ import thunk from 'redux-thunk';
 import postReducer from './posts';
 import sessionReducer from './session'
 import shopReducer from './shops'
+import reviewReducer from './reviews'
 const rootReducer = combineReducers({
   session:sessionReducer,
   shops:shopReducer,
-  posts:postReducer
+  posts:postReducer,
+  reviews:reviewReducer
 });
 
 

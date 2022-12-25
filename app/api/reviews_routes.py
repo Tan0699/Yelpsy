@@ -10,7 +10,7 @@ from ..models import Shop,Post,Review
 review_routes = Blueprint('reviews', __name__)
 
 
-@review_routes.route('/reviews/all',methods=["GET"])
+@review_routes.route('/',methods=["GET"])
 def get_all_reviews():
     reviews = Review.query.all()
     review_list = {"reviews": [review.to_dict() for review in reviews]}
@@ -25,7 +25,7 @@ def get_all_reviews():
 #     return make_response(rev.to_dict(), 200)
     
     #  get shopreview by ID
-@review_routes.route('/reviews/<int:id>')
+@review_routes.route('/<int:id>')
 def get_one_shoprev(id):
     rev = Review.query.get(id)
     if not rev:
@@ -35,7 +35,7 @@ def get_one_shoprev(id):
   
 
 # post a new rev
-@review_routes.route('/review/new_review', methods=['GET', 'POST'])
+@review_routes.route('/new_review', methods=['GET', 'POST'])
 def new_review():
     form = NewReview()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -73,7 +73,7 @@ def new_review():
 
 
 # Delete a review
-@review_routes.route("/reviews/<int:id>", methods=["DELETE"])
+@review_routes.route("/<int:id>", methods=["DELETE"])
 def delete_review(id):
     review = Review.query.get(id)
     if(not review):
@@ -87,7 +87,7 @@ def delete_review(id):
         }
 
 #edit a post
-@review_routes.route("/review/<int:id>", methods=["PUT"])
+@review_routes.route("/<int:id>", methods=["PUT"])
 def edit_review(id):
     form = NewReview()
     form['csrf_token'].data = request.cookies['csrf_token']
