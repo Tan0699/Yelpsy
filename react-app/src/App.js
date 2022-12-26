@@ -11,6 +11,7 @@ import { authenticate } from './store/session';
 import Splash from './components/SplashPage';
 import OneShop from './components/Oneshop';
 import OnePost from './components/Onepost';
+import ReviewForm from './components/ReviewForm';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -53,6 +54,9 @@ function App() {
         <Route path='/:shopId/posts/:id' exact={true} >
         <NavBar />
           <OnePost/>
+        </Route>
+        <Route path='/reviews/ree' exact={true} >
+          <ReviewForm/>
         </Route>
       </Switch>
     </BrowserRouter>

@@ -61,10 +61,10 @@ def new_review():
             user_id = current_user.id,
             description = data["description"],
             image = url,
-            if data["shop_id"]:
-                post_id = data["shop_id"],
-            if data["post_id"]:
-                shop_id = data["post_id"],
+            # if (data["shop_id"]):
+            post_id = data["shop_id"],
+            # if (data["post_id"]):
+            shop_id = data["post_id"],
             rating = data["rating"]
         )
         db.session.add(review)
