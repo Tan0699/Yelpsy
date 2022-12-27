@@ -60,7 +60,7 @@ return (
             value={rating}
             onChange={(e) => setRating(e.target.value)}
           />
-           <button className="postsub"onClick={()=>(setformrate(false),setformdesc(true))} >Go next</button>
+           <button className="postsub" onClick={()=>(setformrate(false),setformdesc(true))} >Go next</button>
     </form>}
     {formdesc &&
     <form>
@@ -74,7 +74,7 @@ return (
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
-           <button className="postsub"onClick={()=>(setformimg(true),setformdesc(false))} >Go next</button>
+           <button className="postsub"onClick={()=>(setformdesc(false),setformimg(true))} >Go next</button>
     </form>}
 {formimg &&
     <form className="postformwrap" onSubmit={handleSubmit}>
