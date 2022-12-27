@@ -17,6 +17,7 @@ function Purchases() {
   const dispatch = useDispatch()
   const history = useHistory()
   const [revi, setrevi] = useState(false);
+  const [currentpost , setcurrentpost] = useState("")
   useEffect(() => {
     dispatch(fetchShops())
     dispatch(fetchPosts())
@@ -38,7 +39,7 @@ function Purchases() {
       <div className='postgrid'>
         {posts.filter((apost,yoyo) => yoyo <32).map(post => (
             <div>
-           <button onClick={(e) => ((setrevi(true)))}>
+           <button onClick={(e) => ((setrevi(true),setcurrentpost(post.id)))}>
             <div className='PostImageContainer' key={post.id}>
               <div className='PostImage'>
                 <img className='pics' src={post.image}
@@ -55,7 +56,7 @@ function Purchases() {
       </div>
       <div> {revi && (
                 <Modal onClose={() => setrevi(false)}>
-                  <ReviewForm setrevi={setrevi} />
+                  <ReviewForm posts={posts} currentpost={currentpost} />
                 </Modal>
               )}</div>
     </>

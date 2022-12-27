@@ -2,27 +2,31 @@ import React, {useState} from "react";
 import { useDispatch } from "react-redux";
 import { createReview } from "../../store/reviews";
 
-const ReviewForm = ({review})=>{
+const ReviewForm = ({posts,currentpost})=>{
+  console.log("le current",currentpost)
     const dispatch = useDispatch()
     const [rating, setRating] = useState(0)
     const [description, setDescription] = useState("")
-    const [shop_id, setshop] = useState(review?.shop_id)
-    const [post_id, setpost] = useState(review?.post_id)
+    const filteredPost = (posts.filter((post)=> post.id == +currentpost))[0]
+    console.log("le filtered post ", filteredPost)
+    const [shop_id, setshop] = useState(filteredPost?.shop_id)
+    const [post_id, setpost] = useState(filteredPost?.post_id)
     const [image, setImage] = useState(null)
     const [errors, setErrors] = useState([]);
     const [imageLoading, setImageLoading] = useState(false)
     const [formrate, setformrate] = useState(true)
     const [formdesc, setformdesc] = useState(false)
     const [formimg, setformimg] = useState(false)
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
         const payload = new FormData();
         payload.append("image", image);
         payload.append("rating",rating)
         payload.append("description",description)
-        if (review?.shop_id){
+        if (filteredPost?.shop_id){
         payload.append("shop_id",shop_id)}
-        if (review?.post_id){
+        if (filteredPost?.post_id){
         payload.append("post_id",post_id)}
         // aws uploads can be a bit slow—displaying
         // some sort of loading message is a good idea
@@ -51,6 +55,7 @@ return (
     <>
     {formrate &&
     <form>
+      
     <label className='wrapyo'>Post Rating</label>
             <input className="wrapya"
             // placeholder="Write name here"
@@ -60,6 +65,9 @@ return (
             value={rating}
             onChange={(e) => setRating(e.target.value)}
           />
+          <div>
+        {filteredPost.id}
+      </div>
            <button className="postsub" onClick={()=>(setformrate(false),setformdesc(true))} >Go next</button>
     </form>}
     {formdesc &&
