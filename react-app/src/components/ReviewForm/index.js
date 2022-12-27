@@ -11,6 +11,9 @@ const ReviewForm = ({review})=>{
     const [image, setImage] = useState(null)
     const [errors, setErrors] = useState([]);
     const [imageLoading, setImageLoading] = useState(false)
+    const [formrate, setformrate] = useState(true)
+    const [formdesc, setformdesc] = useState(false)
+    const [formimg, setformimg] = useState(false)
     const handleSubmit = async (e) => {
         e.preventDefault();
         const payload = new FormData();
@@ -46,23 +49,9 @@ const ReviewForm = ({review})=>{
     }
 return (
     <>
-    <form className="postformwrap" onSubmit={handleSubmit}>
-          <div className="posttop">Have something to sell?</div>
-          <div className="posttop">Make a Post!</div>
-          <div className="errors">
-        {errors?.map((error, ind) => (
-          <div  className="errors" key={ind}>{error}</div>
-        ))}
-      </div>
- 
-      <label className='wrapyo'>Image File</label>
-            <input className="fileya"
-              type="file"
-              accept="image/*"
-              onChange={updateImage}
-             
-            />
-            <label className='wrapyo'>Post Name</label>
+    {formrate &&
+    <form>
+    <label className='wrapyo'>Post Rating</label>
             <input className="wrapya"
             // placeholder="Write name here"
             type="text"
@@ -71,7 +60,11 @@ return (
             value={rating}
             onChange={(e) => setRating(e.target.value)}
           />
-          <label className='wrapyo'>Post Description</label>
+           <button className="postsub"onClick={()=>(setformrate(false),setformdesc(true))} >Go next</button>
+    </form>}
+    {formdesc &&
+    <form>
+     <label className='wrapyo'>Post Description</label>
           <input className="wrapya"
             // placeholder="Write description here"
             type="text"
@@ -81,12 +74,29 @@ return (
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
-          <label className='wrapyo'>Price</label>
+           <button className="postsub"onClick={()=>(setformimg(true),setformdesc(false))} >Go next</button>
+    </form>}
+{formimg &&
+    <form className="postformwrap" onSubmit={handleSubmit}>
+          <div className="posttop">Have something to sell?</div>
+          <div className="posttop">Make a Post!</div>
+          <div className="errors">
+        {errors?.map((error, ind) => (
+          <div  className="errors" key={ind}>{error}</div>
+        ))}
+      </div>
+      <label className='wrapyo'>Image File</label>
+            <input className="fileya"
+              type="file"
+              accept="image/*"
+              onChange={updateImage}
+             
+            />
          <div className="postsubwrap">
             <button className="postsub" type="submit">Create a Post</button>
             </div>
             {(imageLoading)&& <p>Loading...</p>}
-        </form>
+        </form>}
     </>
 )
 }
