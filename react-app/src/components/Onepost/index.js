@@ -9,6 +9,8 @@ import PostForm from '../Postform';
 import EditPostForm from '../EditPostform';
 import "./Onepost.css"
 import { Modal } from '../../context/Modal';
+import CartForm from '../CartForm';
+import { deleteFromCartThunk } from '../../store/cart';
 function OnePost() {
   const { shopId, id } = useParams()
   const thisUser = useSelector((state) => state.session.user)
@@ -90,7 +92,8 @@ function OnePost() {
       </div>
       
     <div className='secogrid'>
-    <div></div>
+    <div><CartForm thisPost={thisPost}/></div>
+    <button onClick={()=>{dispatch(deleteFromCartThunk(thisPost))}}>CLICK TO DELET</button>
     <div className='legri'>
       {/* <div className='mojo'>
       <i id='moji' class="fa-solid fa-cart-shopping"></i>

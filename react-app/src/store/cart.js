@@ -27,9 +27,9 @@ export const addToCartThunk = (product) => async dispatch =>{
     const cart = localStorage.getItem('cart')?
      JSON.parse(localStorage.getItem('cart')): []
 
-    const dupes = cart.filter(cartProduct => cartProduct._id === product._id)
+    // const dupes = cart.filter(cartProduct => cartProduct.id === product.id)
 
-    if (dupes.length === 0){
+    // if (dupes.length === 0){
         const addProduct = {
             ...product,
             count:1,
@@ -40,7 +40,7 @@ export const addToCartThunk = (product) => async dispatch =>{
 
     localStorage.setItem('cart', JSON.stringify(cart))
     dispatch(addToCartAction(cart))
-    }
+    // }
 }
 
 export const getAllcartThunk = () => async dispatch =>{
@@ -53,10 +53,10 @@ export const deleteFromCartThunk = (product) => async dispatch =>{
     const cart = localStorage.getItem('cart')?
      JSON.parse(localStorage.getItem('cart')): []
 
-    const cartUpdated = cart.filter(cartProduct => cartProduct._id !== product._id)
+    const cartUpdated = cart.filter(cartProduct => cartProduct.id !== product.id)
 
     localStorage.setItem('cart', JSON.stringify(cartUpdated))
-    dispatch(deleteFromCartThunk(cartUpdated))
+    dispatch(delteFromCartAction(cartUpdated))
 }
 
 let initialState = {
@@ -74,17 +74,17 @@ const cartReducer = (state = initialState , action) =>{
     switch(action.type){
         case ADD_TO_CART:{
             newState = {...state}
-            newState[cart] =[...action.payload]
+            newState =[...action.payload]
             return newState
         }
         case GET_ALL_CART:{
             newState = {...state}
-            newState[cart] =[...action.payload]
+            newState =[...action.payload]
             return newState
         }
         case DELETE_FROM_CART:{
             newState = {...state}
-            newState[cart] =[...action.payload]
+            newState =[...action.payload]
             return newState
         }
         default: {
