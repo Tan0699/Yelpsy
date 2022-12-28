@@ -28,6 +28,7 @@ function Splash() {
     <>
     <div>
       <button onClick={()=> history.push("/purchases")}>PURRRCHASES</button>
+      <button onClick={()=> history.push("/account")}>ACCOUNT PAGE</button>
     </div>
       {/* <div className='wpdiv'>
         <img className='newwp' src="https://i.ibb.co/S5DZC80/lepic.png"></img></div> */}
