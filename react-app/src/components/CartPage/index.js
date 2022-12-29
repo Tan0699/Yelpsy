@@ -1,5 +1,6 @@
 import { useEffect } from "react"
 import { useSelector } from "react-redux"
+import { addToCartThunk } from "../../store/cart"
 
 
 
@@ -37,7 +38,7 @@ function Cart(){
         } */}
         {productArray.map((product)=>(
             <div>
-            {product.name}{product.price}quantity:{productsObj[product.id]}
+            {product.name}{product.price}quantity:{productsObj[product.id]}total:{product.price *productsObj[product.id] }
             </div>
         ))}
         </>

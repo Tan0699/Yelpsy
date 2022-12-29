@@ -69,7 +69,8 @@
 .pics{
     width: 100%;
     height: 100%;
-    border: 2px white solid;
+    /* border: 2px white solid; */
+border: 1px solid gray;
     border-radius: 8px;
 }
 .pics:hover {
@@ -145,7 +146,7 @@
     /* flex-direction: column */
 }
     .cheke{
-        background-color: rgb(153,179,204);
+        /* background-color: rgb(153,179,204); */
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -157,6 +158,7 @@
 }
 .priceroo{
     color: black;
+    
 }
 /* .justname{
     word-wrap: break-word;          
