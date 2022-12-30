@@ -1,7 +1,7 @@
 from app.models import db, Post, environment, SCHEMA
 
 def seed_posts():
-    post1 = Post(name='Tonkatsu', user_id=1, description="Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good ",price=20,image="https://www.forkknifeswoon.com/wp-content/uploads/2014/10/simple-homemade-chicken-ramen-fork-knife-swoon-01.jpg",shop_id=1)
+    post1 = Post(name='Japanese Ramen Tonkatsu -Tasty Homemade Food - Grown in the Kitchen - Not From Hmart Trust', user_id=1, description="Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good ",price=20,image="https://www.forkknifeswoon.com/wp-content/uploads/2014/10/simple-homemade-chicken-ramen-fork-knife-swoon-01.jpg",shop_id=1)
     post2 = Post(name='Shoyo', user_id=1, description="Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good ",price=20.5,image="https://www.elmundoeats.com/wp-content/uploads/2021/02/FP-Quick-30-minutes-chicken-ramen.jpg",shop_id=1)
     post3 = Post(name='Shroom', user_id=1, description="Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good ",price=1.99,image="https://pinchofyum.com/wp-content/uploads/Quick-Homemade-Ramen-Square.png",shop_id=1)
     post4 = Post(name='Chiken', user_id=1, description="Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good ",price=20,image="https://assets.bonappetit.com/photos/5e3c7a3c866b940008106763/6:9/w_2320,h_3480,c_limit/HLY-Veggie-Ramen-16x9.jpg",shop_id=1)

@@ -8,7 +8,7 @@ class Post(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key = True)
-    name = db.Column(db.String(20), nullable = False)
+    name = db.Column(db.String(200), nullable = False)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
     shop_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('shops.id')))
     description = db.Column(db.String(200), nullable=False)

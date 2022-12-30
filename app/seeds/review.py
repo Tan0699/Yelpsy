@@ -3,10 +3,22 @@ from datetime import datetime,date
 def seed_reviews():
     re1 = Review(created_at =  date.fromisoformat('2023-12-04'),rating=1, user_id=1, description="Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good ",image="https://www.forkknifeswoon.com/wp-content/uploads/2014/10/simple-homemade-chicken-ramen-fork-knife-swoon-01.jpg",shop_id=1)
     re2 = Review(created_at =  date.fromisoformat('2013-12-04'),rating=2, user_id=1, description="Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good ",image="https://www.forkknifeswoon.com/wp-content/uploads/2014/10/simple-homemade-chicken-ramen-fork-knife-swoon-01.jpg",post_id=1)
-   
+    re3 = Review(created_at =  date.fromisoformat('2023-12-04'),rating=1, user_id=2, description="Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good ",image="https://www.forkknifeswoon.com/wp-content/uploads/2014/10/simple-homemade-chicken-ramen-fork-knife-swoon-01.jpg",shop_id=1)
+    re4 = Review(created_at =  date.fromisoformat('2023-12-04'),rating=4, user_id=3, description="Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good ",image="https://www.forkknifeswoon.com/wp-content/uploads/2014/10/simple-homemade-chicken-ramen-fork-knife-swoon-01.jpg",shop_id=1)
+    re5 = Review(created_at =  date.fromisoformat('2023-12-04'),rating=5, user_id=4, description="Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good ",image="https://www.forkknifeswoon.com/wp-content/uploads/2014/10/simple-homemade-chicken-ramen-fork-knife-swoon-01.jpg",shop_id=1)
+    re6 = Review(created_at =  date.fromisoformat('2013-12-04'),rating=2, user_id=5, description="Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good ",image="https://www.forkknifeswoon.com/wp-content/uploads/2014/10/simple-homemade-chicken-ramen-fork-knife-swoon-01.jpg",post_id=1)
+    re7 = Review(created_at =  date.fromisoformat('2023-12-04'),rating=1, user_id=2, description="Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good ",image="https://www.forkknifeswoon.com/wp-content/uploads/2014/10/simple-homemade-chicken-ramen-fork-knife-swoon-01.jpg",post_id=1)
+    re8 = Review(created_at =  date.fromisoformat('2023-12-04'),rating=4, user_id=3, description="Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good ",image="https://www.forkknifeswoon.com/wp-content/uploads/2014/10/simple-homemade-chicken-ramen-fork-knife-swoon-01.jpg",post_id=1)
+    re9 = Review(created_at =  date.fromisoformat('2023-12-04'),rating=5, user_id=4, description="Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good ",image="https://www.forkknifeswoon.com/wp-content/uploads/2014/10/simple-homemade-chicken-ramen-fork-knife-swoon-01.jpg",post_id=1)
     db.session.add(re1)
     db.session.add(re2)
-  
+    db.session.add(re4)
+    db.session.add(re3)
+    db.session.add(re5)
+    db.session.add(re6)
+    db.session.add(re7)
+    db.session.add(re8)
+    db.session.add(re9)
     db.session.commit()
 
 

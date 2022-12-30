@@ -1,0 +1,17 @@
+.count{
+    width:100%;
+    font-size: 17px;
+    padding: 5px;
+    border-radius: 5px;
+}
+.addcart{
+    color: white;
+    background-color: black;
+    border-radius: 309249023px;
+    font-size: 15px;
+    width: 100%;
+    padding:10px;
+}
+.addcartwrap{
+    padding-top:15px;
+}

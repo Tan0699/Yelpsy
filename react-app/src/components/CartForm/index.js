@@ -4,7 +4,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { addToCartThunk } from "../../store/cart";
 import { deletePost, editPost } from "../../store/posts";
 import { createShop, editShop, fetchOneShop } from "../../store/shops";
-
+import './cartform.css'
 
 function CartForm ({thisPost})  {
     const dispatch = useDispatch()
@@ -36,8 +36,9 @@ function CartForm ({thisPost})  {
             </option>
           ))}
           </select>
-            <button type="submit">Add to Cart
-            </button>
+          <div className="addcartwrap">
+            <button className="addcart" type="submit">Add to Cart
+            </button></div>
         </form>
         </>
     )

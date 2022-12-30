@@ -62,27 +62,32 @@ function OnePost() {
           <div>{editpostModal}</div>}
           
           <div className='shoprev'> 0 Post Reviews ☆	☆	☆	☆	☆</div>
+          
         </div>
 
         <div className='otherhalf'>
-          
+        <NavLink className='yiyi' to={`/${shopId}`}>
+              
+              {/* <img className='omago' src={thisShop?.image}></img> */}
+             
+        <div >{thisShop?.name}</div>
+              </NavLink>
+              <div className='s1'>0 sales 	☆	☆	☆	☆	☆</div>
           <div className='posnam'>{thisPost?.name}</div>
-          <div className='pospri'>${thisPost?.price} + Shipping</div>
+          <div className='pospri'>${thisPost?.price} </div>
+          <div className='quantity'>Quantity</div>
+          <div><CartForm thisPost={thisPost}/></div>
           <div className='shp'>Shipping Cost based on your Location: Free!</div>
           <div className='descripto'> Product Description:</div>
           <div className='posdes'>{thisPost?.description}</div>
           <div className='ooswrap'>
           </div>
           <div >Sold By {shopUser?.firstname}</div>
-          <div className='s1'>0 sales 	☆	☆	☆	☆	☆</div>
+          
           <div className='likepro'>
           <div>Like the Product? View more of this seller's posts here!</div>
           <div className='sellerbutwrap'>
-            <NavLink className='yiyi' to={`/${shopId}`}>
-              
-                <img className='omago' src={thisShop?.image}></img>
-                <div >{thisShop?.name}</div>
-                </NavLink></div></div>
+           </div></div>
               <div className='qty'>Purchase Quantity:</div>
               <div className='sadgewrap'>
               <button className='oossadge'>Sorry Product Sold Out</button>
@@ -92,7 +97,7 @@ function OnePost() {
       </div>
       
     <div className='secogrid'>
-    <div><CartForm thisPost={thisPost}/></div>
+   
     <button onClick={()=>{dispatch(deleteFromCartThunk(thisPost))}}>CLICK TO DELET</button>
     <div className='legri'>
       {/* <div className='mojo'>
