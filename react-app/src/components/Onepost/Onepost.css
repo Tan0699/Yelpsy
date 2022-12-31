@@ -123,12 +123,24 @@ padding-bottom: 25px;
     flex-direction: row;
     padding-bottom: 10px;
 }
+.mojo1{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 10px;
+    padding-left: 7px;
+}
+.mojo2{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 10px;
+}
 #moji{
  font-size: 35px;
  padding-right: 5px;
 }
 .yaya{
     font-size: 15px;
+    padding-left: 10px;
 }
 .yiyi{
     text-decoration: none;
@@ -229,4 +241,18 @@ cursor: not-allowed;
 }
 .revdesc{
     font-size: 14px;
+}
+
+#staro{
+font-size: 20px;
+}
+.cartform{
+    padding-bottom: 10px;
+}
+.thisshopname{
+    font-size: 20px;
+}
+.sta{
+    height: 20px;
+    margin-bottom: -5px;
 }

@@ -12,25 +12,27 @@ import { Modal } from '../../context/Modal';
 import CartForm from '../CartForm';
 import { deleteFromCartThunk } from '../../store/cart';
 import { fetchReviews } from '../../store/reviews';
+
+
 function OnePost() {
   const { shopId, id } = useParams()
   const thisUser = useSelector((state) => state.session.user)
   const shopState = useSelector((state) => state.shops)
   const postState = useSelector((state) => state.posts)
   const revState = useSelector((state) => state.reviews)
-  console.log("revstate",revState)
+  console.log("revstate", revState)
   const shops = Object.values(shopState)
   const posts = Object.values(postState)
   const reviews = Object.values(revState)
-  const [editpos , setEditPos] = useState(false)
+  const [editpos, setEditPos] = useState(false)
   const history = useHistory()
   const thisPost = posts.filter((post) => post.id == +id)[0]
   const thisPostRevs = reviews.filter((reviews) => thisPost.id == reviews.post_id)
-  let initial= 0
+  let initial = 0
   thisPostRevs.forEach(rev => initial = initial + rev.rating)
-  const avgrating = initial/thisPostRevs.length
-  console.log("them reviews",initial)
-  console.log("them avg ",avgrating)
+  const avgrating = initial / thisPostRevs.length
+  console.log("them reviews", initial)
+  console.log("them avg ", avgrating)
   const dispatch = useDispatch()
   const [users, setUsers] = useState([]);
   useEffect(() => {
@@ -47,8 +49,8 @@ function OnePost() {
     dispatch(fetchShops())
     dispatch(fetchReviews())
   }, [dispatch])
-  console.log("huhu why no work",thisUser?.id)
-  console.log("huhu why no work",thisPost?.user_id)
+  console.log("huhu why no work", thisUser?.id)
+  console.log("huhu why no work", thisPost?.user_id)
   const thisShop = shops?.filter(shop => shop.id == +shopId)[0]
   const thisShopposts = posts?.filter(post => post.shop_id === +shopId)
   let editpostModal = (
@@ -62,108 +64,195 @@ function OnePost() {
     </div>)
   return (
     <>
-    {/* <div className='wpdiv'>
+      {/* <div className='wpdiv'>
     <img className='newwp' src="https://i.ibb.co/S5DZC80/lepic.png"></img></div> */}
-    <div className='wholediv'>
-      <div className='firstpostgrid'>
-        <div className='firstgriddiv'>
+      <div className='wholediv'>
+        <div className='firstpostgrid'>
+          <div className='firstgriddiv'>
 
-          <img className='firstpostimg' src={thisPost?.image}></img>
-         {(thisUser?.id == thisPost?.user_id) &&
-          <div>{editpostModal}</div>}
-          {avgrating>.51 && 
-          <span className='shoprev'>{thisPostRevs.length} Post Reviews  </span>
-          }
-        
-          <div>
-            {thisPostRevs?.map((review)=>(
-              <div>
-                {review.rating ==1 &&
-                <span class="starrating">&#9733;&#9734;&#9734;&#9734;&#9734;</span>}
-                {review.rating ==2 &&
-                <span class="starrating">&#9733;&#9733;&#9734;&#9734;&#9734;</span>}
-                {review.rating ==3 &&
-                <span class="starrating">&#9733;&#9733;&#9733;&#9734;&#9734;</span>}
-                {review.rating ==4 &&
-                <span class="starrating">&#9733;&#9733;&#9733;&#9733;&#9734;</span>}
-                {review.rating ==5 &&
-                <span class="starrating">&#9733;&#9733;&#9733;&#9733;&#9733;</span>}
-             <div className='revdesc'> {review.description}</div>
-             <div className='reviewuserwrap'>
-             <div>{users.map(user =>(
-                    <div className='proffpwrap'>
-                      {user.id == review.user_id &&            
-                        <img className='proffp' src={user?.image}></img>                      
+            <img className='firstpostimg' src={thisPost?.image}></img>
+            {(thisUser?.id == thisPost?.user_id) &&
+              <div>{editpostModal}</div>}
+            {thisPostRevs.length == 0 &&
+              <span className='shoprev'>0 Reviews <i id='stara' class="fa-regular fa-star"></i>
+                <i  id='stara' class="fa-regular fa-star"></i>
+                <i  id='stara' class="fa-regular fa-star"></i>
+                <i  id='stara' class="fa-regular fa-star"></i>
+                <i  id='stara' class="fa-regular fa-star"></i></span>
+            }
+            {avgrating < .51 && avgrating > 0 &&
+              <span className='shoprev'>{thisPostRevs.length} Reviews <i  id='stara' class="fa-regular fa-star-half-stroke"></i>
+                <i  id='stara' class="fa-regular fa-star"></i>
+                <i  id='stara' class="fa-regular fa-star"></i>
+                <i  id='stara' class="fa-regular fa-star"></i>
+                <i  id='stara' class="fa-regular fa-star"></i></span>
+            }
+            {avgrating > .51 && avgrating < 1.01 &&
+              <span className='shoprev'>{thisPostRevs.length} Reviews <i  id='stara' class="fa-solid fa-star"></i>
+                <i  id='stara' class="fa-regular fa-star"></i>
+                <i  id='stara' class="fa-regular fa-star"></i>
+                <i  id='stara' class="fa-regular fa-star"></i>
+                <i  id='stara' class="fa-regular fa-star"></i></span>
+            }
+            {avgrating > 1.01 && avgrating < 1.51 &&
+              <span className='shoprev'>{thisPostRevs.length} Reviews <i  id='stara' class="fa-solid fa-star"></i>
+                <i  id='stara' class="fa-regular fa-star-half-stroke"></i>
+                <i  id='stara' class="fa-regular fa-star"></i>
+                <i  id='stara' class="fa-regular fa-star"></i>
+                <i  id='stara' class="fa-regular fa-star"></i></span>
+            }
+            {avgrating > 1.51 && avgrating < 2.01 &&
+              <span className='shoprev'>{thisPostRevs.length} Reviews <i  id='stara' class="fa-solid fa-star"></i>
+                <i  id='stara' class="fa-solid fa-star"></i>
+                <i  id='stara' class="fa-regular fa-star"></i>
+                <i  id='stara' class="fa-regular fa-star"></i>
+                <i  id='stara' class="fa-regular fa-star"></i></span>
+            }
+            {avgrating > 2.01 && avgrating < 2.51 &&
+              <span className='shoprev'>{thisPostRevs.length} Reviews <i  id='stara' class="fa-solid fa-star"></i>
+                <i  id='stara' class="fa-solid fa-star"></i>
+                <i  id='stara' class="fa-regular fa-star-half-stroke"></i>
+                <i  id='stara' class="fa-regular fa-star"></i>
+                <i  id='stara' class="fa-regular fa-star"></i></span>
+            }
+            {avgrating > 2.51 && avgrating < 3.01 &&
+              <span className='shoprev'>{thisPostRevs.length} Reviews <i  id='stara' class="fa-solid fa-star"></i>
+                <i  id='stara' class="fa-solid fa-star"></i>
+                <i  id='stara' class="fa-solid fa-star"></i>
+                <i  id='stara' class="fa-regular fa-star"></i>
+                <i  id='stara' class="fa-regular fa-star"></i></span>
+            }
+            {avgrating > 3.01 && avgrating < 3.51 &&
+              <span className='shoprev'>{thisPostRevs.length} Reviews <i  id='stara' class="fa-solid fa-star"></i>
+                <i  id='stara' class="fa-solid fa-star"></i>
+                <i  id='stara' class="fa-solid fa-star"></i>
+                <i  id='stara' class="fa-regular fa-star-half-stroke"></i>
+                <i  id='stara' class="fa-regular fa-star"></i></span>
+            }
+            {avgrating > 3.51 && avgrating < 4.01 &&
+              <span className='shoprev'>{thisPostRevs.length} Reviews <i  id='stara' class="fa-solid fa-star"></i>
+                <i  id='stara' class="fa-solid fa-star"></i>
+                <i  id='stara' class="fa-solid fa-star"></i>
+                <i  id='stara' class="fa-solid fa-star"></i>
+                <i  id='stara' class="fa-regular fa-star"></i></span>
+            }
+            {avgrating > 4.01 && avgrating < 4.51 &&
+              <span className='shoprev'>{thisPostRevs.length} Reviews <i  id='stara' class="fa-solid fa-star"></i>
+                <i  id='stara' class="fa-solid fa-star"></i>
+                <i  id='stara' class="fa-solid fa-star"></i>
+                <i  id='stara' class="fa-solid fa-star"></i>
+                <i  id='stara' class="fa-regular fa-star-half-stroke"></i></span>
+            }
+            {avgrating > 4.51 &&
+              <span className='shoprev'>{thisPostRevs.length} Reviews <i  id='stara' class="fa-solid fa-star"></i>
+                <i  id='stara' class="fa-solid fa-star"></i>
+                <i  id='stara' class="fa-solid fa-star"></i>
+                <i  id='stara' class="fa-solid fa-star"></i>
+                <i  id='stara' class="fa-solid fa-star"></i> </span>
+            }
+
+            <div>
+              {thisPostRevs?.map((review) => (
+                <div>
+                  {review.rating == 1 &&
+                    <span class="starrating"><i id="staro" class="fa-solid fa-star"></i>
+                      <i id="staro" class="fa-regular fa-star"></i>
+                      <i id="staro" class="fa-regular fa-star"></i>
+                      <i id="staro" class="fa-regular fa-star"></i>
+                      <i id="staro" class="fa-regular fa-star"></i></span>}
+                  {review.rating == 2 &&
+                    <span class="starrating"><i id="staro" class="fa-solid fa-star"></i>
+                      <i id="staro" class="fa-solid fa-star"></i>
+                      <i id="staro" class="fa-regular fa-star"></i>
+                      <i id="staro" class="fa-regular fa-star"></i>
+                      <i id="staro" class="fa-regular fa-star"></i></span>}
+                  {review.rating == 3 &&
+                    <span class="starrating"><i id="staro" class="fa-solid fa-star"></i>
+                      <i id="staro" class="fa-solid fa-star"></i>
+                      <i id="staro" class="fa-solid fa-star"></i>
+                      <i id="staro" class="fa-regular fa-star"></i>
+                      <i id="staro" class="fa-regular fa-star"></i></span>}
+                  {review.rating == 4 &&
+                    <span class="starrating"><i id="staro" class="fa-solid fa-star"></i>
+                      <i id="staro" class="fa-solid fa-star"></i>
+                      <i id="staro" class="fa-solid fa-star"></i>
+                      <i id="staro" class="fa-solid fa-star"></i>
+                      <i id="staro" class="fa-regular fa-star"></i></span>}
+                  {review.rating == 5 &&
+                    <span class="starrat"><i id="staro" class="fa-solid fa-star"></i>
+                      <i id="staro" class="fa-solid fa-star"></i>
+                      <i id="staro" class="fa-solid fa-star"></i>
+                      <i id="staro" class="fa-solid fa-star"></i>
+                      <i id="staro" class="fa-solid fa-star"></i></span>}
+                  <div className='revdesc'> {review.description}</div>
+                  <div className='reviewuserwrap'>
+                    <div>{users.map(user => (
+                      <div className='proffpwrap'>
+                        {user.id == review.user_id &&
+                          <img className='proffp' src={user?.image}></img>
                         }
-                    </div>
-                  ))}</div>
-                  <div className='revuser'>{users.map(user =>(
-                    <div>
-                      {user.id == review.user_id &&                    
-                        <div>{user.firstname}</div>                       }
-                    </div>
-                  ))}</div>
-                  <div  className='revuser'>{review.created_at.slice(0,16)}</div>
-              </div>
-              </div>
-            ))}
+                      </div>
+                    ))}</div>
+                    <div className='revuser'>{users.map(user => (
+                      <div>
+                        {user.id == review.user_id &&
+                          <div>{user.firstname}</div>}
+                      </div>
+                    ))}</div>
+                    <div className='revuser'>{review.created_at.slice(0, 16)}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
 
-        <div className='otherhalf'>
-        <NavLink className='yiyi' to={`/${shopId}`}>
-              
+          <div className='otherhalf'>
+            <NavLink className='yiyi' to={`/${shopId}`}>
+
               {/* <img className='omago' src={thisShop?.image}></img> */}
-             
-        <div >{thisShop?.name}</div>
-              </NavLink>
-              <div className='s1'>0 sales 	☆	☆	☆	☆	☆</div>
-          <div className='posnam'>{thisPost?.name}</div>
-          <div className='pospri'>${thisPost?.price} </div>
-          <div className='quantity'>Quantity</div>
-          <div><CartForm thisPost={thisPost}/></div>
-          <div className='shp'>Shipping Cost based on your Location: Free!</div>
-          <div className='descripto'> Product Description:</div>
-          <div className='posdes'>{thisPost?.description}</div>
-          <div className='ooswrap'>
-          </div>
-          <div >Sold By {shopUser?.firstname}</div>
-          
-          <div className='likepro'>
-          <div>Like the Product? View more of this seller's posts here!</div>
-          <div className='sellerbutwrap'>
-           </div></div>
-              <div className='qty'>Purchase Quantity:</div>
-              <div className='sadgewrap'>
-              <button className='oossadge'>Sorry Product Sold Out</button>
-              </div>
-        </div>
-        
-      </div>
-      
-    <div className='secogrid'>
-   
-    <button onClick={()=>{dispatch(deleteFromCartThunk(thisPost))}}>CLICK TO DELET</button>
-    <div className='legri'>
-      {/* <div className='mojo'>
+
+              <div className='thisshopname' >{thisShop?.name}</div>
+            </NavLink>
+            
+            <div className='s1'><img className='sta' src="/sta.png"/>0 sales 	☆	☆	☆	☆	☆</div>
+            <div className='posnam'>{thisPost?.name}</div>
+            <div className='pospri'>${thisPost?.price} </div>
+            <div className='quantity'>Quantity</div>
+            <div className='cartform'><CartForm thisPost={thisPost} /></div>
+            <div className='shp'>Shipping Cost based on your Location: Free!</div>
+            <div className='legri'>
+              {/* <div className='mojo'>
       <i id='moji' class="fa-solid fa-cart-shopping"></i>
       <div className='yaya'>Other people want this. Over 20 people have this in their carts right now.</div>
       </div> */}
-      <div className='mojo'>
-      <i  id='moji'  class="fa-solid fa-fire"></i>
-      <div className='yaya'>Star Seller. This seller consistently earned 5-star reviews, shipped on time, and replied quickly to any messages they received.</div>
+              <div className='mojo1'>
+                <i id='moji' class="fa-solid fa-fire"></i>
+                <div className='yaya'><strong> Star Seller.</strong> This seller consistently earned 5-star reviews, shipped on time, and replied quickly to any messages they received.</div>
+              </div>
+              <div className='mojo2'>
+                <i id='moji' class="fa-solid fa-cart-shopping"></i>
+                <div className='yaya'><strong> Selling Fast!</strong>Other people want this. Over 20 people have this in their carts right now.</div>
+              </div>
+              <div className='mojo'>
+                <i id='moji' class="fa-solid fa-handshake"></i>
+                <div className='yaya'><strong>Etsy Purchase Protection:</strong> Shop confidently on Etsy knowing if something goes wrong with an order, we've got your back for all eligible purchases</div>
+              </div>
+            </div>
+            <div className='descripto'> Product Description:</div>
+            <div className='posdes'>{thisPost?.description}</div>
+            <div className='ooswrap'>
+            </div>
+            
+          </div>
+
+        </div>
+
+        <div className='secogrid'>
+
+          <button onClick={() => { dispatch(deleteFromCartThunk(thisPost)) }}>CLICK TO DELET</button>
+
+        </div>
       </div>
-      <div className='mojo'>
-      <i id='moji'  class="fa-solid fa-cart-shopping"></i>
-      <div className='yaya'>Other people want this. Over 20 people have this in their carts right now.</div>
-      </div>
-      <div className='mojo'>
-      <i  id='moji'  class="fa-solid fa-handshake"></i>
-      <div className='yaya'>Etsy Purchase Protection: Shop confidently on Etsy knowing if something goes wrong with an order, we've got your back for all eligible purchases</div>
-      </div>
-    </div>
-    </div>
-    </div>
     </>
   );
 }
