@@ -17,5 +17,14 @@
     padding-top:15px;
 }
 #stara{
-    font-size: 20px;
+    font-size: 17px;
+   
+}
+.shoprev{
+    font-size: 24px;
+    
+}
+.revdesc{
+    padding-top:2px;
+    line-height: 23px;
 }

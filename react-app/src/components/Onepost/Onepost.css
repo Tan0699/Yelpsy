@@ -49,7 +49,7 @@
 }
 .posdes{
     font-size: 15px;
-    padding-bottom: 10px;
+    padding-bottom: 35px;
 }
 .pospri{
     font-size: 25px;
@@ -61,7 +61,7 @@
     padding-top: 20px;
 }
 .shp{
-
+padding-top: 10px;
 }
 .sellerbutwrap{
     display: flex;
@@ -121,18 +121,18 @@ padding-bottom: 25px;
 .mojo{
     display: flex;
     flex-direction: row;
-    padding-bottom: 10px;
+    padding-bottom: 15px;
 }
 .mojo1{
     display: flex;
     flex-direction: row;
-    padding-bottom: 10px;
+    padding-bottom: 15px;
     padding-left: 7px;
 }
 .mojo2{
     display: flex;
     flex-direction: row;
-    padding-bottom: 10px;
+    padding-bottom: 15px;
 }
 #moji{
  font-size: 35px;
@@ -182,7 +182,7 @@ padding-bottom: 25px;
     grid-template-columns: 1fr 2fr;
 }
 .legri{
-    padding-top: 10px;
+    padding-top: 20px;
 }
 .oossadge{
 height: 45px;
@@ -197,6 +197,7 @@ cursor: not-allowed;
 }
 .descripto{
     padding-top: 10px;
+    padding-bottom: 10px;
     font-size: 15px;
     font-weight: bold;
 }
@@ -244,7 +245,7 @@ cursor: not-allowed;
 }
 
 #staro{
-font-size: 20px;
+font-size: 17px;
 }
 .cartform{
     padding-bottom: 10px;
@@ -255,4 +256,29 @@ font-size: 20px;
 .sta{
     height: 20px;
     margin-bottom: -5px;
+}
+.revforitemwrap{
+    display: flex;
+    padding-top: 25px;
+    
+}
+.revforitem{
+    padding-right: 20px;
+}
+.leline{
+    background-color: rgb(214, 208, 208);
+    height: 2px;
+    /* margin-top: -20px; */
+    width: 96%;
+}
+.lelinewrap{
+    padding-top: 7px;
+    padding-bottom: 40px;
+
+}
+.carbon{
+    background-color:rgb(221,235,227) ;
+    padding: 15px;
+    border-radius:10px;
+    font-size: 13px;
 }

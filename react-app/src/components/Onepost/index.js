@@ -150,12 +150,17 @@ function OnePost() {
                 <i  id='stara' class="fa-solid fa-star"></i>
                 <i  id='stara' class="fa-solid fa-star"></i> </span>
             }
-
+              <div className='revforitemwrap'>
+                <div className='revforitem'>Reviews for this item</div>
+                <div>Reviews for this shop(WIP)</div>
+              </div>
+              <div className='lelinewrap'>
+              <div className='leline'></div></div>
             <div>
               {thisPostRevs?.map((review) => (
                 <div>
                   {review.rating == 1 &&
-                    <span class="starrating"><i id="staro" class="fa-solid fa-star"></i>
+                    <span  class="starrating"><i id="staro" class="fa-solid fa-star"></i>
                       <i id="staro" class="fa-regular fa-star"></i>
                       <i id="staro" class="fa-regular fa-star"></i>
                       <i id="staro" class="fa-regular fa-star"></i>
@@ -231,15 +236,16 @@ function OnePost() {
               </div>
               <div className='mojo2'>
                 <i id='moji' class="fa-solid fa-cart-shopping"></i>
-                <div className='yaya'><strong> Selling Fast!</strong>Other people want this. Over 20 people have this in their carts right now.</div>
+                <div className='yaya'><strong> Selling Fast! </strong>Other people want this. Over 20 people have this in their carts right now.</div>
               </div>
               <div className='mojo'>
                 <i id='moji' class="fa-solid fa-handshake"></i>
                 <div className='yaya'><strong>Etsy Purchase Protection:</strong> Shop confidently on Etsy knowing if something goes wrong with an order, we've got your back for all eligible purchases</div>
               </div>
             </div>
-            <div className='descripto'> Product Description:</div>
+            <div className='descripto'>Description</div>
             <div className='posdes'>{thisPost?.description}</div>
+            <div className='carbon'>Yelpsy offsets carbon emissions from shipping and packaging on this purchase.</div>
             <div className='ooswrap'>
             </div>
             
