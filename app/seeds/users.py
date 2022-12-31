@@ -4,15 +4,23 @@ from app.models import db, User, environment, SCHEMA
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     demo = User(
-        firstname='Demo', email='demo@aa.io', password='password')
+        firstname='Demo', email='demo@aa.io', password='password',image="https://glebekitchen.com/wp-content/uploads/2017/04/tonkotsuramenfront.jpg")
     marnie = User(
-        firstname='marnie', email='marnie@aa.io', password='password')
+        firstname='marnie', email='marnie@aa.io', password='password',image="https://glebekitchen.com/wp-content/uploads/2017/04/tonkotsuramenfront.jpg")
     bobbie = User(
-        firstname='bobbie', email='bobbie@aa.io', password='password')
-
+        firstname='bobbie', email='bobbie@aa.io', password='password',image="https://glebekitchen.com/wp-content/uploads/2017/04/tonkotsuramenfront.jpg")
+    Chen = User(
+        firstname='Chen', email='Tan@aa.io', password='password',image="https://glebekitchen.com/wp-content/uploads/2017/04/tonkotsuramenfront.jpg")
+    Coco = User(
+        firstname='Coco', email='Coco@aa.io', password='password',image="https://glebekitchen.com/wp-content/uploads/2017/04/tonkotsuramenfront.jpg")
+    Sesi = User(
+        firstname='Sesi', email='Sesi@aa.io', password='password',image="https://glebekitchen.com/wp-content/uploads/2017/04/tonkotsuramenfront.jpg")
     db.session.add(demo)
     db.session.add(marnie)
     db.session.add(bobbie)
+    db.session.add(Chen)
+    db.session.add(Coco)
+    db.session.add(Sesi)
     db.session.commit()
 
 

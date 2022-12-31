@@ -12,6 +12,7 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     firstname = db.Column(db.String(20), nullable=False)
     email = db.Column(db.String(20), nullable=False, unique=True)
+    image = db.Column(db.String(2000), nullable=False)
     hashed_password = db.Column(db.String(200), nullable=False)
 
     @property
@@ -29,5 +30,6 @@ class User(db.Model, UserMixin):
         return {
             'id': self.id,
             'firstname': self.firstname,
-            'email': self.email
+            'email': self.email,
+            'image':self.image
         }

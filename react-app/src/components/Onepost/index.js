@@ -11,16 +11,26 @@ import "./Onepost.css"
 import { Modal } from '../../context/Modal';
 import CartForm from '../CartForm';
 import { deleteFromCartThunk } from '../../store/cart';
+import { fetchReviews } from '../../store/reviews';
 function OnePost() {
   const { shopId, id } = useParams()
   const thisUser = useSelector((state) => state.session.user)
   const shopState = useSelector((state) => state.shops)
   const postState = useSelector((state) => state.posts)
+  const revState = useSelector((state) => state.reviews)
+  console.log("revstate",revState)
   const shops = Object.values(shopState)
   const posts = Object.values(postState)
+  const reviews = Object.values(revState)
   const [editpos , setEditPos] = useState(false)
   const history = useHistory()
   const thisPost = posts.filter((post) => post.id == +id)[0]
+  const thisPostRevs = reviews.filter((reviews) => thisPost.id == reviews.post_id)
+  let initial= 0
+  thisPostRevs.forEach(rev => initial = initial + rev.rating)
+  const avgrating = initial/thisPostRevs.length
+  console.log("them reviews",initial)
+  console.log("them avg ",avgrating)
   const dispatch = useDispatch()
   const [users, setUsers] = useState([]);
   useEffect(() => {
@@ -35,6 +45,7 @@ function OnePost() {
   useEffect(() => {
     dispatch(fetchOnePost(shopId, id))
     dispatch(fetchShops())
+    dispatch(fetchReviews())
   }, [dispatch])
   console.log("huhu why no work",thisUser?.id)
   console.log("huhu why no work",thisPost?.user_id)
@@ -60,9 +71,43 @@ function OnePost() {
           <img className='firstpostimg' src={thisPost?.image}></img>
          {(thisUser?.id == thisPost?.user_id) &&
           <div>{editpostModal}</div>}
-          
-          <div className='shoprev'> 0 Post Reviews ☆	☆	☆	☆	☆</div>
-          
+          {avgrating>.51 && 
+          <span className='shoprev'>{thisPostRevs.length} Post Reviews  </span>
+          }
+        
+          <div>
+            {thisPostRevs?.map((review)=>(
+              <div>
+                {review.rating ==1 &&
+                <span class="starrating">&#9733;&#9734;&#9734;&#9734;&#9734;</span>}
+                {review.rating ==2 &&
+                <span class="starrating">&#9733;&#9733;&#9734;&#9734;&#9734;</span>}
+                {review.rating ==3 &&
+                <span class="starrating">&#9733;&#9733;&#9733;&#9734;&#9734;</span>}
+                {review.rating ==4 &&
+                <span class="starrating">&#9733;&#9733;&#9733;&#9733;&#9734;</span>}
+                {review.rating ==5 &&
+                <span class="starrating">&#9733;&#9733;&#9733;&#9733;&#9733;</span>}
+             <div className='revdesc'> {review.description}</div>
+             <div className='reviewuserwrap'>
+             <div>{users.map(user =>(
+                    <div className='proffpwrap'>
+                      {user.id == review.user_id &&            
+                        <img className='proffp' src={user?.image}></img>                      
+                        }
+                    </div>
+                  ))}</div>
+                  <div className='revuser'>{users.map(user =>(
+                    <div>
+                      {user.id == review.user_id &&                    
+                        <div>{user.firstname}</div>                       }
+                    </div>
+                  ))}</div>
+                  <div  className='revuser'>{review.created_at.slice(0,16)}</div>
+              </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className='otherhalf'>

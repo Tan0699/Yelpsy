@@ -201,3 +201,32 @@ cursor: not-allowed;
     padding-bottom: 7px;
     font-size: 13px;
 }
+.proffp{
+    width: 40px;
+    height: 40px;
+    border-radius: 242342px;
+}
+.reviewuserwrap{
+    display: flex;
+    flex-direction: row;
+    padding-top: 7px;
+    padding-bottom: 11px;
+}
+.reviewuserwrap2{
+    display: flex;
+    flex-direction: row;
+
+}
+.revuser{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 4px;
+    font-size: 12px;
+}
+.proffpwrap{
+    padding-right:7px;
+}
+.revdesc{
+    font-size: 14px;
+}
