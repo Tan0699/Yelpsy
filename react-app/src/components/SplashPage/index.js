@@ -7,19 +7,35 @@ import ShopForm from '../Shopform';
 import './Splash.css'
 
 function Splash() {
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(fetchShops())
+    dispatch(fetchPosts())
+    
+    
+  }, [dispatch])
   const shopState = useSelector((state) => state.shops)
   const shops = Object.values(shopState)
   const postState = useSelector((state) => state.posts)
   const posts = Object.values(postState)
-  const dispatch = useDispatch()
   const history = useHistory()
-  useEffect(() => {
-    dispatch(fetchShops())
-    dispatch(fetchPosts())
-  }, [dispatch])
-
-
-
+  console.log("possts",posts)
+  
+  const array = []
+  console.log("aaray",array)
+  // for ( let i = 0 ;i<=100 ; i++){
+  //  let random = Math.floor(Math.random()*posts.length)
+  //  if (!(array.includes(posts[random]))){
+  //   console.log("random",random)
+  //   array.push(posts[random])
+  //  }
+  //  if(array.length ==8){
+  //  break
+  //  }
+  // }
+  const shuffledArray = posts.sort((a, b) => 0.5 - Math.random());
+  const slicedArray =  shuffledArray.slice(0,8)
+console.log("aaray",shuffledArray)
 
 
 
@@ -70,11 +86,11 @@ function Splash() {
       {/* <div>POST SHOPS</div> */}
 
       <div className='postgrid'>
-        {posts.filter((apost,yoyo) => yoyo <32).map(post => (
+        {slicedArray.map(post => (
           <NavLink className="priceroo" onClick={() => window.scrollTo(0, 0)} to={`/${post.shop_id}/posts/${post.id}`}>
-            <div className='PostImageContainer' key={post.id}>
+            <div className={`PostImageContainer${array.indexOf(post)}`} key={post.id}>
               <div className='PostImage'>
-                <img className='pics' src={post.image}
+                <img className={`pics${array.indexOf(post)}`} src={post.image}
                 ></img>
               </div>
               <div className='PostPriceWrap'>
