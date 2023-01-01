@@ -21,8 +21,8 @@ function Splash() {
   const history = useHistory()
   console.log("possts",posts)
   
-  const array = []
-  console.log("aaray",array)
+  // const array = []
+  // console.log("aaray",array)
   // for ( let i = 0 ;i<=100 ; i++){
   //  let random = Math.floor(Math.random()*posts.length)
   //  if (!(array.includes(posts[random]))){
@@ -88,9 +88,9 @@ console.log("aaray",shuffledArray)
       <div className='postgrid'>
         {slicedArray.map(post => (
           <NavLink className="priceroo" onClick={() => window.scrollTo(0, 0)} to={`/${post.shop_id}/posts/${post.id}`}>
-            <div className={`PostImageContainer${array.indexOf(post)}`} key={post.id}>
+            <div className={`PostImageContainer${slicedArray.indexOf(post)}`} key={post.id}>
               <div className='PostImage'>
-                <img className={`pics${array.indexOf(post)}`} src={post.image}
+                <img className={`pics`} src={post.image}
                 ></img>
               </div>
               <div className='PostPriceWrap'>
