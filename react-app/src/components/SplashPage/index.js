@@ -8,12 +8,6 @@ import './Splash.css'
 
 function Splash() {
   const dispatch = useDispatch()
-  useEffect(() => {
-    dispatch(fetchShops())
-    dispatch(fetchPosts())
-    
-    
-  }, [dispatch])
   const shopState = useSelector((state) => state.shops)
   const shops = Object.values(shopState)
   const postState = useSelector((state) => state.posts)
@@ -24,19 +18,32 @@ function Splash() {
   // const array = []
   // console.log("aaray",array)
   // for ( let i = 0 ;i<=100 ; i++){
-  //  let random = Math.floor(Math.random()*posts.length)
-  //  if (!(array.includes(posts[random]))){
+    //  let random = Math.floor(Math.random()*posts.length)
+    //  if (!(array.includes(posts[random]))){
   //   console.log("random",random)
   //   array.push(posts[random])
   //  }
   //  if(array.length ==8){
-  //  break
-  //  }
-  // }
-  const shuffledArray = posts.sort((a, b) => 0.5 - Math.random());
-  const slicedArray =  shuffledArray.slice(0,8)
-console.log("aaray",shuffledArray)
+    //  break
+    //  }
+    // }
+    const newPosts= [...posts]
+    const shuffledArray = newPosts.sort((a, b) => 0.5 - Math.random());
+    
+    const slicedArray =  shuffledArray.slice(0,8)
+    const shuffledShops = shops.sort((a,b) => 0.5 - Math.random())
+    const slicedShops = shuffledShops.slice(0,4)
+    console.log("pososps",posts)
+    console.log("posospsssssssssss",newPosts)
 
+    console.log("aaray",shuffledArray)
+    
+    useEffect(() => {
+      dispatch(fetchShops())
+      dispatch(fetchPosts())
+      
+      
+    }, [dispatch])
 
 
 
@@ -59,7 +66,7 @@ console.log("aaray",shuffledArray)
       </div>
 
       <div className='shopgrid'>
-        {shops?.reverse().map((shop) => (
+        {slicedShops.map((shop) => (
           <div className='inmap' key={shop.id}>
             <NavLink onClick={() => window.scrollTo(0, 0)} className="navls" to={`/${shop.id}`}>
               <div className='imagename'>
