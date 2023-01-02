@@ -111,7 +111,9 @@ const postReducer = (state = initialState, action) => {
             action.payload.posts.forEach(post => {
                 newState[post.id] = post
             })
-            return newState
+            const newnew = Object.values(newState)
+            newnew.sort((a,b) => 0.5 - Math.random());
+            return newnew
         }
         case ONE_POST:{
             newState = {...state}

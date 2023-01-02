@@ -35,7 +35,7 @@
     width: 100%;
     height: 100%;
 } */
-.PostPriceWrap{
+.PostPriceWrap0{
     position: absolute;
     height: 20px;
     /* width:75px; */
@@ -46,8 +46,113 @@
     bottom:0 ;
     left: 0;
     right: 0;
-    margin-top: 75px;
-   margin-left: 5px;
+    margin-top: 130px;
+   margin-left: 14px;
+   display: flex;
+}
+.PostPriceWrap1{
+    position: absolute;
+    height: 20px;
+    /* width:75px; */
+    /* background-color: white;
+    border-radius: 20px;
+    border: .5px solid rgb(239, 228, 228); */
+    top: 0;
+    bottom:0 ;
+    left: 0;
+    right: 0;
+    margin-top: 211px;
+   margin-left: 14px;
+   display: flex;
+}
+.PostPriceWrap7{
+    position: absolute;
+    height: 20px;
+    /* width:75px; */
+    /* background-color: white;
+    border-radius: 20px;
+    border: .5px solid rgb(239, 228, 228); */
+    top: 0;
+    bottom:0 ;
+    left: 0;
+    right: 0;
+    margin-top: 130px;
+   margin-left: 14px;
+   display: flex;
+}
+.PostPriceWrap6{
+    position: absolute;
+    height: 20px;
+    /* width:75px; */
+    /* background-color: white;
+    border-radius: 20px;
+    border: .5px solid rgb(239, 228, 228); */
+    top: 0;
+    bottom:0 ;
+    left: 0;
+    right: 0;
+    margin-top: 211px;
+   margin-left: 14px;
+   display: flex;
+}
+.PostPriceWrap2{
+    position: absolute;
+    height: 20px;
+    /* width:75px; */
+    /* background-color: white;
+    border-radius: 20px;
+    border: .5px solid rgb(239, 228, 228); */
+    top: 0;
+    bottom:0 ;
+    left: 0;
+    right: 0;
+    margin-top: 130px;
+   margin-left: 14px;
+   display: flex;
+}
+.PostPriceWrap3{
+    position: absolute;
+    height: 20px;
+    /* width:75px; */
+    /* background-color: white;
+    border-radius: 20px;
+    border: .5px solid rgb(239, 228, 228); */
+    top: 0;
+    bottom:0 ;
+    left: 0;
+    right: 0;
+    margin-top: 211px;
+   margin-left: 14px;
+   display: flex;
+}
+.PostPriceWrap5{
+    position: absolute;
+    height: 20px;
+    /* width:75px; */
+    /* background-color: white;
+    border-radius: 20px;
+    border: .5px solid rgb(239, 228, 228); */
+    top: 0;
+    bottom:0 ;
+    left: 0;
+    right: 0;
+    margin-top: 130px;
+   margin-left: 14px;
+   display: flex;
+}
+.PostPriceWrap4{
+    position: absolute;
+    height: 20px;
+    /* width:75px; */
+    /* background-color: white;
+    border-radius: 20px;
+    border: .5px solid rgb(239, 228, 228); */
+    top: 0;
+    bottom:0 ;
+    left: 0;
+    right: 0;
+    margin-top: 211px;
+   margin-left: 14px;
    display: flex;
 }
 .Price{
@@ -58,6 +163,11 @@
     border-radius: 20px;
     border: .5px solid rgb(239, 228, 228);
     width: auto;
+    height: 20px;
+    font-weight: bold;
+    /* padding: 5px; */
+    padding-top: 3px;
+    font-size: 13px;
     padding-left: 10px;
     padding-right: 10px;
 }
@@ -65,7 +175,7 @@
 .Shops{
     display: grid;
     grid-row: 1;
-    overflow-x: scroll;
+    /* overflow-x: scroll; */
     /* scrollbar-width: thin; */
 }
 
@@ -81,16 +191,19 @@
     width: 100%;
     height: 100%;
     /* border: 2px white solid; */
-border: 1px solid gray;
+/* border: 1px solid gray; */
     border-radius: 8px;
 }
 .pics:hover {
     /* transform: scale(1.05); */
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
-    width: 160px;
-    height: 100px;
+    width: 100%;
+    height: 100%;
     border-radius: 8px;
+    transition: all .3s ease;
+   
   }
+
   .PostImage{
     padding: 4px;
     width: 100%;
@@ -110,16 +223,16 @@ border: 1px solid gray;
     height: 200px;
     position: relative;
     display: grid;
-    overflow-x: scroll;
+    /* overflow-x: scroll; */
     overflow-y: hidden;
-    grid-gap: 80px;
-    width: 45%;
-    min-width: 700px;
+    grid-gap: 40px;
+    width: 35%;
+    min-width: 600px;
     margin-left: auto;
     margin-right: auto;
 }
 .pink{
-    background-color: pink;
+    background-color: rgb(253,235,210);
     /* width: 100%; */
 }
 .inmap{
@@ -129,6 +242,20 @@ border: 1px solid gray;
     width: 100px;
     padding-top: 60px;
 }
+.Image:hover {
+    /* transform: scale(1.05); */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
+    height: 90px;
+    width:90px;
+    border-radius: 1000px;
+    transition: all .2s ease;
+
+  }
+  .imagename:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    
+  }
 .Image{
     height: 80px;
     width:80px;
@@ -138,7 +265,12 @@ border: 1px solid gray;
     display: flex;
     justify-content: center;
     font-size: 25px;
+   
+    
     /* padding-top: 20px; */
+}
+.blanktextwrap{
+    margin-top: 10px;
 }
 .imagename{
     display: flex;
@@ -189,35 +321,43 @@ border: 1px solid gray;
     height: 200px;
 } */
 .PostImageContainer0{
+    position: relative;
     width: 200px;
     height: 160px;
 }
 .PostImageContainer1{
+    position: relative;
     width: 200px;
     height: 240px;
 }
 .PostImageContainer2{
+    position: relative;
     width: 200px;
     height: 160px;
 }
 .PostImageContainer3{
+    position: relative;
     width: 200px;
     height: 240px;
 }
 .PostImageContainer5{
+    position: relative;
     width: 200px;
     height: 160px;
 }
 .PostImageContainer4{
+    position: relative;
     width: 200px;
     height: 240px;
     margin-top: -80px;
 }
 .PostImageContainer7{
+    position: relative;
     width: 200px;
     height: 160px;
 }
 .PostImageContainer6{
+    position: relative;
     width: 200px;
     height: 240px;
     margin-top: -80px;
