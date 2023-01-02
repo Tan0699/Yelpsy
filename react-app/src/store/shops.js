@@ -37,7 +37,7 @@ const deleteShopAction = (shopId) => {
 }
 
 export const fetchShops = () => async dispatch => {
-    const res = await fetch('/api/shops')
+    const res = await fetch('/api/shops/')
     if (res.ok) {
         const data = await res.json();
         dispatch(getAllShopsAction(data));

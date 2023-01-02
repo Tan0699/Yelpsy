@@ -1,0 +1,30 @@
+.count{
+    width:100%;
+    font-size: 17px;
+    padding: 11px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px 1px  rgb(181, 176, 176);
+}
+.addcart{
+    color: white;
+    background-color: black;
+    border-radius: 309249023px;
+    font-size: 15px;
+    width: 100%;
+    padding:10px;
+}
+.addcartwrap{
+    padding-top:15px;
+}
+#stara{
+    font-size: 17px;
+   
+}
+.shoprev{
+    font-size: 24px;
+    
+}
+.revdesc{
+    padding-top:2px;
+    line-height: 23px;
+}

@@ -13,6 +13,7 @@ class Shop(db.Model):
     description = db.Column(db.String(200), nullable=False)
     image = db.Column(db.String(2000), nullable=False)
     posts = db.relationship("Post",cascade="all,delete",backref="shop")
+    reviews = db.relationship("Review",cascade="all,delete",backref="shop")
   
     def to_dict(self):
         return {

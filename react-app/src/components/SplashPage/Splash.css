@@ -8,17 +8,28 @@
 }
 
 .postgrid{
-    display: grid;
-    width: 720px;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 845px;
+   
+   /* grid-template-columns: repeat(4,1fr); */
+   /* grid-auto-rows: 0; */
+    /* grid-template-rows: masonry; */
+    /* column-count: 4; */
+    /* column-gap: 10px; */
+    /* masonry-auto-flow: next; */
+    /* columns: 4; */
+    /* overflow: hidden; */
+    /* box-sizing: border-box; */
     
-    overflow: hidden;
     grid-gap: 15px;
     margin-left:auto;
     margin-right: auto;
     /* max-height: 400px; */
     /* overflow-y: scroll; */
-    
+    /* float: left;
+    margin:10px */
 }
 /* .Image{
     width: 100%;
@@ -69,7 +80,8 @@
 .pics{
     width: 100%;
     height: 100%;
-    border: 2px white solid;
+    /* border: 2px white solid; */
+border: 1px solid gray;
     border-radius: 8px;
 }
 .pics:hover {
@@ -81,8 +93,8 @@
   }
   .PostImage{
     padding: 4px;
-    width: 160px;
-    height: 100px;
+    width: 100%;
+    height: 100%;
     /* border-radius: 5px; */
 }
 .color{
@@ -92,6 +104,7 @@
     display: grid;
     grid-template-rows: 1fr 1fr;
     min-width: 700px;
+    /* margin-left: 0px; */
 }
 .shopgrid{
     height: 200px;
@@ -107,6 +120,7 @@
 }
 .pink{
     background-color: pink;
+    /* width: 100%; */
 }
 .inmap{
     display: grid;
@@ -143,7 +157,7 @@
     /* flex-direction: column */
 }
     .cheke{
-        background-color: rgb(153,179,204);
+        /* background-color: rgb(153,179,204); */
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -155,7 +169,62 @@
 }
 .priceroo{
     color: black;
+    
 }
 /* .justname{
     word-wrap: break-word;          
 } */
+
+
+/* .pics0{
+    width: 100%;
+    height: 100%;
+}
+.pics1{
+    width: 100px;
+    height: 200px;
+}
+.pics2{
+    width: 100px;
+    height: 200px;
+} */
+.PostImageContainer0{
+    width: 200px;
+    height: 160px;
+}
+.PostImageContainer1{
+    width: 200px;
+    height: 240px;
+}
+.PostImageContainer2{
+    width: 200px;
+    height: 160px;
+}
+.PostImageContainer3{
+    width: 200px;
+    height: 240px;
+}
+.PostImageContainer5{
+    width: 200px;
+    height: 160px;
+}
+.PostImageContainer4{
+    width: 200px;
+    height: 240px;
+    margin-top: -80px;
+}
+.PostImageContainer7{
+    width: 200px;
+    height: 160px;
+}
+.PostImageContainer6{
+    width: 200px;
+    height: 240px;
+    margin-top: -80px;
+}
+
+
+html, body {
+    margin: 0;
+    padding: 0;
+  }

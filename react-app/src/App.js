@@ -11,6 +11,9 @@ import { authenticate } from './store/session';
 import Splash from './components/SplashPage';
 import OneShop from './components/Oneshop';
 import OnePost from './components/Onepost';
+import ReviewForm from './components/ReviewForm';
+import Purchases from './components/Purchases';
+import Cart from './components/CartPage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -46,6 +49,12 @@ function App() {
         <NavBar />
           <Splash/>
         </Route>
+        <Route path='/purchases' exact={true} >
+          <Purchases/>
+        </Route>
+        <Route path='/Account' exact={true} >
+          <Cart/>
+        </Route>
         <Route path='/:shopId' exact={true} >
           <NavBar />
           <OneShop/>
@@ -53,6 +62,9 @@ function App() {
         <Route path='/:shopId/posts/:id' exact={true} >
         <NavBar />
           <OnePost/>
+        </Route>
+        <Route path='/reviews/ree' exact={true} >
+          <ReviewForm/>
         </Route>
       </Switch>
     </BrowserRouter>
