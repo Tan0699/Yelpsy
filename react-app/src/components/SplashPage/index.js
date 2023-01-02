@@ -8,6 +8,12 @@ import './Splash.css'
 
 function Splash() {
   const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(fetchShops())
+    dispatch(fetchPosts())
+    
+    
+  }, [dispatch])
   const shopState = useSelector((state) => state.shops)
   const shops = Object.values(shopState)
   const postState = useSelector((state) => state.posts)
@@ -28,16 +34,12 @@ function Splash() {
     //  }
     // }
     
-    const shuffledArray = posts.sort((a, b) => 0.5 - Math.random());
-    const shuffledShops = shops.sort((a,b) => 0.5 - Math.random())
-    
+   
+  //  posts.sort((a,b) => 0.5 - Math.random());
+   posts.sort((a,b) => 0.5 - Math.random());
+   shops.sort((a,b) => 0.5 - Math.random())
+   
 
-    useEffect(() => {
-      dispatch(fetchShops())
-      dispatch(fetchPosts())
-      
-      
-    }, [dispatch])
 
 
 
@@ -60,7 +62,7 @@ function Splash() {
       </div>
 
       <div className='shopgrid'>
-        {shuffledShops.filter((array, index) => index < 4).map((shop) => (
+        {shops.filter((array, index) => index < 4).map((shop) => (
           <div className='inmap' key={shop.id}>
             <NavLink onClick={() => window.scrollTo(0, 0)} className="navls" to={`/${shop.id}`}>
               <div className='imagename'>
@@ -87,9 +89,9 @@ function Splash() {
       {/* <div>POST SHOPS</div> */}
 
       <div className='postgrid'>
-        {shuffledArray.filter((array, index) => index < 8).map(post => (
+        {posts.filter((array, index) => index < 8).map(post => (
           <NavLink className="priceroo" onClick={() => window.scrollTo(0, 0)} to={`/${post.shop_id}/posts/${post.id}`}>
-            <div className={`PostImageContainer${shuffledArray.indexOf(post)}`} key={post.id}>
+            <div className={`PostImageContainer${posts.indexOf(post)}`} key={post.id}>
               <div className='PostImage'>
                 <img className={`pics`} src={post.image}
                 ></img>
