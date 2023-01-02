@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useHistory } from 'react-router-dom';
 import { fetchPosts } from '../../store/posts';
-import { deleteShop, fetchShops } from '../../store/shops';
+import {  deleteShop, fetchShops } from '../../store/shops';
 import ShopForm from '../Shopform';
 import './Splash.css'
 
@@ -13,7 +13,7 @@ function Splash() {
   const postState = useSelector((state) => state.posts)
   const posts = Object.values(postState)
   const history = useHistory()
-  console.log("possts",posts)
+
   
   // const array = []
   // console.log("aaray",array)
@@ -27,17 +27,11 @@ function Splash() {
     //  break
     //  }
     // }
-    const newPosts= [...posts]
-    const shuffledArray = newPosts.sort((a, b) => 0.5 - Math.random());
     
-    const slicedArray =  shuffledArray.slice(0,8)
+    const shuffledArray = posts.sort((a, b) => 0.5 - Math.random());
     const shuffledShops = shops.sort((a,b) => 0.5 - Math.random())
-    const slicedShops = shuffledShops.slice(0,4)
-    console.log("pososps",posts)
-    console.log("posospsssssssssss",newPosts)
-
-    console.log("aaray",shuffledArray)
     
+
     useEffect(() => {
       dispatch(fetchShops())
       dispatch(fetchPosts())
@@ -66,7 +60,7 @@ function Splash() {
       </div>
 
       <div className='shopgrid'>
-        {slicedShops.map((shop) => (
+        {shuffledShops.filter((array, index) => index < 4).map((shop) => (
           <div className='inmap' key={shop.id}>
             <NavLink onClick={() => window.scrollTo(0, 0)} className="navls" to={`/${shop.id}`}>
               <div className='imagename'>
@@ -93,9 +87,9 @@ function Splash() {
       {/* <div>POST SHOPS</div> */}
 
       <div className='postgrid'>
-        {slicedArray.map(post => (
+        {shuffledArray.filter((array, index) => index < 8).map(post => (
           <NavLink className="priceroo" onClick={() => window.scrollTo(0, 0)} to={`/${post.shop_id}/posts/${post.id}`}>
-            <div className={`PostImageContainer${slicedArray.indexOf(post)}`} key={post.id}>
+            <div className={`PostImageContainer${shuffledArray.indexOf(post)}`} key={post.id}>
               <div className='PostImage'>
                 <img className={`pics`} src={post.image}
                 ></img>
