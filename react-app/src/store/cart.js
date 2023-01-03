@@ -74,17 +74,17 @@ const cartReducer = (state = initialState , action) =>{
     switch(action.type){
         case ADD_TO_CART:{
             newState = {...state}
-            newState =[...action.payload]
+            newState.cart =[...action.payload]
             return newState
         }
         case GET_ALL_CART:{
             newState = {...state}
-            newState =[...action.payload]
+            newState.cart =[...action.payload]
             return newState
         }
         case DELETE_FROM_CART:{
             newState = {...state}
-            newState =[...action.payload]
+            newState.cart =[...action.payload]
             return newState
         }
         default: {
