@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { NavLink, useHistory } from "react-router-dom"
-import { addToCartThunk } from "../../store/cart"
+import { addToCartThunk, getAllcartThunk } from "../../store/cart"
 import { fetchShops } from "../../store/shops"
 import "./CartPage.css"
 
@@ -9,6 +9,10 @@ import "./CartPage.css"
 function Cart() {
     const history = useHistory()
     const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(getAllcartThunk())
+        dispatch(fetchShops())
+    }, [dispatch])
     const products = useSelector((state) => state?.cart.cart)
     console.log(products)
     const shopState = useSelector((state) => state.shops)
@@ -19,7 +23,7 @@ function Cart() {
     })
     const productArray = []
     const idArry = []
-    const filteredProducts = products.forEach(product => {
+    const filteredProducts = products?.forEach(product => {
         if (!(idArry.includes(product.id))) {
             idArry.push(product.id)
             productArray.push(product)
@@ -31,9 +35,6 @@ function Cart() {
     console.log("le", productsObj)
     const keys = Object.keys(productsObj);
     console.log("keyy", keys) //['12', '17', '18']
-    useEffect(() => {
-        dispatch(fetchShops())
-    }, [dispatch])
     return (
         <>
             {/* {keys?.map((key)=>(
