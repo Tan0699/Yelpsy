@@ -1,13 +1,17 @@
 import { useEffect } from "react"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { NavLink } from "react-router-dom"
 import { addToCartThunk } from "../../store/cart"
+import { fetchShops } from "../../store/shops"
 import "./CartPage.css"
 
 
 function Cart() {
-
+    const dispatch = useDispatch()
     const products = useSelector((state) => state?.cart.cart)
     console.log(products)
+    const shopState = useSelector((state) => state.shops)
+    const shops = Object.values(shopState)
     const productsObj = {}
     products?.forEach(product => {
         productsObj[product.id] = (productsObj[product.id] || 0) + 1
@@ -20,11 +24,15 @@ function Cart() {
             productArray.push(product)
         }
     })
-    console.log("le id filt4r", idArry)
+
+    console.log("le filtered productsr", filteredProducts)
     console.log("le FILTEREd", productArray)
     console.log("le", productsObj)
     const keys = Object.keys(productsObj);
     console.log("keyy", keys) //['12', '17', '18']
+    useEffect(() => {
+        dispatch(fetchShops())
+    }, [dispatch])
     return (
         <>
             {/* {keys?.map((key)=>(
@@ -44,46 +52,54 @@ function Cart() {
                 <div className='yaya'><strong>Etsy Purchase Protection:</strong> Shop confidently on Etsy knowing if something goes wrong with an order, we've got your back for all eligible purchases</div>
             </div>
             <div className="cartpagegrid">
-                <div className="cartitemsgrid">
-                    <div className="shopnamegrid">
-
-                    </div>
-
-                    <div className="bottomgrid">
-                        <div className="cartimage">
-
-                        </div>
-                        <div className="cartnames">
-
-                        </div>
-                        <div className="lastgrid">
-                            <div className="pricequan">
-                                <div className="changequan">
-
+               
+                    <div className="cartitemsgridgrid">
+                    {productArray?.map(product => (
+                            <div  className="cartitemsgrid">
+                                <div className="shopnamegrid">
+                                    {shops?.filter(shop => shop.id == product.shop_id).map(shop => (
+                                        <div className="cartshopimagenamewrap">
+                                            <NavLink onClick={() => window.scrollTo(0, 0)} className="navls" to={`/${shop.id}`}>                                            
+                                                <div className="cartshopimagename">
+                                                    <div className="cartimageswrap">
+                                                    <img src={shop.image} className="cartimages"></img></div>
+                                                    <div className="cartshopname">{shop.name}</div>
+                                                    </div>
+                                                </NavLink>
+                                        </div>
+                                    ))}
                                 </div>
-                                <div className="addcartprice">
 
+                                <div className="bottomgrid">
+                                    <div className="cartimage">
+
+                                    </div>
+                                    <div className="cartnames">
+
+                                    </div>
+                                    <div className="lastgrid">
+                                        <div className="pricequan">
+                                            <div className="changequan">
+
+                                            </div>
+                                            <div className="addcartprice">
+
+                                            </div>
+                                        </div>
+                                        <div className="buynow">
+
+                                        </div>
+                                        <div className="delivery">
+
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div className="buynow">
-
-                            </div>
-                            <div className="delivery">
-
-                            </div>
+                    ))}
                         </div>
-
-                    </div>
-
-
-
-
-                </div>
+               
                 <div className="payheregrid">
-
-
-
-
+                    
                 </div>
             </div>
 

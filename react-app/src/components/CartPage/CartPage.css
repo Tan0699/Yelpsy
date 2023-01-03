@@ -39,17 +39,17 @@ padding: 10px;
   .cartpagegrid{
     display: grid;
     grid-template-columns: 2fr 1fr;
-    height: 700px;
+    /* height: 700px; */
     width: 100%;
   }
   .cartitemsgrid{
     display: grid;
-    grid-template-rows: 1fr 5fr;
-    
+    grid-template-rows: 1fr 7fr;
+    height: 400px;
   }
   
   .shopnamegrid{
-    background-color: coral;
+    /* background-color: coral; */
   }
   .bottomgrid{
     background-color: blue;
@@ -78,4 +78,30 @@ padding: 10px;
   .delivery{
 background-color: teal;
   
+  }
+  .cartitemsgridgrid{
+    display: flex;
+    flex-direction: column;
+  }
+  .cartimages{
+    width: 30px;
+    height: 30px;
+    border-radius: 90%;
+  }
+  .cartshopimagename{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .cartshopimagenamewrap{
+    padding-left: 5px;
+    padding-top: 5px;
+  }
+  .cartshopname{
+    font-weight: bold;
+    /* margin-right: -15px; */
+  }
+  .cartimageswrap{
+    /* padding-right: 15px; */
+    padding-right: 15px;
   }
