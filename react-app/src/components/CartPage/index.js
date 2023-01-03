@@ -1,12 +1,13 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { NavLink } from "react-router-dom"
+import { NavLink, useHistory } from "react-router-dom"
 import { addToCartThunk } from "../../store/cart"
 import { fetchShops } from "../../store/shops"
 import "./CartPage.css"
 
 
 function Cart() {
+    const history = useHistory()
     const dispatch = useDispatch()
     const products = useSelector((state) => state?.cart.cart)
     console.log(products)
@@ -45,7 +46,7 @@ function Cart() {
         } */}
             <div className="keepwrap">
                 <div className="itemsincart">{productArray.length} items in your cart</div>
-                <button className="keepshop">Keep Shopping</button>
+                <button className="keepshop" onClick={()=> history.push("/")}>Keep Shopping</button>
             </div>
             <div className='mojop'>
                 <i id='moji' class="fa-solid fa-handshake"></i>
