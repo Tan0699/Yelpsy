@@ -1,0 +1,107 @@
+.itemsincart{
+    font-size: 30px;
+    padding-bottom: 13px;
+}
+.mojop{
+    display: flex;
+flex-direction: row;
+padding-bottom: 15px;
+background-color: rgb(215,230,245);
+border-radius: 20px;
+
+padding: 10px;
+}
+.keepshop{
+    background-color: white;
+    border: 0px ;
+    font-size: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 40px;
+    /* margin-bottom: 10px; */
+}
+.keepwrap{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.keepshop:hover {
+    /* transform: scale(1.05); */
+    /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.35); */
+    /* width: 160px;
+    height: 100px; */
+    /* height: 80%; */
+    border-radius: 2023432px;
+    transition: all .2s ease;
+    background-color: rgb(225, 224, 224);
+  }
+  .cartpagegrid{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    /* height: 700px; */
+    width: 100%;
+  }
+  .cartitemsgrid{
+    display: grid;
+    grid-template-rows: 1fr 7fr;
+    height: 400px;
+  }
+  
+  .shopnamegrid{
+    /* background-color: coral; */
+  }
+  .bottomgrid{
+    background-color: blue;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.5fr;
+  }
+  .payheregrid{
+    background-color: gray;
+  }
+  .cartimage{
+    background-color: aqua;
+  }
+  .cartnames{
+    background-color: aquamarine;
+  }
+  .lastgrid{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+  .pricequan{
+    background-color: blueviolet;
+  }
+  .buynow{
+    background-color: bisque;
+  }
+  .delivery{
+background-color: teal;
+  
+  }
+  .cartitemsgridgrid{
+    display: flex;
+    flex-direction: column;
+  }
+  .cartimages{
+    width: 30px;
+    height: 30px;
+    border-radius: 90%;
+  }
+  .cartshopimagename{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .cartshopimagenamewrap{
+    padding-left: 5px;
+    padding-top: 5px;
+  }
+  .cartshopname{
+    font-weight: bold;
+    /* margin-right: -15px; */
+  }
+  .cartimageswrap{
+    /* padding-right: 15px; */
+    padding-right: 15px;
+  }

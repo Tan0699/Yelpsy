@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteShop, fetchOneShop, fetchShops } from '../../store/shops';
+import { clearAction, deleteShop, fetchOneShop, fetchShops } from '../../store/shops';
 import ShopForm from '../Shopform';
 import { NavLink, useHistory, useParams } from 'react-router-dom';
 import EditShopForm from '../EditShopform';

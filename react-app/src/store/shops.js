@@ -3,12 +3,19 @@ const ONE_SHOP = 'shops/one'
 const CREATE_SHOP = 'shops/new'
 const EDIT_SHOP = 'shops/edit'
 const DELETE_SHOP = 'shops/delete'
+const CLEAR = 'shops/delete'
 
 
 const getAllShopsAction = payload => {
     return {
         type: ALL_SHOPS,
         payload
+    }
+}
+export const clearAction = () => {
+    return {
+        type: CLEAR,
+      
     }
 }
 const getOneShopAction = payload => {
@@ -119,7 +126,12 @@ const shopReducer = (state = initialState, action) => {
             action.payload.shops.forEach(shop => {
                 newState[shop.id] = shop
             })
-            return newState
+            const newnew = Object.values(newState)
+            newnew.sort((a,b) => 0.5 - Math.random());
+            return newnew
+        }
+        case CLEAR: {
+            return newState={}
         }
         case ONE_SHOP:{
             newState = {...state}
