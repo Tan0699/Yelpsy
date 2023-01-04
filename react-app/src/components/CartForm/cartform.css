@@ -28,3 +28,18 @@
     padding-top:2px;
     line-height: 23px;
 }
+.addcartnono{
+    color: white;
+    background-color: rgb(161, 161, 161);
+    border-radius: 309249023px;
+    font-size: 15px;
+    width: 100%;
+    padding:10px;
+    cursor: not-allowed;
+}
+.alreadyadded{
+    color: red;
+    padding-bottom: 15px;
+    display: flex;
+    justify-content: center;
+}

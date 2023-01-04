@@ -49,6 +49,7 @@ function OnePost() {
     dispatch(fetchShops())
     dispatch(fetchReviews())
   }, [dispatch])
+
   console.log("huhu why no work", thisUser?.id)
   console.log("huhu why no work", thisPost?.user_id)
   const thisShop = shops?.filter(shop => shop.id == +shopId)[0]
@@ -223,7 +224,7 @@ function OnePost() {
             <div className='posnam'>{thisPost?.name}</div>
             <div className='pospri'>${thisPost?.price} </div>
             <div className='quantity'>Quantity</div>
-            <div className='cartform'><CartForm thisPost={thisPost} /></div>
+            <div className='cartform'><CartForm thisPost={thisPost}  /></div>
             <div className='shp'>Shipping Cost based on your Location: Free!</div>
             <div className='legri'>
               {/* <div className='mojo'>

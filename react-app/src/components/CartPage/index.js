@@ -37,7 +37,17 @@ function Cart() {
     const keys = Object.keys(productsObj);
     console.log("keyy", keys) //['12', '17', '18']
     const numsArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
-    const quantityArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+    const quantityArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    const helperAdd =(num,product)=>{
+        for (let i =0; i<num;i++){
+            dispatch(addToCartThunk(product))
+            }
+    }
+    const helperDel =(num,product)=>{
+        for (let i =0; i<num;i++){
+            dispatch(deleteOneFromCartAction(product))
+            }
+    }
     return (
         <div className="wholecartwrap">
             {/* {keys?.map((key)=>(
@@ -96,7 +106,7 @@ function Cart() {
                                                 className='count'
                                                 value={productsObj[product.id]}
                                                 // onChange={e => (!!productsObj[product.id]>e.target.value))?dispatch(addToCartThunk(product):null)}
-                                                onChange={(e) => {productsObj[product.id]<(e.target.value) ? dispatch(addToCartThunk(product)):dispatch(deleteOneFromCartAction(product))}}
+                                                onChange={(e) => {productsObj[product.id]<(e.target.value) ? helperAdd((e.target.value)-productsObj[product.id],product):helperDel(productsObj[product.id]-(e.target.value),product)}}
                                             >
                                                 {quantityArray?.map(number => (
                                                     <option key={number.id}>
