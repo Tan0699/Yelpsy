@@ -100,6 +100,28 @@ function Cart() {
                                         {(product.price.toString().indexOf(".")==(product.price.toString().length-3)) && !Number.isInteger(product.price) &&
                                             <div>${product.price.toString()}</div>
                                         }</div>}
+                                        {productsObj[product.id] > 1 &&
+                                        <div>
+                                        {!((product.price*productsObj[product.id]).toString().includes(".")) &&
+                                            <div>${(product.price*productsObj[product.id]).toString() + ".00"}</div>
+                                        }
+                                         {((product.price*productsObj[product.id]).toString().indexOf(".")==((product.price*productsObj[product.id]).toString().length-2)) &&
+                                            <div>${(product.price*productsObj[product.id]).toString() + "0"}</div>
+                                        }
+                                        {((product.price*productsObj[product.id]).toString().indexOf(".")==((product.price*productsObj[product.id]).toString().length-3)) && !Number.isInteger((product.price*productsObj[product.id])) &&
+                                            <div>${(product.price*productsObj[product.id]).toString()}</div>
+                                        }
+                                        {!(product.price.toString().includes(".")) &&
+                                            <div>(${product.price.toString() + ".00"} each)</div>
+                                        }
+                                         {(product.price.toString().indexOf(".")==(product.price.toString().length-2)) &&
+                                            <div>(${product.price.toString() + "0"} each)</div>
+                                        }
+                                        {(product.price.toString().indexOf(".")==(product.price.toString().length-3)) && !Number.isInteger(product.price) &&
+                                            <div>(${product.price.toString()} each)</div>
+                                        }
+                                        </div>
+                                        }
                                         </div>
                                     </div>
                                     <div className="buynow">

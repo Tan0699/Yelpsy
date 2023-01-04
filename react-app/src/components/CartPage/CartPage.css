@@ -95,7 +95,7 @@ padding: 10px;
     grid-template-rows: 1fr 1fr 1fr;
   }
   .pricequan{
-    background-color: blueviolet;
+    /* background-color: blueviolet; */
   }
   .buynow{
     background-color: bisque;
