@@ -34,9 +34,22 @@ export const addToCartThunk = (product) => async dispatch =>{
             ...product,
             count:1,
         }
-    
-
     cart.push(addProduct)
+
+    localStorage.setItem('cart', JSON.stringify(cart))
+    dispatch(addToCartAction(cart))
+    // }
+}
+export const deleteOneFromCartAction = (product) => async dispatch =>{
+    const cart = localStorage.getItem('cart')?
+     JSON.parse(localStorage.getItem('cart')): []
+
+
+    // if (dupes.length === 0){
+    const indexOfProduct = cart.map(e => e.id).indexOf(product.id);
+    if (indexOfProduct> -1){
+    cart.splice(indexOfProduct,1)}
+    console.log("cart after",cart)
 
     localStorage.setItem('cart', JSON.stringify(cart))
     dispatch(addToCartAction(cart))

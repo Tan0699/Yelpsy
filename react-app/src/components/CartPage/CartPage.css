@@ -1,3 +1,11 @@
+.wholecartwrap{
+  max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 700px;
+    padding-left: max(5px, 1%);
+    padding-right: max(5px, 1%);
+}
 .itemsincart{
     font-size: 30px;
     padding-bottom: 13px;
@@ -44,7 +52,7 @@ padding: 10px;
   }
   .cartitemsgrid{
     display: grid;
-    grid-template-rows: 1fr 7fr;
+    grid-template-rows: 1fr 7fr .1fr;
     height: 400px;
   }
   
@@ -52,18 +60,35 @@ padding: 10px;
     /* background-color: coral; */
   }
   .bottomgrid{
-    background-color: blue;
+    /* background-color: blue; */
     display: grid;
-    grid-template-columns: 1fr 1fr 1.5fr;
+    grid-template-columns: 1fr 1.5fr 1fr ;
   }
   .payheregrid{
     background-color: gray;
   }
   .cartimage{
-    background-color: aqua;
+    /* background-color: aqua; */
+  width: 100%;
+  min-height: 150px;
+  border-radius: 10px;
+  /* max-width:160px;
+  max-height:200px;
+  h
+  width: auto;
+  height: auto; */
+    /* height: 92px; */
   }
   .cartnames{
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
+    line-height: 25px;
+    
+    word-break: normal;
+    padding-bottom: 153px;
+  }
+  .nameincartnames{
+    padding-bottom: 15px;
+    padding-left: 10px;
   }
   .lastgrid{
     display: grid;
@@ -104,4 +129,24 @@ background-color: teal;
   .cartimageswrap{
     /* padding-right: 15px; */
     padding-right: 15px;
+  }
+  .removebutton{
+    background-color: white;
+    border: none;
+    border-radius:34234px;
+    /* padding:5px; */
+    padding-left:15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+  }
+  .removebutton:hover{
+    border-radius: 2023432px;
+    transition: all .2s ease;
+    background-color: rgb(225, 224, 224);
+  }
+  .justaline{
+    background-color: rgb(200, 199, 199);
+    height: 1px;
   }

@@ -255,7 +255,7 @@ function OnePost() {
 
         <div className='secogrid'>
 
-          <button onClick={() => { dispatch(deleteFromCartThunk(thisPost)) }}>CLICK TO DELET</button>
+          
 
         </div>
       </div>
