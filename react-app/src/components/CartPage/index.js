@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { NavLink, useHistory } from "react-router-dom"
 import { addToCartThunk, deleteFromCartThunk, deleteOneFromCartAction, getAllcartThunk } from "../../store/cart"
@@ -9,6 +9,7 @@ import "./CartPage.css"
 function Cart() {
     const history = useHistory()
     const dispatch = useDispatch()
+    const [quantity, setQuantity] = useState("")
     useEffect(() => {
         dispatch(getAllcartThunk())
         dispatch(fetchShops())
@@ -35,6 +36,8 @@ function Cart() {
     console.log("le", productsObj)
     const keys = Object.keys(productsObj);
     console.log("keyy", keys) //['12', '17', '18']
+    const numsArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+    const quantityArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
     return (
         <div className="wholecartwrap">
             {/* {keys?.map((key)=>(
@@ -78,10 +81,10 @@ function Cart() {
 
                                     </img></NavLink>
                                 <div className="cartnames">
-                                    
-                                   <div className="nameincartnames"> {product.name}</div>
-                                   <button className="removebutton" onClick={() => { dispatch(deleteFromCartThunk(product)) }}>Remove</button>
-                                   <button onClick={()=> dispatch(deleteOneFromCartAction(product))} >DELETE ONE</button>
+
+                                    <div className="nameincartnames"> {product.name}</div>
+                                    <button className="removebutton" onClick={() => { dispatch(deleteFromCartThunk(product)) }}>Remove</button>
+                                    <button onClick={() => dispatch(deleteOneFromCartAction(product))} >DELETE ONE</button>
                                 </div>
                                 <div className="lastgrid">
                                     <div className="pricequan">
@@ -89,46 +92,58 @@ function Cart() {
 
                                         </div>
                                         <div className="addcartprice">
-                                        {productsObj[product.id] == 1 &&
-                                        <div>
-                                        {!(product.price.toString().includes(".")) &&
-                                            <div>${product.price.toString() + ".00"}</div>
-                                        }
-                                         {(product.price.toString().indexOf(".")==(product.price.toString().length-2)) &&
-                                            <div>${product.price.toString() + "0"}</div>
-                                        }
-                                        {(product.price.toString().indexOf(".")==(product.price.toString().length-3)) && !Number.isInteger(product.price) &&
-                                            <div>${product.price.toString()}</div>
-                                        }</div>}
-                                        {productsObj[product.id] > 1 &&
-                                        <div>
-                                        {!((product.price*productsObj[product.id]).toString().includes(".")) &&
-                                            <div>${(product.price*productsObj[product.id]).toString() + ".00"}</div>
-                                        }
-                                         {((product.price*productsObj[product.id]).toString().indexOf(".")==((product.price*productsObj[product.id]).toString().length-2)) &&
-                                            <div>${(product.price*productsObj[product.id]).toString() + "0"}</div>
-                                        }
-                                        {((product.price*productsObj[product.id]).toString().indexOf(".")==((product.price*productsObj[product.id]).toString().length-3)) && !Number.isInteger((product.price*productsObj[product.id])) &&
-                                            <div>${(product.price*productsObj[product.id]).toString()}</div>
-                                        }
-                                        {!(product.price.toString().includes(".")) &&
-                                            <div>(${product.price.toString() + ".00"} each)</div>
-                                        }
-                                         {(product.price.toString().indexOf(".")==(product.price.toString().length-2)) &&
-                                            <div>(${product.price.toString() + "0"} each)</div>
-                                        }
-                                        {(product.price.toString().indexOf(".")==(product.price.toString().length-3)) && !Number.isInteger(product.price) &&
-                                            <div>(${product.price.toString()} each)</div>
-                                        }
-                                        </div>
-                                        }
+                                            <div><select
+                                                className='count'
+                                                value={productsObj[product.id]}
+                                                // onChange={e => (!!productsObj[product.id]>e.target.value))?dispatch(addToCartThunk(product):null)}
+                                                onChange={(e) => {productsObj[product.id]<(e.target.value) ? dispatch(addToCartThunk(product)):dispatch(deleteOneFromCartAction(product))}}
+                                            >
+                                                {quantityArray?.map(number => (
+                                                    <option key={number.id}>
+                                                        {number}
+                                                    </option>
+                                                ))}
+                                            </select></div>
+                                            {productsObj[product.id] == 1 &&
+                                                <div>
+                                                    {!(product.price.toString().includes(".")) &&
+                                                        <div>${product.price.toString() + ".00"}</div>
+                                                    }
+                                                    {(product.price.toString().indexOf(".") == (product.price.toString().length - 2)) &&
+                                                        <div>${product.price.toString() + "0"}</div>
+                                                    }
+                                                    {(product.price.toString().indexOf(".") == (product.price.toString().length - 3)) && !Number.isInteger(product.price) &&
+                                                        <div>${product.price.toString()}</div>
+                                                    }</div>}
+                                            {productsObj[product.id] > 1 &&
+                                                <div>
+                                                    {!((product.price * productsObj[product.id]).toString().includes(".")) &&
+                                                        <div>${(product.price * productsObj[product.id]).toString() + ".00"}</div>
+                                                    }
+                                                    {((product.price * productsObj[product.id]).toString().indexOf(".") == ((product.price * productsObj[product.id]).toString().length - 2)) &&
+                                                        <div>${(product.price * productsObj[product.id]).toString() + "0"}</div>
+                                                    }
+                                                    {((product.price * productsObj[product.id]).toString().indexOf(".") == ((product.price * productsObj[product.id]).toString().length - 3)) && !Number.isInteger((product.price * productsObj[product.id])) &&
+                                                        <div>${(product.price * productsObj[product.id]).toString()}</div>
+                                                    }
+                                                    {!(product.price.toString().includes(".")) &&
+                                                        <div>(${product.price.toString() + ".00"} each)</div>
+                                                    }
+                                                    {(product.price.toString().indexOf(".") == (product.price.toString().length - 2)) &&
+                                                        <div>(${product.price.toString() + "0"} each)</div>
+                                                    }
+                                                    {(product.price.toString().indexOf(".") == (product.price.toString().length - 3)) && !Number.isInteger(product.price) &&
+                                                        <div>(${product.price.toString()} each)</div>
+                                                    }
+                                                </div>
+                                            }
                                         </div>
                                     </div>
                                     <div className="buynow">
-
+                                        Limited Quanity available and it's in {Math.floor(((product.id *3)%20))+1 } person(s) carts
                                     </div>
                                     <div className="delivery">
-
+                                        Estimated delivery: 1 day from United States
                                     </div>
                                 </div>
                             </div>
@@ -136,7 +151,7 @@ function Cart() {
 
                             </div>
                         </div>
-                        
+
                     ))}
                 </div>
 

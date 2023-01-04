@@ -98,10 +98,13 @@ padding: 10px;
     /* background-color: blueviolet; */
   }
   .buynow{
-    background-color: bisque;
+    /* background-color: bisque; */
+    color: rgb(166,26,46);
+    font-size: 15px;
   }
   .delivery{
-background-color: teal;
+/* background-color: teal; */
+font-size: 13px;
   
   }
   .cartitemsgridgrid{

@@ -46,9 +46,17 @@ export const deleteOneFromCartAction = (product) => async dispatch =>{
 
 
     // if (dupes.length === 0){
-    const indexOfProduct = cart.map(e => e.id).indexOf(product.id);
-    if (indexOfProduct> -1){
-    cart.splice(indexOfProduct,1)}
+    const cartMapped = cart.map(e => e.id)
+    const array = []
+    for(let i = 0 ; i<cart.length; i++){
+        if (cartMapped[i]==product.id){
+            array.push(i)
+        }
+    }
+    const indexOfProduct = cartMapped.indexOf(product.id);
+    
+    
+    cart.splice(array[array.length-1],1)
     console.log("cart after",cart)
 
     localStorage.setItem('cart', JSON.stringify(cart))
