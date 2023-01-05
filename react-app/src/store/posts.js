@@ -3,11 +3,18 @@ const ONE_POST = 'posts/one'
 const CREATE_POST = 'posts/new'
 const EDIT_POST = 'posts/edit'
 const DELETE_POST = 'posts/delete'
+const ALL_RANDOM = 'posts/random'
 
 
 const getAllPostsAction = payload => {
     return {
         type: ALL_POSTS,
+        payload
+    }
+}
+const getAllRandomPostsAction = payload => {
+    return {
+        type: ALL_RANDOM,
         payload
     }
 }
@@ -41,6 +48,14 @@ export const fetchPosts = () => async dispatch => {
     if (res.ok) {
         const data = await res.json();
         dispatch(getAllPostsAction(data));
+        return data
+    }
+}
+export const fetchRandomPosts = () => async dispatch => {
+    const res = await fetch(`/api/shops/posts/all`)
+    if (res.ok) {
+        const data = await res.json();
+        dispatch(getAllRandomPostsAction(data));
         return data
     }
 }
@@ -111,9 +126,19 @@ const postReducer = (state = initialState, action) => {
             action.payload.posts.forEach(post => {
                 newState[post.id] = post
             })
+            // const newnew = Object.values(newState)
+            // newnew.sort((a,b) => 0.5 - Math.random());
+            // return newnew
+            return newState
+        }
+        case ALL_RANDOM: {
+            action.payload.posts.forEach(post => {
+                newState[post.id] = post
+            })
             const newnew = Object.values(newState)
             newnew.sort((a,b) => 0.5 - Math.random());
             return newnew
+            
         }
         case ONE_POST:{
             newState = {...state}

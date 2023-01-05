@@ -13,10 +13,9 @@
 .mojop{
     display: flex;
 flex-direction: row;
-padding-bottom: 15px;
+/* padding-bottom: 35px; */
 background-color: rgb(215,230,245);
 border-radius: 20px;
-
 padding: 10px;
 }
 .keepshop{
@@ -48,6 +47,7 @@ padding: 10px;
     display: grid;
     grid-template-columns: 2fr 1fr;
     /* height: 700px; */
+    padding-top: 20px;
     width: 100%;
   }
   .cartitemsgrid{
@@ -65,7 +65,7 @@ padding: 10px;
     grid-template-columns: 1fr 1.5fr 1fr ;
   }
   .payheregrid{
-    background-color: gray;
+    /* background-color: gray; */
   }
   .cartimage{
     /* background-color: aqua; */
@@ -152,4 +152,11 @@ font-size: 13px;
   .justaline{
     background-color: rgb(200, 199, 199);
     height: 1px;
+  }
+  .payherebox{
+    background-color: aqua;
+    width: 260px;
+    height: 400px;
+    border-radius: 10px;
+    
   }

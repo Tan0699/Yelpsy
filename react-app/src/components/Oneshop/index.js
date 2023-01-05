@@ -30,13 +30,14 @@ function OneShop() {
   }, []);
   const shopUser = users?.filter(user => thisShop?.user_id == user.id)[0]
   useEffect(() => {
+    dispatch(clearAction())
     dispatch(fetchOneShop(shopId))
     dispatch(fetchPosts())
   }, [dispatch])
 
 
   const thisShopposts = posts?.filter(post => post.shop_id == +shopId)
-
+console.log("thissshopposts",thisShopposts)
   let editshopModal = (
     <div>
       <button className='editshobut' onClick={(e) => ((setEditSho(true)))}>Edit This Shop</button>

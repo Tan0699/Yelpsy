@@ -15,7 +15,7 @@ function Cart() {
         dispatch(fetchShops())
     }, [dispatch])
     const products = useSelector((state) => state?.cart.cart)
-    console.log(products)
+    console.log("lolproducde",products)
     const shopState = useSelector((state) => state.shops)
     const shops = Object.values(shopState)
     const productsObj = {}
@@ -38,16 +38,22 @@ function Cart() {
     console.log("keyy", keys) //['12', '17', '18']
     const numsArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
     const quantityArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    const helperAdd =(num,product)=>{
-        for (let i =0; i<num;i++){
+    const helperAdd = (num, product) => {
+        for (let i = 0; i < num; i++) {
             dispatch(addToCartThunk(product))
-            }
+        }
     }
-    const helperDel =(num,product)=>{
-        for (let i =0; i<num;i++){
+    const helperDel = (num, product) => {
+        for (let i = 0; i < num; i++) {
             dispatch(deleteOneFromCartAction(product))
-            }
+        }
     }
+    console.log("randopmd",products.map(product => product.price))
+    const initial = 0
+    const totalPrice = products.map(product => product.price).reduce((accumulator, currentValue) => accumulator + currentValue,
+    initial)
+   
+
     return (
         <div className="wholecartwrap">
             {/* {keys?.map((key)=>(
@@ -94,7 +100,7 @@ function Cart() {
 
                                     <div className="nameincartnames"> {product.name}</div>
                                     <button className="removebutton" onClick={() => { dispatch(deleteFromCartThunk(product)) }}>Remove</button>
-                                    <button onClick={() => dispatch(deleteOneFromCartAction(product))} >DELETE ONE</button>
+                                    {/* <button onClick={() => dispatch(deleteOneFromCartAction(product))} >DELETE ONE</button> */}
                                 </div>
                                 <div className="lastgrid">
                                     <div className="pricequan">
@@ -106,7 +112,7 @@ function Cart() {
                                                 className='count'
                                                 value={productsObj[product.id]}
                                                 // onChange={e => (!!productsObj[product.id]>e.target.value))?dispatch(addToCartThunk(product):null)}
-                                                onChange={(e) => {productsObj[product.id]<(e.target.value) ? helperAdd((e.target.value)-productsObj[product.id],product):helperDel(productsObj[product.id]-(e.target.value),product)}}
+                                                onChange={(e) => { productsObj[product.id] < (e.target.value) ? helperAdd((e.target.value) - productsObj[product.id], product) : helperDel(productsObj[product.id] - (e.target.value), product) }}
                                             >
                                                 {quantityArray?.map(number => (
                                                     <option key={number.id}>
@@ -150,7 +156,7 @@ function Cart() {
                                         </div>
                                     </div>
                                     <div className="buynow">
-                                        Limited Quanity available and it's in {Math.floor(((product.id *3)%20))+1 } person(s) carts
+                                        Limited Quanity available and it's in {Math.floor(((product.id * 3) % 20)) + 1} person(s) carts
                                     </div>
                                     <div className="delivery">
                                         Estimated delivery: 1 day from United States
@@ -166,7 +172,12 @@ function Cart() {
                 </div>
 
                 <div className="payheregrid">
+                    <div className="payherebox">
+                                            ${totalPrice.toFixed(2)}
+                    </div>
+                    <div>
 
+                    </div>
                 </div>
             </div>
 

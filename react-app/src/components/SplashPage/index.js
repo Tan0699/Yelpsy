@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useHistory } from 'react-router-dom';
-import { fetchPosts } from '../../store/posts';
+import { fetchPosts, fetchRandomPosts } from '../../store/posts';
 import {  clearAction, deleteShop, fetchShops } from '../../store/shops';
 import ShopForm from '../Shopform';
 import './Splash.css'
@@ -11,7 +11,7 @@ function Splash() {
   useEffect(() => {
     dispatch(clearAction())
     dispatch(fetchShops())
-    dispatch(fetchPosts())
+    dispatch(fetchRandomPosts())
    
     
   }, [dispatch])
@@ -48,7 +48,7 @@ function Splash() {
           <>
     <div>
       <button onClick={()=> history.push("/purchases")}>PURRRCHASES</button>
-      <button onClick={()=> history.push("/account")}>ACCOUNT PAGE</button>
+      <button onClick={()=> history.push("/cart")}>CART PAGE</button>
     </div>
       {/* <div className='wpdiv'>
         <img className='newwp' src="https://i.ibb.co/S5DZC80/lepic.png"></img></div> */}

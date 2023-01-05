@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteShop, fetchShops } from '../../store/shops';
+import { clearAction, deleteShop, fetchShops } from '../../store/shops';
 import ShopForm from '../Shopform';
 import { NavLink, useHistory, useParams } from 'react-router-dom';
 import EditShopForm from '../EditShopform';
@@ -12,6 +12,7 @@ import { Modal } from '../../context/Modal';
 import CartForm from '../CartForm';
 import { deleteFromCartThunk } from '../../store/cart';
 import { fetchReviews } from '../../store/reviews';
+import AddedModal from '../AddedItemModal';
 
 
 function OnePost() {
@@ -20,7 +21,6 @@ function OnePost() {
   const shopState = useSelector((state) => state.shops)
   const postState = useSelector((state) => state.posts)
   const revState = useSelector((state) => state.reviews)
-  console.log("revstate", revState)
   const shops = Object.values(shopState)
   const posts = Object.values(postState)
   const reviews = Object.values(revState)
@@ -31,8 +31,6 @@ function OnePost() {
   let initial = 0
   thisPostRevs.forEach(rev => initial = initial + rev.rating)
   const avgrating = initial / thisPostRevs.length
-  console.log("them reviews", initial)
-  console.log("them avg ", avgrating)
   const dispatch = useDispatch()
   const [users, setUsers] = useState([]);
   useEffect(() => {
@@ -53,7 +51,9 @@ function OnePost() {
   console.log("huhu why no work", thisUser?.id)
   console.log("huhu why no work", thisPost?.user_id)
   const thisShop = shops?.filter(shop => shop.id == +shopId)[0]
+  
   const thisShopposts = posts?.filter(post => post.shop_id === +shopId)
+ 
   let editpostModal = (
     <div>
       <button className='editposta' onClick={(e) => ((setEditPos(true)))}>Edit This Post</button>
@@ -224,7 +224,7 @@ function OnePost() {
             <div className='posnam'>{thisPost?.name}</div>
             <div className='pospri'>${thisPost?.price} </div>
             <div className='quantity'>Quantity</div>
-            <div className='cartform'><CartForm thisPost={thisPost}  /></div>
+            <div className='cartform'><CartForm thisPost={thisPost} thisShopposts={thisShopposts} /></div>
             <div className='shp'>Shipping Cost based on your Location: Free!</div>
             <div className='legri'>
               {/* <div className='mojo'>

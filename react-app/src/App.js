@@ -52,7 +52,8 @@ function App() {
         <Route path='/purchases' exact={true} >
           <Purchases/>
         </Route>
-        <Route path='/Account' exact={true} >
+        <Route path='/Cart' exact={true} >
+          <NavBar/>
           <Cart/>
         </Route>
         <Route path='/:shopId' exact={true} >
