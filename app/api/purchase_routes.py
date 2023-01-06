@@ -18,19 +18,19 @@ def create_purchases():
     # this grabs the data from the request body, no need form 
     data = request.get_json()
     purchasee = Purchase(
-            user_id = current_user.id,
-            price = data["price"]
-        )
-    db.session.add(purchase)
+        user_id = current_user.id,
+        price = data["price"]
+    )
+    db.session.add(purchasee)
     db.session.commit()
     details = request.get_json()['details']
     for post in details:
         purchased_post = PurchaseDetail(
             quantity = post['quantity'],
             post_id = post['id'],
-            purchase_id = purchase.to_dict()['id'],
+            purchase_id = purchasee.to_dict()['id'],
             )
         db.session.add(purchased_post)
     db.session.commit()
-    return make_response(purchasee.to_dict(), 200)
+    return make_response(purchasee.jsonify(), 200)
 
