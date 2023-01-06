@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { NavLink, useHistory } from "react-router-dom"
 import { addToCartThunk, deleteFromCartThunk, deleteOneFromCartAction, getAllcartThunk } from "../../store/cart"
+import { addPurchaseThunk } from "../../store/purchases"
 import { fetchShops } from "../../store/shops"
 import "./CartPage.css"
 
@@ -15,13 +16,13 @@ function Cart() {
         dispatch(fetchShops())
     }, [dispatch])
     const products = useSelector((state) => state?.cart.cart)
-    console.log("lolproducde",products)
     const shopState = useSelector((state) => state.shops)
     const shops = Object.values(shopState)
     const productsObj = {}
     products?.forEach(product => {
         productsObj[product.id] = (productsObj[product.id] || 0) + 1
     })
+    console.log("olelamo",productsObj)
     const productArray = []
     const idArry = []
     const filteredProducts = products?.forEach(product => {
@@ -30,12 +31,28 @@ function Cart() {
             productArray.push(product)
         }
     })
-
-    console.log("le filtered productsr", filteredProducts)
-    console.log("le FILTEREd", productArray)
-    console.log("le", productsObj)
+    const initial = 0
+    const totalPrice = products.map(product => product.price).reduce((accumulator, currentValue) => accumulator + currentValue,
+        initial)
+        console.log("hnhnhnh",products)
+        productArray.map((product)=>{
+            product["quantity"] =productsObj[product.id]
+        })
+        
+        console.log("oldprarary",productArray)
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const payload = {
+            price: totalPrice,
+            details:productArray
+        }
+      const purchaseSuccess = await dispatch(addPurchaseThunk(payload))
+        if (purchaseSuccess){
+            history.push('/')
+        }
+    }
+    
     const keys = Object.keys(productsObj);
-    console.log("keyy", keys) //['12', '17', '18']
     const numsArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
     const quantityArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     const helperAdd = (num, product) => {
@@ -48,11 +65,8 @@ function Cart() {
             dispatch(deleteOneFromCartAction(product))
         }
     }
-    console.log("randopmd",products.map(product => product.price))
-    const initial = 0
-    const totalPrice = products.map(product => product.price).reduce((accumulator, currentValue) => accumulator + currentValue,
-    initial)
-   
+    
+
 
     return (
         <div className="wholecartwrap">
@@ -173,7 +187,7 @@ function Cart() {
 
                 <div className="payheregrid">
                     <div className="payherebox">
-                                            ${totalPrice.toFixed(2)}
+                        ${totalPrice.toFixed(2)}
                     </div>
                     <div>
 
@@ -188,6 +202,9 @@ function Cart() {
                     {product.name}{product.price}quantity:{productsObj[product.id]}total:{product.price * productsObj[product.id]}
                 </div>
             ))}
+            <form onSubmit={handleSubmit}>
+            <button  type="submit">Confirm Order</button>
+            </form>
         </div>
     )
 }

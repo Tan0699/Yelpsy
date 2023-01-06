@@ -5,12 +5,14 @@ import sessionReducer from './session'
 import shopReducer from './shops'
 import reviewReducer from './reviews'
 import cartReducer from './cart';
+import purchaseReducer from './purchases';
 const rootReducer = combineReducers({
   session:sessionReducer,
   shops:shopReducer,
   posts:postReducer,
   reviews:reviewReducer,
-  cart:cartReducer
+  cart:cartReducer,
+  purchase:purchaseReducer
 });
 
 
