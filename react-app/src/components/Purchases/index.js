@@ -8,6 +8,7 @@ import shopReducer, { deleteShop, fetchShops } from '../../store/shops';
 import EditShopForm from '../EditShopform';
 import ReviewForm from '../ReviewForm';
 import ShopForm from '../Shopform';
+import StarThing from '../Star';
 import './Purchase.css'
 
 function Purchases() {
@@ -92,8 +93,22 @@ function Purchases() {
                       <div>
                         {posts.filter(post => detail.post_id == post.id)[0]?.name}
                       </div>
-                      <div>
-                        Review this ITEMMM
+                      <div className='starthing'>
+                        {/* <div class="rating">
+                          <input type ="radio" name="star" id="star1"/>
+                          <label for="star1"></label>
+                          <input type ="radio" name="star" id="star2"/>
+                          <label for="star2"></label>
+                          <input type ="radio" name="star" id="star3"/>
+                          <label for="star3"></label>
+                          <input type ="radio" name="star" id="star4"/>
+                          <label for="star4"></label>
+                          <input type ="radio" name="star" id="star5"/>
+                          <label for="star5"></label>
+                          </div> */}
+                          <div>
+                          <StarThing/>
+                          </div>
                       </div>
 
                       <div className='buyaganplusprice'>
