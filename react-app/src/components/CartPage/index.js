@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { NavLink, useHistory } from "react-router-dom"
 import { addToCartThunk, deleteFromCartThunk, deleteOneFromCartAction, getAllcartThunk } from "../../store/cart"
-import { addPurchaseThunk } from "../../store/purchases"
+import { addPurchaseThunk, fetchPurchases } from "../../store/purchases"
 import { fetchShops } from "../../store/shops"
 import "./CartPage.css"
 
@@ -11,9 +11,11 @@ function Cart() {
     const history = useHistory()
     const dispatch = useDispatch()
     const [quantity, setQuantity] = useState("")
+    // const isUser = useSelector(state => state.session.user)
     useEffect(() => {
         dispatch(getAllcartThunk())
         dispatch(fetchShops())
+        // dispatch(fetchPurchases(isUser.id))
     }, [dispatch])
     const products = useSelector((state) => state?.cart.cart)
     const shopState = useSelector((state) => state.shops)
@@ -43,7 +45,7 @@ function Cart() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const payload = {
-            price: totalPrice,
+            total_price: totalPrice.toFixed(2),
             details:productArray
         }
       const purchaseSuccess = await dispatch(addPurchaseThunk(payload))

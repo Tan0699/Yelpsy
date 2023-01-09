@@ -11,7 +11,7 @@ class PurchaseDetail(db.Model):
     quantity = db.Column(db.Integer)
     post_id =db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('posts.id')))
     purchase_id =db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('purchases.id')))
-    posts = db.relationship('Post', back_populates='purchases')
+    posts = db.relationship('Post', back_populates='purchasees')
     purchases = db.relationship('Purchase', back_populates='details')
 
     def to_dict(self):

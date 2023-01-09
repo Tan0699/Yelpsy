@@ -9,7 +9,7 @@ class Purchase(db.Model):
 
     id = db.Column(db.Integer, primary_key = True)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
-    price = db.Column(db.Float, nullable=False)
+    total_price = db.Column(db.Float(15), nullable=False)
     created_at = db.Column(db.DateTime, default= datetime.utcnow)
     updated_at = db.Column(db.DateTime, default= datetime.utcnow)
     details = db.relationship('PurchaseDetail',back_populates="purchases")
@@ -18,7 +18,7 @@ class Purchase(db.Model):
         return {
             "id": self.id,
             "user_id": self.user_id,
-            "price": self.price,
+            "total_price": self.total_price,
             "created_at": self.created_at,
             "updated_at": self.updated_at,
             "details": [detail.to_dict() for detail in self.details]

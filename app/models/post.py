@@ -15,7 +15,7 @@ class Post(db.Model):
     image = db.Column(db.String(2000), nullable=False)
     price = db.Column(db.Float, nullable=False)
     reviews = db.relationship("Review",cascade="all,delete",backref="post")
-    purchases = db.relationship('PurchaseDetail',back_populates='posts')
+    purchasees = db.relationship('PurchaseDetail',back_populates='posts')
   
     def to_dict(self):
         return {

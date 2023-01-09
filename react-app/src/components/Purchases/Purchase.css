@@ -1,0 +1,24 @@
+.oneword{
+    font-size: 25px;
+    font-weight: bold;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.onewordwrap{
+    display: flex;
+}
+.purchasegrid{
+    height: 500px;
+    width: 700px;
+    background-color: aqua;
+    display: grid;
+    grid-template-columns: 2.5fr 1fr;
+}
+.purchasedetailsgrid{
+    display: grid;
+    grid-template-rows: 1fr 4fr;
+    background-color: aquamarine;
+}
+.purchasedetailsgrid1{
+    background-color: rgb(213, 26, 26);
+}
