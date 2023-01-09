@@ -24,13 +24,13 @@ function Purchases() {
   const dispatch = useDispatch()
   const history = useHistory()
   const [revi, setrevi] = useState(false);
-  const [currentpost , setcurrentpost] = useState("")
+  const [currentpost, setcurrentpost] = useState("")
   useEffect(() => {
     dispatch(fetchShops())
     dispatch(fetchPosts())
     dispatch(fetchPurchases(thisUser?.id))
   }, [dispatch])
-  console.log("state",purchaseState)
+  console.log("state", purchaseState)
 
   // const shopArray = []
 
@@ -42,62 +42,110 @@ function Purchases() {
   //  }
   // })
   // console.log("shop array",shopArray)
-//   let yoo = (
-//     <div>
-//       <button className='editshobut' onClick={(e) => ((setrevi(true)))}>Edit This Shop</button>
-//       {revi && (
-//         <Modal onClose={() => setrevi(false)}>
-//           <EditShopForm setrevi={setrevi} />
-//         </Modal>
-//       )}
-//     </div>)
+  //   let yoo = (
+  //     <div>
+  //       <button className='editshobut' onClick={(e) => ((setrevi(true)))}>Edit This Shop</button>
+  //       {revi && (
+  //         <Modal onClose={() => setrevi(false)}>
+  //           <EditShopForm setrevi={setrevi} />
+  //         </Modal>
+  //       )}
+  //     </div>)
 
   return (
     <>
-  <div className='onewordwrap'>
-      <div className='oneword'>
-        Purchases and Reviews
+      <div className='wholewrap'>
+        <div className='onewordwrap'>
+          <div className='oneword'>
+            Purchases and Reviews
+          </div>
+        </div>
+
+        {purchases.map(purchase => (
+          <div className='purchasegrid'>
+
+
+            <div className='purchasedetailsgrid'>
+              <div className='purchasedetailsgrid1'>
+                <div className='purchasedetailsgrid1inner'>
+                  Purchased from shop(s)
+                  <NavLink to={`/${shops?.filter(shop => (
+                    posts?.filter(post => (
+                      post?.id == purchase?.details[0]?.post_id)))[0]?.shop_id == shop?.id)[0]?.id}`}>
+                    {shops?.filter(shop => (
+                      posts?.filter(post => (
+                        post?.id == purchase?.details[0]?.post_id)))[0]?.shop_id == shop?.id)[0]?.name}</NavLink>... on {purchase.created_at.slice(4, 16)}
+                </div>
+                <div>
+                  ${purchase.total_price}
+                </div>
+              </div>
+              <div className='purchasedetailswrap'>
+                {purchase.details.map(detail => (
+                  <div className='purchasedetailsgrid2'>
+                    <div className='purchasedetailsimage'>
+                      <img className='detailimage' src={posts.filter(post => detail.post_id == post.id)[0]?.image}>
+                      </img>
+                    </div>
+
+                    <div className='purchasedetailsinfo'>
+                      <div>
+                        {posts.filter(post => detail.post_id == post.id)[0]?.name}
+                      </div>
+                      <div>
+                        Review this ITEMMM
+                      </div>
+
+                      <div className='buyaganplusprice'>
+                        <div>Buy this Again button</div>
+                        <div>${posts.filter(post => detail.post_id == post.id)[0]?.price}</div>
+                      </div>
+
+                    </div>
+
+
+
+
+
+
+                  </div>))}
+              </div>
+            </div>
+            <div className='reviewbuttongrids'>
+              <div className='process'>
+                Processed
+              </div>
+              <div className='lebuttons'>
+                <button className='rebuy'>Repurchase</button>
+              </div>
+              <div className='lebuttons'>
+                <button className='viewrev'>
+                  View Review
+                </button>
+              </div>
+              <div  className='lebuttons'>
+                <button className='editdetailrev'>Edit Review</button>
+              </div>
+            </div>
+
+          </div>
+        ))}
+
+
+
+
+
+
+
+
+
+
+        <div> {revi && (
+          <Modal onClose={() => setrevi(false)}>
+            <ReviewForm posts={posts} currentpost={currentpost} />
+          </Modal>
+        )}</div>
       </div>
-      </div>
-    {purchases.map(purchase =>(
-      <div className='purchasegrid'>
-    
-
-    <div className='purchasedetailsgrid'>
-      <div className='purchasedetailsgrid1'>
-      Purchased from these shop(s) 
-      <NavLink to={`/${shops.filter(shop=> (
-        posts.filter(post => (
-          post.id == purchase.details[0].post_id)))[0].shop_id == shop.id)[0].id}`}>
-      {shops.filter(shop=> (
-        posts.filter(post => (
-          post.id == purchase.details[0].post_id)))[0].shop_id == shop.id)[0].name}</NavLink>... on {purchase.created_at.slice(4,16)}
-      </div>
-      <div>
-
-      </div>
-    </div>
-    <div className='reviewbuttongrids'>
-
-    </div>
-
-    </div>
-      ))}
-
-
-
-
-
-
-
-
-
-
-      <div> {revi && (
-                <Modal onClose={() => setrevi(false)}>
-                  <ReviewForm posts={posts} currentpost={currentpost} />
-                </Modal>
-              )}</div>
     </>
   );
 }

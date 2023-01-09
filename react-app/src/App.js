@@ -50,6 +50,7 @@ function App() {
           <Splash/>
         </Route>
         <Route path='/purchases' exact={true} >
+          <NavBar/>
           <Purchases/>
         </Route>
         <Route path='/Cart' exact={true} >
