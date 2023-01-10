@@ -25,6 +25,7 @@ function Purchases() {
   const dispatch = useDispatch()
   const history = useHistory()
   const [revi, setrevi] = useState(false);
+  const [star, setStar] = useState(0)
   const [currentpost, setcurrentpost] = useState("")
   useEffect(() => {
     dispatch(fetchShops())
@@ -55,13 +56,15 @@ function Purchases() {
 
   return (
     <>
-      <div className='wholewrap'>
         <div className='onewordwrap'>
           <div className='oneword'>
             Purchases and Reviews
           </div>
         </div>
+          <div className='alinewrap'>
+          <div className='aline'></div></div>
 
+      <div className='wholewrap'>
         {purchases.map(purchase => (
           <div className='purchasegrid'>
 
@@ -69,51 +72,101 @@ function Purchases() {
             <div className='purchasedetailsgrid'>
               <div className='purchasedetailsgrid1'>
                 <div className='purchasedetailsgrid1inner'>
-                  Purchased from shop(s)
-                  <NavLink to={`/${shops?.filter(shop => (
+                  Purchased from shop(s) {}
+                  <NavLink className="purchasefrom" to={`/${shops?.filter(shop => (
                     posts?.filter(post => (
                       post?.id == purchase?.details[0]?.post_id)))[0]?.shop_id == shop?.id)[0]?.id}`}>
                     {shops?.filter(shop => (
                       posts?.filter(post => (
                         post?.id == purchase?.details[0]?.post_id)))[0]?.shop_id == shop?.id)[0]?.name}</NavLink>... on {purchase.created_at.slice(4, 16)}
                 </div>
-                <div>
+                <div className='pricio'>
                   ${purchase.total_price}
                 </div>
               </div>
               <div className='purchasedetailswrap'>
                 {purchase.details.map(detail => (
                   <div className='purchasedetailsgrid2'>
+                    <div className='detailimagewrap'>
                     <div className='purchasedetailsimage'>
                       <img className='detailimage' src={posts.filter(post => detail.post_id == post.id)[0]?.image}>
                       </img>
-                    </div>
+                    </div></div>
 
                     <div className='purchasedetailsinfo'>
-                      <div>
+                      <div className='purchasenam'>
                         {posts.filter(post => detail.post_id == post.id)[0]?.name}
                       </div>
                       <div className='starthing'>
-                        {/* <div class="rating">
-                          <input type ="radio" name="star" id="star1"/>
-                          <label for="star1"></label>
-                          <input type ="radio" name="star" id="star2"/>
-                          <label for="star2"></label>
-                          <input type ="radio" name="star" id="star3"/>
-                          <label for="star3"></label>
-                          <input type ="radio" name="star" id="star4"/>
-                          <label for="star4"></label>
-                          <input type ="radio" name="star" id="star5"/>
-                          <label for="star5"></label>
-                          </div> */}
-                          <div>
-                          <StarThing/>
+                        <div className='starthinginnerwrap'>
+                        <div className='starthinginner'>Review this product</div></div>
+                        <div className='starthinginner2'>
+                          <div class="rating">
+                            <input
+                              type="radio"
+                              // name={`star${detail.id}`}
+                              name="star"
+                              id="star1"
+                              value={1}
+                              onClick={e => (setrevi(true), setcurrentpost(detail.post_id))}
+                              onChange={e => (setStar(e.target.value))}
+                              defaultChecked={star == 1}
+                            />
+
+                            <input
+                              type="radio"
+                              // name={`star${detail.id}`}
+
+                              name="star" id="star2"
+                              value={2}
+                              onClick={e => (setrevi(true), setcurrentpost(detail.post_id))}
+                              onChange={e => (setStar(e.target.value))}
+                              defaultChecked={star == 2}
+                            />
+
+                            <input
+                              type="radio"
+                              // name={`star${detail.id}`}
+                              name="star"
+                              id="star3"
+                              value={3}
+                              onClick={e => (setrevi(true), setcurrentpost(detail.post_id))}
+                              onChange={e => (setStar(e.target.value))}
+                              defaultChecked={star == 3}
+                            />
+
+                            <input
+                              type="radio"
+                              //  name={`star${detail.id}`}
+
+                              name="star" id="star4"
+                              value={4}
+                              onClick={e => (setrevi(true), setcurrentpost(detail.post_id))}
+                              onChange={e => (setStar(e.target.value))}
+                              defaultChecked={star == 4}
+                            />
+
+                            <input
+                              type="radio"
+                              // name={`star${detail.id}`}
+                              name="star"
+                              id="star5"
+                              value={5}
+                              onClick={e => (setrevi(true), setcurrentpost(detail.post_id))}
+                              onChange={e => (setStar(e.target.value))}
+                              defaultChecked={star == 5}
+                            />
+
                           </div>
+
+                        </div>
                       </div>
 
                       <div className='buyaganplusprice'>
-                        <div>Buy this Again button</div>
-                        <div>${posts.filter(post => detail.post_id == post.id)[0]?.price}</div>
+                        <div>
+                          <button className='buyagan'>Buy this Again </button></div>
+                          <div className='buyaganprice'>
+                        <div>${posts.filter(post => detail.post_id == post.id)[0]?.price}</div></div>
                       </div>
 
                     </div>
@@ -138,7 +191,7 @@ function Purchases() {
                   View Review
                 </button>
               </div>
-              <div  className='lebuttons'>
+              <div className='lebuttons'>
                 <button className='editdetailrev'>Edit Review</button>
               </div>
             </div>
@@ -157,7 +210,7 @@ function Purchases() {
 
         <div> {revi && (
           <Modal onClose={() => setrevi(false)}>
-            <ReviewForm posts={posts} currentpost={currentpost} />
+            <ReviewForm shops={shops} posts={posts} currentpost={currentpost} star={star} />
           </Modal>
         )}</div>
       </div>

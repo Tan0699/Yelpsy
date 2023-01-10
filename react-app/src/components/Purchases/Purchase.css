@@ -6,19 +6,27 @@
 }
 .onewordwrap{
     display: flex;
+    width: 750px;
+    margin-left: auto;
+    margin-right: auto;
 }
 .purchasegrid{
     /* height: 500px; */
-    width: 700px;
+    width: 750px;
     /* background-color: aqua; */
     display: grid;
-    grid-template-columns: 2.5fr 1fr;
+    grid-template-columns: 3fr 1fr;
+   /* column-count: 2; */
     padding-bottom: 50px;
+  
 }  
 .purchasedetailsgrid{
     display: grid;
     /* grid-row: 2; */
     /* background-color: aquamarine; */
+}
+.pricio{
+font-weight: bold;
 }
 .purchasedetailsgrid1{
     /* background-color: rgb(213, 26, 26); */
@@ -26,21 +34,50 @@
     justify-content: space-between;
     border: 2px solid rgb(213, 213, 213);
     /* background-color: gray; */
+    padding: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px
+    ;
 }
 .purchasedetailsgrid2{
     display: grid;
     grid-template-columns: 1fr 4fr;
-    padding-bottom: 20px;
+    padding-top: 20px;
+    padding-right: 20px;
+    border-radius: 4px;
+}
+.detailimagewrap{
+    padding-left: 35px;
+    padding-right: 25px;
+   
+}
+.purchasenam{
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+.purchasedetailsimage{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+    width: 105px;
+    height: 105px;
+    border: 2px rgb(223, 223, 223) solid;
+    border-radius: 3px;
 }
 .detailimage{
     width:100px;
     height: 100px;
+   
 }
 .buyaganplusprice{
     display: flex;
+    padding-bottom: 20px;
+    padding-top: 10px;
 }
 .purchasedetailswrap{
     border: 2px solid  rgb(213, 213, 213);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 .wholewrap{
     display: flex;
@@ -55,6 +92,14 @@
 .process{
     font-weight: bold;
     font-size: 20px;
+    padding-bottom: 10px;
+}
+.aline{
+    height: 2px;
+    background-color:rgb(213,213,213) ;
+    width: 100%;
+}
+.alinewrap{
     padding-bottom: 20px;
 }
 .rebuy{
@@ -68,6 +113,7 @@
 }
 .viewrev{
     background-color: white;
+    border: 1.5px black solid;
     color:black;
     width: 160px;
     padding-top: 5px;
@@ -76,6 +122,7 @@
 }
 .editdetailrev{
     background-color: white;
+    border: 1.5px black solid;
     color:black;
     width: 160px;
     padding-top: 5px;
@@ -84,9 +131,40 @@
     border-radius: 3px;
 }
 .lebuttons{
-    padding-top: 2px;
-    padding-bottom: 2px;
+    padding-top: 4px;
+    padding-bottom: 4px;
 }
 .starthing{
-    position: relative;
+    /* position: relative; */
+    display: flex;
+    background-color: rgb(250,249,245);
+}
+.starthinginner{
+    font-size: 13px;
+    padding-left: 10px;
+}
+.starthinginner2{
+    padding-left: 75px;
+    padding-top: 20px;
+}
+.starthinginnerwrap{
+    display: flex;
+    align-items: center;
+}
+.buyagan{
+    background-color: black;
+    color: white;
+    padding:6px;
+    padding-left: 14px;
+    padding-right: 14px;
+    border-radius: 3px;
+}
+.buyaganprice{
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    font-size: 12px;
+}
+.purchasefrom{
+    color: black;
 }

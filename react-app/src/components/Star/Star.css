@@ -1,43 +1,46 @@
 .rating{
-    position:absolute;
-    top: 50%;
-    left:50%;
+    /* position:absolute; */
+    /* top: 50%;
+    left:50%; */
     transform: translate(-50%,-50%) rotateY(180deg);
     display:flex
 }
-.rating input{
+/* .rating input{
     display: none;
-}
-.rating label{
+} */
+.rating input{
     display: block;
     cursor: pointer;
-    width:50px;
-    background:#ccc;
+    width:20px;
+    background:rgb(250,249,245);
+    appearance: none;
 }
 
-.rating label:before{
+.rating input::before{
  content: '\f005';
  font-family: fontAwesome;
  position:relative;
  display:block;
- font-size: 50px;
- color: #101010;;
+ font-size: 20px;
+ color: rgb(203,204,201);
 }
-.rating label:after{
+.rating input:after{
     content: '\f005';
     font-family: fontAwesome;
     position:absolute;
     display:block;
-    font-size: 50px;
-    color: #1f9cff;
+    font-size: 20px;
+    color: #17c1b9;
     top:0;
     opacity: 0;
     transition:.5s;
     text-shadow: 0 2px 5px rgba(0,0,0,.5);
    }
-   .rating label:hover:after,
-   .rating label:hover ~ label:after,
-   .rating input:checked ~:after
+   
+   .rating input:hover ~ input::before,
+   .rating input:hover::before,
+   .rating input:checked ~ input::before,
+   .rating input:checked::before
    {
-    opacity: 1;
+   color: #17c1b9;
    }
