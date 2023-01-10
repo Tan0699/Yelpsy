@@ -116,7 +116,7 @@ font-size: 25px;
         display: flex;
         align-items: flex-end;
         justify-content: flex-end;
-        padding-top: 60px;
+        padding-top: 45px;
     }
     .postsub2{
         background-color: black;
@@ -153,4 +153,32 @@ font-size: 25px;
     .uldesc2{
         margin-top: 0px;
         margin-left: -20px;
+    }
+    .publicc{
+padding-bottom: 20px;
+    }
+    .imagefluff{
+padding-bottom: 20px;
+    }
+    .wrapyy{
+        padding-bottom: 10px;
+    }
+    .fileyoo{
+        font-size: 22px;
+        padding-bottom: 20px;
+    }
+    .tisusaimage{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+    .publiccwrapa{
+        display: flex;
+        padding-bottom: 10px;
+    }
+    .publiccwrapa2{
+        display: flex;
+        flex-direction: column;
+        /* justify-content: center; */
+        padding-left: 10px;
     }

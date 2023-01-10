@@ -210,7 +210,7 @@ function Purchases() {
 
         <div> {revi && (
           <Modal onClose={() => setrevi(false)}>
-            <ReviewForm shops={shops} posts={posts} currentpost={currentpost} star={star} />
+            <ReviewForm shops={shops} posts={posts} currentpost={currentpost} star={star} thisUser={thisUser} />
           </Modal>
         )}</div>
       </div>

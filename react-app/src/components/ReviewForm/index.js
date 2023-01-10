@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { createReview } from "../../store/reviews";
 
 import './Rev.css'
-const ReviewForm = ({ posts, currentpost, star,shops }) => {
+const ReviewForm = ({ posts, currentpost, star,shops,thisUser }) => {
   console.log("le current", currentpost)
   const dispatch = useDispatch()
   const [rating, setRating] = useState(star)
@@ -187,23 +187,55 @@ const ReviewForm = ({ posts, currentpost, star,shops }) => {
           <button className="postsub2" onClick={() => (setformdesc(false), setformimg(true))} >Next</button></div>
         </form>}
       {formimg &&
-        <form className="postformwrap" onSubmit={handleSubmit}>
-          <div className="posttop">Have something to sell?</div>
-          <div className="posttop">Make a Post!</div>
+        <form className="postformwra" onSubmit={handleSubmit}>
+          <div className="leavearevwrap">
+            <div className='leavearev'>Upload an Image</div>
+            <div className='objwrap'>
+              <div className='obj1'>
+              </div>
+              <div className='obj2wrap'>
+                <div className='obj2'>
+                </div></div>
+              <div className='obj6'>
+              </div>
+              <div className='obj2wrap'>
+                <div className='obj4'>
+                </div></div>
+              <div className='obj6'>
+              </div>
+            </div>
+          </div>
+          <div className="imagefluff">
+            One Last Step! Provide an image to show your appreciation and inspire the community!
+          </div>
           <div className="errors">
             {errors?.map((error, ind) => (
               <div className="errors" key={ind}>{error}</div>
             ))}
           </div>
-          <label className='wrapyo'>Image File</label>
-          <input className="fileya"
+          <div className='wrapyy'>Image File</div>
+          <input className="fileyoo"
             type="file"
             accept="image/*"
             onChange={updateImage}
 
           />
+          <div className="publicc">Your review and profile information will be publicly displayed</div>
+          <div className="publiccwrapa">
+            <div>
+              <img className="tisusaimage" src={thisUser.image}></img>
+            </div>
+            <div className="publiccwrapa2">
+              <div>
+                Reviewed By
+              </div>
+              <div>
+                {thisUser.firstname}
+              </div>
+            </div>
+          </div>
           <div className="postsubwrap">
-            <button className="postsub" type="submit">Create a Post</button>
+            <button className="postsub" type="submit">Submit Your Review</button>
           </div>
           {(imageLoading) && <p>Loading...</p>}
         </form>}
