@@ -159,7 +159,7 @@ function OnePost() {
               <div className='leline'></div></div>
             <div>
               {thisPostRevs?.map((review) => (
-                <div>
+                <div className='revvy'>
                   {review.rating == 1 &&
                     <span  class="starrating"><i id="staro" class="fa-solid fa-star"></i>
                       <i id="staro" class="fa-regular fa-star"></i>

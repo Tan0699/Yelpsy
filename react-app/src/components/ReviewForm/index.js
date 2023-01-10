@@ -12,7 +12,7 @@ const ReviewForm = ({ posts, currentpost, star,shops,thisUser }) => {
   const filteredPost = (posts.filter((post) => post.id == +currentpost))[0]
   console.log("le filtered post ", filteredPost)
   const [shop_id, setshop] = useState(filteredPost?.shop_id)
-  const [post_id, setpost] = useState(filteredPost?.post_id)
+  const [post_id, setpost] = useState(filteredPost?.id)
   const [image, setImage] = useState(null)
   const [errors, setErrors] = useState([]);
   const [imageLoading, setImageLoading] = useState(false)
@@ -27,12 +27,12 @@ const ReviewForm = ({ posts, currentpost, star,shops,thisUser }) => {
     payload.append("image", image);
     payload.append("rating", rating)
     payload.append("description", description)
-    if (filteredPost?.shop_id) {
-      payload.append("shop_id", shop_id)
-    }
-    if (filteredPost?.post_id) {
+    // if (filteredPost?.shop_id) {
+    //   payload.append("shop_id", shop_id)
+    // }
+    // if (filteredPost?.post_id) {
       payload.append("post_id", post_id)
-    }
+    // }
     // aws uploads can be a bit slow—displaying
     // some sort of loading message is a good idea
     setImageLoading(true);
