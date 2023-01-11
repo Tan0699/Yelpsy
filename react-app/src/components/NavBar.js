@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink, useHistory, useParams } from 'react-router-dom';
 import { Modal } from '../context/Modal';
 import LogoutButton from './auth/LogoutButton';
 import EditPostForm from './EditPostform';
@@ -10,15 +10,17 @@ import PostForm from './Postform';
 import ShopForm from './Shopform';
 import LoginForm from '../components/auth/LoginForm'
 import { useSelector } from 'react-redux';
+import ProfileButton from './Profile';
 // import fda from "../../public/fa"
 const NavBar = () => {
+  const history = useHistory()
   const { shopId, id } = useParams()
   const [sho, setSho] = useState(false);
   const [pos, setPos] = useState(false);
   const [editsho, setEditSho] = useState(false);
   const [editpos, setEditPos] = useState(false);
   const [log, setLog] = useState(false);
-  const isUser = useSelector((state)=> state.session.user )
+  const isUser = useSelector((state) => state.session.user)
   let shopModal = (
     <div>
       <button className='shopppo' onClick={() => (setSho
@@ -43,7 +45,7 @@ const NavBar = () => {
 
   let editshopModal = (
     <div>
-      <button  onClick={(e) => ((setEditSho(true)))}>EDIT A SHOP</button>
+      <button onClick={(e) => ((setEditSho(true)))}>EDIT A SHOP</button>
       {editsho && (
         <Modal onClose={() => setEditSho(false)}>
           <EditShopForm setEditSho={setEditSho} />
@@ -51,11 +53,11 @@ const NavBar = () => {
       )}
     </div>)
 
-  
+
 
   let logModal = (
     <div>
-      <button className='setsignbut' onClick={() => ((setLog(true)))}>Login</button>
+      <button className='setsignbut' onClick={() => ((setLog(true)))}>Sign in</button>
       {log && (
         <Modal onClose={() => setLog(false)}>
           <LoginForm setLog={setLog} />
@@ -64,34 +66,33 @@ const NavBar = () => {
     </div>)
 
   return (
-    <nav>
+    <div>
+    <nav className='lenav'>
       <div className='navstuff'>
         <div className='welcome'>
           <NavLink to='/' exact={true} activeClassName='active'>
-         <img className='logoo' src="https://i.ibb.co/jvjwccF/favi-2.png" alt="melogoforreal" border="0"/>
+            <img className='logoo' src="https://i.ibb.co/jvjwccF/favi-2.png" alt="melogoforreal" border="0" />
           </NavLink>
           <div className='ismewrap'>
-          <div className='isme'>Welcome {isUser?.firstname}!</div>
+
           </div>
         </div>
-        {(!isUser) &&
-        <div className="author">
-            <img className='githuu' onClick={(e) => (window.location = 'https://github.com/Tan0699')} src="https://cdn-icons-png.flaticon.com/512/25/25231.png">
-                      </img>
-
-                      <img className='githuu' src="https://cdn-icons-png.flaticon.com/512/174/174857.png" onClick={(e) => (window.location = 'https://www.linkedin.com/in/tan-nguyen-8b0a8a257/')}></img>
-                  </div>}
-
+        
+        
+        <form className="bigsearchform" >
+          <input className='bigsearchbar' type="text" placeholder="THIS IS A WORK IN PROGRESS" name="search" />
+          <button className='bigsearchbutton' type="submit"><i class="fa fa-search"></i></button>
+        </form>
         {!isUser &&
-        <div>
-          {logModal}
-        </div>}
+          <div className='logmodalwrap'>
+            {logModal}
+          </div>}
         {/* <div>
           <NavLink to='/login' exact={true} activeClassName='active'>
             Login
           </NavLink>
           </div> */}
-         
+
         {/* <div>
           <NavLink to='/sign-up' exact={true} activeClassName='active'>
             Sign Up
@@ -102,21 +103,37 @@ const NavBar = () => {
             Users
           </NavLink>
           </div> */}
-           {(isUser && !shopId && !id )&&
-        <div>{shopModal}</div>}
           {isUser &&
-        <div>
-          <LogoutButton />
-        </div>}
-       
-         {/* {isUser &&
+          
+          <div className='marketprofwrap'>
+            <div className='marketwrap'>
+            <i id="market" class="fa-solid fa-store"></i>
+            </div>
+           <div className='profwrapper'> <ProfileButton isUser={isUser}/></div>
+          </div>}
+        {/* {(isUser && !shopId && !id) &&
+          <div>{shopModal}</div>} */}
+          <div className='zecartwrap'>
+          <i id="zecart" class="fa-solid fa-cart-shopping" onClick={()=> history.push("/cart")}></i>
+            </div>
+        
+            <div className='zecartwrap'>
+            <img className='githuu' onClick={(e) => (window.open('https://github.com/Tan0699', '_blank'))} src="https://cdn-icons-png.flaticon.com/512/25/25231.png">
+                      </img></div>
+
+                      <div className='zecartwrap'>
+                      <img className='githuu' src="https://cdn-icons-png.flaticon.com/512/174/174857.png" onClick={(e) => (window.open('https://www.linkedin.com/in/tan-nguyen-8b0a8a257/', '_blank'))}></img>
+                      </div> 
+        {/* {isUser &&
           <div>{postModal}</div>}  */}
-         {/* {(shopId && !id && isUser) && 
+        {/* {(shopId && !id && isUser) && 
          <div>{editshopModal}</div>
          (id && isUser)&& */}
-             {/* <div>{editpostModal}</div>  */}
+        {/* <div>{editpostModal}</div>  */}
       </div>
     </nav>
+    <div className='navline'></div>
+    </div>
   );
 }
 

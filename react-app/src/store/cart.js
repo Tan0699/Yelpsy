@@ -2,7 +2,7 @@
 const ADD_TO_CART = 'posts/cart'
 const GET_ALL_CART = 'posts/seecart'
 const DELETE_FROM_CART = 'posts/delatecart'
-
+const EMPTY_CART= 'posts/empty'
 
 const addToCartAction = (payload) => {
     return {
@@ -19,6 +19,12 @@ const getAllcartAction = (payload) => {
 const delteFromCartAction = (payload) => {
     return {
        type: DELETE_FROM_CART,
+       payload
+   }
+}
+const emptyCartAction = (payload) => {
+    return {
+       type: EMPTY_CART,
        payload
    }
 }
@@ -75,6 +81,15 @@ export const deleteFromCartThunk = (product) => async dispatch =>{
      JSON.parse(localStorage.getItem('cart')): []
 
     const cartUpdated = cart.filter(cartProduct => cartProduct.id !== product.id)
+
+    localStorage.setItem('cart', JSON.stringify(cartUpdated))
+    dispatch(delteFromCartAction(cartUpdated))
+}
+export const emptyCartThunk = () => async dispatch =>{
+    const cart = localStorage.getItem('cart')?
+     JSON.parse(localStorage.getItem('cart')): []
+
+    const cartUpdated = []
 
     localStorage.setItem('cart', JSON.stringify(cartUpdated))
     dispatch(delteFromCartAction(cartUpdated))

@@ -1,0 +1,82 @@
+#icon5{
+    border-radius: 90px;
+    width: 80px;
+    
+    
+   }
+   #icon5:hover{
+       box-shadow: 0 0 11px rgba(33,33,33,.2);
+   }
+   /* #profile{
+       border-radius: 1000px; 
+       width: 40px;
+   } */
+   .profcontainer{
+       display: flex;
+       flex-direction: column;
+       flex: wrap;
+       border-radius: 20px;
+   }
+   .content{
+       display: flex;
+       flex-direction: column;
+       border-radius: 20px;
+       z-index: 1;
+       position: absolute;
+       background-color: rgb(255, 255, 255);
+       margin-left: -170px;
+       width: 250px;
+       /* border: 1px solid gray; */
+       box-shadow: 0 5px 10px rgba(5, 3, 3, 0.15)
+   }
+   #logoutbutton{
+       background-color: rgb(219,16,99);
+       border-radius: 20px;
+       width: 90px;
+   }
+   .pandrwrap{
+    display: flex;
+    padding-top: 5px;
+    padding-bottom: 5px;
+   padding-left: 20px;
+   padding-right: 20px;
+   cursor: pointer;
+   }
+   .pandrwrap:hover{
+    background-color: rgb(230, 230, 230);
+   }
+   .userimageprof{
+    width:30px;
+    height: 30px;
+    border-radius: 50%;
+   }
+   .isuserwrap{
+    display: flex;
+    padding-top: 5px;
+    padding-bottom: 5px;
+   padding-left: 20px;
+   padding-right: 20px;
+   }
+   .isusernamewrap{
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+   }
+   .isusername{
+    font-weight: bold;
+   }
+   .purnrev{
+    padding-left: 12px;
+    font-size: 14px;
+   }
+   #lepen{
+    font-size: 28px;
+   }
+   .purnrevwrap{
+    display: flex;
+    align-items: center;
+   }
+   .contentinner{
+    padding-top:20px;
+    padding-bottom:20px;
+   }

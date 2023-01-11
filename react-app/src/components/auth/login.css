@@ -63,9 +63,18 @@
     padding: 10px;
     font-weight: bold;
     background-color: white;
+    border: white;
     cursor:pointer;
+    width: 80px;
 
+}
+.setsignbut:hover{
+    background-color: rgb(230, 230, 230);
 }
 .signbutwrap{
     margin-top: -7px;
+}
+.logmodalwrap{
+    padding-left: 15px;
+    padding-right: 10px;
 }

@@ -46,10 +46,10 @@ function Splash() {
         
         return (
           <>
-    <div>
+    {/* <div>
       <button onClick={()=> history.push("/purchases")}>PURRRCHASES</button>
       <button onClick={()=> history.push("/cart")}>CART PAGE</button>
-    </div>
+    </div> */}
       {/* <div className='wpdiv'>
         <img className='newwp' src="https://i.ibb.co/S5DZC80/lepic.png"></img></div> */}
       <div className='color'>
