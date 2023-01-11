@@ -1,19 +1,21 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { createReview } from "../../store/reviews";
+import { createReview, editReview } from "../../store/reviews";
 
-import './Rev.css'
-const ReviewForm = ({ posts, currentpost, star,shops,thisUser }) => {
-  console.log("le current", currentpost)
+
+const ReviewEditForm = ({filteredReviews, posts, currentpost, star,shops,thisUser }) => {
+    const thisReview = filteredReviews.filter(review => review.post_id ==currentpost)[0]
+
+  console.log("le current", thisReview)
   const dispatch = useDispatch()
-  const [rating, setRating] = useState(star)
-  const [description, setDescription] = useState("")
+  const [rating, setRating] = useState(thisReview?.rating)
+  const [description, setDescription] = useState(thisReview.description)
   const filteredPost = (posts.filter((post) => post.id == +currentpost))[0]
   console.log("le filtered post ", filteredPost)
   const [shop_id, setshop] = useState(filteredPost?.shop_id)
-  const [post_id, setpost] = useState(filteredPost?.id)
-  const [image, setImage] = useState(null)
+  const [post_id, setpost] = useState(thisReview.post_id)
+  const [image, setImage] = useState(thisReview?.image)
   const [errors, setErrors] = useState([]);
   const [imageLoading, setImageLoading] = useState(false)
   const [formrate, setformrate] = useState(true)
@@ -36,7 +38,7 @@ console.log("ratinggg",rating)
     // aws uploads can be a bit slow—displaying
     // some sort of loading message is a good idea
     setImageLoading(true);
-    const res = await dispatch(createReview(payload))
+    const res = await dispatch(editReview(payload,thisReview.id))
 
     if (res) {
       // await res.json();
@@ -95,7 +97,7 @@ console.log("ratinggg",rating)
                   id="star1"
                   value={5}
                   onChange={e => (setRating(e.target.value))}
-                  defaultChecked={star == 5}
+                  defaultChecked={rating == 5}
                 />
 
                 <input
@@ -104,7 +106,7 @@ console.log("ratinggg",rating)
                   id="star2"
                   value={4}
                   onChange={e => (setRating(e.target.value))}
-                  defaultChecked={star == 4}
+                  defaultChecked={rating == 4}
                 />
 
                 <input
@@ -113,7 +115,7 @@ console.log("ratinggg",rating)
                   id="star3"
                   value={3}
                   onChange={e => (setRating(e.target.value))}
-                  defaultChecked={star == 3}
+                  defaultChecked={rating == 3}
                 />
 
                 <input
@@ -121,7 +123,7 @@ console.log("ratinggg",rating)
                   name="star" id="star4"
                   value={2}
                   onChange={e => (setRating(e.target.value))}
-                  defaultChecked={star == 2}
+                  defaultChecked={rating == 2}
                 />
 
                 <input
@@ -130,7 +132,7 @@ console.log("ratinggg",rating)
                   id="star5"
                   value={1}
                   onChange={e => (setRating(e.target.value))}
-                  defaultChecked={star == 1}
+                  defaultChecked={rating == 1}
                 />
 
               </div>
@@ -244,4 +246,4 @@ console.log("ratinggg",rating)
   )
 }
 
-export default ReviewForm
+export default ReviewEditForm

@@ -117,6 +117,8 @@ def edit_review(id):
             one_review.rating = data["rating"]
             if request.files:
                 one_review.image = url
+            # else:
+            #     one_review.image = one_review.image
             one_review.description = data["description"]
             db.session.commit()
         return make_response(one_review.to_dict(), 200)

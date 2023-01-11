@@ -142,6 +142,17 @@ font-weight: bold;
     /* position: relative; */
     display: flex;
     background-color: rgb(250,249,245);
+   word-break: break-all;
+   
+
+}
+.starthing2{
+    /* position: relative; */
+    /* display: flex; */
+    background-color: rgb(250,249,245);
+   word-break: break-all;
+   
+
 }
 .starthinginner{
     font-size: 13px;
@@ -172,3 +183,58 @@ font-weight: bold;
 .purchasefrom{
     color: black;
 }
+.yourevwrap{
+    display: flex;
+    flex-direction: row;
+    padding-left: 10px;
+    padding-top: 10px
+    ;
+}
+.blusta{
+    content: '\f005';
+    font-family: fontAwesome;
+    font-size: 20px;
+    color: #17c1b9;
+    
+}
+.blusta input::before{
+    content: '\f005';
+    font-family: fontAwesome;
+    /* position:relative; */
+    /* display:block; */
+    font-size: 20px;
+    color: rgb(203,204,201);
+   }
+   .blusta input{
+    appearance: none;
+   }
+   .greensta input::before{
+    content: '\f005';
+    font-family: fontAwesome;
+    /* position:relative; */
+    /* display:block; */
+    font-size: 20px;
+    color: #17c1b9;
+   }
+   .greensta input{
+    appearance: none;
+   }
+  .blust{
+    display: flex;
+    
+  }
+  .yourevwrap2{
+    display: flex;
+    align-items: center;
+  }
+  .filterdesc{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }
+  .daterwrap{
+    display: flex;
+    align-items: center;
+    padding-left: 230px;
+  }
