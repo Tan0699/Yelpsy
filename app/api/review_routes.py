@@ -62,9 +62,9 @@ def new_review():
             description = data["description"],
             image = url,
             # if (data["shop_id"]):
-            post_id = data["shop_id"],
+            shop_id= data["shop_id"],
             # if (data["post_id"]):
-            shop_id = data["post_id"],
+            post_id = data["post_id"],
             rating = data["rating"]
         )
         db.session.add(review)
@@ -117,6 +117,8 @@ def edit_review(id):
             one_review.rating = data["rating"]
             if request.files:
                 one_review.image = url
+            # else:
+            #     one_review.image = one_review.image
             one_review.description = data["description"]
             db.session.commit()
         return make_response(one_review.to_dict(), 200)

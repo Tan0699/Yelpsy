@@ -282,3 +282,6 @@ font-size: 17px;
     border-radius:10px;
     font-size: 13px;
 }
+.revvy{
+    word-break: break-all;
+}

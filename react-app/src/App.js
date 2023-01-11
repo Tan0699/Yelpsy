@@ -50,9 +50,11 @@ function App() {
           <Splash/>
         </Route>
         <Route path='/purchases' exact={true} >
+          <NavBar/>
           <Purchases/>
         </Route>
-        <Route path='/Account' exact={true} >
+        <Route path='/Cart' exact={true} >
+          <NavBar/>
           <Cart/>
         </Route>
         <Route path='/:shopId' exact={true} >
