@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useHistory } from 'react-router-dom';
 import { fetchPosts, fetchRandomPosts } from '../../store/posts';
@@ -9,11 +9,13 @@ import './Splash.css'
 function Splash() {
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(clearAction())
-    dispatch(fetchShops())
-    dispatch(fetchRandomPosts())
-   
-    
+    Promise.all(
+    [dispatch(clearAction()),
+    dispatch(fetchShops()),
+    dispatch(fetchRandomPosts())]
+    ).then(()=>{
+      setisLoaded(true)
+    })
   }, [dispatch])
   const isUser = useSelector((state)=> state.session.user)
   const shopState = useSelector((state) => state.shops)
@@ -21,6 +23,7 @@ function Splash() {
   const postState = useSelector((state) => state.posts)
   const posts = Object.values(postState)
   const history = useHistory()
+  const [isloaded , setisLoaded] = useState(false)
   
   
   // const array = []
@@ -44,7 +47,7 @@ function Splash() {
         
       
         
-        return (
+        return (isloaded &&
           <>
     {/* <div>
       <button onClick={()=> history.push("/purchases")}>PURRRCHASES</button>

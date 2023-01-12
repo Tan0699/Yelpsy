@@ -266,7 +266,7 @@ function Cart() {
             <div className="yoemptywrap">
                 <div className="yoempty">Your Cart is Empty.</div>
                 <div className="discova" 
-                ><NavLink to={`/${Math.ceil(Math.random()*shops.length)}`}>Discover something unique to fill it up.</NavLink> </div>
+                ><NavLink className="empto" to={`/${Math.ceil(Math.random()*shops.length)}`}>Discover something unique to fill it up.</NavLink> </div>
                 <div className="mocarbon">*Etsy offsets carbon emissions from every delivery*</div>
             </div>}
 
