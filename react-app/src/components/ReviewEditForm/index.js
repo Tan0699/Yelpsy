@@ -4,11 +4,13 @@ import { NavLink } from "react-router-dom";
 import { createReview, editReview } from "../../store/reviews";
 
 
-const ReviewEditForm = ({filteredReviews, posts, currentpost, star,shops,thisUser }) => {
+const ReviewEditForm = ({setedirevi,filteredReviews, posts, currentpost, star,shops,thisUser }) => {
     const thisReview = filteredReviews.filter(review => review.post_id ==currentpost)[0]
 
   console.log("le current", thisReview)
   const dispatch = useDispatch()
+  const [appear,setAppear] =useState(false)
+    const [appear2,setAppear2] =useState(true)
   const [rating, setRating] = useState(thisReview?.rating)
   const [description, setDescription] = useState(thisReview.description)
   const filteredPost = (posts.filter((post) => post.id == +currentpost))[0]
@@ -45,6 +47,7 @@ console.log("ratinggg",rating)
       if (res.image) {
         setImageLoading(false);
         // history.push("/");
+        setedirevi(false)
       }
       else {
         setImageLoading(false);
@@ -216,12 +219,15 @@ console.log("ratinggg",rating)
             ))}
           </div>
           <div className='wrapyy'>Image File</div>
+          {appear2 &&
+            <button className="butto" onClick={()=>(setAppear(true),setAppear2(false))}>Select a New Image</button>}
+            {appear &&
           <input className="fileyoo"
             type="file"
             accept="image/*"
             onChange={updateImage}
 
-          />
+          />}
           <div className="publicc">Your review and profile information will be publicly displayed</div>
           <div className="publiccwrapa">
             <div>

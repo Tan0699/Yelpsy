@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { NavLink, useHistory } from "react-router-dom"
+import { Modal } from "../../context/Modal"
 import { addToCartThunk, deleteFromCartThunk, deleteOneFromCartAction, emptyCartThunk, getAllcartThunk } from "../../store/cart"
 import { addPurchaseThunk, fetchPurchases } from "../../store/purchases"
 import { fetchShops } from "../../store/shops"
+import LoginForm from "../auth/LoginForm"
 import "./CartPage.css"
 
 
@@ -18,6 +20,8 @@ function Cart() {
         dispatch(fetchShops())
         // dispatch(fetchPurchases(isUser.id))
     }, [dispatch])
+    const [log, setLog] = useState(false);
+    const thisUser = useSelector((state)=> state.session.user)
     const products = useSelector((state) => state?.cart.cart)
     const shopState = useSelector((state) => state.shops)
     const shops = Object.values(shopState)
@@ -34,6 +38,7 @@ function Cart() {
             productArray.push(product)
         }
     })
+    const myProducts = productArray.filter(product => product.user_id == thisUser.id)
     const initial = 0
     const totalPrice = products.map(product => product.price).reduce((accumulator, currentValue) => accumulator + currentValue,
         initial)
@@ -41,10 +46,21 @@ function Cart() {
     productArray.map((product) => {
         product["quantity"] = productsObj[product.id]
     })
-
+    let logModal = (
+        <div>
+          {log && (
+            <Modal onClose={() => setLog(false)}>
+              <LoginForm setLog={setLog} />
+            </Modal>
+          )}
+        </div>)
     console.log("oldprarary", productArray)
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if(!thisUser){
+            setLog(true)
+        }
+        else{
         const payload = {
             total_price: totalPrice.toFixed(2),
             details: productArray
@@ -54,6 +70,7 @@ function Cart() {
             dispatch(emptyCartThunk())
             history.push('/')
         }
+    }
     }
 
     const keys = Object.keys(productsObj);
@@ -90,8 +107,8 @@ function Cart() {
                 <i id='moji' class="fa-solid fa-handshake"></i>
                 <div className='yaya'><strong>Etsy Purchase Protection:</strong> Shop confidently on Etsy knowing if something goes wrong with an order, we've got your back for all eligible purchases</div>
             </div>
+            {products.length>0 &&
             <div className="cartpagegrid">
-
                 <div className="cartitemsgridgrid">
                     {productArray?.map(product => (
                         <div className="cartitemsgrid">
@@ -227,25 +244,34 @@ function Cart() {
                                 Subtotal
                             </div>
                             <div>
-                                ${totalPrice.toFixed(2) - (totalPrice.toFixed(2) * .10).toFixed(2)}
+                                ${(totalPrice.toFixed(2) - (totalPrice.toFixed(2) * .10)).toFixed(2)}
                             </div>
                         </div>
 
                         <form className="payywrap"  onSubmit={handleSubmit}>
-                            {circle==1 &&
+                            {circle==1 && myProducts.length == 0 &&
                             <button type="submit" className="payy">Pay with<b> Visa</b></button>}
-                            {circle==2 &&
+                            {circle==2 && myProducts.length == 0 &&
                             <button  type="submit" className="payy">Pay with<b> Discover</b></button>}
-                            {circle==3 &&
+                            {circle==3 && myProducts.length == 0 &&
                             <button type="submit" className="payy">Pay with<b> Paypal</b></button>}
-                            {circle==4 &&
+                            {circle==4 && myProducts.length == 0 &&
                             <button type="submit" className="payy">Pay with <b>GooglePay</b></button>}
+                            { myProducts.length > 0 &&
+                            <div className="nonobuy">Can not purchase your own products!</div>}
+                            {logModal}
                         </form>
                     </div>
                     </div>
-                </div>
             </div>
-
+            </div>}
+            {products.length ==0 &&
+            <div className="yoemptywrap">
+                <div className="yoempty">Your Cart is Empty.</div>
+                <div className="discova" 
+                ><NavLink className="empto" to={`/${Math.ceil(Math.random()*shops.length)}`}>Discover something unique to fill it up.</NavLink> </div>
+                <div className="mocarbon">*Etsy offsets carbon emissions from every delivery*</div>
+            </div>}
 
 
             {/* {productArray.map((product) => (

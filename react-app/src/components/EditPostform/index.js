@@ -16,7 +16,12 @@ const EditPostForm = ({setEditPos}) => {
     const thisShop = shops?.filter(shop => shop.id == +shopId)[0]
     const thisPost = posts.filter(post => post.id == +id)[0]
     const dispatch = useDispatch()
-    const [name, setName] = useState(thisPost?.name)
+    // const [name, setName] = useState("")
+    const splitname = thisPost?.name?.split("-")
+    const [name1, setName1] = useState(splitname[0])
+    const [name2, setName2] = useState(splitname[1])
+    const [name3, setName3] = useState(splitname[2])
+    const [name4, setName4] = useState(splitname[3])
     const [price, setPrice] = useState(thisPost?.price)
     const [description, setDescription] = useState(thisPost?.description)
     const [appear,setAppear] =useState(false)
@@ -26,7 +31,9 @@ const EditPostForm = ({setEditPos}) => {
     const [errors, setErrors] = useState([]);
     const handleSubmit = async (e) => {
         e.preventDefault();
+        const name =`${name1}-${name2}-${name3}-${name4}`
         const payload = new FormData();
+        console.log("ze name ",name)
         payload.append("image", image);
         payload.append("name",name)
         payload.append("description",description)
@@ -76,13 +83,37 @@ const EditPostForm = ({setEditPos}) => {
               onChange={updateImage}
               
             />}
-            <label className='wrapyo'>Post Name</label>
+            <label className='wrapyo'>Product Name</label>
             <input className="wrapya"
             type="text"
-            maxLength={20}
-            required
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            maxLength={30}
+            required pattern="[a-zA-Z, 0-9,'. ! ? + @ # $ % ^ & * ( )]+" title="Please use valid chars,invalid chars: -"
+            value={name1}
+            onChange={(e) => setName1(e.target.value)}
+          />
+          <label className='wrapyo'>Alternate Product Name 1</label>
+            <input className="wrapya"
+            type="text"
+            maxLength={30}
+            required pattern="[a-zA-Z, 0-9,'. ! ? + @ # $ % ^ & * ( )]+" title="Please use valid chars,invalid chars: -"
+            value={name2}
+            onChange={(e) => setName2(e.target.value)}
+          />
+          <label className='wrapyo'>Alternate Product Name 2</label>
+            <input className="wrapya"
+            type="text"
+            maxLength={30}
+            required pattern="[a-zA-Z, 0-9,'. ! ? + @ # $ % ^ & * ( )]+" title="Please use valid chars,invalid chars: -"
+            value={name3}
+            onChange={(e) => setName3(e.target.value)}
+          />
+          <label className='wrapyo'>Alternate Product Name 3</label>
+            <input className="wrapya"
+            type="text"
+            maxLength={30}
+            required pattern="[a-zA-Z, 0-9,'. ! ? + @ # $ % ^ & * ( )]+" title="Please use valid chars,invalid chars: -"
+            value={name4}
+            onChange={(e) => setName4(e.target.value)}
           />
           <label className='wrapyo'>Post Description</label>
           <input className="wrapya"

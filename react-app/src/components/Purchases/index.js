@@ -89,7 +89,7 @@ function Purchases() {
                         post?.id == purchase?.details[0]?.post_id)))[0]?.shop_id == shop?.id)[0]?.name}</NavLink>... on {purchase.created_at.slice(4, 16)}
                 </div>
                 <div className='pricio'>
-                  ${purchase.total_price}
+                  ${purchase.total_price} - 10% = <b>${(purchase.total_price/1.111111111111111111).toFixed(2)}</b>
                 </div>
               </div>
               <div className='purchasedetailswrap'>
@@ -179,7 +179,7 @@ function Purchases() {
                               <div>{filteredReviews.filter(review => review.post_id == detail.post_id)[0].created_at.slice(4,17)}</div></div>
                           </div>
                           <div className='filterdesc'>{filteredReviews.filter(review => review.post_id == detail.post_id)[0].description}</div>
-                          <div onClick={e => (setedirevi(true), setcurrentpost(detail.post_id))}>Edit this Review</div>
+                          <div className='revfr' onClick={e => (setedirevi(true), setcurrentpost(detail.post_id))}>Edit this Review</div>
                         </div>}
                       {filteredReviews?.filter(review => (review.post_id == detail.post_id)).length == 0 &&
 
@@ -252,7 +252,7 @@ function Purchases() {
                         <div>
                           <button className='buyagan'>Buy this Again </button></div>
                         <div className='buyaganprice'>
-                          <div>${posts.filter(post => detail.post_id == post.id)[0]?.price}</div></div>
+                          <div>${posts.filter(post => detail.post_id == post.id)[0]?.price}{}<b className='zeb'>({detail?.quantity})</b></div></div>
                       </div>
 
                     </div>
@@ -296,12 +296,12 @@ function Purchases() {
 
         <div> {revi && (
           <Modal onClose={() => setrevi(false)}>
-            <ReviewForm shops={shops} posts={posts} currentpost={currentpost} star={star} thisUser={thisUser} />
+            <ReviewForm shops={shops} posts={posts} currentpost={currentpost} star={star} thisUser={thisUser} setrevi={setrevi}/>
           </Modal>
         )}</div>
          <div> {editrevi && (
           <Modal onClose={() => setedirevi(false)}>
-            <ReviewEditForm shops={shops} posts={posts} currentpost={currentpost} star={star} thisUser={thisUser} filteredReviews={filteredReviews} />
+            <ReviewEditForm shops={shops} posts={posts} currentpost={currentpost} star={star} thisUser={thisUser} filteredReviews={filteredReviews} setedirevi={setedirevi}/>
           </Modal>
         )}</div>
       </div>
