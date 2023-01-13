@@ -80,7 +80,7 @@ console.log("thissshopposts",thisShopposts)
             <div className='trucktext'>Free 1-day Shipping with orders oder $10!</div>
           </div>
           <div className='anonprof'>
-            <img className='anon' src={thisUser.image}></img>
+            <img className='anon' src={shopUser?.image}></img>
             <div>{shopUser?.firstname}</div>
             <div className='contactinfo'>
               <i class="fa-solid fa-envelopes-bulk"></i>
@@ -170,7 +170,7 @@ console.log("thissshopposts",thisShopposts)
           {thisShopposts?.map((post) => (
             <div className='gridpost' key={post.id}>
               <NavLink className="postnav" to={`/${shopId}/posts/${post.id}`}>
-                <img className='imgpost' src={post.image}></img>
+                <img className='imgpost' src={post?.image}></img>
                 <div>{post.name}</div>
                 <div>★★★★★(3223)</div>
                 <div className='posprice'>${post.price}</div>
