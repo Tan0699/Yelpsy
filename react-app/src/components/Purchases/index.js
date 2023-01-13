@@ -97,20 +97,20 @@ function Purchases() {
                   <div className='purchasedetailsgrid2'>
                     <div className='detailimagewrap'>
                       <div className='purchasedetailsimage'>
-                        <img className='detailimage' src={posts.filter(post => detail.post_id == post.id)[0]?.image}>
+                        <img className='detailimage' src={posts.filter(post => detail?.post_id == post?.id)[0]?.image}>
                         </img>
                       </div></div>
 
                     <div className='purchasedetailsinfo'>
                       <div className='purchasenam'>
-                        {posts.filter(post => detail.post_id == post.id)[0]?.name}
+                        {posts.filter(post => detail?.post_id == post?.id)[0]?.name}
                       </div>
                       {filteredReviews?.filter(review => (review.post_id == detail.post_id)).length > 0 &&
                         <div className='starthing2'>
                           <div className='yourevwrap'>
                             <div className='yourevwrap2'>
                               <div className='yourev'>Your Review</div></div>
-                            {filteredReviews.filter(review => review.post_id == detail.post_id)[0].rating == 1 &&
+                            {filteredReviews.filter(review => review?.post_id == detail?.post_id)[0]?.rating == 1 &&
                               <div className='blust'>
                                 <div className='greensta'>
                                   <input type="radio" name="star" id="star1" /></div>
@@ -123,7 +123,7 @@ function Purchases() {
                                 <div className='blusta'>
                                   <input type="radio" name="star" id="star1" /></div>
                               </div>}
-                            {filteredReviews.filter(review => review.post_id == detail.post_id)[0].rating == 2 &&
+                            {filteredReviews.filter(review => review?.post_id == detail?.post_id)[0]?.rating == 2 &&
                               <div className='blust'>
                                 <div className='greensta'>
                                   <input type="radio" name="star" id="star1" /></div>
@@ -136,7 +136,7 @@ function Purchases() {
                                 <div className='blusta'>
                                   <input type="radio" name="star" id="star1" /></div>
                               </div>}
-                            {filteredReviews.filter(review => review.post_id == detail.post_id)[0].rating == 3 &&
+                            {filteredReviews.filter(review => review?.post_id == detail?.post_id)[0]?.rating == 3 &&
                               <div className='blust'>
                                 <div className='greensta'>
                                   <input type="radio" name="star" id="star1" /></div>
@@ -149,7 +149,7 @@ function Purchases() {
                                 <div className='blusta'>
                                   <input type="radio" name="star" id="star1" /></div>
                               </div>}
-                            {filteredReviews.filter(review => review.post_id == detail.post_id)[0].rating == 4 &&
+                            {filteredReviews.filter(review => review?.post_id == detail?.post_id)[0]?.rating == 4 &&
                               <div className='blust'>
                                 <div className='greensta'>
                                   <input type="radio" name="star" id="star1" /></div>
@@ -162,7 +162,7 @@ function Purchases() {
                                 <div className='blusta'>
                                   <input type="radio" name="star" id="star1" /></div>
                               </div>}
-                            {filteredReviews.filter(review => review.post_id == detail.post_id)[0].rating == 5 &&
+                            {filteredReviews.filter(review => review?.post_id == detail?.post_id)[0]?.rating == 5 &&
                               <div className='blust'>
                                 <div className='greensta'>
                                   <input type="radio" name="star" id="star1" /></div>
@@ -176,13 +176,13 @@ function Purchases() {
                                   <input type="radio" name="star" id="star1" /></div>
                               </div>}
                               <div className='daterwrap'>
-                              <div>{filteredReviews.filter(review => review.post_id == detail.post_id)[0].created_at.slice(4,17)}</div></div>
+                              <div>{filteredReviews.filter(review => review?.post_id == detail?.post_id)[0]?.created_at.slice(4,17)}</div></div>
                           </div>
-                          <div className='filterdesc'>{filteredReviews.filter(review => review.post_id == detail.post_id)[0].description}</div>
+                          <div className='filterdesc'>{filteredReviews.filter(review => review?.post_id == detail?.post_id)[0]?.description}</div>
                           <div className='bothrevwrap'>
                           <div className='revfr' onClick={e => (setedirevi(true), setcurrentpost(detail.post_id))}>Edit this Review</div>
                           <div className='revfrdeletewrap'>
-                          <div className='revfrdelete' onClick={e => (dispatch(deleteReview(filteredReviews.filter(review => review.post_id == detail.post_id)[0].id)))}>Delete this Review</div></div></div>
+                          <div className='revfrdelete' onClick={e => (dispatch(deleteReview(filteredReviews.filter(review => review?.post_id == detail?.post_id)[0]?.id)))}>Delete this Review</div></div></div>
                         </div>}
                       {filteredReviews?.filter(review => (review.post_id == detail.post_id)).length == 0 &&
 
@@ -256,7 +256,7 @@ function Purchases() {
                         <div>
                           <button className='buyagan' onClick={()=> history.push (`/${detail.shop_id}/posts/${detail.post_id}`)}>Buy this Again </button></div>
                         <div className='buyaganprice'>
-                          <div>${posts.filter(post => detail.post_id == post.id)[0]?.price}{}<b className='zeb'>({detail?.quantity})</b></div></div>
+                          <div>${posts.filter(post => detail?.post_id == post?.id)[0]?.price}{}<b className='zeb'>({detail?.quantity})</b></div></div>
                       </div>
 
                     </div>
