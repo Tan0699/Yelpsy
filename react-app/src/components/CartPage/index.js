@@ -48,12 +48,14 @@ function Cart() {
     })
     let logModal = (
         <div>
+            {/* <button className='setsignbut' onClick={() => ((setLog(true)))}>Sign in</button> */}
           {log && (
             <Modal onClose={() => setLog(false)}>
               <LoginForm setLog={setLog} />
             </Modal>
           )}
         </div>)
+        
     console.log("oldprarary", productArray)
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -259,8 +261,11 @@ function Cart() {
                             <button type="submit" className="payy">Pay with <b>GooglePay</b></button>}
                             { myProducts?.length > 0 &&
                             <div className="nonobuy">Can not purchase your own products!</div>}
-                            {logModal}
                         </form>
+                        {!thisUser &&
+                        <div>
+                        {logModal}
+                        </div>}
                     </div>
                     </div>
             </div>
