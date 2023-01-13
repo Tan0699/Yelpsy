@@ -248,3 +248,8 @@ align-items: center;
   .empto{
     color: black;
   }
+  .nonobuy{
+    color: red;
+    font-size: 25px;
+    font-weight: bold;
+  }

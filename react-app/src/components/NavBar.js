@@ -107,7 +107,7 @@ const NavBar = () => {
           
           <div className='marketprofwrap'>
             <div className='marketwrap'>
-            <i id="market" class="fa-solid fa-store"></i>
+            <i id="market" onClick={()=> history.push("/manage")} class="fa-solid fa-store"></i>
             </div>
            <div className='profwrapper'> <ProfileButton isUser={isUser}/></div>
           </div>}

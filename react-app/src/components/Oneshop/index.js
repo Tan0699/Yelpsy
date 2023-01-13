@@ -80,7 +80,7 @@ console.log("thissshopposts",thisShopposts)
             <div className='trucktext'>Free 1-day Shipping with orders oder $10!</div>
           </div>
           <div className='anonprof'>
-            <img className='anon' src="https://i.kym-cdn.com/photos/images/newsfeed/001/878/329/dfa.jpg"></img>
+            <img className='anon' src={thisUser.image}></img>
             <div>{shopUser?.firstname}</div>
             <div className='contactinfo'>
               <i class="fa-solid fa-envelopes-bulk"></i>

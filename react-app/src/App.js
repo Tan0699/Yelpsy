@@ -14,6 +14,7 @@ import OnePost from './components/Onepost';
 import ReviewForm from './components/ReviewForm';
 import Purchases from './components/Purchases';
 import Cart from './components/CartPage';
+import Manage from './components/Manage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -52,6 +53,10 @@ function App() {
         <Route path='/purchases' exact={true} >
           <NavBar/>
           <Purchases/>
+        </Route>
+        <Route path='/manage' exact={true} >
+          <NavBar/>
+          <Manage/>
         </Route>
         <Route path='/Cart' exact={true} >
           <NavBar/>

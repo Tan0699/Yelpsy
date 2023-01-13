@@ -38,6 +38,7 @@ function Cart() {
             productArray.push(product)
         }
     })
+    const myProducts = productArray.filter(product => product.user_id == thisUser.id)
     const initial = 0
     const totalPrice = products.map(product => product.price).reduce((accumulator, currentValue) => accumulator + currentValue,
         initial)
@@ -106,7 +107,7 @@ function Cart() {
                 <i id='moji' class="fa-solid fa-handshake"></i>
                 <div className='yaya'><strong>Etsy Purchase Protection:</strong> Shop confidently on Etsy knowing if something goes wrong with an order, we've got your back for all eligible purchases</div>
             </div>
-            {products.length>1 &&
+            {products.length>0 &&
             <div className="cartpagegrid">
                 <div className="cartitemsgridgrid">
                     {productArray?.map(product => (
@@ -248,14 +249,16 @@ function Cart() {
                         </div>
 
                         <form className="payywrap"  onSubmit={handleSubmit}>
-                            {circle==1 &&
+                            {circle==1 && myProducts.length == 0 &&
                             <button type="submit" className="payy">Pay with<b> Visa</b></button>}
-                            {circle==2 &&
+                            {circle==2 && myProducts.length == 0 &&
                             <button  type="submit" className="payy">Pay with<b> Discover</b></button>}
-                            {circle==3 &&
+                            {circle==3 && myProducts.length == 0 &&
                             <button type="submit" className="payy">Pay with<b> Paypal</b></button>}
-                            {circle==4 &&
+                            {circle==4 && myProducts.length == 0 &&
                             <button type="submit" className="payy">Pay with <b>GooglePay</b></button>}
+                            { myProducts.length > 0 &&
+                            <div className="nonobuy">Can not purchase your own products!</div>}
                             {logModal}
                         </form>
                     </div>

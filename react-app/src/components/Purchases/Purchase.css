@@ -26,7 +26,7 @@
     /* background-color: aquamarine; */
 }
 .pricio{
-font-weight: bold;
+/* font-weight: bold; */
 }
 .purchasedetailsgrid1{
     /* background-color: rgb(213, 26, 26); */
@@ -233,8 +233,20 @@ font-weight: bold;
     padding-bottom: 10px;
     padding-top: 10px;
   }
+  .revfr{
+    padding-left: 9px;
+    font-weight: bold;
+    text-decoration: underline;
+    cursor: pointer;
+    padding-top: 5px;
+  }
   .daterwrap{
     display: flex;
     align-items: center;
     padding-left: 230px;
   }
+  .zeb{
+    padding-left: 5px;
+  }
+  
+  
