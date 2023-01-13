@@ -39,5 +39,5 @@ def create_purchases():
         db.session.add(purchased_post)
     print("purchase afoisfioasjfiodsajfia     -----------------------------",purchase.to_dict())
     db.session.commit()
-    return make_response({"purchase":purchase.to_dict()}, 200)
+    return make_response(purchase.to_dict(), 200)
 

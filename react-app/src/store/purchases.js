@@ -31,7 +31,7 @@ export const addPurchaseThunk = (payload) => async dispatch => {
         })
         if (response.ok) {
             const data = await response.json()
-            await dispatch(addPurchaseThunk(data))
+            await dispatch(addPurchaseAction(data))
             return data
         }  else if (response.status < 500) {
             const data = await response.json();
