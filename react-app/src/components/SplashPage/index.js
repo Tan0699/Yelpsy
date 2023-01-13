@@ -71,12 +71,12 @@ function Splash() {
       </div>
 
       <div className='shopgrid'>
-        {shops.filter((array, index) => index < 4).map((shop) => (
+        {shops?.filter((array, index) => index < 4).map((shop) => (
           <div className='inmap' key={shop.id}>
             <NavLink onClick={() => window.scrollTo(0, 0)} className="navls" to={`/${shop.id}`}>
               <div className='imagename'>
-                <img className='Image' src={shop.image}></img>
-                <div className='justname'>{shop.name}</div>
+                <img className='Image' src={shop?.image}></img>
+                <div className='justname'>{shop?.name}</div>
               </div>
             </NavLink>
 
@@ -98,11 +98,11 @@ function Splash() {
       {/* <div>POST SHOPS</div> */}
 
       <div className='postgrid'>
-        {posts.filter((array, index) => index < 8).map(post => (
+        {posts?.filter((array, index) => index < 8).map(post => (
           <NavLink className="priceroo" onClick={() => window.scrollTo(0, 0)} to={`/${post.shop_id}/posts/${post.id}`}>
             <div className={`PostImageContainer${posts.indexOf(post)}`} key={post.id}>
               <div className='PostImage'>
-                <img className={`pics`} src={post.image}
+                <img className={`pics`} src={post?.image}
                 ></img>
               </div>
               <div className={`PostPriceWrap${posts.indexOf(post)}`}>
