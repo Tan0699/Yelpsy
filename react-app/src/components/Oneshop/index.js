@@ -4,7 +4,7 @@ import { clearAction, deleteShop, fetchOneShop, fetchShops } from '../../store/s
 import ShopForm from '../Shopform';
 import { NavLink, useHistory, useParams } from 'react-router-dom';
 import EditShopForm from '../EditShopform';
-import { fetchPosts } from '../../store/posts';
+import { fetchPosts, fetchRandomPosts } from '../../store/posts';
 import PostForm from '../Postform';
 import "./Oneshop.css"
 import { Modal } from '../../context/Modal';
@@ -19,6 +19,7 @@ function OneShop() {
   const { shopId } = useParams()
   const thisShop = shops?.filter(shop => shop.id == +shopId)[0]
   const [users, setUsers] = useState([]);
+  const [isloaded , setisLoaded] = useState(false)
   const history = useHistory()
   useEffect(() => {
     async function fetchData() {
@@ -30,9 +31,12 @@ function OneShop() {
   }, []);
   const shopUser = users?.filter(user => thisShop?.user_id == user.id)[0]
   useEffect(() => {
-    dispatch(clearAction())
-    dispatch(fetchOneShop(shopId))
-    dispatch(fetchPosts())
+    Promise.all([
+    dispatch(clearAction()),
+    dispatch(fetchOneShop(shopId)),
+    dispatch(fetchRandomPosts())]).then(()=>{
+      setisLoaded(true)
+    })
   }, [dispatch])
 
 
@@ -48,7 +52,7 @@ console.log("thissshopposts",thisShopposts)
       )}
     </div>)
 
-  return (
+  return ( isloaded &&
     <>
     {/* <div className='wpdiv'>
     <img className='newwpp' src="https://i.ibb.co/S5DZC80/lepic.png"></img></div> */}
@@ -160,6 +164,9 @@ console.log("thissshopposts",thisShopposts)
         <div className='featured'>
           <div className='feat'>Featured</div>
         <div className='postwrapper'>
+          {thisShopposts?.length==0 &&
+          <div className='nosalewrap'>
+          <div className='nosale'>This Shop currently does not have any products for sale :(</div></div>}
           {thisShopposts?.map((post) => (
             <div className='gridpost' key={post.id}>
               <NavLink className="postnav" to={`/${shopId}/posts/${post.id}`}>

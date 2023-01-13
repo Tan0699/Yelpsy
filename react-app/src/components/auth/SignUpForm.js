@@ -7,7 +7,9 @@ const SignUpForm = ({setSign,setLog}) => {
   const [errors, setErrors] = useState([]);
   const [firstname, setFirstname] = useState('');
   const [email, setEmail] = useState('');
+  const [image, setImage] = useState(null)
   const [password, setPassword] = useState('');
+  const [imageLoading, setImageLoading] = useState(false)
   const [repeatPassword, setRepeatPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
@@ -15,23 +17,38 @@ const SignUpForm = ({setSign,setLog}) => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-
-      const data = await dispatch(signUp(firstname, email, password));
-      console.log(data)
+      const payload = new FormData();
+      payload.append("image", image);
+      payload.append("firstname",firstname)
+      payload.append("email",email)
+      payload.append("password",password)
+      // aws uploads can be a bit slow—displaying
+      // some sort of loading message is a good idea
+      setImageLoading(true);
+      const data = await dispatch(signUp(payload))
+      // const data = await dispatch(signUp(firstname, email, password,image));
+      console.log("ze data",data)
       if (data) {
-        console.log(data)
-        setErrors(data)
-      }
-      else{
+        if (data.image){
+        setImageLoading(false);
         setSign(false)
         setLog(false)
         history.push('/')
       }
+      else{
+        setImageLoading(false);
+        console.log(data)
+        setErrors([data])
+      }
     }
-    
+  }
     else{setErrors(["Passwords must match"])}
   };
 
+  const updateImage = (e) => {
+    const file = e.target.files[0];
+    setImage(file);
+}
   const updateFirstname = (e) => {
     setFirstname(e.target.value);
   };
@@ -107,10 +124,18 @@ const SignUpForm = ({setSign,setLog}) => {
           maxLength={20}
           required={true}
         ></input>
+        <label className='wrapyo'>Image File</label>
+            <input className="fileya"
+              type="file"
+              accept="image/*"
+              onChange={updateImage}
+             
+            />
       </div>
       <div className='regiwrap'>
       <button className='regisbut' type='submit'>Sign Up</button>
       </div>
+      {(imageLoading)&& <p>Loading...</p>}
     </form>
   );
 };

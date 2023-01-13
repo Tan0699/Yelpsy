@@ -221,3 +221,18 @@
     /* margin-right: auto; */
     height:1250px
 }
+.nosale{
+    font-size: 28px;
+    
+}
+.nosalewrap{
+display: flex;
+justify-content: center;
+align-items: center;
+color: red;
+width: 200px;
+height: 200px;
+border: 2px solid black;
+border-radius: 8px;
+padding: 10px;
+}

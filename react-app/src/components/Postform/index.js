@@ -13,6 +13,10 @@ const PostForm = ({setPos,setEditSho}) => {
     const dispatch = useDispatch()
     const {shopId} = useParams()
     const [name, setName] = useState("")
+    const [name1, setName1] = useState("")
+    const [name2, setName2] = useState("")
+    const [name3, setName3] = useState("")
+    const [name4, setName4] = useState("")
     const [description, setDescription] = useState("")
     const [price, setPrice] = useState("")
     const [image, setImage] = useState(null)
@@ -20,6 +24,7 @@ const PostForm = ({setPos,setEditSho}) => {
     const [errors, setErrors] = useState([]);
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setName(`${name1}- ${name2}- ${name3}- ${name4}`)
         const payload = new FormData();
         payload.append("image", image);
         payload.append("name",name)
@@ -68,14 +73,41 @@ const PostForm = ({setPos,setEditSho}) => {
               onChange={updateImage}
              
             />
-            <label className='wrapyo'>Post Name</label>
+            <label className='wrapyo'>Product Name</label>
             <input className="wrapya"
             // placeholder="Write name here"
             type="text"
-            maxLength={20}
+            maxLength={30}
             required
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            value={name1}
+            onChange={(e) => setName1(e.target.value)}
+          />
+          <label className='wrapyo'>Alternate Product Name 1</label>
+            <input className="wrapya"
+            // placeholder="Write name here"
+            type="text"
+            maxLength={30}
+            required
+            value={name2}
+            onChange={(e) => setName2(e.target.value)}
+          />
+          <label className='wrapyo'>Alternate Product Name 2</label>
+            <input className="wrapya"
+            // placeholder="Write name here"
+            type="text"
+            maxLength={30}
+            required
+            value={name3}
+            onChange={(e) => setName3(e.target.value)}
+          />
+          <label className='wrapyo'>Alternate Product Name 3</label>
+            <input className="wrapya"
+            // placeholder="Write name here"
+            type="text"
+            maxLength={30}
+            required
+            value={name4}
+            onChange={(e) => setName4(e.target.value)}
           />
           <label className='wrapyo'>Post Description</label>
           <input className="wrapya"

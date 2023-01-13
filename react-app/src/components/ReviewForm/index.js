@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { createReview } from "../../store/reviews";
 
 import './Rev.css'
-const ReviewForm = ({ posts, currentpost, star,shops,thisUser }) => {
+const ReviewForm = ({ posts, currentpost, star,shops,thisUser,setrevi }) => {
   console.log("le current", currentpost)
   const dispatch = useDispatch()
   const [rating, setRating] = useState(star)
@@ -43,6 +43,8 @@ console.log("ratinggg",rating)
       if (res.image) {
         setImageLoading(false);
         // history.push("/");
+        setrevi(false)
+        
       }
       else {
         setImageLoading(false);

@@ -296,12 +296,12 @@ function Purchases() {
 
         <div> {revi && (
           <Modal onClose={() => setrevi(false)}>
-            <ReviewForm shops={shops} posts={posts} currentpost={currentpost} star={star} thisUser={thisUser} />
+            <ReviewForm shops={shops} posts={posts} currentpost={currentpost} star={star} thisUser={thisUser} setrevi={setrevi}/>
           </Modal>
         )}</div>
          <div> {editrevi && (
           <Modal onClose={() => setedirevi(false)}>
-            <ReviewEditForm shops={shops} posts={posts} currentpost={currentpost} star={star} thisUser={thisUser} filteredReviews={filteredReviews} />
+            <ReviewEditForm shops={shops} posts={posts} currentpost={currentpost} star={star} thisUser={thisUser} filteredReviews={filteredReviews} setedirevi={setedirevi}/>
           </Modal>
         )}</div>
       </div>
