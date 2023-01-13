@@ -33,6 +33,7 @@ const ShopForm = ({ setSho }) => {
                 setImageLoading(false);
                 // history.push("/");
                 setSho(false);
+                history.push("/manage")
 
             }
             else {

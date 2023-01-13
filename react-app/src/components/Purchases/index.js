@@ -4,7 +4,7 @@ import { NavLink, useHistory } from 'react-router-dom';
 import { Modal } from '../../context/Modal';
 import { fetchPosts } from '../../store/posts';
 import { fetchPurchases } from '../../store/purchases';
-import { fetchReviews } from '../../store/reviews';
+import { deleteReview, fetchReviews } from '../../store/reviews';
 import shopReducer, { deleteShop, fetchShops } from '../../store/shops';
 import EditShopForm from '../EditShopform';
 import ReviewEditForm from '../ReviewEditForm';
@@ -179,13 +179,17 @@ function Purchases() {
                               <div>{filteredReviews.filter(review => review.post_id == detail.post_id)[0].created_at.slice(4,17)}</div></div>
                           </div>
                           <div className='filterdesc'>{filteredReviews.filter(review => review.post_id == detail.post_id)[0].description}</div>
+                          <div className='bothrevwrap'>
                           <div className='revfr' onClick={e => (setedirevi(true), setcurrentpost(detail.post_id))}>Edit this Review</div>
+                          <div className='revfrdeletewrap'>
+                          <div className='revfrdelete' onClick={e => (dispatch(deleteReview(filteredReviews.filter(review => review.post_id == detail.post_id)[0].id)))}>Delete this Review</div></div></div>
                         </div>}
                       {filteredReviews?.filter(review => (review.post_id == detail.post_id)).length == 0 &&
 
                         <div className='starthing'>
                           <div className='starthinginnerwrap'>
-                            <div className='starthinginner'>Review this product</div></div>
+                            <div className='starthinginner'>Review this product</div>
+                            </div>
                           <div className='starthinginner2'>
                             <div class="rating">
                               <input
@@ -250,7 +254,7 @@ function Purchases() {
                       }
                       <div className='buyaganplusprice'>
                         <div>
-                          <button className='buyagan'>Buy this Again </button></div>
+                          <button className='buyagan' onClick={()=> history.push (`/${detail.shop_id}/posts/${detail.post_id}`)}>Buy this Again </button></div>
                         <div className='buyaganprice'>
                           <div>${posts.filter(post => detail.post_id == post.id)[0]?.price}{}<b className='zeb'>({detail?.quantity})</b></div></div>
                       </div>
@@ -269,7 +273,7 @@ function Purchases() {
               <div className='process'>
                 Processed
               </div>
-              <div className='lebuttons'>
+              {/* <div className='lebuttons'>
                 <button className='rebuy'>Repurchase</button>
               </div>
               <div className='lebuttons'>
@@ -279,7 +283,7 @@ function Purchases() {
               </div>
               <div className='lebuttons'>
                 <button className='editdetailrev'>Edit Review</button>
-              </div>
+              </div> */}
             </div>
 
           </div>

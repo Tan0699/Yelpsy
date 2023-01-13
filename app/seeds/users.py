@@ -4,11 +4,11 @@ from app.models import db, User, environment, SCHEMA
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     demo = User(
-        firstname='Demo', email='demo@aa.io', password='password',image="https://glebekitchen.com/wp-content/uploads/2017/04/tonkotsuramenfront.jpg")
+        firstname='Demo', email='demo@aa.io', password='password',image="https://s3-us-west-2.amazonaws.com/assets.eastidahonews.com/wp-content/uploads/2019/04/24161406/cookie-place.jpg")
     marnie = User(
-        firstname='marnie', email='marnie@aa.io', password='password',image="https://glebekitchen.com/wp-content/uploads/2017/04/tonkotsuramenfront.jpg")
+        firstname='marnie', email='marnie@aa.io', password='password',image="https://images.squarespace-cdn.com/content/v1/600388b4259ef06ca93a16b2/1610844662758-AEYXMY327P8EJ70D0EB6/TCS%2B-%2BLOGO%2B2.jpg")
     bobbie = User(
-        firstname='bobbie', email='bobbie@aa.io', password='password',image="https://glebekitchen.com/wp-content/uploads/2017/04/tonkotsuramenfront.jpg")
+        firstname='bobbie', email='bobbie@aa.io', password='password',image="https://marketplace.canva.com/EAE4zJkfVJk/1/0/1600w/canva-pink-white-minimalist-cake-shop-on-instagram-post-vYajkfQ6pbM.jpg")
     Chen = User(
         firstname='Chen', email='Tan@aa.io', password='password',image="https://glebekitchen.com/wp-content/uploads/2017/04/tonkotsuramenfront.jpg")
     Coco = User(

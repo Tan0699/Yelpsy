@@ -10,6 +10,7 @@ class PurchaseDetail(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     quantity = db.Column(db.Integer)
     post_id =db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('posts.id')))
+    shop_id =db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('shops.id')))
     purchase_id =db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('purchases.id')))
     posts = db.relationship('Post', back_populates='purchasees')
     purchases = db.relationship('Purchase', back_populates='details')
@@ -19,5 +20,6 @@ class PurchaseDetail(db.Model):
             "id": self.id,
             "quantity": self.quantity,
             "post_id": self.post_id,
-            "purchase_id": self.purchase_id
+            "purchase_id": self.purchase_id,
+            "shop_id":self.shop_id
         }

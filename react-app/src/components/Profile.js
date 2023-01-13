@@ -4,10 +4,13 @@ import { useHistory } from "react-router-dom";
 import { logout } from "../store/session";
 import "./profbutton.css"
 import LogoutButton from "./auth/LogoutButton";
+import { Modal } from "../context/Modal";
+import ShopForm from "./Shopform";
 function ProfileButton({isUser}) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const history = useHistory()
+  const [sho, setSho] = useState(false);
   const openMenu = () => {
     if (showMenu) return;
     setShowMenu(true);
@@ -25,7 +28,15 @@ function ProfileButton({isUser}) {
     return () => document.removeEventListener("click", closeMenu);
   }, [showMenu]);
 
-  
+  let shopModal = (
+    <div>
+     
+      {sho && (
+        <Modal onClose={() => setSho(false)}>
+          <ShopForm setSho={setSho} />
+        </Modal>
+      )}
+    </div>)
   return (
     <>
     <div className="profcontainer">
@@ -49,6 +60,14 @@ function ProfileButton({isUser}) {
                 <div className="purnrevwrap" >
                 <div className="purnrev"> Purchases and Reviews</div></div>
             </div>
+           
+            <div className="pandrwrap" onClick={()=> setSho(true)}>
+                <div>
+                <i id="lepen" class="fa-regular fa-building"></i>
+                </div>
+                <div className="purnrevwrap" >
+                <div className="purnrev2"> Open a Shop</div></div>
+            </div>
             <div>
            <LogoutButton/>
           </div>
@@ -58,6 +77,7 @@ function ProfileButton({isUser}) {
         </div>
       )}
       </div>
+      {shopModal}
     </>
   );
 }

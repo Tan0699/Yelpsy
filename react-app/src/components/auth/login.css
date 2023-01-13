@@ -68,7 +68,20 @@
     width: 80px;
 
 }
+.setsignbut2{
+    border-radius: 7423743298px;
+    padding: 10px;
+    font-weight: bold;
+    background-color: white;
+    border: black 2px solid;
+    cursor:pointer;
+    width: 100px;
+
+}
 .setsignbut:hover{
+    background-color: rgb(230, 230, 230);
+}
+.setsignbut2:hover{
     background-color: rgb(230, 230, 230);
 }
 .signbutwrap{

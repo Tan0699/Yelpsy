@@ -101,6 +101,7 @@ transition: all .3s ease;
     font-size: 15px;
     width: 100%;
     padding:10px;
+    cursor: pointer;
 }
 .addedtocartbuttonwrap{
     padding-top: 20px;

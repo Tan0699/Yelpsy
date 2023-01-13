@@ -71,7 +71,7 @@ const EditShopForm = ({setEditSho}) => {
           {pos?<PostForm setPos={setPos} setEditSho={setEditSho}/>:
         <form className="postformwrap" onSubmit={handleSubmit}>
             <div className='postah'>
-             <button className='setsignbut' onClick={()=> setPos(true)}>Add a Post</button></div>
+             <button className='setsignbut2' onClick={()=> setPos(true)}>Add a Post</button></div>
             <div className="posttop">Shop Getting Outdated?</div>
             <div  className="errors">
                 {errors?.map((error, ind) => (

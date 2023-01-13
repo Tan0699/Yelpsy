@@ -23,6 +23,7 @@ const ReviewEditForm = ({setedirevi,filteredReviews, posts, currentpost, star,sh
   const [formrate, setformrate] = useState(true)
   const [formdesc, setformdesc] = useState(false)
   const [formimg, setformimg] = useState(false)
+  const counter = 250-description.length
 console.log("ratinggg",rating)
 
   const handleSubmit = async (e) => {
@@ -188,8 +189,17 @@ console.log("ratinggg",rating)
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
+          {counter>=0 && counter <250 &&
+          <div>
+          <div className="poss">{counter} characters remaining</div>
           <div className="postsub2wrap">
-          <button className="postsub2" onClick={() => (setformdesc(false), setformimg(true))} >Next</button></div>
+          <button className="postsub2" onClick={() => (setformdesc(false), setformimg(true))} >Next</button></div></div>}
+          {(counter<0 || counter ==250) &&
+          <div>
+          <div className="neg">{counter} characters remaining</div>
+          <div className="postsub2wrap">
+          <div className="negativeno">Next</div></div></div>}
+           
         </form>}
       {formimg &&
         <form className="postformwra" onSubmit={handleSubmit}>
