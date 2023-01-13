@@ -22,7 +22,7 @@ useEffect(() => {
   const isUser = useSelector((state)=> state.session.user)
   const shopState = useSelector((state) => state.shops)
   const shops = Object.values(shopState)
-  const filteredShops = shops.filter(shop => shop.user_id == isUser.id)
+  const filteredShops = shops.filter(shop => shop?.user_id == isUser?.id)
 
     return( isloaded &&
 

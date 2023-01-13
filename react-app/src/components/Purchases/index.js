@@ -21,7 +21,7 @@ function Purchases() {
   const purchaseState = useSelector((state) => state.purchase)
   const reviewstate = useSelector((state) => state.reviews)
   const reviews = Object.values(reviewstate)
-  const filteredReviews = reviews.filter(review => review.user_id == thisUser.id)
+  const filteredReviews = reviews?.filter(review => review?.user_id == thisUser?.id)
   console.log("filtere revs ", filteredReviews)
   // const details = useSelector((state) => state?.purchase?.details)
   // const details = Object.values(detailsState)
