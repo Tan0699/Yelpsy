@@ -162,9 +162,26 @@
     padding-left: 75px;
     padding-top: 20px;
 }
+.bothrevwrap{
+    display: flex;
+}
 .starthinginnerwrap{
     display: flex;
     align-items: center;
+}
+.revfrdelete{
+    padding-left: 9px;
+    font-weight: bold;
+    text-decoration: underline;
+    cursor: pointer;
+    padding-top: 5px;
+    color: red;
+    
+    
+}
+.revfrdeletewrap{
+display: flex;
+padding-left: 50px;
 }
 .buyagan{
     background-color: black;
@@ -173,6 +190,7 @@
     padding-left: 14px;
     padding-right: 14px;
     border-radius: 3px;
+    cursor: pointer;
 }
 .buyaganprice{
     display: flex;
@@ -239,6 +257,7 @@
     text-decoration: underline;
     cursor: pointer;
     padding-top: 5px;
+    /* width: 100px; */
   }
   .daterwrap{
     display: flex;

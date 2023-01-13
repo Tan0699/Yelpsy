@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 3b84456ad470
+Revision ID: ade5e768f52f
 Revises: 
-Create Date: 2023-01-12 18:22:25.170598
+Create Date: 2023-01-13 04:04:01.377487
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '3b84456ad470'
+revision = 'ade5e768f52f'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -61,9 +61,11 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('quantity', sa.Integer(), nullable=True),
     sa.Column('post_id', sa.Integer(), nullable=True),
+    sa.Column('shop_id', sa.Integer(), nullable=True),
     sa.Column('purchase_id', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['post_id'], ['posts.id'], ),
     sa.ForeignKeyConstraint(['purchase_id'], ['purchases.id'], ),
+    sa.ForeignKeyConstraint(['shop_id'], ['shops.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('reviews',
@@ -71,7 +73,7 @@ def upgrade():
     sa.Column('user_id', sa.Integer(), nullable=True),
     sa.Column('shop_id', sa.Integer(), nullable=True),
     sa.Column('post_id', sa.Integer(), nullable=True),
-    sa.Column('description', sa.String(length=200), nullable=False),
+    sa.Column('description', sa.String(length=400), nullable=False),
     sa.Column('image', sa.String(length=2000), nullable=False),
     sa.Column('rating', sa.Integer(), nullable=False),
     sa.Column('created_at', sa.DateTime(), nullable=True),

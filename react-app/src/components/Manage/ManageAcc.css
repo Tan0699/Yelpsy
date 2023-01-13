@@ -1,3 +1,14 @@
 .managee{
     font-size: 50px;
     color: red;}
+    .manageimage{
+        width: 200px;
+    }
+    .managegridinner{
+        display: flex;
+        width: 400px;
+        height: 400px;
+        padding:20px;
+        border: 2px solid black;
+        cursor: pointer;
+    }

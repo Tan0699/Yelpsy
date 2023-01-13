@@ -33,6 +33,7 @@ def create_purchases():
         purchased_post = PurchaseDetail(
             quantity = post['quantity'],
             post_id = post['id'],
+            shop_id = post['shop_id'],
             purchase_id = purchase.to_dict()['id'],
             )
         db.session.add(purchased_post)
