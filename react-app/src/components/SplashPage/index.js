@@ -75,8 +75,11 @@ function Splash() {
           <div className='inmap' key={shop.id}>
             <NavLink onClick={() => window.scrollTo(0, 0)} className="navls" to={`/${shop.id}`}>
               <div className='imagename'>
-                <img className='Image' src={shop?.image}></img>
+              <div className='ImageWrap'>
+                <img className='Image' src={shop?.image}></img></div>
+                <div className='justnamewrap'>
                 <div className='justname'>{shop?.name}</div>
+                </div>
               </div>
             </NavLink>
 
@@ -112,6 +115,36 @@ function Splash() {
           </NavLink>
         ))}
       </div>
+      {/* <div className='shopgrid2'>
+        {posts?.filter((array, index) => (index > 7 && index<12)).map((shop) => (
+          <div className='inmap' key={shop.id}>
+            <NavLink onClick={() => window.scrollTo(0, 0)} className="navls" to={`/${shop.shop_id}/posts/${shop.id}`}>
+              <div className='imagename'>
+                <div className='ImageWrap'>
+                <img className='Image' src={shop?.image}></img></div>
+                <div className='justnamewrap'>
+                <div className='justname'>{(shop?.name).split("-")[0]}</div></div>
+              </div>
+            </NavLink>
+
+          </div>
+        ))}</div> */}
+        <div className='shopgrid2'>
+        {shops?.filter((array, index) => (index > 3 && index<8)).map((shop) => (
+          <div className='inmap' key={shop.id}>
+            <NavLink onClick={() => window.scrollTo(0, 0)} className="navls" to={`/${shop.id}`}>
+              <div className='imagename'>
+              <div className='ImageWrap'>
+                <img className='Image' src={shop?.image}></img></div>
+                <div className='justnamewrap'>
+                <div className='justname'>{shop?.name}</div>
+                </div>
+              </div>
+            </NavLink>
+
+          </div>
+        ))}</div>
+
     </>
   );
 }
