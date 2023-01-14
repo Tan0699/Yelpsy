@@ -11,7 +11,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 845px;
+    width: 905px;
    
    /* grid-template-columns: repeat(4,1fr); */
    /* grid-auto-rows: 0; */
@@ -30,6 +30,23 @@
     /* overflow-y: scroll; */
     /* float: left;
     margin:10px */
+}
+.browse{
+    width: 905px;
+    grid-gap: 15px;
+    margin-left:auto;
+    margin-right: auto;
+    font-size: 30px;
+    font-weight: bold;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.uniq{
+    width: 905px;
+    grid-gap: 15px;
+    margin-left:auto;
+    margin-right: auto;
+    padding-bottom: 20px;
 }
 /* .Image{
     width: 100%;
@@ -372,53 +389,138 @@
 } */
 .PostImageContainer0{
     position: relative;
-    width: 200px;
+    width: 215px;
     height: 160px;
 }
 .PostImageContainer1{
     position: relative;
-    width: 200px;
+    width: 215px;
     height: 240px;
 }
 .PostImageContainer2{
     position: relative;
-    width: 200px;
+    width: 215px;
     height: 160px;
 }
 .PostImageContainer3{
     position: relative;
-    width: 200px;
+    width: 215px;
     height: 240px;
 }
 .PostImageContainer5{
     position: relative;
-    width: 200px;
+    width: 215px;
     height: 160px;
 }
 .PostImageContainer4{
     position: relative;
-    width: 200px;
+    width: 215px;
     height: 240px;
     margin-top: -80px;
 }
 .PostImageContainer7{
     position: relative;
-    width: 200px;
+    width: 215px;
     height: 160px;
 }
 .PostImageContainer6{
     position: relative;
-    width: 200px;
+    width: 215px;
     height: 240px;
     margin-top: -80px;
 }
+.lastgrid{
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-left: auto;
+    margin-right: auto;
+    width: 905px;
+    height: 300px;
+}
+.minigridname{
+    overflow: hidden;
+    max-width: 100px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-weight: bold;
+    padding-left: 15px;
+    padding-bottom: 10px;
+}
+.lastgridinner{
+    width: 205px;
+    display: flex;
+    flex-direction: column;
+    border: 1px rgb(189, 189, 189) solid;
+    border-radius: 10px;
+}
+.minigridnamewrapwrap{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    word-break: break-all;
+    padding-top: 10px
+    ;
+}
+.miniitemwrap{
+display: flex;
+justify-content: flex-end;
+padding-right: 15px;
+padding-bottom: 10px;
 
+}
+.lastimagewrap{
+    display: flex;
+}
+.lastsplashgrid{
+    display: grid;
+     grid-template-columns: 1fr 1fr;
+     grid-row: auto; 
+    width: 200px;
+    height:200px;
+  gap: 5px;
+}
 
+.minigridnamewrap{
+    display: flex;
+   
+}
 html, body {
     margin: 0;
     padding: 0;
   }
-  .lastimage{
-    width: 60px;
-    height: 60px;
+  .lastimage0{
+    width:100px;
+    height: 100px;
+  }
+  .lastimage1{
+    width:100px;
+    height: 100px;
+  }
+  .lastimage2{
+    width:100px;
+    height: 100px;
+    border-bottom-left-radius: 10px;
+  }
+  .lastimage3{
+    width:100px;
+    height: 100px;
+    border-bottom-right-radius: 10px;
+  }
+  .lastimage0:hover{
+    opacity: .6;
+ 
+  }
+  .lastimage1:hover{
+    opacity: .6;
+ 
+  }
+  .lastimage2:hover{
+    opacity: .6;
+ 
+  }
+  .lastimage3:hover{
+    opacity: .6;
+ 
+  }
+  .splashnav{
+    color: black;
+    text-decoration: none;
   }
