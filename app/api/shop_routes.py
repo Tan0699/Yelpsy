@@ -13,10 +13,22 @@ shop_routes = Blueprint('shops', __name__)
 
 @shop_routes.route('/',methods=["GET"])
 def get_all_shops():
+    # shops = Shop.query.all()
+    # the_shops = {"shops": [shop.to_dict() for shop in shops]}
+    # return make_response(the_shops, 200)
+    posts = Post.query.all()
     shops = Shop.query.all()
-    the_shops = {"shops": [shop.to_dict() for shop in shops]}
-    return make_response(the_shops, 200)
+    shop_of_shops = []
 
+    for shop in shops:
+        post_of_posts = []
+        one_shop = shop.to_dict()
+        shop_of_shops.append(one_shop)
+        for post in posts:
+            if post.shop_id == shop.id:
+                    post_of_posts.append(post.to_dict())
+        one_shop["posts"] = post_of_posts
+    return make_response(jsonify({"shops":shop_of_shops}), 200)
 #  get shop by ID
 @shop_routes.route('/<int:shopId>')
 def get_one_shop(shopId):

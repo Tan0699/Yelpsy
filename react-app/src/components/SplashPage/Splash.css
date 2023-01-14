@@ -270,6 +270,16 @@
     padding-top: 60px;
     margin-left: auto;
     margin-right: auto;
+    padding-bottom: 20px;
+}
+.inmap2{
+    display: grid;
+    grid-row:1;
+    height: 100px;
+    width: 100px;
+    padding-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
 }
 .Image:hover {
     /* transform: scale(1.05); */
@@ -407,4 +417,8 @@
 html, body {
     margin: 0;
     padding: 0;
+  }
+  .lastimage{
+    width: 60px;
+    height: 60px;
   }
