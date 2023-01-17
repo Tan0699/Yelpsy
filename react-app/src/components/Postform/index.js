@@ -77,7 +77,7 @@ const PostForm = ({setPos,setEditSho}) => {
             <input className="wrapya"
             // placeholder="Write name here"
             type="text"
-            maxLength={30}
+            maxLength={70}
             required pattern="[a-zA-Z, 0-9,'. ! ? + @ # $ % ^ & * ( )]+" title="Please use valid chars,invalid chars: -"
             value={name1}
             onChange={(e) => setName1(e.target.value)}
@@ -86,7 +86,7 @@ const PostForm = ({setPos,setEditSho}) => {
             <input className="wrapya"
             // placeholder="Write name here"
             type="text"
-            maxLength={30}
+            maxLength={70}
             required pattern="[a-zA-Z, 0-9,'. ! ? + @ # $ % ^ & * ( )]+" title="Please use valid chars,invalid chars: -"
             value={name2}
             onChange={(e) => setName2(e.target.value)}
@@ -95,7 +95,7 @@ const PostForm = ({setPos,setEditSho}) => {
             <input className="wrapya"
             // placeholder="Write name here"
             type="text"
-            maxLength={30}
+            maxLength={70}
             required pattern="[a-zA-Z, 0-9,'. ! ? + @ # $ % ^ & * ( )]+" title="Please use valid chars,invalid chars: -"
             value={name3}
             onChange={(e) => setName3(e.target.value)}
@@ -104,7 +104,7 @@ const PostForm = ({setPos,setEditSho}) => {
             <input className="wrapya"
             // placeholder="Write name here"
             type="text"
-            maxLength={30}
+            maxLength={70}
             required pattern="[a-zA-Z, 0-9,'. ! ? + @ # $ % ^ & * ( )]+" title="Please use valid chars,invalid chars: -"
             value={name4}
             onChange={(e) => setName4(e.target.value)}
