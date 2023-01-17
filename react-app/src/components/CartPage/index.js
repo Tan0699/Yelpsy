@@ -139,7 +139,7 @@ function Cart() {
                                     <button className="removebutton" onClick={() => { dispatch(deleteFromCartThunk(product)) }}>Remove</button>
                                     {/* <button onClick={() => dispatch(deleteOneFromCartAction(product))} >DELETE ONE</button> */}
                                 </div>
-                                <div className="lastgrid2">
+                                <div className="lastgrid3">
                                     <div className="pricequan">
                                         {/* <div className="changequan">
 

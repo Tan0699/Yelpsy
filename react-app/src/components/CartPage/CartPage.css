@@ -96,7 +96,7 @@ padding: 10px;
     padding-left: 10px;
     text-overflow: ellipsis;
   }
-  .lastgrid2{
+  .lastgrid3{
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
   }
