@@ -19,6 +19,7 @@ function Purchases() {
   const shops = Object.values(shopState)
   const postState = useSelector((state) => state.posts)
   const purchaseState = useSelector((state) => state.purchase)
+  const purchases = Object.values(purchaseState)
   const reviewstate = useSelector((state) => state.reviews)
   const reviews = Object.values(reviewstate)
   const filteredReviews = reviews?.filter(review => review?.user_id == thisUser?.id)
@@ -26,7 +27,7 @@ function Purchases() {
   // const details = useSelector((state) => state?.purchase?.details)
   // const details = Object.values(detailsState)
   // console.log("detailSSS",details)
-  const purchases = Object.values(purchaseState)
+  
   const posts = Object.values(postState)
   const dispatch = useDispatch()
   const history = useHistory()
@@ -97,13 +98,15 @@ function Purchases() {
                   <div className='purchasedetailsgrid2'>
                     <div className='detailimagewrap'>
                       <div className='purchasedetailsimage'>
+                        <NavLink to={`/${posts.filter(post => detail?.post_id == post?.id)[0]?.shop_id}/posts/${posts.filter(post => detail?.post_id == post?.id)[0]?.id}`}>
                         <img className='detailimage' src={posts.filter(post => detail?.post_id == post?.id)[0]?.image}>
-                        </img>
+                        </img></NavLink>
                       </div></div>
 
                     <div className='purchasedetailsinfo'>
                       <div className='purchasenam'>
-                        {posts.filter(post => detail?.post_id == post?.id)[0]?.name}
+                      <NavLink className="purchasenavlink" to={`/${posts.filter(post => detail?.post_id == post?.id)[0]?.shop_id}/posts/${posts.filter(post => detail?.post_id == post?.id)[0]?.id}`}>
+                        {posts.filter(post => detail?.post_id == post?.id)[0]?.name}</NavLink>
                       </div>
                       {filteredReviews?.filter(review => (review.post_id == detail.post_id)).length > 0 &&
                         <div className='starthing2'>
