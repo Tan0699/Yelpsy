@@ -31,7 +31,7 @@ function OnePost() {
   const history = useHistory()
   const thisPost = posts.filter((post) => post.id == +id)[0]
   const thisPostRevs = reviews?.filter((reviews) => thisPost?.id == reviews?.post_id)
-  const myRevs = reviews?.filter((reviews) => thisUser.id == reviews?.user_id)
+  const myRevs = reviews?.filter((reviews) => thisUser?.id == reviews?.user_id)
   const myRevsHere = myRevs?.filter((reviews) => thisPost?.id == reviews?.post_id)
   let initial = 0
   thisPostRevs.forEach(rev => initial = initial + rev.rating)
