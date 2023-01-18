@@ -118,6 +118,12 @@ font-size: 25px;
         justify-content: flex-end;
         padding-top: 25px;
     }
+    .postsub3wrap{
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        padding-top: 165px;
+    }
     .postsub2{
         background-color: black;
         color: white;
@@ -196,4 +202,7 @@ padding-bottom: 20px;
         padding-left: 15px;
         padding-right: 15px;
         
+    }
+    .rev2button{
+        margin-left: -1000px;
     }

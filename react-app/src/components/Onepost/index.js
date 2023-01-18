@@ -13,10 +13,13 @@ import CartForm from '../CartForm';
 import { deleteFromCartThunk } from '../../store/cart';
 import { fetchReviews } from '../../store/reviews';
 import AddedModal from '../AddedItemModal';
+import RevForm2 from '../ReviewForm/Rev2';
+import { fetchPurchases } from '../../store/purchases';
 
 
 function OnePost() {
   const { shopId, id } = useParams()
+  const [revi, setrevi] = useState(false);
   const thisUser = useSelector((state) => state.session.user)
   const shopState = useSelector((state) => state.shops)
   const postState = useSelector((state) => state.posts)
@@ -27,10 +30,22 @@ function OnePost() {
   const [editpos, setEditPos] = useState(false)
   const history = useHistory()
   const thisPost = posts.filter((post) => post.id == +id)[0]
-  const thisPostRevs = reviews.filter((reviews) => thisPost.id == reviews.post_id)
+  const thisPostRevs = reviews?.filter((reviews) => thisPost?.id == reviews?.post_id)
+  const myRevs = reviews?.filter((reviews) => thisUser.id == reviews?.user_id)
+  const myRevsHere = myRevs?.filter((reviews) => thisPost?.id == reviews?.post_id)
   let initial = 0
   thisPostRevs.forEach(rev => initial = initial + rev.rating)
   const avgrating = initial / thisPostRevs.length
+  const purchaseState = useSelector((state) => state.purchase)
+  const purchased = []
+  const purchases = Object.values(purchaseState)
+  purchases?.forEach(purchase => {
+    purchase?.details?.forEach(purchasy => {
+      if(purchasy.post_id == id){
+        purchased.push(purchasy)
+      }
+    })
+  })
   const dispatch = useDispatch()
   const [users, setUsers] = useState([]);
   useEffect(() => {
@@ -46,6 +61,7 @@ function OnePost() {
     dispatch(fetchOnePost(shopId, id))
     dispatch(fetchShops())
     dispatch(fetchReviews())
+    dispatch(fetchPurchases(thisUser?.id))
   }, [dispatch])
 
   console.log("huhu why no work", thisUser?.id)
@@ -157,6 +173,14 @@ function OnePost() {
               </div>
               <div className='lelinewrap'>
               <div className='leline'></div></div>
+              {purchased.length>0 && myRevsHere.length==0 &&
+              <div className='rev2button'>
+              <button className='editposta' onClick={(e) => ((setrevi(true)))}>Leave a Review</button>
+                 {revi && (
+          <Modal onClose={() => setrevi(false)}>
+            <RevForm2 shops={shops} posts={posts} thisUser={thisUser} setrevi={setrevi}/>
+          </Modal>
+        )}</div>}
             <div>
               {thisPostRevs?.map((review) => (
                 <div className='revvy'>
