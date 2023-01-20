@@ -21,6 +21,7 @@ function OneShop() {
   const [users, setUsers] = useState([]);
   const [isloaded , setisLoaded] = useState(false)
   const history = useHistory()
+  // 
   useEffect(() => {
     async function fetchData() {
       const response = await fetch('/api/users/');
