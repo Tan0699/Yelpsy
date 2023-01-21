@@ -4,11 +4,17 @@ const CREATE_POST = 'posts/new'
 const EDIT_POST = 'posts/edit'
 const DELETE_POST = 'posts/delete'
 const ALL_RANDOM = 'posts/random'
-
+const SEARCH_POSTS = 'posts/search'
 
 const getAllPostsAction = payload => {
     return {
         type: ALL_POSTS,
+        payload
+    }
+}
+const searchPostsAction = payload => {
+    return {
+        type: SEARCH_POSTS,
         payload
     }
 }
@@ -48,6 +54,14 @@ export const fetchPosts = () => async dispatch => {
     if (res.ok) {
         const data = await res.json();
         dispatch(getAllPostsAction(data));
+        return data
+    }
+}
+export const searchPosts = (payload) => async dispatch => {
+    const res = await fetch(`/api/search/${payload}`)
+    if (res.ok) {
+        const data = await res.json();
+        dispatch(searchPostsAction(data));
         return data
     }
 }
@@ -129,6 +143,12 @@ const postReducer = (state = initialState, action) => {
             // const newnew = Object.values(newState)
             // newnew.sort((a,b) => 0.5 - Math.random());
             // return newnew
+            return newState
+        }
+        case SEARCH_POSTS: {
+            action.payload.posts.forEach(post => {
+                newState[post.id] = post
+            })
             return newState
         }
         case ALL_RANDOM: {
