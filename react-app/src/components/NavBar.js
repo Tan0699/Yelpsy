@@ -11,6 +11,7 @@ import ShopForm from './Shopform';
 import LoginForm from '../components/auth/LoginForm'
 import { useSelector } from 'react-redux';
 import ProfileButton from './Profile';
+import SearchBar from './SearchedPage/SearchBar';
 // import fda from "../../public/fa"
 const NavBar = () => {
   const history = useHistory()
@@ -78,11 +79,11 @@ const NavBar = () => {
           </div>
         </div>
         
-        
-        <form className="bigsearchform" >
+        <SearchBar/>
+        {/* <form className="bigsearchform" >
           <input className='bigsearchbar' type="text" placeholder="THIS IS A WORK IN PROGRESS" name="search" />
           <button className='bigsearchbutton' type="submit"><i class="fa fa-search"></i></button>
-        </form>
+        </form> */}
         {!isUser &&
           <div className='logmodalwrap'>
             {logModal}

@@ -98,25 +98,7 @@ border-bottom-right-radius: 0px;
     padding-left: 30px;
     padding-right: 30px;
 }
-.bigsearchbutton{
-    /* border: white; */
-    background-color: white;
-    font-size: 20px;
-    border-radius: 12312312312px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-bottom-left-radius: 0px;
-    border-top-left-radius: 0px;
-    border-left: white;
-    padding-right: 20px;
-    background-color: rgb(244,244,244);
-}
-.bigsearchform{
-    /* border: black 2px solid; */
-    display: flex;
-    border-radius: 4242342px;
-    width: 100%;
-}
+
 .zecartwrap{
     padding-right: 10px;
 }
