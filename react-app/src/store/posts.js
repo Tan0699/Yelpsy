@@ -58,7 +58,7 @@ export const fetchPosts = () => async dispatch => {
     }
 }
 export const searchPosts = (payload) => async dispatch => {
-    const res = await fetch(`/api/search/${payload}`)
+    const res = await fetch(`/api/shops/search/${payload}`)
     if (res.ok) {
         const data = await res.json();
         dispatch(searchPostsAction(data));

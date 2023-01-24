@@ -15,6 +15,7 @@ import ReviewForm from './components/ReviewForm';
 import Purchases from './components/Purchases';
 import Cart from './components/CartPage';
 import Manage from './components/Manage';
+import Search from './components/SearchedPage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -61,6 +62,10 @@ function App() {
         <Route path='/Cart' exact={true} >
           <NavBar/>
           <Cart/>
+        </Route>
+        <Route path='/search/:query' exact={true} >
+          <NavBar/>
+          <Search/>
         </Route>
         <Route path='/:shopId' exact={true} >
           <NavBar />

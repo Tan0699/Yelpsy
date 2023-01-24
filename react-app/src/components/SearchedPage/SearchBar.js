@@ -19,12 +19,16 @@ function SearchBar ()  {
   
     }
     const postsFound = matchingPost(query,posts)
-    useEffect(() => {
-     dispatch(searchPosts(query))
-  }, [dispatch])
+  //   useEffect(() => {
+  //    dispatch(searchPosts(query))
+  // }, [dispatch])
   const handleSubmit = async (e) => {
    history.push(`/search/${query}`)
+   setQuery("")
   }
+  const handleUserInput = (e) => {
+    setQuery(e.target.value);
+  };
     return (
       <div className="biggestsearchwrap">
       <form className="bigsearchform" onSubmit={handleSubmit}>
@@ -32,14 +36,15 @@ function SearchBar ()  {
       id="search"
       type="text"
       placeholder="Search for Products Here"
-      onChange={e => setQuery(e.target.value)}
+      value={query}
+      onChange={handleUserInput}
       />
       <button className='bigsearchbutton' type="submit"><i class="fa fa-search"></i></button>
     </form>
     <div className="searchresults">
         {postsFound &&
           <div className="searchResults">
-            {postsFound?.filter((array, index) => index < 8).map((post) =>(
+            {postsFound?.filter((array, index) => index < 12).map((post) =>(
                <div className="innerresult">
               <NavLink className={"searcheroo"} onClick={()=> (setQuery(""))} to={`/${post?.shop_id}/posts/${post?.id}`}>
               <div className="individualresult" key={post.id}>{post.name}</div>
