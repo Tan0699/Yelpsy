@@ -29,6 +29,9 @@ function SearchBar ()  {
   const handleUserInput = (e) => {
     setQuery(e.target.value);
   };
+  useEffect(()=>{
+    dispatch(fetchPosts())
+  },[dispatch])
     return (
       <div className="biggestsearchwrap">
       <form className="bigsearchform" onSubmit={handleSubmit}>

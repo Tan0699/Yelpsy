@@ -4,7 +4,7 @@ const CREATE_POST = 'posts/new'
 const EDIT_POST = 'posts/edit'
 const DELETE_POST = 'posts/delete'
 const ALL_RANDOM = 'posts/random'
-const SEARCH_POSTS = 'posts/search'
+// const SEARCH_POSTS = 'posts/search'
 
 const getAllPostsAction = payload => {
     return {
@@ -12,12 +12,12 @@ const getAllPostsAction = payload => {
         payload
     }
 }
-const searchPostsAction = payload => {
-    return {
-        type: SEARCH_POSTS,
-        payload
-    }
-}
+// const searchPostsAction = payload => {
+//     return {
+//         type: SEARCH_POSTS,
+//         payload
+//     }
+// }
 const getAllRandomPostsAction = payload => {
     return {
         type: ALL_RANDOM,
@@ -57,14 +57,14 @@ export const fetchPosts = () => async dispatch => {
         return data
     }
 }
-export const searchPosts = (payload) => async dispatch => {
-    const res = await fetch(`/api/shops/search/${payload}`)
-    if (res.ok) {
-        const data = await res.json();
-        dispatch(searchPostsAction(data));
-        return data
-    }
-}
+// export const searchPosts = (payload) => async dispatch => {
+//     const res = await fetch(`/api/shops/search/${payload}`)
+//     if (res.ok) {
+//         const data = await res.json();
+//         dispatch(searchPostsAction(data));
+//         return data
+//     }
+// }
 export const fetchRandomPosts = () => async dispatch => {
     const res = await fetch(`/api/shops/posts/all`)
     if (res.ok) {
@@ -132,9 +132,12 @@ export const deletePost = (shopId,id) => async dispatch => {
 }
 
 
-const initialState = {}
+const initialState = {
+    
+}
 const postReducer = (state = initialState, action) => {
-    let newState = {}
+    let newState = {
+    }
     switch (action.type) {
         case ALL_POSTS: {
             action.payload.posts.forEach(post => {
@@ -145,12 +148,12 @@ const postReducer = (state = initialState, action) => {
             // return newnew
             return newState
         }
-        case SEARCH_POSTS: {
-            action.payload.posts.forEach(post => {
-                newState[post.id] = post
-            })
-            return newState
-        }
+        // case SEARCH_POSTS: {
+        //     action.payload.posts.forEach(post => {
+        //         newState[post.id] = post
+        //     })
+        //     return newState
+        // }
         case ALL_RANDOM: {
             action.payload.posts.forEach(post => {
                 newState[post.id] = post
