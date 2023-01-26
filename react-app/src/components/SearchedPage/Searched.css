@@ -28,7 +28,7 @@
 .searchResults{
    
     flex-direction: column;
-    position: fixed;
+    position: absolute;
     z-index: 3;
     background: white;
     /* border: 1px rgb(210, 210, 210) solid; */

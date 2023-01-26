@@ -3,11 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory, useParams } from "react-router-dom";
 import { addToCartThunk, getAllcartThunk } from "../../store/cart";
 import { deletePost, editPost, fetchPosts } from "../../store/posts";
-import { createShop, editShop, fetchOneShop, fetchShops } from "../../store/shops";
+import { clearAction, createShop, editShop, fetchOneShop, fetchShops } from "../../store/shops";
 import AddedModal from "../AddedItemModal";
 import { Modal } from '../../context/Modal';
 import './Searched.css'
-import { searchPosts } from "../../store/search";
+import { ClearSearchAction, searchPosts } from "../../store/search";
 import Footer from "../Footer";
 function Search() {
    const dispatch = useDispatch()
@@ -19,7 +19,8 @@ function Search() {
    const products = useSelector((state) => state?.cart.cart)
    useEffect(() => {
       Promise.all(
-      [dispatch(searchPosts(query))]
+      [
+         dispatch(searchPosts(query))]
       ).then(() => {
          setisLoaded(true)
          
@@ -27,6 +28,7 @@ function Search() {
    }, [dispatch])
    useEffect(()=>{
       // dispatch(fetchPosts())
+     
       dispatch(getAllcartThunk())
    },[dispatch])
 
