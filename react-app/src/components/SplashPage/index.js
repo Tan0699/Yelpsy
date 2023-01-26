@@ -51,6 +51,7 @@ function Splash() {
   return (isloaded &&
     <>
       {/* <div>
+      //
       <button onClick={()=> history.push("/purchases")}>PURRRCHASES</button>
       <button onClick={()=> history.push("/cart")}>CART PAGE</button>
     </div> */}
