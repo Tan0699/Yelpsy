@@ -51,12 +51,12 @@ function App() {
         <Route path='/' exact={true} >
         <NavBar />
           <Splash/>
-          <Footer/>
+          
         </Route>
         <Route path='/purchases' exact={true} >
           <NavBar/>
           <Purchases/>
-          <Footer/>
+          
         </Route>
         <Route path='/manage' exact={true} >
           <NavBar/>
@@ -76,7 +76,7 @@ function App() {
         <Route path='/:shopId' exact={true} >
           <NavBar />
           <OneShop/>
-          <Footer/>
+         
         </Route>
         <Route path='/:shopId/posts/:id' exact={true} >
         <NavBar />

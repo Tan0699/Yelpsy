@@ -8,6 +8,7 @@ import { fetchPosts, fetchRandomPosts } from '../../store/posts';
 import PostForm from '../Postform';
 import "./Oneshop.css"
 import { Modal } from '../../context/Modal';
+import Footer from '../Footer';
 function OneShop() {
   const [editsho, setEditSho] = useState(false);
   const shopState = useSelector((state) => state.shops)
@@ -183,6 +184,7 @@ console.log("thissshopposts",thisShopposts)
         </div>
       </div>
       </div>
+      <Footer/>
     </>
   );
 }

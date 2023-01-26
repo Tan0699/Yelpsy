@@ -7,6 +7,7 @@ import { fetchPurchases } from '../../store/purchases';
 import { deleteReview, fetchReviews } from '../../store/reviews';
 import shopReducer, { deleteShop, fetchShops } from '../../store/shops';
 import EditShopForm from '../EditShopform';
+import Footer from '../Footer';
 import ReviewEditForm from '../ReviewEditForm';
 import ReviewForm from '../ReviewForm';
 import ShopForm from '../Shopform';
@@ -35,11 +36,14 @@ function Purchases() {
   const [revi, setrevi] = useState(false);
   const [star, setStar] = useState(0)
   const [currentpost, setcurrentpost] = useState("")
+  const [isloaded, setisLoaded] = useState(false)
   useEffect(() => {
-    dispatch(fetchReviews())
-    dispatch(fetchShops())
-    dispatch(fetchPosts())
-    dispatch(fetchPurchases(thisUser?.id))
+    Promise.all([
+    dispatch(fetchReviews()),
+    dispatch(fetchShops()),
+    dispatch(fetchPosts()),
+    dispatch(fetchPurchases(thisUser?.id))]).then(() => {
+      setisLoaded(true)})
   }, [dispatch])
   console.log("state", purchaseState)
 
@@ -63,7 +67,7 @@ function Purchases() {
   //       )}
   //     </div>)
 
-  return (
+  return (isloaded &&
     <>
       <div className='onewordwrap'>
         <div className='oneword'>
@@ -312,6 +316,7 @@ function Purchases() {
           </Modal>
         )}</div>
       </div>
+      <Footer/>
     </>
   );
 }
