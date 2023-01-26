@@ -16,6 +16,7 @@ import Purchases from './components/Purchases';
 import Cart from './components/CartPage';
 import Manage from './components/Manage';
 import Search from './components/SearchedPage';
+import Footer from './components/Footer';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -50,30 +51,37 @@ function App() {
         <Route path='/' exact={true} >
         <NavBar />
           <Splash/>
+          <Footer/>
         </Route>
         <Route path='/purchases' exact={true} >
           <NavBar/>
           <Purchases/>
+          <Footer/>
         </Route>
         <Route path='/manage' exact={true} >
           <NavBar/>
           <Manage/>
+          <Footer/>
         </Route>
         <Route path='/Cart' exact={true} >
           <NavBar/>
           <Cart/>
+          <Footer/>
         </Route>
         <Route path='/search/:query' exact={true} >
           <NavBar/>
           <Search/>
+          
         </Route>
         <Route path='/:shopId' exact={true} >
           <NavBar />
           <OneShop/>
+          <Footer/>
         </Route>
         <Route path='/:shopId/posts/:id' exact={true} >
         <NavBar />
           <OnePost/>
+          <Footer/>
         </Route>
         <Route path='/reviews/ree' exact={true} >
           <ReviewForm/>
