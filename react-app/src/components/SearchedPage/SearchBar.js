@@ -9,6 +9,7 @@ import { Modal } from '../../context/Modal';
 import './Searched.css'
 function SearchBar ()  {
    const history = useHistory()
+   const [open,setOpen] = useState(true)
     const dispatch = useDispatch()
     const [query, setQuery] = useState("")
     const postState = useSelector(state => state.posts)
@@ -23,12 +24,29 @@ function SearchBar ()  {
   //    dispatch(searchPosts(query))
   // }, [dispatch])
   const handleSubmit = async (e) => {
+    if(!query){
+      
+     return history.push("/")
+    }
    history.push(`/search/${query}`)
    setQuery("")
   }
+  const handleSubmit2 = async (e) => {
+    history.push(`/search/${query}`)
+    window.location.reload();
+    setQuery("")
+  }
   const handleUserInput = (e) => {
+    
     setQuery(e.target.value);
+    setOpen(true)
   };
+  
+  document.addEventListener("click",function(e){
+    if (!e.target.closest(".biggestsearchwrap")){
+      setOpen(false)
+    }
+  })
   useEffect(()=>{
     dispatch(fetchPosts())
   },[dispatch])
@@ -38,6 +56,8 @@ function SearchBar ()  {
       <input className="bigsearchbar"
       id="search"
       type="text"
+      // required
+      // onBlur={()=>setOpen(false)}
       placeholder="Search for Products Here"
       value={query}
       onChange={handleUserInput}
@@ -45,7 +65,7 @@ function SearchBar ()  {
       <button className='bigsearchbutton' type="submit"><i class="fa fa-search"></i></button>
     </form>
     <div className="searchresults">
-        {postsFound &&
+        {postsFound && open &&
           <div className="searchResults">
             {postsFound?.filter((array, index) => index < 12).map((post) =>(
                <div className="innerresult">
@@ -56,12 +76,12 @@ function SearchBar ()  {
             ))}
           </div>
           }
-          {postsFound?.length==0 &&
+          {postsFound?.length==0 && open &&
           <div className="searchResults">
                <div className="innerresult">
-               <NavLink className={"searcheroo"} onClick={()=> (setQuery(""))} to={`/search/${query}`}>
-              <div className="individualresult">Cannot find products containing "{query}"</div>
-              </NavLink>
+               {/* <NavLink className={"searcheroo"} onClick={()=> (setQuery(""))} to={`/search/${query}`}> */}
+              <div className="individualresult" onClick={handleSubmit2}>Cannot find products containing "{query}"</div>
+              {/* </NavLink> */}
               </div>
           </div>
           }
