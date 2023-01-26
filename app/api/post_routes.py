@@ -118,4 +118,10 @@ def edit_post(shopId,id):
     else:
         return make_response("Unauthorized", 401)
 
-
+# search posts
+@post_routes.route("/search/<query>", methods=["GET"])
+def search_post(query):
+    posts = Post.query.filter(Post.name.like(f"%{query}%")).all()
+    post_list = {"posts": [post.to_dict() for post in posts]}
+    return make_response(post_list, 200)
+       

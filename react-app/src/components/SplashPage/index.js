@@ -71,12 +71,13 @@ function Splash() {
       </div>
 
       <div className='shopgrid'>
-        {shops?.filter((array, index) => index < 4).map((shop) => (
+        {shops?.filter((array, index) => index < 5).map((shop) => (
           <div className='inmap' key={shop.id}>
             <NavLink onClick={() => window.scrollTo(0, 0)} className="navls" to={`/${shop.id}`}>
               <div className='imagename'>
+                <div className='Imagewrapwrap'>
                 <div className='ImageWrap'>
-                  <img className='Image' src={shop?.image}></img></div>
+                  <img className='Image' src={shop?.image}></img></div></div>
                 <div className='justnamewrap'>
                   <div className='justname'>{shop?.name}</div>
                 </div>
@@ -130,12 +131,13 @@ function Splash() {
           </div>
         ))}</div> */}
       <div className='shopgrid2'>
-        {shops?.filter((array, index) => (index > 3 && index < 8)).map((shop) => (
+        {shops?.filter((array, index) => (index > 3 && index < 9)).map((shop) => (
           <div className='inmap2' key={shop.id}>
             <NavLink onClick={() => window.scrollTo(0, 0)} className="navls" to={`/${shop.id}`}>
               <div className='imagename'>
+                <div className='Imagewrapwrap'>
                 <div className='ImageWrap'>
-                  <img className='Image' src={shop?.image}></img></div>
+                  <img className='Image' src={shop?.image}></img></div></div>
                 <div className='justnamewrap'>
                   <div className='justname'>{shop?.name}</div>
                 </div>
@@ -162,10 +164,12 @@ function Splash() {
             </div>
             <div className='lastsplashgrid'>
             {shop?.posts?.filter((array, index) => (index < 4)).map((post) => (
+              <NavLink className={"isu"} to={`/${post.shop_id}/posts/${post.id}`}>
             <div className='lastimagewrap'>
-              <NavLink to={`/${post.shop_id}/posts/${post.id}`}>
-              <img className={`lastimage${shop?.posts?.indexOf(post)}`} src={post?.image}></img></NavLink>
-            </div>))}
+              <img className={`lastimage${shop?.posts?.indexOf(post)}`} src={post?.image}></img>
+            </div>
+              </NavLink>
+            ))}
 </div>
 
           </div>

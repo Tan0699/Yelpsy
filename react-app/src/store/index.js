@@ -6,13 +6,15 @@ import shopReducer from './shops'
 import reviewReducer from './reviews'
 import cartReducer from './cart';
 import purchaseReducer from './purchases';
+import searchReducer from './search';
 const rootReducer = combineReducers({
   session:sessionReducer,
   shops:shopReducer,
   posts:postReducer,
   reviews:reviewReducer,
   cart:cartReducer,
-  purchase:purchaseReducer
+  purchase:purchaseReducer,
+  searches:searchReducer
 });
 
 
