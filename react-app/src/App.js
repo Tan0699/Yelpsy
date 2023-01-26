@@ -69,9 +69,8 @@ function App() {
           <Footer/>
         </Route>
         <Route path='/search/:query' exact={true} >
-          <NavBar/>
-          <Search/>
           
+          <Search/>
         </Route>
         <Route path='/:shopId' exact={true} >
           <NavBar />

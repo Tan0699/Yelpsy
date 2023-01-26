@@ -9,6 +9,7 @@ import { Modal } from '../../context/Modal';
 import './Searched.css'
 import { ClearSearchAction, searchPosts } from "../../store/search";
 import Footer from "../Footer";
+import NavBar from "../NavBar";
 function Search() {
    const dispatch = useDispatch()
    const history = useHistory()
@@ -34,6 +35,8 @@ function Search() {
 
    return ( isloaded &&
       
+      <div>
+         <NavBar/>
       <div className="wholewhole">
       <div className="wholesearchpage">
          {posts.length > 0 &&
@@ -83,6 +86,7 @@ function Search() {
       {/* <div>
       <Footer/>
       </div> */}
+      </div>
       </div>
    )
 }
