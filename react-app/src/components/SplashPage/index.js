@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useHistory } from 'react-router-dom';
 import { fetchPosts, fetchRandomPosts } from '../../store/posts';
 import { clearAction, deleteShop, fetchShops } from '../../store/shops';
+import Footer from '../Footer';
 import ShopForm from '../Shopform';
 import './Splash.css'
 
@@ -175,6 +176,7 @@ function Splash() {
           </div>
         ))}
       </div>
+      <Footer/>
     </>
   );
 }
