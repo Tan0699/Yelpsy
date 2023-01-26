@@ -5,6 +5,7 @@
     min-width: 700px;
     padding-left: max(5px, 1%);
     padding-right: max(5px, 1%);
+    min-height: 60vh;
 }
 .itemsincart{
     font-size: 30px;
