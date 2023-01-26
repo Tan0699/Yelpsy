@@ -9,6 +9,7 @@ import { Modal } from '../../context/Modal';
 import './Searched.css'
 function SearchBar ()  {
    const history = useHistory()
+   const [open,setOpen] = useState(true)
     const dispatch = useDispatch()
     const [query, setQuery] = useState("")
     const postState = useSelector(state => state.posts)
@@ -28,6 +29,7 @@ function SearchBar ()  {
   }
   const handleUserInput = (e) => {
     setQuery(e.target.value);
+    setOpen(true)
   };
   useEffect(()=>{
     dispatch(fetchPosts())
@@ -38,6 +40,7 @@ function SearchBar ()  {
       <input className="bigsearchbar"
       id="search"
       type="text"
+      onBlur={()=>setOpen(false)}
       placeholder="Search for Products Here"
       value={query}
       onChange={handleUserInput}
@@ -45,7 +48,7 @@ function SearchBar ()  {
       <button className='bigsearchbutton' type="submit"><i class="fa fa-search"></i></button>
     </form>
     <div className="searchresults">
-        {postsFound &&
+        {postsFound && open &&
           <div className="searchResults">
             {postsFound?.filter((array, index) => index < 12).map((post) =>(
                <div className="innerresult">
@@ -56,7 +59,7 @@ function SearchBar ()  {
             ))}
           </div>
           }
-          {postsFound?.length==0 &&
+          {postsFound?.length==0 && open &&
           <div className="searchResults">
                <div className="innerresult">
                <NavLink className={"searcheroo"} onClick={()=> (setQuery(""))} to={`/search/${query}`}>
