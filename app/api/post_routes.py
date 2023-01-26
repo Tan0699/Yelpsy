@@ -4,7 +4,7 @@ from app.models import Post,db
 from app.s3_helpers import (upload_file_to_s3, allowed_file, get_unique_filename)
 from app.forms.post_form import NewPost
 #import models
-
+from sqlalchemy import func
 from ..models import Shop,Post
 
 post_routes = Blueprint('posts', __name__)
@@ -121,7 +121,7 @@ def edit_post(shopId,id):
 # search posts
 @post_routes.route("/search/<query>", methods=["GET"])
 def search_post(query):
-    posts = Post.query.filter(Post.name.like(f"%{query}%")).all()
+    posts = Post.query.filter(Post.name.ilike(f"%{query}%")).all()
     post_list = {"posts": [post.to_dict() for post in posts]}
     return make_response(post_list, 200)
        
