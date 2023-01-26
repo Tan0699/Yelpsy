@@ -271,5 +271,12 @@ padding-left: 50px;
   .zeb{
     padding-left: 5px;
   }
-  
+  .wholepurchasecontainer{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  .zefooter{
+    margin-top: auto;
+  }
   

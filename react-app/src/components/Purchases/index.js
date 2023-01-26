@@ -68,7 +68,7 @@ function Purchases() {
   //     </div>)
 
   return (isloaded &&
-    <>
+    <div className="wholepurchasecontainer">
       <div className='onewordwrap'>
         <div className='oneword'>
           Purchases and Reviews
@@ -316,8 +316,8 @@ function Purchases() {
           </Modal>
         )}</div>
       </div>
-      <Footer/>
-    </>
+      <div  className="zefooter"><Footer/></div>
+    </div>
   );
 }
 
