@@ -10,6 +10,7 @@ def seed_reviews():
     re7 = Review(created_at =  date.fromisoformat('2023-12-04'),rating=1, user_id=2, description="Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good ",image="https://www.forkknifeswoon.com/wp-content/uploads/2014/10/simple-homemade-chicken-ramen-fork-knife-swoon-01.jpg",post_id=1)
     re8 = Review(created_at =  date.fromisoformat('2023-12-04'),rating=4, user_id=3, description="Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good ",image="https://www.forkknifeswoon.com/wp-content/uploads/2014/10/simple-homemade-chicken-ramen-fork-knife-swoon-01.jpg",post_id=1)
     re9 = Review(created_at =  date.fromisoformat('2023-12-04'),rating=5, user_id=4, description="Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good ",image="https://www.forkknifeswoon.com/wp-content/uploads/2014/10/simple-homemade-chicken-ramen-fork-knife-swoon-01.jpg",post_id=1)
+    re10 = Review(created_at =  date.fromisoformat('2023-12-04'),rating=1, user_id=4, description="this so trash i found better food digging up the trash in my neighbors yard ",image="https://www.forkknifeswoon.com/wp-content/uploads/2014/10/simple-homemade-chicken-ramen-fork-knife-swoon-01.jpg",post_id=24)
     db.session.add(re1)
     db.session.add(re2)
     db.session.add(re4)
@@ -19,6 +20,7 @@ def seed_reviews():
     db.session.add(re7)
     db.session.add(re8)
     db.session.add(re9)
+    db.session.add(re10)
     db.session.commit()
 
 
