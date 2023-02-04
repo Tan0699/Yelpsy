@@ -11,6 +11,8 @@ def seed_reviews():
     re8 = Review(created_at =  date.fromisoformat('2023-12-04'),rating=4, user_id=3, description="Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good ",image="https://www.forkknifeswoon.com/wp-content/uploads/2014/10/simple-homemade-chicken-ramen-fork-knife-swoon-01.jpg",post_id=1)
     re9 = Review(created_at =  date.fromisoformat('2023-12-04'),rating=5, user_id=4, description="Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good Very good ",image="https://www.forkknifeswoon.com/wp-content/uploads/2014/10/simple-homemade-chicken-ramen-fork-knife-swoon-01.jpg",post_id=1)
     re10 = Review(created_at =  date.fromisoformat('2023-12-04'),rating=1, user_id=4, description="this so trash i found better food digging up the trash in my neighbors yard ",image="https://www.forkknifeswoon.com/wp-content/uploads/2014/10/simple-homemade-chicken-ramen-fork-knife-swoon-01.jpg",post_id=24)
+    re11 = Review(created_at =  date.fromisoformat('2023-12-04'),rating=3, user_id=5, description="this is very meh for the price. I can probably make much better with a lot less money and i can't even cook",image="https://www.forkknifeswoon.com/wp-content/uploads/2014/10/simple-homemade-chicken-ramen-fork-knife-swoon-01.jpg",post_id=24)
+
     db.session.add(re1)
     db.session.add(re2)
     db.session.add(re4)
