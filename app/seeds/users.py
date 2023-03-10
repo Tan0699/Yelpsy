@@ -4,7 +4,7 @@ from app.models import db, User, environment, SCHEMA
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     demo = User(
-        firstname='Demo', email='demo@aa.io', password='password',image="https://randomuser.me/api/portraits/men/93.jpg")
+        firstname='Sesi', email='Sesi@aa.io', password='password',image="https://randomuser.me/api/portraits/men/93.jpg")
     marnie = User(
         firstname='marnie', email='marnie@aa.io', password='password',image="https://randomuser.me/api/portraits/men/22.jpg")
     bobbie = User(
@@ -14,7 +14,7 @@ def seed_users():
     Coco = User(
         firstname='Coco', email='Coco@aa.io', password='password',image="https://randomuser.me/api/portraits/lego/5.jpg")
     Sesi = User(
-        firstname='Sesi', email='Sesi@aa.io', password='password',image="https://randomuser.me/api/portraits/men/1.jpg")
+        firstname='Demo', email='Demo@aa.io', password='password',image="https://randomuser.me/api/portraits/men/1.jpg")
     c1 =User(firstname="Hewet",email="hsline0@mac.com",password="Layo",image="https://randomuser.me/api/portraits/women/76.jpg")
     c2 = User(firstname="Cathy",email="creed1@adobe.com",password="Longqiao",image="https://randomuser.me/api/portraits/women/2.jpg")
     c3 = User(firstname="Carlie",email="csal2@wire.com",password="Bara Datu",image="https://randomuser.me/api/portraits/women/16.jpg")

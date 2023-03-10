@@ -93,7 +93,7 @@ const LoginForm = ({ setLog }) => {
         </div>
         <button className='signbut' type='submit'>Login</button>
         <div className='demoWrap'>
-        <button className='signbut' type='submit'  onClick={()=>{setEmail("Sesi@aa.io");setPassword("password")}}>Demo User</button>
+        <button className='signbut' type='submit'  onClick={()=>{setEmail("Demo@aa.io");setPassword("password")}}>Demo User</button>
         </div>
       </form>
     </div>}

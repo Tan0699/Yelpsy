@@ -107,9 +107,9 @@ const NavBar = () => {
           {isUser &&
           
           <div className='marketprofwrap'>
-            <div className='marketwrap'>
+            {/* <div className='marketwrap'>
             <i id="market" onClick={()=> history.push("/manage")} class="fa-solid fa-store"></i>
-            </div>
+            </div> */}
            <div className='profwrapper'> <ProfileButton isUser={isUser}/></div>
           </div>}
         {/* {(isUser && !shopId && !id) &&
