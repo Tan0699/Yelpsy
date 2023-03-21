@@ -1,7 +1,7 @@
 
 ![smallerlogo](https://user-images.githubusercontent.com/106413691/205013202-1d9bd4c6-1b17-4682-af45-a636a895d845.png)
 
-Yelpsy is a full stack web application that is inspired by [Etsy](https://www.etsy.com). Etsy is a web application that allows for people all over the world to sell and buy all sorts of unique items. Any person can become a seller and any person can be a buyer, making it a very diverse marketplace. Yelpsy takes this concept and applies to only food, making it an online marketplace where people are able to sell and buy food. Why go to a restuarant when you can have the restaurant deliver the food to your door? Start buying or selling food online today at [Yeslpy!](https://yelpsy.onrender.com/)
+Yelpsy is a full stack web application that is inspired by [Etsy](https://www.etsy.com). Etsy is a web application that allows for people all over the world to sell and buy all sorts of unique items. Any person can become a seller and any person can be a buyer, making it a very diverse marketplace. Yelpsy takes this concept and applies to only food, making it an online marketplace where people are able to sell and buy food. Why go to a restuarant when you can have the restaurant deliver the food to your door? Start buying or selling food online today at [Yelpsy!](https://yelpsy.onrender.com/)
 
 ## Technologies Used
 ![css](https://img.shields.io/badge/CSS_Wizardry%20-%23F43059.svg?&style=for-the-badge&logo=CSS%20Wizardry&logoColor=white)
