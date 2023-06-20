@@ -18,10 +18,8 @@ const LoginForm = ({ setLog }) => {
     const data = await dispatch(login(email, password));
     if (data) {
       setErrors(data);
-      console.log("dataDATA",data)
     }
     else { 
-      console.log("dataDATA22",data)
       setLog(false)
       history.push('/')
      }

@@ -10,7 +10,6 @@ const RevForm2 = ({ posts,shops,thisUser,setrevi }) => {
   const [rating, setRating] = useState("")
   const [description, setDescription] = useState("")
   const filteredPost = (posts?.filter((post) => post.id == id))[0]
-  console.log("le filtered post ", filteredPost)
   const [shop_id, setshop] = useState(filteredPost?.shop_id)
   const [post_id, setpost] = useState(filteredPost?.id)
   const [image, setImage] = useState(null)
@@ -21,8 +20,6 @@ const RevForm2 = ({ posts,shops,thisUser,setrevi }) => {
   const [formimg, setformimg] = useState(false)
   // const [counter, setCounter]= useState(description?.length)
   const counter = 250-description.length
-console.log("ratinggg",rating)
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const payload = new FormData();

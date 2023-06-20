@@ -43,7 +43,6 @@ function OneShop() {
 
 
   const thisShopposts = posts?.filter(post => post.shop_id == +shopId)
-  console.log("thissshopposts", thisShopposts)
   let editshopModal = (
     <div>
       <button className='editshobut' onClick={(e) => ((setEditSho(true)))}>Edit This Shop</button>

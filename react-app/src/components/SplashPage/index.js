@@ -26,28 +26,6 @@ function Splash() {
   const history = useHistory()
   const [isloaded, setisLoaded] = useState(false)
 
-
-  // const array = []
-  // console.log("aaray",array)
-  // for ( let i = 0 ;i<=100 ; i++){
-  //  let random = Math.floor(Math.random()*posts.length)
-  //  if (!(array.includes(posts[random]))){
-  //   console.log("random",random)
-  //   array.push(posts[random])
-  //  }
-  //  if(array.length ==8){
-  //  break
-  //  }
-  // }
-
-
-
-  // posts.sort((a,b) => 0.5 - Math.random());
-  // shops.sort((a,b) => 0.5 - Math.random())
-
-
-
-
   return (isloaded &&
     <>
       {/* <div>

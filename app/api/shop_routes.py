@@ -60,9 +60,6 @@ def new_shop():
         image.filename = get_unique_filename(image.filename)
 
         upload = upload_file_to_s3(image)
-        print("THIS IS THE FORM",form.data)
-        print("THIS IS THE FORM2",form.data["name"])
-        print("THIS IS THE FORM3",form.data["description"])
         if "url" not in upload:
             return upload, 400
         url = upload["url"]

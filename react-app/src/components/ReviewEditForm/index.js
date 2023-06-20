@@ -6,15 +6,12 @@ import { createReview, editReview } from "../../store/reviews";
 
 const ReviewEditForm = ({setedirevi,filteredReviews, posts, currentpost, star,shops,thisUser }) => {
     const thisReview = filteredReviews.filter(review => review.post_id ==currentpost)[0]
-
-  console.log("le current", thisReview)
   const dispatch = useDispatch()
   const [appear,setAppear] =useState(false)
     const [appear2,setAppear2] =useState(true)
   const [rating, setRating] = useState(thisReview?.rating)
   const [description, setDescription] = useState(thisReview.description)
   const filteredPost = (posts.filter((post) => post.id == +currentpost))[0]
-  console.log("le filtered post ", filteredPost)
   const [shop_id, setshop] = useState(filteredPost?.shop_id)
   const [post_id, setpost] = useState(thisReview.post_id)
   const [image, setImage] = useState(thisReview?.image)
@@ -24,7 +21,6 @@ const ReviewEditForm = ({setedirevi,filteredReviews, posts, currentpost, star,sh
   const [formdesc, setformdesc] = useState(false)
   const [formimg, setformimg] = useState(false)
   const counter = 250-description.length
-console.log("ratinggg",rating)
 
   const handleSubmit = async (e) => {
     e.preventDefault();

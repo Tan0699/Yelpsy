@@ -29,7 +29,6 @@ function Cart() {
     products?.forEach(product => {
         productsObj[product.id] = (productsObj[product.id] || 0) + 1
     })
-    console.log("olelamo", productsObj)
     const productArray = []
     const idArry = []
     const filteredProducts = products?.forEach(product => {
@@ -42,7 +41,6 @@ function Cart() {
     const initial = 0
     const totalPrice = products?.map(product => product.price).reduce((accumulator, currentValue) => accumulator + currentValue,
         initial)
-    console.log("hnhnhnh", products)
     productArray.map((product) => {
         product["quantity"] = productsObj[product.id]
     })
@@ -56,7 +54,6 @@ function Cart() {
           )}
         </div>)
         
-    console.log("oldprarary", productArray)
     const handleSubmit = async (e) => {
         e.preventDefault();
         if(!thisUser){

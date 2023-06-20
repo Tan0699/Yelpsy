@@ -18,8 +18,6 @@ function CartForm ({thisPost,thisShopposts})  {
     const [quantity, setQuantity] = useState(1)
     const quantityArray = [1,2,3,4,5,6,7,8,9,10]
     const dupeProduct = products?.filter(product => product?.id ==thisPost?.id)
-    console.log("this post",thisPost)
-    console.log("ledupe",dupeProduct)
     const handleSubmit = async (e) => {
         e.preventDefault();
 

@@ -5,12 +5,10 @@ import { createReview } from "../../store/reviews";
 
 import './Rev.css'
 const ReviewForm = ({ posts, currentpost, star,shops,thisUser,setrevi }) => {
-  console.log("le current", currentpost)
   const dispatch = useDispatch()
   const [rating, setRating] = useState(star)
   const [description, setDescription] = useState("")
   const filteredPost = (posts.filter((post) => post.id == +currentpost))[0]
-  console.log("le filtered post ", filteredPost)
   const [shop_id, setshop] = useState(filteredPost?.shop_id)
   const [post_id, setpost] = useState(filteredPost?.id)
   const [image, setImage] = useState(null)
@@ -21,7 +19,6 @@ const ReviewForm = ({ posts, currentpost, star,shops,thisUser,setrevi }) => {
   const [formimg, setformimg] = useState(false)
   // const [counter, setCounter]= useState(description?.length)
   const counter = 250-description.length
-console.log("ratinggg",rating)
 
   const handleSubmit = async (e) => {
     e.preventDefault();

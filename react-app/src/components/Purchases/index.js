@@ -24,11 +24,6 @@ function Purchases() {
   const reviewstate = useSelector((state) => state.reviews)
   const reviews = Object.values(reviewstate)
   const filteredReviews = reviews?.filter(review => review?.user_id == thisUser?.id)
-  console.log("filtere revs ", filteredReviews)
-  // const details = useSelector((state) => state?.purchase?.details)
-  // const details = Object.values(detailsState)
-  // console.log("detailSSS",details)
-  
   const posts = Object.values(postState)
   const dispatch = useDispatch()
   const history = useHistory()
@@ -45,28 +40,8 @@ function Purchases() {
     dispatch(fetchPurchases(thisUser?.id))]).then(() => {
       setisLoaded(true)})
   }, [dispatch])
-  console.log("state", purchaseState)
 
-  // const shopArray = []
-
-  // const unfilteredShopArray = details?.map(detail => {
-  //  const filteredPos= posts.filter(post => detail.post_id == post.id )[0]
-  //  const filteredShop = shops.filter(shop => shop.id == filteredPos.shop_id)[0]
-  //  if (!(shopArray.includes(filteredShop.name))){
-  //   shopArray.push(filteredShop.name)
-  //  }
-  // })
-  // console.log("shop array",shopArray)
-  //   let yoo = (
-  //     <div>
-  //       <button className='editshobut' onClick={(e) => ((setrevi(true)))}>Edit This Shop</button>
-  //       {revi && (
-  //         <Modal onClose={() => setrevi(false)}>
-  //           <EditShopForm setrevi={setrevi} />
-  //         </Modal>
-  //       )}
-  //     </div>)
-
+  
   return (isloaded &&
     <div className="wholepurchasecontainer">
       <div className='onewordwrap'>

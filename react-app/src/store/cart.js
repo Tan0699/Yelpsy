@@ -60,11 +60,7 @@ export const deleteOneFromCartAction = (product) => async dispatch =>{
         }
     }
     const indexOfProduct = cartMapped.indexOf(product.id);
-    
-    
     cart.splice(array[array.length-1],1)
-    console.log("cart after",cart)
-
     localStorage.setItem('cart', JSON.stringify(cart))
     dispatch(addToCartAction(cart))
     // }

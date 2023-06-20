@@ -64,8 +64,6 @@ function OnePost() {
     dispatch(fetchPurchases(thisUser?.id))
   }, [dispatch])
 
-  console.log("huhu why no work", thisUser?.id)
-  console.log("huhu why no work", thisPost?.user_id)
   const thisShop = shops?.filter(shop => shop.id == +shopId)[0]
   
   const thisShopposts = posts?.filter(post => post.shop_id === +shopId)

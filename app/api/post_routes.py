@@ -81,7 +81,6 @@ def edit_post(shopId,id):
     form = NewPost()
     form['csrf_token'].data = request.cookies['csrf_token']
     one_post = Post.query.get(id)
-    print("one------",one_post)
     if(not one_post):
         return "<h1>No Post</h1>"
     if one_post.user_id == current_user.id:

@@ -33,7 +33,6 @@ const EditPostForm = ({setEditPos}) => {
         e.preventDefault();
         const name =`${name1}-${name2}-${name3}-${name4}`
         const payload = new FormData();
-        console.log("ze name ",name)
         payload.append("image", image);
         payload.append("name",name)
         payload.append("description",description)

@@ -37,13 +37,10 @@ const EditShopForm = ({setEditSho}) => {
         const res = await dispatch(editShop(payload,shopId))
         if (res) {
             if (res.image) {
-            // await res.json();
             setImageLoading(false);
             setEditSho(false)
-            // history.push("/");
         }
         else {
-            // console.log(res)
             setImageLoading(false);
             // setEditSho(false)
             // a real app would probably use more advanced

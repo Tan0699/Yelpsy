@@ -27,7 +27,6 @@ const SignUpForm = ({setSign,setLog}) => {
       setImageLoading(true);
       const data = await dispatch(signUp(payload))
       // const data = await dispatch(signUp(firstname, email, password,image));
-      console.log("ze data",data)
       if (data) {
         if (data.image){
         setImageLoading(false);
@@ -37,7 +36,6 @@ const SignUpForm = ({setSign,setLog}) => {
       }
       else{
         setImageLoading(false);
-        console.log(data)
         setErrors([data])
       }
     }
