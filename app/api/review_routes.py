@@ -14,6 +14,7 @@ review_routes = Blueprint('reviews', __name__)
 def get_all_reviews():
     reviews = Review.query.all()
     review_list = {"reviews": [review.to_dict() for review in reviews]}
+    
     return make_response(review_list, 200)
 
 #  get postreview by ID
