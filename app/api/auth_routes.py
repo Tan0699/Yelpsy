@@ -80,7 +80,7 @@ def sign_up():
         url = upload["url"]
         user = User(
             firstname=form.data['firstname'],
-            email=form.data['email'],
+            emayil=form.data['email'],
             password=form.data['password'],
             image = url
         )
