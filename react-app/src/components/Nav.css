@@ -100,7 +100,7 @@ border-bottom-right-radius: 0px;
 }
 
 .zecartwrap{
-    padding-right: 10px;
+    padding-left: 100px;
 }
 #zecart{
     font-size: 23px;
@@ -153,7 +153,7 @@ border-bottom-right-radius: 0px;
 }
 .profwrapper{
     
-    padding-right: 10px;
+    /* padding-right: 10px; */
 }
 .navline{
     height: 2px;

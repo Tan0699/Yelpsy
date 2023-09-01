@@ -68,72 +68,74 @@ const NavBar = () => {
 
   return (
     <div>
-    <nav className='lenav'>
-      <div className='navstuff'>
-        <div className='welcome'>
-          <NavLink to='/' exact={true} activeClassName='active'>
-            <img className='logoo' src="https://i.ibb.co/jvjwccF/favi-2.png" alt="melogoforreal" border="0" />
-          </NavLink>
-          <div className='ismewrap'>
-
+      <nav className='lenav'>
+        <div className='navstuff'>
+          <div className='welcome'>
+            <NavLink to='/' exact={true} activeClassName='active'>
+              <img className='logoo' src="https://i.ibb.co/jvjwccF/favi-2.png" alt="melogoforreal" border="0" />
+            </NavLink>
+            <div className='ismewrap'>
+            </div>
           </div>
-        </div>
-        
-        <SearchBar/>
-        {/* <form className="bigsearchform" >
+          <SearchBar />
+          {/* <form className="bigsearchform" >
           <input className='bigsearchbar' type="text" placeholder="THIS IS A WORK IN PROGRESS" name="search" />
           <button className='bigsearchbutton' type="submit"><i class="fa fa-search"></i></button>
         </form> */}
-        {!isUser &&
-          <div className='logmodalwrap'>
-            {logModal}
-          </div>}
-        {/* <div>
+
+<div className='zecartwrap'>
+            <i id="zecart" class="fa-solid fa-cart-shopping" onClick={() => history.push("/cart")}></i>
+          </div>
+          {!isUser &&
+            <div className='logmodalwrap'>
+              {logModal}
+            </div>}
+          {/* <div>
           <NavLink to='/login' exact={true} activeClassName='active'>
             Login
           </NavLink>
           </div> */}
 
-        {/* <div>
+          {/* <div>
           <NavLink to='/sign-up' exact={true} activeClassName='active'>
             Sign Up
           </NavLink>
           </div> */}
-        {/* <div>
+          {/* <div>
           <NavLink to='/users' exact={true} activeClassName='active'>
             Users
           </NavLink>
           </div> */}
-          {isUser &&
-          
-          <div className='marketprofwrap'>
-            {/* <div className='marketwrap'>
-            <i id="market" onClick={()=> history.push("/manage")} class="fa-solid fa-store"></i>
-            </div> */}
-           <div className='profwrapper'> <ProfileButton isUser={isUser}/></div>
-          </div>}
-        {/* {(isUser && !shopId && !id) &&
-          <div>{shopModal}</div>} */}
-          <div className='zecartwrap'>
-          <i id="zecart" class="fa-solid fa-cart-shopping" onClick={()=> history.push("/cart")}></i>
-            </div>
-        
-            <div className='zecartwrap'>
-            <img className='githuu' onClick={(e) => (window.open('https://github.com/Tan0699', '_blank'))} src="https://cdn-icons-png.flaticon.com/512/25/25231.png">
-                      </img></div>
 
-                      <div className='zecartwrap'>
-                      <img className='githuu' src="https://cdn-icons-png.flaticon.com/512/174/174857.png" onClick={(e) => (window.open('https://www.linkedin.com/in/tan-nguyen-8b0a8a257/', '_blank'))}></img>
-                      </div> 
-        {/* {isUser &&
+          {/* {(isUser && !shopId && !id) &&
+          <div>{shopModal}</div>} */}
+          
+
+          {/* <div className='zecartwrap'> */}
+            {/* <img className='githuu' onClick={(e) => (window.open('https://github.com/Tan0699', '_blank'))} src="https://cdn-icons-png.flaticon.com/512/25/25231.png">
+            </img> */}
+          {/* </div> */}
+
+          {/* <div className='zecartwrap'> */}
+            {/* <img className='githuu' src="https://cdn-icons-png.flaticon.com/512/174/174857.png" onClick={(e) => (window.open('https://www.linkedin.com/in/tan-nguyen-8b0a8a257/', '_blank'))}></img> */}
+          {/* </div> */}
+          {isUser &&
+
+            <div className='marketprofwrap'>
+              {/* <div className='marketwrap'>
+<i id="market" onClick={()=> history.push("/manage")} class="fa-solid fa-store"></i>
+</div> */}
+              <div className='profwrapper'> <ProfileButton isUser={isUser} /></div>
+            </div>}
+          {/* {isUser &&
           <div>{postModal}</div>}  */}
-        {/* {(shopId && !id && isUser) && 
+          {/* {(shopId && !id && isUser) && 
          <div>{editshopModal}</div>
          (id && isUser)&& */}
-        {/* <div>{editpostModal}</div>  */}
-      </div>
-    </nav>
-    <div className='navline'></div>
+          {/* <div>{editpostModal}</div>  */}
+        </div>
+      </nav>
+      <div className='navline'></div>
     </div>
   );
 }
