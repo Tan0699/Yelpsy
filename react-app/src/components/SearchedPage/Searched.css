@@ -15,8 +15,9 @@
     /* border: black 2px solid; */
     display: flex;
     border-radius: 4242342px;
-    width: 700px;
+    width: 860px;
     padding-bottom: 10px;
+    /* margin-right: 200px; */
 }
 .biggestsearchwrap{
     display: inline-block;
@@ -115,6 +116,10 @@
 }
 .searchedimage:hover{
     box-shadow: 1px 1px 5px 1px  rgb(181, 176, 176);
+}
+.searchhomewrap{
+    display: flex;
+    align-items: center;
 }
 .searchwp{
     width: 100%;

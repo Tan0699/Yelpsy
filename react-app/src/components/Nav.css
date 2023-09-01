@@ -100,7 +100,9 @@ border-bottom-right-radius: 0px;
 }
 
 .zecartwrap{
-    padding-left: 100px;
+    /* padding-left: 100px; */
+    /* right: 100px; */
+    padding-right: 10px;
 }
 #zecart{
     font-size: 23px;
@@ -135,6 +137,7 @@ border-bottom-right-radius: 0px;
 .marketprofwrap{
     display: flex;
     align-items: center;
+
 }
 #market{
     font-size: 23px;
@@ -159,4 +162,8 @@ border-bottom-right-radius: 0px;
     height: 2px;
     width: 100%;
     background-color: rgb(211, 211, 211);
+}
+.zestuffwrap{
+    display: flex;
+    align-items: center;
 }
