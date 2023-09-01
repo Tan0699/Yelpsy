@@ -33,6 +33,11 @@
 }
 .footer3{
     background-color: rgb(47,70,108);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    height: 50px;
 }
 .footerfake{
     font-size: 15px;

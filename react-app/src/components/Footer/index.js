@@ -7,7 +7,7 @@ function Footer() {
                 <div className='poweredby'>Yelpsy is powered by 100% renewable electricity.</div>
                 </div>
             <div className='footer3'>
-                <div className='footer2'>
+                {/* <div className='footer2'>
                 <div className='footergrid1'>
                     <div className='footerfake1'>Shop</div>
                     <div className='footerfake'>This Is</div>
@@ -46,8 +46,9 @@ function Footer() {
                     <div className='footerfake'>Of Ideas</div>
 
                 </div>
-                </div>
-
+                </div> */}
+<div>© 2023 Yelpsy, Inc.
+</div>
             </div>
         </div>
     )
